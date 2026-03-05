@@ -15,11 +15,33 @@
       "source": "/(.*)",
       "has": [
         {
-          "type": "host", 
+          "type": "host",
           "value": "www.coach-techonology.com"
         }
       ],
       "destination": "/coachiq/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "analitikai.com"
+        }
+      ],
+      "destination": "/napoleon-consulting/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.analitikai.com"
+        }
+      ],
+      "destination": "/napoleon-consulting/$1",
       "permanent": false
     }
   ]
