@@ -2,45 +2,61 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "coach-techonology.com"
-        }
-      ],
+      "has": [{"type": "host", "value": "coach-techonology.com"}],
       "destination": "/coachiq/$1",
       "permanent": false
     },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.coach-techonology.com"
-        }
-      ],
+      "has": [{"type": "host", "value": "www.coach-techonology.com"}],
       "destination": "/coachiq/$1",
       "permanent": false
     },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "analitikai.com"
-        }
-      ],
+      "has": [{"type": "host", "value": "chatscalers.com"}],
+      "destination": "/chatscalers/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.chatscalers.com"}],
+      "destination": "/chatscalers/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "autopilot-seo.com"}],
+      "destination": "/autopilot-seo/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.autopilot-seo.com"}],
+      "destination": "/autopilot-seo/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "retenpro.com"}],
+      "destination": "/retenpro/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.retenpro.com"}],
+      "destination": "/retenpro/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "analitikai.com"}],
       "destination": "/napoleon-consulting/$1",
       "permanent": false
     },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.analitikai.com"
-        }
-      ],
+      "has": [{"type": "host", "value": "www.analitikai.com"}],
       "destination": "/napoleon-consulting/$1",
       "permanent": false
     }
