@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "coach-techonology.com"
+        }
+      ],
+      "destination": "/coachiq/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host", 
+          "value": "www.coach-techonology.com"
+        }
+      ],
+      "destination": "/coachiq/$1",
+      "permanent": false
+    }
+  ]
+}
