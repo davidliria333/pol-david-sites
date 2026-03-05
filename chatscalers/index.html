@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatScalers — Professional Creator Business Management</title>
+<meta name="description" content="Elite chat management and content distribution services for high-earning digital creators. Scale your fan engagement and revenue with professional 24/7 support.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>💬</text></svg>">
+
+<style>
+/* ── Reset & Variables ──────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#ff6b9d;
+  --primary-dark:#e91e63;
+  --secondary:#8b5cf6;
+  --bg:#ffffff;
+  --surface:#fafafa;
+  --text:#1a1a1a;
+  --text-secondary:#666666;
+  --border:#e5e5e5;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --radius:16px;
+  --shadow:0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:0 20px 60px rgba(0,0,0,0.15);
+  --gradient:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);
+}
+
+/* ── Base Styles ───────────────────────────────── */
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Typography ────────────────────────────────── */
+h1,h2,h3,h4{font-weight:600;line-height:1.2;color:var(--text)}
+h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+h3{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:0.5rem}
+p{color:var(--text-secondary);font-size:1.1rem;margin-bottom:1.5rem}
+
+/* ── Utilities ─────────────────────────────────── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.text-center{text-align:center}
+.hidden{display:none}
+
+/* ── Navigation ────────────────────────────────── */
+.nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  z-index:100;
+  transition:all 0.3s ease;
+}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.nav-logo{
+  font-size:1.5rem;
+  font-weight:700;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:32px;
+  align-items:center;
+}
+.nav-link{
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-weight:500;
+  transition:color 0.3s ease;
+  cursor:pointer;
+}
+.nav-link:hover,.nav-link.active{color:var(--primary)}
+.nav-cta{
+  background:var(--gradient);
+  color:white;
+  padding:12px 24px;
+  border-radius:25px;
+  font-weight:600;
+  text-decoration:none;
+  transition:transform 0.3s ease;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* Mobile Navigation */
+.nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav-links.active{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    border-top:1px solid var(--border);
+    padding:20px;
+    gap:16px;
+  }
+}
+
+/* ── Buttons ───────────────────────────────────── */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:16px 32px;
+  background:var(--gradient);
+  color:white;
+  border:none;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1rem;
+  text-decoration:none;
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+.btn-secondary{
+  background:transparent;
+  color:var(--primary);
+  border:2px solid var(--primary);
+}
+.btn-secondary:hover{
+  background:var(--primary);
+  color:white;
+}
+.btn-dark{
+  background:var(--text);
+  color:white;
+}
+.btn-dark:hover{
+  background:#333;
+}
+
+/* ── Hero Section ──────────────────────────────── */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,#fafafa 0%,#f3f4f6 100%);
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:800px;
+  height:800px;
+  background:var(--gradient);
+  opacity:0.08;
+  top:-200px;
+  right:-200px;
+  border-radius:50%;
+  filter:blur(100px);
+}
+.hero-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  z-index:2;
+}
+.hero-text h1{margin-bottom:24px}
+.hero-text p{font-size:1.3rem;margin-bottom:40px;color:var(--text-secondary)}
+.hero-actions{display:flex;gap:20px;margin-bottom:40px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.hero-stat{text-align:center;padding:20px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)}
+.hero-stat h4{font-size:2rem;font-weight:700;color:var(--primary);margin-bottom:4px}
+.hero-stat p{font-size:0.9rem;margin:0;color:var(--text-secondary)}
+.hero-visual{
+  background:white;
+  border-radius:var(--radius);
+  padding:40px;
+  box-shadow:var(--shadow-lg);
+  text-align:center;
+}
+.hero-mockup{
+  width:100%;
+  max-width:400px;
+  height:300px;
+  background:var(--gradient);
+  border-radius:var(--radius);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.2rem;
+  font-weight:600;
+  margin:0 auto;
+}
+
+/* ── Cards & Features ──────────────────────────── */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;
+  margin-top:60px;
+}
+.feature-card{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  transition:all 0.3s ease;
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.feature-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:var(--gradient);
+}
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-lg);
+}
+.feature-icon{
+  width:70px;
+  height:70px;
+  background:var(--gradient);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  margin-bottom:24px;
+  color:white;
+}
+.feature-card h3{color:var(--text);margin-bottom:16px}
+.feature-card p{margin:0}
+
+/* ── Stats Section ─────────────────────────────── */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+  text-align:center;
+}
+.stat-item{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.stat-number{
+  font-size:3rem;
+  font-weight:800;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:12px;
+}
+.stat-label{
+  color:var(--text-secondary);
+  font-weight:500;
+}
+
+/* ── Testimonials ──────────────────────────────── */
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:32px;
+}
+.testimonial{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  position:relative;
+  border-left:4px solid var(--primary);
+}
+.testimonial-quote{
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--text);
+  margin-bottom:24px;
+  line-height:1.5;
+}
+.testimonial-author{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.testimonial-avatar{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:600;
+  font-size:1.1rem;
+}
+.testimonial-info h5{
+  margin-bottom:4px;
+  color:var(--text);
+  font-weight:600;
+}
+.testimonial-info p{
+  margin:0;
+  font-size:0.9rem;
+  color:var(--text-secondary);
+}
+
+/* ── Pricing ───────────────────────────────────── */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;
+  max-width:1000px;
+  margin:0 auto;
+}
+.price-card{
+  background:white;
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  padding:40px;
+  position:relative;
+  transition:all 0.3s ease;
+}
+.price-card:hover{
+  border-color:var(--primary);
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+.price-card.featured{
+  border-color:var(--primary);
+  transform:scale(1.05);
+  background:linear-gradient(135deg,rgba(255,107,157,0.05),rgba(139,92,246,0.05));
+}
+.price-card.featured::before{
+  content:'Most Popular';
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--gradient);
+  color:white;
+  padding:8px 20px;
+  border-radius:20px;
+  font-size:0.9rem;
+  font-weight:600;
+}
+.price-card h3{text-align:center;margin-bottom:16px}
+.price-card .price{
+  text-align:center;
+  font-size:3rem;
+  font-weight:700;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:8px;
+}
+.price-card .period{
+  text-align:center;
+  color:var(--text-secondary);
+  margin-bottom:32px;
+}
+.price-card ul{
+  list-style:none;
+  margin-bottom:32px;
+}
+.price-card li{
+  padding:12px 0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--text-secondary);
+}
+.price-card li::before{
+  content:'✓';
+  color:var(--success);
+  font-weight:bold;
+  font-size:1.2rem;
+}
+.price-card .btn{width:100%;justify-content:center}
+
+/* ── Process Steps ─────────────────────────────── */
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+  counter-reset:step;
+}
+.process-step{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  text-align:center;
+  position:relative;
+}
+.process-step::before{
+  counter-increment:step;
+  content:counter(step);
+  width:60px;
+  height:60px;
+  background:var(--gradient);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  font-weight:700;
+  color:white;
+  margin:0 auto 20px;
+}
+.process-step h3{margin-bottom:16px}
+
+/* ── Case Studies ──────────────────────────────── */
+.case-study{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  margin-bottom:40px;
+}
+.case-study-header{
+  background:var(--gradient);
+  color:white;
+  padding:40px;
+  text-align:center;
+}
+.case-study-header h3{color:white;margin-bottom:16px}
+.case-study-header p{color:rgba(255,255,255,0.9);margin:0}
+.case-study-metrics{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:32px;
+  padding:40px;
+  background:var(--surface);
+}
+.case-metric{
+  text-align:center;
+}
+.case-metric h4{
+  font-size:2.5rem;
+  font-weight:700;
+  color:var(--success);
+  margin-bottom:8px;
+}
+.case-metric p{
+  margin:0;
+  font-size:0.9rem;
+  color:var(--text-secondary);
+}
+.case-study-content{
+  padding:40px;
+}
+.case-study-quote{
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--text);
+  margin-bottom:20px;
+  line-height:1.5;
+}
+
+/* ── Team Section ──────────────────────────────── */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+.team-member{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  text-align:center;
+  transition:transform 0.3s ease;
+}
+.team-member:hover{transform:translateY(-4px)}
+.team-avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:var(--gradient);
+  margin:0 auto 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:white;
+  font-weight:600;
+}
+.team-member h4{margin-bottom:8px}
+.team-member .role{color:var(--primary);font-weight:600;margin-bottom:16px}
+.team-member p{font-size:0.95rem}
+
+/* ── Blog Posts ────────────────────────────────── */
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:32px;
+}
+.blog-post{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform 0.3s ease;
+}
+.blog-post:hover{transform:translateY(-4px)}
+.blog-image{
+  height:200px;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.2rem;
+  font-weight:600;
+}
+.blog-content{
+  padding:24px;
+}
+.blog-meta{
+  color:var(--text-secondary);
+  font-size:0.9rem;
+  margin-bottom:12px;
+}
+.blog-content h4{
+  margin-bottom:12px;
+  color:var(--text);
+}
+.blog-content p{
+  margin:0;
+  font-size:1rem;
+}
+
+/* ── Contact Form ──────────────────────────────── */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+.form-group{
+  margin-bottom:24px;
+}
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+  color:var(--text);
+}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:16px;
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  font-size:1rem;
+  transition:border-color 0.3s ease;
+  background:white;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  outline:none;
+  border-color:var(--primary);
+}
+.contact-info{
+  background:var(--surface);
+  padding:40px;
+  border-radius:var(--radius);
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:24px;
+  padding:20px;
+  background:white;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.contact-icon{
+  width:50px;
+  height:50px;
+  background:var(--gradient);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.2rem;
+}
+
+/* ── Footer ────────────────────────────────────── */
+.footer{
+  background:var(--text);
+  color:white;
+  padding:60px 0 30px;
+}
+.footer-content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+  margin-bottom:40px;
+}
+.footer-section h4{
+  color:white;
+  margin-bottom:20px;
+}
+.footer-section a{
+  color:#ccc;
+  text-decoration:none;
+  display:block;
+  margin-bottom:8px;
+  transition:color 0.3s ease;
+}
+.footer-section a:hover{color:var(--primary)}
+.footer-bottom{
+  border-top:1px solid #333;
+  padding-top:30px;
+  text-align:center;
+  color:#999;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-actions{flex-direction:column;align-items:center}
+  .hero-stats{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .section{padding:60px 0}
+  .case-study-metrics{grid-template-columns:1fr;gap:20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── Page System ───────────────────────────────── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── Animations ────────────────────────────────── */
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeIn 0.6s ease forwards;
+}
+@keyframes fadeIn{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── Special Sections ──────────────────────────── */
+.cta-section{
+  background:var(--gradient);
+  color:white;
+  text-align:center;
+  padding:80px 0;
+}
+.cta-section h2{
+  color:white;
+  margin-bottom:20px;
+}
+.cta-section p{
+  color:rgba(255,255,255,0.9);
+  font-size:1.2rem;
+  margin-bottom:40px;
+}
+
+.trust-badges{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin:40px 0;
+}
+.trust-badge{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 24px;
+  background:white;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  font-weight:600;
+  color:var(--text-secondary);
+}
+
+.privacy-notice{
+  background:var(--surface);
+  padding:32px;
+  border-radius:var(--radius);
+  border-left:4px solid var(--primary);
+  margin:40px 0;
+}
+.privacy-notice h4{
+  color:var(--primary);
+  margin-bottom:12px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" onclick="showPage('home')">ChatScalers</a>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link active" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('pricing')">Pricing</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('success')">Success Stories</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('about')">About</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('resources')">Resources</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <a href="https://cal.eu/polruiz/15min" class="nav-cta" target="_blank">Book Consultation</a>
+    <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text fade-in">
+          <h1>Scale your creator business with elite chat management</h1>
+          <p>Professional chat automation and content distribution services for high-earning digital creators. Turn conversations into consistent revenue streams while maintaining authentic fan relationships.</p>
+          <div class="hero-actions">
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">
+              💎 Book Confidential Consultation
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="showPage('services')">
+              View Services
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual fade-in">
+          <div class="hero-mockup">
+            💬 Professional Chat Management Platform
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-stats fade-in" style="margin-top:60px">
+        <div class="hero-stat">
+          <h4>80%</h4>
+          <p>Time Reduction</p>
+        </div>
+        <div class="hero-stat">
+          <h4>40%</h4>
+          <p>Revenue Increase</p>
+        </div>
+        <div class="hero-stat">
+          <h4>24/7</h4>
+          <p>Fan Engagement</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section" style="background:var(--surface)">
+    <div class="container text-center">
+      <h2 class="fade-in">Professional engagement management for elite creators</h2>
+      <p class="fade-in" style="max-width:700px;margin:0 auto">Transform your fan interactions into a sophisticated revenue engine with our premium chat management and content distribution services.</p>
+      
+      <div class="feature-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">💬</div>
+          <h3>Intelligent Chat Automation</h3>
+          <p>Advanced conversation management that maintains your unique voice and personality across all platforms, ensuring authentic fan interactions at scale.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">📁</div>
+          <h3>Premium Content Distribution</h3>
+          <p>Sophisticated content delivery system that automatically sends personalized media from your organized libraries based on fan requests and preferences.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">⏰</div>
+          <h3>24/7 Global Availability</h3>
+          <p>Never miss an engagement opportunity. Your fans receive instant, personalized responses regardless of time zone or your availability.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">📊</div>
+          <h3>Revenue Optimization</h3>
+          <p>Intelligent upselling algorithms and premium content suggestions that increase average fan spending by 40% while maintaining relationship quality.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🛡️</div>
+          <h3>Professional Security</h3>
+          <p>Enterprise-grade privacy protection, content security, and professional moderation to protect your brand and maintain appropriate boundaries.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">📈</div>
+          <h3>Advanced Analytics</h3>
+          <p>Comprehensive insights on fan behavior, revenue patterns, content performance, and engagement metrics to maximize your growth potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="fade-in">Proven results for elite creators</h2>
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Creators Served</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-number">€5M+</div>
+          <div class="stat-label">Revenue Generated</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-number">99.8%</div>
+          <div class="stat-label">Uptime Guarantee</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-number">80%</div>
+          <div class="stat-label">Time Savings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="section" style="background:var(--surface)">
+    <div class="container text-center">
+      <h2 class="fade-in">Trusted by elite creators worldwide</h2>
+      
+      <div class="trust-badges fade-in">
+        <div class="trust-badge">
+          <span>🔒</span>
+          Enterprise Security
+        </div>
+        <div class="trust-badge">
+          <span>📱</span>
+          Multi-Platform Support
+        </div>
+        <div class="trust-badge">
+          <span>💎</span>
+          Premium Service
+        </div>
+        <div class="trust-badge">
+          <span>🌍</span>
+          Global Coverage
+        </div>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial fade-in">
+          <p class="testimonial-quote">"ChatScalers transformed my business. I went from spending 8 hours daily on chats to focusing purely on content creation. My revenue increased 60% while working half the hours."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div class="testimonial-info">
+              <h5>Anonymous Model</h5>
+              <p>Top 1% Creator, Europe</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial fade-in">
+          <p class="testimonial-quote">"The professionalism and discretion of ChatScalers is unmatched. They handle everything perfectly while maintaining my brand voice. My fans never know the difference."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SC</div>
+            <div class="testimonial-info">
+              <h5>Studio Manager</h5>
+              <p>Premium Agency, Miami</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial fade-in">
+          <p class="testimonial-quote">"Best investment I've made. The 24/7 coverage means I'm earning while I sleep, and the content delivery system is incredibly sophisticated."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KL</div>
+            <div class="testimonial-info">
+              <h5>Content Creator</h5>
+              <p>Multi-Platform Influencer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to scale your creator business?</h2>
+      <p>Join the elite creators who've transformed their fan engagement and maximized their revenue potential.</p>
+      <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+        🚀 Book Confidential Consultation
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="services" class="page">
+  <div style="padding-top:100px">
+    <!-- Services Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Elite creator business services</h1>
+        <p class="fade-in" style="font-size:1.3rem;max-width:800px;margin:0 auto">Comprehensive chat management and content distribution solutions designed for high-earning digital creators who demand professional excellence.</p>
+      </div>
+    </section>
+
+    <!-- Core Services -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container">
+        <h2 class="text-center fade-in">Core Services</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🤖</div>
+            <h3>Advanced Chat Automation</h3>
+            <p>State-of-the-art conversational AI that learns your communication style, maintains your personality, and engages fans with natural, authentic interactions. Supports multiple languages and platforms.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📦</div>
+            <h3>Content Distribution Engine</h3>
+            <p>Sophisticated media management system that organizes, categorizes, and delivers your content automatically based on fan requests, preferences, and spending history.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💰</div>
+            <h3>Revenue Optimization</h3>
+            <p>Intelligent pricing algorithms, upselling strategies, and premium content recommendations that maximize your earning potential from every fan interaction.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h3>Performance Analytics</h3>
+            <p>Comprehensive reporting dashboard with revenue tracking, fan behavior analysis, content performance metrics, and actionable insights for business growth.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🛡️</div>
+            <h3>Security & Privacy</h3>
+            <p>Enterprise-level security protocols, content protection, identity safeguarding, and professional moderation to ensure your safety and brand integrity.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🌐</div>
+            <h3>Multi-Platform Management</h3>
+            <p>Seamless integration across all major creator platforms with unified management, consistent branding, and synchronized fan interactions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Features -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Premium Features</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💎</div>
+            <h3>White-Glove Setup</h3>
+            <p>Personal onboarding specialist works with you to capture your unique style, organize your content library, and configure every aspect of your chat management system.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎭</div>
+            <h3>Personality Cloning</h3>
+            <p>Advanced AI training that replicates your communication patterns, humor, interests, and interaction style so fans receive authentic experiences.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📅</div>
+            <h3>Custom Content Scheduling</h3>
+            <p>Strategic content release scheduling, promotional campaign management, and fan engagement timing optimization based on your audience analytics.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🤝</div>
+            <h3>Dedicated Account Manager</h3>
+            <p>Personal relationship manager who understands your business goals, monitors performance, and provides strategic recommendations for growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Our Process</h2>
+        <p class="fade-in">From consultation to full operation in 7-14 days</p>
+        
+        <div class="process-steps">
+          <div class="process-step fade-in">
+            <h3>Confidential Consultation</h3>
+            <p>Private discussion about your business goals, current challenges, and customization requirements. Complete discretion guaranteed.</p>
+          </div>
+          <div class="process-step fade-in">
+            <h3>System Configuration</h3>
+            <p>Our specialists configure your chat management system, train the AI on your personality, and organize your content library.</p>
+          </div>
+          <div class="process-step fade-in">
+            <h3>Testing & Refinement</h3>
+            <p>Comprehensive testing period where you approve all automated responses and we fine-tune the system to perfection.</p>
+          </div>
+          <div class="process-step fade-in">
+            <h3>Full Deployment</h3>
+            <p>Launch your automated chat management system with 24/7 monitoring and ongoing optimization for maximum performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Specialized Solutions</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">👑</div>
+            <h3>Individual Creators</h3>
+            <p>High-earning content creators looking to scale their fan engagement while maintaining personal connection and maximizing revenue per subscriber.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🏢</div>
+            <h3>Creator Agencies</h3>
+            <p>Professional agencies managing multiple creators who need scalable chat management solutions with centralized oversight and reporting.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎬</div>
+            <h3>Premium Studios</h3>
+            <p>High-end production companies requiring sophisticated fan engagement strategies and premium customer experience management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to discuss your requirements?</h2>
+        <p>Every creator business is unique. Let's design a solution that perfectly fits your needs and goals.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+          📞 Schedule Private Consultation
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- PRICING PAGE -->
+<div id="pricing" class="page">
+  <div style="padding-top:100px">
+    <!-- Pricing Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Investment in your success</h1>
+        <p class="fade-in" style="font-size:1.3rem">Professional pricing for serious creators ready to scale their businesses with elite chat management services.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="section">
+      <div class="container">
+        <div class="pricing-grid">
+          <div class="price-card fade-in">
+            <h3>Professional</h3>
+            <div class="price">€2,500</div>
+            <div class="period">Setup + €500/month + 10% PPV commission</div>
+            <ul>
+              <li>Advanced chat automation</li>
+              <li>Content distribution system</li>
+              <li>Basic analytics dashboard</li>
+              <li>Email support</li>
+              <li>Standard onboarding</li>
+              <li>Multi-platform integration</li>
+              <li>Security protocols</li>
+            </ul>
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Get Started</a>
+          </div>
+
+          <div class="price-card featured fade-in">
+            <h3>Elite</h3>
+            <div class="price">€5,000</div>
+            <div class="period">Setup + €1,000/month + 8% PPV commission</div>
+            <ul>
+              <li>Everything in Professional</li>
+              <li>Personality cloning AI training</li>
+              <li>Advanced revenue optimization</li>
+              <li>Dedicated account manager</li>
+              <li>Priority support</li>
+              <li>Custom integrations</li>
+              <li>Advanced analytics suite</li>
+              <li>White-glove onboarding</li>
+            </ul>
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Book Consultation</a>
+          </div>
+
+          <div class="price-card fade-in">
+            <h3>Enterprise</h3>
+            <div class="price">Custom</div>
+            <div class="period">Tailored for agencies and studios</div>
+            <ul>
+              <li>Multi-creator management</li>
+              <li>Agency dashboard</li>
+              <li>Team collaboration tools</li>
+              <li>Advanced reporting</li>
+              <li>Custom development</li>
+              <li>Dedicated support team</li>
+              <li>SLA guarantees</li>
+              <li>Training programs</li>
+            </ul>
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Return on Investment</h2>
+        <div style="max-width:800px;margin:40px auto;background:white;padding:40px;border-radius:var(--radius);box-shadow:var(--shadow-lg)">
+          <h3 style="margin-bottom:20px">Typical Creator Results:</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin:30px 0">
+            <div>
+              <h4 style="color:var(--success);font-size:2rem;margin-bottom:8px">+40%</h4>
+              <p style="margin:0">Average Revenue Increase</p>
+            </div>
+            <div>
+              <h4 style="color:var(--success);font-size:2rem;margin-bottom:8px">-80%</h4>
+              <p style="margin:0">Time Spent on Chat Management</p>
+            </div>
+            <div>
+              <h4 style="color:var(--success);font-size:2rem;margin-bottom:8px">3-6x</h4>
+              <p style="margin:0">ROI Within First Year</p>
+            </div>
+          </div>
+          <div class="privacy-notice">
+            <h4>Investment Protection</h4>
+            <p style="margin:0">30-day money-back guarantee if you're not completely satisfied with the results. We're confident in our ability to transform your business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Frequently Asked Questions</h2>
+        <div style="max-width:800px;margin:40px auto;text-align:left">
+          <div style="margin-bottom:32px;padding:32px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:16px;color:var(--primary)">How quickly can I get started?</h4>
+            <p style="margin:0">Most creators are fully operational within 7-14 days from our initial consultation. Enterprise clients may require 2-3 weeks for comprehensive setup.</p>
+          </div>
+          <div style="margin-bottom:32px;padding:32px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:16px;color:var(--primary)">How do you ensure privacy and discretion?</h4>
+            <p style="margin:0">We operate under strict confidentiality agreements with enterprise-grade security protocols. Your identity and business information are completely protected at all times.</p>
+          </div>
+          <div style="margin-bottom:32px;padding:32px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:16px;color:var(--primary)">What platforms do you support?</h4>
+            <p style="margin:0">We integrate with all major creator platforms and can customize solutions for specialized platforms. Multi-platform management is included in all plans.</p>
+          </div>
+          <div style="margin-bottom:32px;padding:32px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:16px;color:var(--primary)">How do PPV commissions work?</h4>
+            <p style="margin:0">Our commission only applies to pay-per-view content sales generated through our automated system. You retain full control over pricing and content distribution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to invest in your success?</h2>
+        <p>Schedule a confidential consultation to discuss your specific requirements and get a customized proposal.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+          💎 Book Private Consultation
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- SUCCESS STORIES PAGE -->
+<div id="success" class="page">
+  <div style="padding-top:100px">
+    <!-- Success Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Success stories from elite creators</h1>
+        <p class="fade-in" style="font-size:1.3rem">Real results from professional creators who transformed their businesses with ChatScalers.</p>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section">
+      <div class="container">
+        <div class="case-study fade-in">
+          <div class="case-study-header">
+            <h3>European Top-Tier Creator</h3>
+            <p>Multi-platform influencer with premium fanbase</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-metric">
+              <h4>€15K → €24K</h4>
+              <p>Monthly Revenue</p>
+            </div>
+            <div class="case-metric">
+              <h4>8h → 2h</h4>
+              <p>Daily Chat Time</p>
+            </div>
+            <div class="case-metric">
+              <h4>3 months</h4>
+              <p>Time to ROI</p>
+            </div>
+          </div>
+          <div class="case-study-content">
+            <p class="case-study-quote">"ChatScalers gave me my life back. I was spending 8+ hours daily managing chats and losing my mind. Now I focus on content creation while the system handles fan engagement perfectly. My revenue increased 60% in the first quarter, and fans are actually more satisfied with the instant responses."</p>
+            <p><strong>Key Success Factors:</strong> Sophisticated personality cloning, premium content distribution automation, intelligent upselling strategies, and 24/7 global coverage that maximized international fan engagement.</p>
+          </div>
+        </div>
+
+        <div class="case-study fade-in">
+          <div class="case-study-header">
+            <h3>Miami Premium Agency</h3>
+            <p>High-end creator management agency</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-metric">
+              <h4>10 → 25</h4>
+              <p>Creators Managed</p>
+            </div>
+            <div class="case-metric">
+              <h4>€50K → €125K</h4>
+              <p>Monthly Revenue</p>
+            </div>
+            <div class="case-metric">
+              <h4>-70%</h4>
+              <p>Operational Costs</p>
+            </div>
+          </div>
+          <div class="case-study-content">
+            <p class="case-study-quote">"We were hiring more chat managers every month and couldn't keep up with demand. ChatScalers eliminated that bottleneck completely. We now manage 2.5x more creators with the same team, and our profit margins increased dramatically. The service quality is actually higher than human-only management."</p>
+            <p><strong>Key Success Factors:</strong> Centralized multi-creator management dashboard, scalable automation that maintained individual creator personalities, advanced analytics for portfolio optimization.</p>
+          </div>
+        </div>
+
+        <div class="case-study fade-in">
+          <div class="case-study-header">
+            <h3>International Content Creator</h3>
+            <p>Multi-language creator serving global audience</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-metric">
+              <h4>3 → 12</h4>
+              <p>Languages Supported</p>
+            </div>
+            <div class="case-metric">
+              <h4>+180%</h4>
+              <p>International Revenue</p>
+            </div>
+            <div class="case-metric">
+              <h4>24/7</h4>
+              <p>Global Coverage</p>
+            </div>
+          </div>
+          <div class="case-study-content">
+            <p class="case-study-quote">"The multi-language capability was a game-changer. I was losing so many international fans because I couldn't respond in their languages. Now I serve fans in 12 different languages naturally, and my international revenue tripled. The system even adapts cultural communication styles perfectly."</p>
+            <p><strong>Key Success Factors:</strong> Advanced multi-language AI training, cultural adaptation algorithms, timezone-optimized engagement strategies, and international payment integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Overview -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Typical Results Across Our Client Base</h2>
+        <div class="stats-grid">
+          <div class="stat-item fade-in">
+            <div class="stat-number">45%</div>
+            <div class="stat-label">Average Revenue Increase</div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-number">75%</div>
+            <div class="stat-label">Time Savings</div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-number">92%</div>
+            <div class="stat-label">Client Retention Rate</div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-number">4.2x</div>
+            <div class="stat-label">Average ROI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">What our clients say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial fade-in">
+            <p class="testimonial-quote">"The professionalism is incredible. They understand the creator business better than anyone else I've worked with. Complete discretion and amazing results."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RF</div>
+              <div class="testimonial-info">
+                <h5>Rachel F.</h5>
+                <p>Top 0.1% Creator</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial fade-in">
+            <p class="testimonial-quote">"My fans love the instant responses, and I love having my evenings back. The system is so smart that even I can't tell the difference sometimes."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MK</div>
+              <div class="testimonial-info">
+                <h5>Maya K.</h5>
+                <p>Content Creator</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial fade-in">
+            <p class="testimonial-quote">"ChatScalers scaled our agency from 5 to 20 creators without hiring more staff. The ROI is incredible and the service is white-glove professional."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JS</div>
+              <div class="testimonial-info">
+                <h5>James S.</h5>
+                <p>Agency Owner</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial fade-in">
+            <p class="testimonial-quote">"Best business investment I've ever made. Paid for itself in the first month and continues to drive growth every single day."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AL</div>
+              <div class="testimonial-info">
+                <h5>Alex L.</h5>
+                <p>Digital Creator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to write your success story?</h2>
+        <p>Join the elite creators who've transformed their businesses with professional chat management.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+          🌟 Start Your Success Story
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <div style="padding-top:100px">
+    <!-- About Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">About ChatScalers</h1>
+        <p class="fade-in" style="font-size:1.3rem;max-width:800px;margin:0 auto">We're the premier chat management and content distribution service for elite digital creators who demand professional excellence and complete discretion.</p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+          <div class="fade-in">
+            <h2>Our Mission</h2>
+            <p>The creator economy has exploded, but the tools haven't kept up. High-earning digital creators were spending countless hours on repetitive chat management instead of focusing on what they do best: creating amazing content.</p>
+            <p>We built ChatScalers to solve this problem with enterprise-grade technology and white-glove service. Our platform doesn't just automate conversations – it preserves the authentic relationships that drive creator success.</p>
+            <p>We believe exceptional creators deserve exceptional tools. That's why we've invested in the most advanced chat management technology available, combined with the personal service standards of luxury brands.</p>
+          </div>
+          <div class="fade-in" style="background:var(--gradient);border-radius:var(--radius);padding:40px;color:white;text-align:center">
+            <h3 style="color:white;margin-bottom:20px">Our Impact</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">500+</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Creators Served</p>
+              </div>
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">€5M+</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Revenue Generated</p>
+              </div>
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">24/7</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Support Coverage</p>
+              </div>
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">15</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Countries Served</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Our Team</h2>
+        <p class="fade-in">Industry experts, technology leaders, and creator business specialists working together to revolutionize fan engagement.</p>
+        <div class="team-grid">
+          <div class="team-member fade-in">
+            <div class="team-avatar">SC</div>
+            <h4>Sarah Chen</h4>
+            <p class="role">Chief Executive Officer</p>
+            <p>Former tech executive with 15+ years in AI and automation. Previously built platforms serving millions of users at major tech companies.</p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">MJ</div>
+            <h4>Marcus Johnson</h4>
+            <p class="role">Head of Creator Success</p>
+            <p>Creator economy expert who's worked with top-tier influencers and agencies. Deep understanding of monetization strategies and fan psychology.</p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">AL</div>
+            <h4>Anna Lopez</h4>
+            <p class="role">Chief Technology Officer</p>
+            <p>AI researcher specializing in natural language processing and conversation systems. PhD from Stanford, published expert in conversational AI.</p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">RK</div>
+            <h4>Robert Kim</h4>
+            <p class="role">Head of Privacy & Security</p>
+            <p>Cybersecurity expert with background in protecting high-profile individuals and businesses. Ensures enterprise-grade privacy for all clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Our Values</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>Complete discretion and enterprise-grade security in everything we do. Your business and personal information are absolutely protected.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎯</div>
+            <h3>Creator-Centric</h3>
+            <p>Every decision is made with creator success in mind. We exist to amplify your potential, not replace your unique value.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">⭐</div>
+            <h3>Excellence</h3>
+            <p>We set the highest standards in technology, service, and results. Mediocre isn't in our vocabulary.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🤝</div>
+            <h3>Partnership</h3>
+            <p>We're your long-term business partners, not just a service provider. Your success is our success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Notice -->
+    <section class="section">
+      <div class="container">
+        <div class="privacy-notice">
+          <h4>Our Privacy Commitment</h4>
+          <p>We understand the sensitive nature of creator businesses. All client information, conversation data, and business metrics are protected under strict confidentiality agreements with enterprise-grade encryption. We never share, sell, or use your data for any purpose other than providing our services. Your privacy and discretion are non-negotiable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to work with the best?</h2>
+        <p>Let's discuss how our expertise can transform your creator business.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+          👋 Meet the Team
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- RESOURCES PAGE -->
+<div id="resources" class="page">
+  <div style="padding-top:100px">
+    <!-- Resources Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Resources for creators</h1>
+        <p class="fade-in" style="font-size:1.3rem">Insights, strategies, and guides to help you build and scale your creator business professionally.</p>
+      </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid">
+          <article class="blog-post fade-in">
+            <div class="blog-image">💰 Revenue Guide</div>
+            <div class="blog-content">
+              <div class="blog-meta">March 3, 2026 • 12 min read</div>
+              <h4>Maximizing PPV Revenue: Advanced Strategies for Elite Creators</h4>
+              <p>Comprehensive guide to optimizing pay-per-view content pricing, timing, and presentation for maximum revenue generation. Includes psychological pricing strategies.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">🚀 Scaling Tips</div>
+            <div class="blog-content">
+              <div class="blog-meta">March 1, 2026 • 8 min read</div>
+              <h4>The Creator's Guide to Chat Automation</h4>
+              <p>Everything you need to know about professional chat management: when to automate, how to maintain authenticity, and what fans really want.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">📊 Analytics</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 28, 2026 • 10 min read</div>
+              <h4>Fan Psychology: Understanding Your High-Value Subscribers</h4>
+              <p>Deep dive into the motivations and behaviors of top-spending fans, and how to create experiences that increase lifetime value.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">🔒 Privacy</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 25, 2026 • 6 min read</div>
+              <h4>Privacy and Security for Digital Creators</h4>
+              <p>Essential security practices for high-earning creators, including identity protection, financial security, and professional privacy management.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">📈 Growth</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 22, 2026 • 9 min read</div>
+              <h4>International Expansion for Creator Businesses</h4>
+              <p>How to successfully expand your creator business globally: multi-language strategies, cultural adaptation, and international payment processing.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">⚖️ Legal</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 20, 2026 • 7 min read</div>
+              <h4>Legal Considerations for Creator Businesses</h4>
+              <p>Important legal aspects every creator should understand: contracts, intellectual property, tax implications, and business structure optimization.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free Resources -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Free Professional Resources</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💎</div>
+            <h3>Creator Business Audit</h3>
+            <p>Comprehensive self-assessment tool to evaluate your current business performance, identify growth opportunities, and plan your scaling strategy.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:16px">Download Guide</a>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h3>Revenue Optimization Calculator</h3>
+            <p>Interactive tool to project potential revenue increases from professional chat management and identify your highest-impact optimization opportunities.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:16px">Use Calculator</a>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎯</div>
+            <h3>Fan Segmentation Template</h3>
+            <p>Professional spreadsheet template for analyzing and categorizing your fanbase to maximize engagement and revenue from each segment.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:16px">Get Template</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Stay ahead of the curve</h2>
+        <p class="fade-in">Get weekly insights on creator business optimization, industry trends, and scaling strategies delivered privately to your inbox.</p>
+        <div style="max-width:500px;margin:40px auto;background:white;padding:40px;border-radius:var(--radius);box-shadow:var(--shadow-lg)">
+          <div class="form-group">
+            <input type="email" placeholder="Enter your email" style="margin-bottom:20px">
+            <button class="btn" style="width:100%">Subscribe to Insights</button>
+          </div>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin:16px 0 0 0">Complete privacy. Unsubscribe anytime. No spam ever.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready for professional growth?</h2>
+        <p>Access our full library of creator business resources and start optimizing your revenue today.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+          📚 Get Professional Consultation
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+  <div style="padding-top:100px">
+    <!-- Contact Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Get in touch</h1>
+        <p class="fade-in" style="font-size:1.3rem">Ready to transform your creator business? Let's discuss how ChatScalers can help you scale professionally.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="fade-in">
+            <h2>Send us a message</h2>
+            <form>
+              <div class="form-group">
+                <label>Name / Business Name</label>
+                <input type="text" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" required>
+              </div>
+              <div class="form-group">
+                <label>Phone (optional)</label>
+                <input type="tel">
+              </div>
+              <div class="form-group">
+                <label>Business Type</label>
+                <select>
+                  <option>Individual Creator</option>
+                  <option>Creator Agency</option>
+                  <option>Premium Studio</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Current Monthly Revenue Range</label>
+                <select>
+                  <option>€5k - €15k</option>
+                  <option>€15k - €50k</option>
+                  <option>€50k - €100k</option>
+                  <option>€100k+</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea rows="5" placeholder="Tell us about your business goals and current challenges..."></textarea>
+              </div>
+              <button type="submit" class="btn">Send Confidential Message</button>
+            </form>
+          </div>
+
+          <div class="contact-info fade-in">
+            <h3 style="margin-bottom:32px">Contact Information</h3>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📅</div>
+              <div>
+                <h4>Book Consultation</h4>
+                <p>Schedule a confidential 30-minute strategy session</p>
+                <a href="https://cal.eu/polruiz/15min" target="_blank" style="color:var(--primary);font-weight:600">Book Private Call</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <h4>Email</h4>
+                <p>Confidential inquiries</p>
+                <a href="mailto:hello@chatscalers.com" style="color:var(--primary);font-weight:600">hello@chatscalers.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div>
+                <h4>Enterprise Sales</h4>
+                <p>Agencies and large studios</p>
+                <a href="mailto:enterprise@chatscalers.com" style="color:var(--primary);font-weight:600">enterprise@chatscalers.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🛠️</div>
+              <div>
+                <h4>Technical Support</h4>
+                <p>For existing clients</p>
+                <a href="mailto:support@chatscalers.com" style="color:var(--primary);font-weight:600">support@chatscalers.com</a>
+              </div>
+            </div>
+
+            <div class="privacy-notice" style="margin-top:40px">
+              <h4>Privacy Guarantee</h4>
+              <p style="margin:0">All communications are confidential and encrypted. We respond to serious inquiries within 2 hours during business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Before you contact us</h2>
+        <div style="max-width:800px;margin:40px auto;text-align:left">
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px;color:var(--primary)">Who is ChatScalers for?</h4>
+            <p style="margin:0">We work with established creators earning €5k+/month who want to scale professionally. If you're just starting out, we recommend focusing on content creation first.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px;color:var(--primary)">How do consultations work?</h4>
+            <p style="margin:0">All consultations are private and confidential. We'll discuss your business goals, current challenges, and how our services can help you scale efficiently.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px;color:var(--primary)">Do you offer free trials?</h4>
+            <p style="margin:0">We provide comprehensive demos and will create a sample of your chat management system for testing before you commit to our services.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to take the next step?</h2>
+        <p>The fastest way to understand how ChatScalers can transform your business is through a private consultation.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn btn-dark" target="_blank">
+          🚀 Schedule Private Consultation
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>ChatScalers</h4>
+        <p style="color:#ccc;margin-bottom:20px">Elite chat management and content distribution services for professional digital creators who demand excellence.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Book Consultation</a>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <a href="#" onclick="showPage('services')">Chat Automation</a>
+        <a href="#" onclick="showPage('services')">Content Distribution</a>
+        <a href="#" onclick="showPage('services')">Revenue Optimization</a>
+        <a href="#" onclick="showPage('pricing')">Pricing</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#" onclick="showPage('success')">Success Stories</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="#" onclick="showPage('resources')">Creator Insights</a>
+        <a href="#">Help Center</a>
+        <a href="#">API Documentation</a>
+        <a href="#">Status Page</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal & Privacy</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">GDPR Compliance</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ChatScalers. All rights reserved. Professional services for elite creators.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+// Page Navigation
+function showPage(pageId) {
+  // Hide all pages
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => page.classList.remove('active'));
+  
+  // Show selected page
+  document.getElementById(pageId).classList.add('active');
+  
+  // Update nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => link.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+  
+  // Add fade-in animation to new content
+  setTimeout(() => {
+    const fadeElements = document.querySelectorAll('#' + pageId + ' .fade-in');
+    fadeElements.forEach((el, index) => {
+      el.style.animationDelay = (index * 0.1) + 's';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, index * 100);
+    });
+  }, 50);
+}
+
+// Mobile Navigation
+function toggleMobileNav() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  // Add scroll-based animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = '0s';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all fade-in elements
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+});
+
+// Form handling
+document.addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for your confidential message! We\'ll get back to you within 2 hours during business days.');
+});
+
+// Navigation scroll effect
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(255,255,255,0.98)';
+  } else {
+    nav.style.background = 'rgba(255,255,255,0.95)';
+  }
+});
+</script>
+
+</body>
+</html>
