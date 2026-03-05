@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoachIQ — Turn Your Coaching Into a 24/7 AI Product</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0b;--surface:#131316;--border:#1e1e24;--text:#e4e4e7;--muted:#8a8a96;--accent:#6d5cff;--accent-glow:rgba(109,92,255,.35);--radius:14px}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ── utility ─────────────────────────────────────── */
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-label{font-size:.8rem;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;font-weight:600}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:16px}
+.section-sub{color:var(--muted);max-width:560px;margin:0 auto 48px;font-size:1.05rem}
+.text-center{text-align:center}
+
+/* ── CTA button ──────────────────────────────────── */
+.btn{display:inline-block;padding:15px 36px;border-radius:50px;background:var(--accent);color:#fff;font-weight:600;font-size:1rem;transition:transform .25s,box-shadow .25s;cursor:pointer;border:none;position:relative;z-index:1}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+
+/* ── hero ────────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,var(--accent-glow),transparent 70%);top:-180px;right:-120px;animation:pulse 6s ease-in-out infinite alternate;pointer-events:none}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1.1;max-width:740px;margin:0 auto 20px;letter-spacing:-.02em}
+.hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:560px;margin:0 auto 40px}
+
+/* ── benefits grid ───────────────────────────────── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card .icon{font-size:2rem;margin-bottom:16px;display:block}
+.card h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem}
+
+/* ── how it works ────────────────────────────────── */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;counter-reset:step}
+.step{position:relative;padding:32px 28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:border-color .3s}
+.step:hover{border-color:var(--accent)}
+.step::before{counter-increment:step;content:counter(step);font-size:3rem;font-weight:800;color:var(--accent);opacity:.25;position:absolute;top:20px;right:24px;line-height:1}
+.step h3{font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.93rem}
+
+/* ── final CTA ───────────────────────────────────── */
+.final-cta{text-align:center;padding:100px 0 80px}
+.final-cta h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.final-cta p{color:var(--muted);margin-bottom:36px;font-size:1.05rem}
+
+/* ── footer ──────────────────────────────────────── */
+footer{text-align:center;padding:40px 0;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+
+/* ── animations ──────────────────────────────────── */
+@keyframes pulse{0%{opacity:.45;transform:scale(1)}100%{opacity:.7;transform:scale(1.12)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .7s ease forwards}
+.fade-up.d1{animation-delay:.1s}.fade-up.d2{animation-delay:.2s}.fade-up.d3{animation-delay:.3s}.fade-up.d4{animation-delay:.4s}
+
+/* ── responsive ──────────────────────────────────── */
+@media(max-width:640px){.section{padding:72px 0}.hero{min-height:90vh;padding:0 16px}}
+</style>
+</head>
+<body>
+
+<!-- hero -->
+<section class="hero">
+  <div class="container">
+    <p class="section-label fade-up">CoachIQ</p>
+    <h1 class="fade-up d1">Turn your coaching into a 24/7 AI product</h1>
+    <p class="fade-up d2">Your methodology, your voice — delivered as a personal AI trainer and nutritionist to every follower or gym member.</p>
+    <a href="https://cal.eu/polruiz/15min" class="btn fade-up d3">Book a Demo</a>
+  </div>
+</section>
+
+<!-- benefits -->
+<section class="section">
+  <div class="container text-center">
+    <p class="section-label">Why CoachIQ</p>
+    <h2 class="section-title">Everything your audience needs, powered by you</h2>
+    <p class="section-sub">Your coaching expertise, scaled to thousands — without burning out.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="icon">🏋️</span>
+        <h3>24/7 Personalized Training Plans</h3>
+        <p>Every subscriber gets a program tailored to their goals, schedule, and fitness level — around the clock.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🥗</span>
+        <h3>AI Nutritionist with Meal Plans</h3>
+        <p>Custom macros, recipes, and grocery lists generated from your nutritional philosophy.</p>
+      </div>
+      <div class="card">
+        <span class="icon">💬</span>
+        <h3>Works via WhatsApp</h3>
+        <p>No apps to download. Your audience gets coached right in the chat app they already use.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🌍</span>
+        <h3>Speaks Your Followers' Language</h3>
+        <p>Automatic multilingual support so you can reach a global audience effortlessly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- how it works -->
+<section class="section" style="background:var(--surface)">
+  <div class="container text-center">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Live in days, not months</h2>
+    <p class="section-sub">Three simple steps to clone your coaching expertise into an AI product.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>We clone your coaching methodology</h3>
+        <p>We study your programs, voice, and style to build an AI that coaches just like you.</p>
+      </div>
+      <div class="step">
+        <h3>Your audience subscribes</h3>
+        <p>Share your AI coach link — followers and members sign up instantly.</p>
+      </div>
+      <div class="step">
+        <h3>They get a personal AI coach that trains like you</h3>
+        <p>Every subscriber receives individualized workouts, nutrition, and accountability 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <p class="section-label">Ready?</p>
+    <h2>Scale your coaching without scaling your hours</h2>
+    <p>See how CoachIQ can work for your brand in a 15-minute call.</p>
+    <a href="https://cal.eu/polruiz/15min" class="btn">Book Your Free Call</a>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="container">© 2026 CoachIQ. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
