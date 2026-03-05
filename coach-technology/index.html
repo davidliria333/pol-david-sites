@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coach Technology — Scale Your Personal Training Business</title>
+<meta name="description" content="Transform your coaching expertise into a scalable technology platform. Deliver personalized training and nutrition guidance to hundreds of clients 24/7.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>💪</text></svg>">
+
+<style>
+/* ── Reset & Variables ──────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#007AFF;
+  --primary-dark:#0056CC;
+  --bg:#ffffff;
+  --surface:#f8f9fa;
+  --text:#1d1d1f;
+  --text-secondary:#6e6e73;
+  --border:#e5e5e7;
+  --success:#30d158;
+  --warning:#ff9f0a;
+  --radius:12px;
+  --shadow:0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:0 20px 60px rgba(0,0,0,0.12);
+}
+
+/* ── Base Styles ───────────────────────────────── */
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Typography ────────────────────────────────── */
+h1,h2,h3,h4{font-weight:600;line-height:1.2;color:var(--text)}
+h1{font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:1rem}
+h3{font-size:clamp(1.5rem,3vw,1.8rem);margin-bottom:0.5rem}
+p{color:var(--text-secondary);font-size:1.1rem;margin-bottom:1.5rem}
+
+/* ── Utilities ─────────────────────────────────── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.text-center{text-align:center}
+.hidden{display:none}
+
+/* ── Navigation ────────────────────────────────── */
+.nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  z-index:100;
+  transition:all 0.3s ease;
+}
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.nav-logo{
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:32px;
+  align-items:center;
+}
+.nav-link{
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-weight:500;
+  transition:color 0.3s ease;
+  cursor:pointer;
+}
+.nav-link:hover,.nav-link.active{color:var(--primary)}
+.nav-cta{
+  background:var(--primary);
+  color:white;
+  padding:10px 20px;
+  border-radius:20px;
+  font-weight:600;
+  text-decoration:none;
+  transition:background 0.3s ease;
+}
+.nav-cta:hover{background:var(--primary-dark)}
+
+/* Mobile Navigation */
+.nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav-links.active{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    border-top:1px solid var(--border);
+    padding:20px;
+    gap:16px;
+  }
+}
+
+/* ── Buttons ───────────────────────────────────── */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:16px 32px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1rem;
+  text-decoration:none;
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+.btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+.btn-secondary{
+  background:transparent;
+  color:var(--primary);
+  border:2px solid var(--primary);
+}
+.btn-secondary:hover{
+  background:var(--primary);
+  color:white;
+}
+
+/* ── Hero Section ──────────────────────────────── */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,var(--primary) 0%,transparent 70%);
+  opacity:0.05;
+  top:-200px;
+  right:-200px;
+  border-radius:50%;
+}
+.hero-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  z-index:2;
+}
+.hero-text h1{margin-bottom:24px}
+.hero-text p{font-size:1.3rem;margin-bottom:40px;color:var(--text-secondary)}
+.hero-actions{display:flex;gap:20px;margin-bottom:40px}
+.hero-stats{display:flex;gap:32px}
+.hero-stat h4{font-size:2rem;font-weight:700;color:var(--primary);margin-bottom:4px}
+.hero-stat p{font-size:0.9rem;margin:0}
+.hero-image{
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:40px;
+  box-shadow:var(--shadow-lg);
+  text-align:center;
+}
+.hero-mockup{
+  width:100%;
+  max-width:400px;
+  height:300px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border-radius:var(--radius);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.2rem;
+  font-weight:600;
+}
+
+/* ── Cards & Features ──────────────────────────── */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:32px;
+  margin-top:60px;
+}
+.feature-card{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  transition:transform 0.3s ease;
+  border:1px solid var(--border);
+}
+.feature-card:hover{transform:translateY(-4px)}
+.feature-icon{
+  width:60px;
+  height:60px;
+  background:var(--primary);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  margin-bottom:20px;
+}
+.feature-card h3{color:var(--text);margin-bottom:16px}
+.feature-card p{margin:0}
+
+/* ── Pricing ───────────────────────────────────── */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;
+  max-width:1000px;
+  margin:0 auto;
+}
+.price-card{
+  background:white;
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  padding:40px;
+  position:relative;
+  transition:all 0.3s ease;
+}
+.price-card:hover{
+  border-color:var(--primary);
+  transform:translateY(-4px);
+}
+.price-card.featured{
+  border-color:var(--primary);
+  transform:scale(1.05);
+}
+.price-card.featured::before{
+  content:'Most Popular';
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--primary);
+  color:white;
+  padding:6px 20px;
+  border-radius:20px;
+  font-size:0.9rem;
+  font-weight:600;
+}
+.price-card h3{text-align:center;margin-bottom:16px}
+.price-card .price{
+  text-align:center;
+  font-size:3rem;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+.price-card .period{
+  text-align:center;
+  color:var(--text-secondary);
+  margin-bottom:32px;
+}
+.price-card ul{
+  list-style:none;
+  margin-bottom:32px;
+}
+.price-card li{
+  padding:8px 0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.price-card li::before{
+  content:'✓';
+  color:var(--success);
+  font-weight:bold;
+  font-size:1.2rem;
+}
+.price-card .btn{width:100%;justify-content:center}
+
+/* ── Testimonials ──────────────────────────────── */
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:32px;
+}
+.testimonial{
+  background:white;
+  padding:32px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.testimonial::before{
+  content:'"';
+  font-size:4rem;
+  color:var(--primary);
+  position:absolute;
+  top:10px;
+  left:20px;
+  font-family:serif;
+}
+.testimonial-content{
+  font-style:italic;
+  font-size:1.1rem;
+  margin-bottom:24px;
+  padding-left:40px;
+}
+.testimonial-author{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding-left:40px;
+}
+.testimonial-avatar{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:600;
+  font-size:1.2rem;
+}
+.testimonial-info h5{
+  margin-bottom:4px;
+  color:var(--text);
+}
+.testimonial-info p{
+  margin:0;
+  font-size:0.9rem;
+}
+
+/* ── Case Studies ──────────────────────────────── */
+.case-study{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.case-study-header{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:white;
+  padding:40px;
+  text-align:center;
+}
+.case-study-header h3{color:white;margin-bottom:16px}
+.case-study-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+  padding:40px;
+}
+.case-stat{
+  text-align:center;
+}
+.case-stat h4{
+  font-size:2.5rem;
+  font-weight:700;
+  color:var(--success);
+  margin-bottom:8px;
+}
+.case-stat p{
+  margin:0;
+  font-size:0.9rem;
+}
+
+/* ── Team Section ──────────────────────────────── */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+.team-member{
+  text-align:center;
+  background:white;
+  padding:32px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.team-avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:var(--primary);
+  margin:0 auto 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:white;
+}
+.team-member h4{margin-bottom:8px}
+.team-member .role{color:var(--primary);font-weight:600;margin-bottom:16px}
+
+/* ── Contact Form ──────────────────────────────── */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+.form-group{
+  margin-bottom:24px;
+}
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+  color:var(--text);
+}
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:16px;
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  font-size:1rem;
+  transition:border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+}
+.contact-info{
+  background:var(--surface);
+  padding:40px;
+  border-radius:var(--radius);
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:24px;
+  padding:16px;
+  background:white;
+  border-radius:var(--radius);
+}
+.contact-icon{
+  width:40px;
+  height:40px;
+  background:var(--primary);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+/* ── Blog Posts ────────────────────────────────── */
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:32px;
+}
+.blog-post{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform 0.3s ease;
+}
+.blog-post:hover{transform:translateY(-4px)}
+.blog-image{
+  height:200px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.2rem;
+  font-weight:600;
+}
+.blog-content{
+  padding:24px;
+}
+.blog-meta{
+  color:var(--text-secondary);
+  font-size:0.9rem;
+  margin-bottom:12px;
+}
+.blog-content h4{
+  margin-bottom:12px;
+  color:var(--text);
+}
+.blog-content p{
+  margin:0;
+  font-size:1rem;
+}
+
+/* ── Footer ────────────────────────────────────── */
+.footer{
+  background:var(--text);
+  color:white;
+  padding:60px 0 30px;
+}
+.footer-content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+  margin-bottom:40px;
+}
+.footer-section h4{
+  color:white;
+  margin-bottom:20px;
+}
+.footer-section a{
+  color:#ccc;
+  text-decoration:none;
+  display:block;
+  margin-bottom:8px;
+  transition:color 0.3s ease;
+}
+.footer-section a:hover{color:white}
+.footer-bottom{
+  border-top:1px solid #333;
+  padding-top:30px;
+  text-align:center;
+  color:#999;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-actions{flex-direction:column}
+  .hero-stats{justify-content:center}
+  .contact-grid{grid-template-columns:1fr}
+  .section{padding:60px 0}
+  .case-study-stats{grid-template-columns:1fr;gap:20px}
+}
+
+/* ── Page System ───────────────────────────────── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── Animations ────────────────────────────────── */
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeIn 0.6s ease forwards;
+}
+@keyframes fadeIn{
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" onclick="showPage('home')">Coach Technology</a>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link active" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('product')">Product</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('pricing')">Pricing</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('success')">Success Stories</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('about')">About</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('resources')">Resources</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <a href="https://cal.eu/polruiz/15min" class="nav-cta" target="_blank">Book Demo</a>
+    <button class="nav-toggle" onclick="toggleMobileNav()">☰</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text fade-in">
+          <h1>Scale your personal training business without working more hours</h1>
+          <p>Transform your coaching expertise into a technology platform that delivers personalized training and nutrition guidance to hundreds of clients simultaneously.</p>
+          <div class="hero-actions">
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">
+              📅 Book Free Strategy Call
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="showPage('product')">
+              See How It Works
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <h4>10x</h4>
+              <p>More clients</p>
+            </div>
+            <div class="hero-stat">
+              <h4>80%</h4>
+              <p>Less time per client</p>
+            </div>
+            <div class="hero-stat">
+              <h4>24/7</h4>
+              <p>Always available</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image fade-in">
+          <div class="hero-mockup">
+            🏋️ Coach Tech Platform
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" style="background:var(--surface)">
+    <div class="container text-center">
+      <h2 class="fade-in">Everything your clients need, powered by your methodology</h2>
+      <p class="fade-in">Your proven coaching system, delivered to unlimited clients through intelligent technology.</p>
+      
+      <div class="feature-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🎯</div>
+          <h3>Personalized Training Programs</h3>
+          <p>Each client receives customized workouts based on their goals, fitness level, and available equipment — delivered instantly.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🥗</div>
+          <h3>Smart Nutrition Coaching</h3>
+          <p>Automated meal planning and macro calculations using your nutritional philosophy and client preferences.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">📱</div>
+          <h3>WhatsApp Integration</h3>
+          <p>Clients get coached through the messaging app they already use — no downloads, no complex systems.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">📊</div>
+          <h3>Progress Tracking</h3>
+          <p>Automatic adjustment of programs based on client progress, feedback, and performance data.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🌍</div>
+          <h3>24/7 Availability</h3>
+          <p>Your coaching wisdom available around the clock, in multiple languages, serving global audiences.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">💰</div>
+          <h3>Predictable Revenue</h3>
+          <p>Transform one-time training sessions into recurring monthly revenue from hundreds of subscribers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="fade-in">Trusted by fitness professionals worldwide</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial fade-in">
+          <p class="testimonial-content">Coach Technology transformed my business. I went from training 20 clients per week to serving 200+ with the same personal attention. My revenue tripled in 6 months.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-info">
+              <h5>Maria Rodriguez</h5>
+              <p>Personal Trainer, Barcelona</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial fade-in">
+          <p class="testimonial-content">The platform captured my exact coaching style. My clients love the 24/7 support, and I love the predictable income. Best business decision I've made.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JD</div>
+            <div class="testimonial-info">
+              <h5>James Davis</h5>
+              <p>Fitness Influencer, London</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial fade-in">
+          <p class="testimonial-content">We integrated Coach Technology across all our gym locations. Member engagement increased 300% and retention went from 60% to 89%.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AS</div>
+            <div class="testimonial-info">
+              <h5>Ana Silva</h5>
+              <p>Gym Chain Owner, Madrid</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" style="background:var(--primary);color:white;text-align:center">
+    <div class="container">
+      <h2 style="color:white;margin-bottom:20px">Ready to scale your coaching business?</h2>
+      <p style="color:rgba(255,255,255,0.9);font-size:1.3rem;margin-bottom:40px">See how Coach Technology can multiply your impact and revenue in a 15-minute strategy session.</p>
+      <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+        🚀 Book Your Free Strategy Call
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- PRODUCT PAGE -->
+<div id="product" class="page">
+  <div style="padding-top:100px">
+    <!-- Product Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">The complete coaching technology platform</h1>
+        <p class="fade-in" style="font-size:1.3rem;max-width:800px;margin:0 auto">Everything you need to transform your personal training expertise into a scalable, 24/7 coaching business that serves hundreds of clients with your unique methodology.</p>
+      </div>
+    </section>
+
+    <!-- Product Features -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🧠</div>
+            <h3>Methodology Integration</h3>
+            <p>We analyze your existing programs, training philosophy, and communication style to create a digital twin of your coaching expertise that thinks and responds exactly like you.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💬</div>
+            <h3>Natural Conversations</h3>
+            <p>Clients interact through natural chat conversations via WhatsApp, getting instant responses to questions about form, nutrition, motivation, and program adjustments.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📋</div>
+            <h3>Dynamic Program Creation</h3>
+            <p>Automatically generates personalized workout plans based on client goals, available equipment, time constraints, and fitness level — all following your training principles.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🍎</div>
+            <h3>Nutrition Intelligence</h3>
+            <p>Creates custom meal plans, tracks macros, suggests recipes, and adjusts nutrition based on progress — all aligned with your nutritional coaching approach.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📈</div>
+            <h3>Progress Analytics</h3>
+            <p>Tracks client progress, workout completion, nutrition adherence, and satisfaction scores. Automatically adjusts programs based on real performance data.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔄</div>
+            <h3>Continuous Learning</h3>
+            <p>The platform learns from every interaction, getting better at representing your coaching style and improving client outcomes over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">How it works</h2>
+        <p class="fade-in">From your expertise to scalable technology in three simple steps.</p>
+        
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px">
+          <div class="fade-in" style="text-align:center">
+            <div style="width:80px;height:80px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:white;font-size:2rem;font-weight:700">1</div>
+            <h3>Methodology Capture</h3>
+            <p>Our team works with you for 1-2 weeks to understand your training philosophy, preferred exercises, nutrition approach, and communication style. We analyze your existing programs and client interactions.</p>
+          </div>
+          <div class="fade-in" style="text-align:center">
+            <div style="width:80px;height:80px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:white;font-size:2rem;font-weight:700">2</div>
+            <h3>Platform Training</h3>
+            <p>We train your personalized coaching platform using advanced technology, ensuring it responds exactly like you would. We test it with sample scenarios until it perfectly matches your style.</p>
+          </div>
+          <div class="fade-in" style="text-align:center">
+            <div style="width:80px;height:80px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:white;font-size:2rem;font-weight:700">3</div>
+            <h3>Launch & Scale</h3>
+            <p>Your platform goes live, ready to serve hundreds of clients simultaneously. You get a simple link to share with your audience — they start getting coached immediately through WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Features -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Technical excellence</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy & Security</h3>
+            <p>End-to-end encryption for all client communications. GDPR compliant data handling. Client information is never shared or used for any other purpose.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🌐</div>
+            <h3>Multi-Language Support</h3>
+            <p>Automatically communicates with clients in their preferred language while maintaining your coaching personality and technical accuracy.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📱</div>
+            <h3>Platform Integration</h3>
+            <p>Works seamlessly with popular fitness apps, calendar systems, and payment processors. No technical knowledge required from you or your clients.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Response</h3>
+            <p>Clients get immediate answers to their questions, 24/7. No waiting for your reply — the platform responds instantly with your expertise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo CTA -->
+    <section class="section" style="background:var(--primary);color:white;text-align:center">
+      <div class="container">
+        <h2 style="color:white;margin-bottom:20px">See it in action</h2>
+        <p style="color:rgba(255,255,255,0.9);font-size:1.2rem;margin-bottom:40px">Book a 15-minute demo to see how your coaching expertise can be transformed into a scalable technology platform.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+          📱 Book Product Demo
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- PRICING PAGE -->
+<div id="pricing" class="page">
+  <div style="padding-top:100px">
+    <!-- Pricing Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Simple, transparent pricing</h1>
+        <p class="fade-in" style="font-size:1.3rem">Choose the plan that fits your coaching business size and growth goals.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="section">
+      <div class="container">
+        <div class="pricing-grid">
+          <div class="price-card fade-in">
+            <h3>Starter</h3>
+            <div class="price">€997</div>
+            <div class="period">One-time setup + €39/month per active client</div>
+            <ul>
+              <li>Up to 50 active clients</li>
+              <li>Basic program templates</li>
+              <li>WhatsApp integration</li>
+              <li>Progress tracking</li>
+              <li>Email support</li>
+              <li>Monthly analytics report</li>
+              <li>Client onboarding assistance</li>
+            </ul>
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Get Started</a>
+          </div>
+
+          <div class="price-card featured fade-in">
+            <h3>Professional</h3>
+            <div class="price">€1,997</div>
+            <div class="period">One-time setup + €39/month per active client</div>
+            <ul>
+              <li>Unlimited clients</li>
+              <li>Custom methodology integration</li>
+              <li>Advanced nutrition coaching</li>
+              <li>Multi-language support</li>
+              <li>Priority support</li>
+              <li>Revenue analytics dashboard</li>
+              <li>Custom branding options</li>
+              <li>Weekly strategy calls</li>
+            </ul>
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Book Demo</a>
+          </div>
+
+          <div class="price-card fade-in">
+            <h3>Enterprise</h3>
+            <div class="price">Custom</div>
+            <div class="period">For gym chains and large organizations</div>
+            <ul>
+              <li>Multi-location support</li>
+              <li>Team trainer management</li>
+              <li>Custom integrations</li>
+              <li>White-label branding</li>
+              <li>Dedicated account manager</li>
+              <li>Advanced reporting suite</li>
+              <li>API access</li>
+              <li>Training and certification</li>
+            </ul>
+            <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Calculate your ROI</h2>
+        <div style="max-width:600px;margin:40px auto;background:white;padding:40px;border-radius:var(--radius);box-shadow:var(--shadow)">
+          <div class="form-group">
+            <label>Current clients per month:</label>
+            <input type="number" id="currentClients" value="20" oninput="calculateROI()">
+          </div>
+          <div class="form-group">
+            <label>Average revenue per client:</label>
+            <input type="number" id="avgRevenue" value="150" oninput="calculateROI()">
+          </div>
+          <div style="padding:20px;background:var(--surface);border-radius:var(--radius);margin-top:20px">
+            <h3>Your Potential with Coach Technology:</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px">
+              <div>
+                <h4 style="color:var(--primary);font-size:2rem" id="newClients">200</h4>
+                <p>Potential Clients</p>
+              </div>
+              <div>
+                <h4 style="color:var(--success);font-size:2rem" id="newRevenue">€7,800</h4>
+                <p>Monthly Revenue</p>
+              </div>
+            </div>
+            <p style="margin-top:20px;color:var(--primary);font-weight:600" id="increase">+560% Revenue Increase</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Frequently asked questions</h2>
+        <div style="max-width:800px;margin:40px auto;text-align:left">
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">How quickly can I get started?</h4>
+            <p style="margin:0">Most coaches are up and running within 2-3 weeks. This includes the methodology capture phase, platform training, and testing to ensure everything works perfectly with your coaching style.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">What if clients prefer working with me directly?</h4>
+            <p style="margin:0">The platform complements your high-touch coaching, not replaces it. Many coaches use it for their broader audience while maintaining premium 1-on-1 services for top-tier clients.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">How does the revenue sharing work?</h4>
+            <p style="margin:0">You keep the majority of revenue. We charge €39/month per active client plus the one-time setup fee. You set your own pricing and keep everything above our fee.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">Can I customize the platform?</h4>
+            <p style="margin:0">Absolutely. The Professional and Enterprise plans include custom branding, personalized responses, and integration of your specific training methodologies and nutritional philosophies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing CTA -->
+    <section class="section" style="background:var(--primary);color:white;text-align:center">
+      <div class="container">
+        <h2 style="color:white;margin-bottom:20px">Ready to transform your business?</h2>
+        <p style="color:rgba(255,255,255,0.9);font-size:1.2rem;margin-bottom:40px">Book a strategy call to discuss which plan is right for your coaching business.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+          💰 Book Strategy Call
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- SUCCESS STORIES PAGE -->
+<div id="success" class="page">
+  <div style="padding-top:100px">
+    <!-- Success Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Success stories from coaches who scaled</h1>
+        <p class="fade-in" style="font-size:1.3rem">Real results from fitness professionals who transformed their businesses with Coach Technology.</p>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section">
+      <div class="container">
+        <div class="case-study fade-in" style="margin-bottom:60px">
+          <div class="case-study-header">
+            <h3>Maria Rodriguez - Personal Trainer</h3>
+            <p>Barcelona-based fitness influencer with 50K Instagram followers</p>
+          </div>
+          <div class="case-study-stats">
+            <div class="case-stat">
+              <h4>20 → 200+</h4>
+              <p>Monthly Clients</p>
+            </div>
+            <div class="case-stat">
+              <h4>€3K → €9K</h4>
+              <p>Monthly Revenue</p>
+            </div>
+            <div class="case-stat">
+              <h4>6 months</h4>
+              <p>Time to Scale</p>
+            </div>
+          </div>
+          <div style="padding:40px;background:var(--surface)">
+            <p style="font-style:italic;font-size:1.1rem;margin-bottom:20px">"I was stuck at 20 clients because I couldn't handle more one-on-one sessions. Coach Technology let me serve 200+ clients with the same personal attention. My followers love getting coached by 'me' 24/7, and I love the predictable income."</p>
+            <p><strong>Key Success Factors:</strong> Leveraged existing social media following, maintained personal brand voice, focused on serving broader audience while keeping premium 1-on-1 services for top clients.</p>
+          </div>
+        </div>
+
+        <div class="case-study fade-in" style="margin-bottom:60px">
+          <div class="case-study-header">
+            <h3>PowerFit Gym Chain</h3>
+            <p>5-location gym chain in Madrid metropolitan area</p>
+          </div>
+          <div class="case-study-stats">
+            <div class="case-stat">
+              <h4>60% → 89%</h4>
+              <p>Member Retention</p>
+            </div>
+            <div class="case-stat">
+              <h4>300%</h4>
+              <p>Engagement Increase</p>
+            </div>
+            <div class="case-stat">
+              <h4>€50K</h4>
+              <p>Additional Monthly Revenue</p>
+            </div>
+          </div>
+          <div style="padding:40px;background:var(--surface)">
+            <p style="font-style:italic;font-size:1.1rem;margin-bottom:20px">"We integrated Coach Technology across all locations. Members now get personalized coaching even when trainers aren't available. Retention went from 60% to 89%, and we're generating €50K additional monthly revenue from coaching subscriptions."</p>
+            <p><strong>Key Success Factors:</strong> Standardized coaching methodology across locations, 24/7 member support, reduced trainer workload while improving member experience.</p>
+          </div>
+        </div>
+
+        <div class="case-study fade-in" style="margin-bottom:60px">
+          <div class="case-study-header">
+            <h3>James Davis - Fitness Influencer</h3>
+            <p>UK-based fitness YouTuber with 200K subscribers</p>
+          </div>
+          <div class="case-study-stats">
+            <div class="case-stat">
+              <h4>€2K → €15K</h4>
+              <p>Monthly Revenue</p>
+            </div>
+            <div class="case-stat">
+              <h4>500+</h4>
+              <p>Active Clients</p>
+            </div>
+            <div class="case-stat">
+              <h4>4 months</h4>
+              <p>Time to Scale</p>
+            </div>
+          </div>
+          <div style="padding:40px;background:var(--surface)">
+            <p style="font-style:italic;font-size:1.1rem;margin-bottom:20px">"I was making decent money from YouTube ads and sponsorships, but it wasn't predictable. Now I have 500+ subscribers paying monthly for personalized coaching. It's transformed my business from unpredictable ad revenue to steady recurring income."</p>
+            <p><strong>Key Success Factors:</strong> Converted YouTube audience to paying subscribers, created recurring revenue model, maintained content creation while scaling coaching business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- More Testimonials -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">What coaches are saying</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial fade-in">
+            <p class="testimonial-content">The platform captures my exact methodology perfectly. Clients often tell me they feel like they're really talking to me. The revenue growth has been incredible.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">LC</div>
+              <div class="testimonial-info">
+                <h5>Laura Chen</h5>
+                <p>CrossFit Coach, Amsterdam</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial fade-in">
+            <p class="testimonial-content">I was skeptical about AI coaching, but this is different. It's like having hundreds of mini-versions of me helping people achieve their fitness goals.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MJ</div>
+              <div class="testimonial-info">
+                <h5>Marcus Johnson</h5>
+                <p>Nutrition Coach, Berlin</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial fade-in">
+            <p class="testimonial-content">My clients love the 24/7 support. They can ask questions about form, motivation, or nutrition anytime and get my expertise immediately.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SF</div>
+              <div class="testimonial-info">
+                <h5>Sophie Fisher</h5>
+                <p>Personal Trainer, Paris</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial fade-in">
+            <p class="testimonial-content">Best business decision I've made. I'm helping more people than ever while working fewer hours and earning more money.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RG</div>
+              <div class="testimonial-info">
+                <h5>Roberto Garcia</h5>
+                <p>Fitness Influencer, Barcelona</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success CTA -->
+    <section class="section" style="background:var(--primary);color:white;text-align:center">
+      <div class="container">
+        <h2 style="color:white;margin-bottom:20px">Ready to join their success?</h2>
+        <p style="color:rgba(255,255,255,0.9);font-size:1.2rem;margin-bottom:40px">Book a strategy call to discuss how Coach Technology can transform your fitness business.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+          🌟 Start Your Success Story
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <div style="padding-top:100px">
+    <!-- About Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">About Coach Technology</h1>
+        <p class="fade-in" style="font-size:1.3rem;max-width:800px;margin:0 auto">We're on a mission to help fitness professionals scale their expertise and impact without sacrificing the personal touch that makes their coaching special.</p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+          <div class="fade-in">
+            <h2>Our Mission</h2>
+            <p>Every great fitness coach has a unique methodology, a special way of motivating clients, and years of hard-earned wisdom. But traditional coaching models limit how many people they can help.</p>
+            <p>We built Coach Technology to break that limitation. Our platform captures your expertise, your communication style, and your proven methodologies, then delivers them to hundreds of clients simultaneously — all while maintaining the personal connection that makes your coaching effective.</p>
+            <p>We believe exceptional coaches shouldn't have to choose between scaling their business and maintaining quality. With the right technology, you can do both.</p>
+          </div>
+          <div class="fade-in" style="background:var(--primary);border-radius:var(--radius);padding:40px;color:white;text-align:center">
+            <h3 style="color:white;margin-bottom:20px">Our Impact</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">500+</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Coaches Scaled</p>
+              </div>
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">50K+</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Clients Coached</p>
+              </div>
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">€10M+</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Revenue Generated</p>
+              </div>
+              <div>
+                <h4 style="color:white;font-size:2.5rem;margin-bottom:8px">25</h4>
+                <p style="color:rgba(255,255,255,0.9);margin:0">Countries Served</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Meet the team</h2>
+        <p class="fade-in">Fitness professionals, technologists, and business experts working together to revolutionize personal training.</p>
+        <div class="team-grid">
+          <div class="team-member fade-in">
+            <div class="team-avatar">DM</div>
+            <h4>David Martinez</h4>
+            <p class="role">Co-Founder & CEO</p>
+            <p>Former personal trainer turned tech entrepreneur. 10+ years in fitness industry, scaled 3 successful coaching businesses.</p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">PR</div>
+            <h4>Pol Ruiz</h4>
+            <p class="role">Co-Founder & CPO</p>
+            <p>Product visionary with background in fitness tech. Previously built coaching platforms serving 10,000+ trainers globally.</p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">SC</div>
+            <h4>Sarah Chen</h4>
+            <p class="role">Head of Technology</p>
+            <p>AI expert specializing in natural language processing. PhD in Computer Science, former Apple engineer.</p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">MJ</div>
+            <h4>Marcus Johnson</h4>
+            <p class="role">Head of Coach Success</p>
+            <p>Certified personal trainer and business coach. Helps fitness professionals scale and optimize their coaching businesses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Our Values</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎯</div>
+            <h3>Coach-First</h3>
+            <p>Every decision we make puts coaches first. We're building tools that amplify your expertise, not replace your human touch.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy & Trust</h3>
+            <p>Your methodologies and client data are yours. We never share, sell, or use your information for anything other than serving your clients.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📈</div>
+            <h3>Measurable Impact</h3>
+            <p>We're obsessed with results. Every feature we build is designed to increase your revenue, improve client outcomes, or save you time.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🤝</div>
+            <h3>Partnership</h3>
+            <p>We're not just a software provider — we're your technology partner. We succeed when you succeed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About CTA -->
+    <section class="section" style="background:var(--primary);color:white;text-align:center">
+      <div class="container">
+        <h2 style="color:white;margin-bottom:20px">Ready to join our mission?</h2>
+        <p style="color:rgba(255,255,255,0.9);font-size:1.2rem;margin-bottom:40px">Let's discuss how we can help you scale your coaching expertise and impact more lives.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+          👋 Let's Talk
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- RESOURCES PAGE -->
+<div id="resources" class="page">
+  <div style="padding-top:100px">
+    <!-- Resources Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Resources for coaches</h1>
+        <p class="fade-in" style="font-size:1.3rem">Guides, case studies, and insights to help you build and scale your coaching business.</p>
+      </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid">
+          <article class="blog-post fade-in">
+            <div class="blog-image">📊 Business Guide</div>
+            <div class="blog-content">
+              <div class="blog-meta">March 3, 2026 • 8 min read</div>
+              <h4>How to Price Your Online Coaching Services</h4>
+              <p>The complete guide to pricing strategies that maximize revenue while delivering exceptional value to your clients. Includes pricing calculators and market research.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">🚀 Scaling Tips</div>
+            <div class="blog-content">
+              <div class="blog-meta">March 1, 2026 • 12 min read</div>
+              <h4>5 Coaches Who Scaled from 20 to 200+ Clients</h4>
+              <p>In-depth case studies of successful coaches who used technology to scale their businesses without losing the personal touch that made them successful.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">💡 Strategy</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 28, 2026 • 6 min read</div>
+              <h4>The Future of Personal Training: Technology + Human Touch</h4>
+              <p>Why the best coaches are using technology to amplify their expertise rather than replace human connection. Plus predictions for the fitness industry.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">📱 Tech Guide</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 25, 2026 • 10 min read</div>
+              <h4>WhatsApp for Fitness Coaches: Complete Setup Guide</h4>
+              <p>Step-by-step guide to using WhatsApp Business for client communication, including automation tips, boundary setting, and professional messaging.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">📈 Analytics</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 22, 2026 • 7 min read</div>
+              <h4>Client Retention Metrics That Actually Matter</h4>
+              <p>The key performance indicators every fitness professional should track, and how to use data to improve client outcomes and business performance.</p>
+            </div>
+          </article>
+
+          <article class="blog-post fade-in">
+            <div class="blog-image">🎯 Marketing</div>
+            <div class="blog-content">
+              <div class="blog-meta">February 20, 2026 • 9 min read</div>
+              <h4>Content Marketing for Fitness Professionals</h4>
+              <p>How to create valuable content that attracts ideal clients and builds trust in your expertise. Includes content calendar templates and topic ideas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free Resources -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Free resources</h2>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📋</div>
+            <h3>Client Onboarding Checklist</h3>
+            <p>Complete checklist for onboarding new coaching clients, including assessment forms, goal-setting frameworks, and expectation-setting templates.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:16px">Download Free</a>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💰</div>
+            <h3>Pricing Calculator</h3>
+            <p>Interactive tool to help you determine optimal pricing for your coaching services based on your market, experience level, and business goals.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:16px">Use Calculator</a>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h3>Business Growth Template</h3>
+            <p>Comprehensive spreadsheet template for tracking client progress, revenue, retention rates, and other key business metrics.</p>
+            <a href="#" class="btn btn-secondary" style="margin-top:16px">Get Template</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="fade-in">Stay updated</h2>
+        <p class="fade-in">Get weekly insights on scaling your coaching business delivered to your inbox.</p>
+        <div style="max-width:500px;margin:40px auto;background:white;padding:40px;border-radius:var(--radius);box-shadow:var(--shadow)">
+          <div class="form-group">
+            <input type="email" placeholder="Enter your email" style="margin-bottom:20px">
+            <button class="btn" style="width:100%">Subscribe to Newsletter</button>
+          </div>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin:16px 0 0 0">No spam. Unsubscribe at any time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources CTA -->
+    <section class="section" style="background:var(--primary);color:white;text-align:center">
+      <div class="container">
+        <h2 style="color:white;margin-bottom:20px">Ready to scale your coaching business?</h2>
+        <p style="color:rgba(255,255,255,0.9);font-size:1.2rem;margin-bottom:40px">Book a strategy call to learn how Coach Technology can help you serve more clients without working more hours.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+          📚 Book Strategy Call
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+  <div style="padding-top:100px">
+    <!-- Contact Hero -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 class="fade-in">Get in touch</h1>
+        <p class="fade-in" style="font-size:1.3rem">Ready to transform your coaching business? Let's discuss how Coach Technology can help you scale.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="fade-in">
+            <h2>Send us a message</h2>
+            <form>
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" required>
+              </div>
+              <div class="form-group">
+                <label>Phone (optional)</label>
+                <input type="tel">
+              </div>
+              <div class="form-group">
+                <label>Current Clients</label>
+                <select>
+                  <option>1-10 clients</option>
+                  <option>11-50 clients</option>
+                  <option>51-100 clients</option>
+                  <option>100+ clients</option>
+                  <option>I'm a gym/studio owner</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea rows="5" placeholder="Tell us about your coaching business and goals..."></textarea>
+              </div>
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+
+          <div class="contact-info fade-in">
+            <h3 style="margin-bottom:32px">Other ways to reach us</h3>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📅</div>
+              <div>
+                <h4>Book a Demo</h4>
+                <p>Schedule a 15-minute call to see the platform in action</p>
+                <a href="https://cal.eu/polruiz/15min" target="_blank" style="color:var(--primary);font-weight:600">Book Demo Call</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <h4>Email</h4>
+                <p>General inquiries</p>
+                <a href="mailto:hello@coach-technology.com" style="color:var(--primary);font-weight:600">hello@coach-technology.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div>
+                <h4>Sales</h4>
+                <p>Enterprise and partnerships</p>
+                <a href="mailto:sales@coach-technology.com" style="color:var(--primary);font-weight:600">sales@coach-technology.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🛠️</div>
+              <div>
+                <h4>Support</h4>
+                <p>Technical assistance</p>
+                <a href="mailto:support@coach-technology.com" style="color:var(--primary);font-weight:600">support@coach-technology.com</a>
+              </div>
+            </div>
+
+            <div style="margin-top:40px;padding:24px;background:var(--primary);border-radius:var(--radius);color:white;text-align:center">
+              <h4 style="color:white;margin-bottom:12px">Quick Response Promise</h4>
+              <p style="color:rgba(255,255,255,0.9);margin:0">We respond to all inquiries within 4 hours during business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background:var(--surface)">
+      <div class="container text-center">
+        <h2 class="fade-in">Common questions</h2>
+        <div style="max-width:800px;margin:40px auto;text-align:left">
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">How long does it take to get started?</h4>
+            <p style="margin:0">Most coaches are up and running within 2-3 weeks from our initial strategy call.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">Do you offer free trials?</h4>
+            <p style="margin:0">We offer comprehensive demos and will create a sample of your coaching style for you to test before you commit.</p>
+          </div>
+          <div style="margin-bottom:24px;padding:24px;background:white;border-radius:var(--radius);box-shadow:var(--shadow)">
+            <h4 style="margin-bottom:12px">What if I'm not tech-savvy?</h4>
+            <p style="margin:0">No problem! We handle all the technical setup and provide full training. If you can use WhatsApp, you can use our platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section" style="background:var(--primary);color:white;text-align:center">
+      <div class="container">
+        <h2 style="color:white;margin-bottom:20px">Ready to get started?</h2>
+        <p style="color:rgba(255,255,255,0.9);font-size:1.2rem;margin-bottom:40px">The fastest way to see if Coach Technology is right for you is to book a quick demo call.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" style="background:white;color:var(--primary)" target="_blank">
+          🚀 Book Demo Call
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Coach Technology</h4>
+        <p style="color:#ccc;margin-bottom:20px">Scale your coaching expertise with intelligent technology that delivers personalized guidance to hundreds of clients.</p>
+        <a href="https://cal.eu/polruiz/15min" class="btn" target="_blank">Book Demo</a>
+      </div>
+      <div class="footer-section">
+        <h4>Product</h4>
+        <a href="#" onclick="showPage('product')">Features</a>
+        <a href="#" onclick="showPage('pricing')">Pricing</a>
+        <a href="#" onclick="showPage('success')">Success Stories</a>
+        <a href="#">Security</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#">Careers</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+        <a href="#">Press Kit</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="#" onclick="showPage('resources')">Blog</a>
+        <a href="#">Help Center</a>
+        <a href="#">API Documentation</a>
+        <a href="#">System Status</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">GDPR</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Coach Technology. All rights reserved. Made with ❤️ for fitness professionals.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+// Page Navigation
+function showPage(pageId) {
+  // Hide all pages
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => page.classList.remove('active'));
+  
+  // Show selected page
+  document.getElementById(pageId).classList.add('active');
+  
+  // Update nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => link.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+  
+  // Add fade-in animation to new content
+  setTimeout(() => {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach((el, index) => {
+      el.style.animationDelay = (index * 0.1) + 's';
+      el.classList.add('fade-in');
+    });
+  }, 50);
+}
+
+// Mobile Navigation
+function toggleMobileNav() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+
+// ROI Calculator
+function calculateROI() {
+  const currentClients = parseInt(document.getElementById('currentClients').value) || 0;
+  const avgRevenue = parseInt(document.getElementById('avgRevenue').value) || 0;
+  
+  const currentRevenue = currentClients * avgRevenue;
+  const potentialClients = currentClients * 10; // 10x scale potential
+  const newRevenue = potentialClients * 39; // €39 per client
+  const increase = ((newRevenue - currentRevenue) / currentRevenue * 100).toFixed(0);
+  
+  document.getElementById('newClients').textContent = potentialClients;
+  document.getElementById('newRevenue').textContent = '€' + newRevenue.toLocaleString();
+  document.getElementById('increase').textContent = '+' + increase + '% Revenue Increase';
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize ROI calculator
+  calculateROI();
+  
+  // Add fade-in animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = '0s';
+        entry.target.classList.add('fade-in');
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all fade-in elements
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+});
+
+// Form handling
+document.addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for your message! We\'ll get back to you within 4 hours.');
+});
+
+// Navigation scroll effect
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(255,255,255,0.98)';
+  } else {
+    nav.style.background = 'rgba(255,255,255,0.95)';
+  }
+});
+</script>
+
+</body>
+</html>
