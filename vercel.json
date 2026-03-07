@@ -1,64 +1,54 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "coach-technology.com"}],
-      "destination": "/coachiq/$1",
-      "permanent": false
+      "destination": "/coachiq/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "www.coach-technology.com"}],
-      "destination": "/coachiq/$1",
-      "permanent": false
+      "destination": "/coachiq/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "chatscalers.com"}],
-      "destination": "/fanscale/$1",
-      "permanent": false
+      "destination": "/fanscale/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "www.chatscalers.com"}],
-      "destination": "/fanscale/$1",
-      "permanent": false
+      "destination": "/fanscale/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "autopilot-seo.com"}],
-      "destination": "/rankpilot/$1",
-      "permanent": false
+      "destination": "/rankpilot/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "www.autopilot-seo.com"}],
-      "destination": "/rankpilot/$1",
-      "permanent": false
+      "destination": "/rankpilot/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "retenpro.com"}],
-      "destination": "/retenpro/$1",
-      "permanent": false
+      "destination": "/retenpro/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "www.retenpro.com"}],
-      "destination": "/retenpro/$1",
-      "permanent": false
+      "destination": "/retenpro/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "analitikai.com"}],
-      "destination": "/instant-strategy/$1",
-      "permanent": false
+      "destination": "/instant-strategy/$1"
     },
     {
       "source": "/(.*)",
       "has": [{"type": "host", "value": "www.analitikai.com"}],
-      "destination": "/instant-strategy/$1",
-      "permanent": false
+      "destination": "/instant-strategy/$1"
     }
   ]
 }
