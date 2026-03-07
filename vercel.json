@@ -1,1 +1,64 @@
-{"redirects":[{"source":"/(.*)","has":[{"type":"host","value":"coach-technology.com"}],"destination":"/coach-technology/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"www.coach-technology.com"}],"destination":"/coach-technology/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"chatscalers.com"}],"destination":"/chatscalers/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"www.chatscalers.com"}],"destination":"/chatscalers/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"autopilot-seo.com"}],"destination":"/autopilot-seo/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"www.autopilot-seo.com"}],"destination":"/autopilot-seo/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"retenpro.com"}],"destination":"/retenpro/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"www.retenpro.com"}],"destination":"/retenpro/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"analitikai.com"}],"destination":"/instant-strategy/$1","permanent":false},{"source":"/(.*)","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/$1","permanent":false}]}
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "coach-technology.com"}],
+      "destination": "/coachiq/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.coach-technology.com"}],
+      "destination": "/coachiq/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "chatscalers.com"}],
+      "destination": "/fanscale/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.chatscalers.com"}],
+      "destination": "/fanscale/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "autopilot-seo.com"}],
+      "destination": "/rankpilot/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.autopilot-seo.com"}],
+      "destination": "/rankpilot/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "retenpro.com"}],
+      "destination": "/retenpro/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.retenpro.com"}],
+      "destination": "/retenpro/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "analitikai.com"}],
+      "destination": "/instant-strategy/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.analitikai.com"}],
+      "destination": "/instant-strategy/$1",
+      "permanent": false
+    }
+  ]
+}
