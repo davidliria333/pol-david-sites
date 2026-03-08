@@ -2,102 +2,102 @@
   "rewrites": [
     {
       "source": "/",
-      "has": [{"type": "host", "value": "coach-technology.com"}],
+      "has": [{ "type": "host", "value": "coach-technology.com" }],
       "destination": "/coachiq/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "coach-technology.com"}],
+      "has": [{ "type": "host", "value": "coach-technology.com" }],
       "destination": "/coachiq/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "www.coach-technology.com"}],
+      "has": [{ "type": "host", "value": "www.coach-technology.com" }],
       "destination": "/coachiq/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "www.coach-technology.com"}],
+      "has": [{ "type": "host", "value": "www.coach-technology.com" }],
       "destination": "/coachiq/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "chatscalers.com"}],
+      "has": [{ "type": "host", "value": "chatscalers.com" }],
       "destination": "/fanscale/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "chatscalers.com"}],
+      "has": [{ "type": "host", "value": "chatscalers.com" }],
       "destination": "/fanscale/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "www.chatscalers.com"}],
+      "has": [{ "type": "host", "value": "www.chatscalers.com" }],
       "destination": "/fanscale/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "www.chatscalers.com"}],
+      "has": [{ "type": "host", "value": "www.chatscalers.com" }],
       "destination": "/fanscale/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "autopilot-seo.com"}],
+      "has": [{ "type": "host", "value": "autopilot-seo.com" }],
       "destination": "/rankpilot/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "autopilot-seo.com"}],
+      "has": [{ "type": "host", "value": "autopilot-seo.com" }],
       "destination": "/rankpilot/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "www.autopilot-seo.com"}],
+      "has": [{ "type": "host", "value": "www.autopilot-seo.com" }],
       "destination": "/rankpilot/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "www.autopilot-seo.com"}],
+      "has": [{ "type": "host", "value": "www.autopilot-seo.com" }],
       "destination": "/rankpilot/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "retenpro.com"}],
+      "has": [{ "type": "host", "value": "retenpro.com" }],
       "destination": "/retenpro/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "retenpro.com"}],
+      "has": [{ "type": "host", "value": "retenpro.com" }],
       "destination": "/retenpro/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "www.retenpro.com"}],
+      "has": [{ "type": "host", "value": "www.retenpro.com" }],
       "destination": "/retenpro/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "www.retenpro.com"}],
+      "has": [{ "type": "host", "value": "www.retenpro.com" }],
       "destination": "/retenpro/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "analitikai.com"}],
+      "has": [{ "type": "host", "value": "analitikai.com" }],
       "destination": "/instant-strategy/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "analitikai.com"}],
+      "has": [{ "type": "host", "value": "analitikai.com" }],
       "destination": "/instant-strategy/$1"
     },
     {
       "source": "/",
-      "has": [{"type": "host", "value": "www.analitikai.com"}],
+      "has": [{ "type": "host", "value": "www.analitikai.com" }],
       "destination": "/instant-strategy/index.html"
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "host", "value": "www.analitikai.com"}],
+      "has": [{ "type": "host", "value": "www.analitikai.com" }],
       "destination": "/instant-strategy/$1"
     }
   ]
