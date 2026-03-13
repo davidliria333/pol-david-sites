@@ -168,7 +168,7 @@
                     "value": "analitikai.com"
                 }
             ],
-            "destination": "/instant-strategy/index-v3.html"
+            "destination": "/instant-strategy/clean.html"
         },
         {
             "source": "/(.*)",
@@ -188,7 +188,7 @@
                     "value": "www.analitikai.com"
                 }
             ],
-            "destination": "/instant-strategy/index-v3.html"
+            "destination": "/instant-strategy/clean.html"
         },
         {
             "source": "/(.*)",
