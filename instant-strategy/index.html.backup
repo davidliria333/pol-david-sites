@@ -973,157 +973,182 @@
             }
         }
 
-        /* Before/After Toggle Styles */
+        /* Setup AI Style Before/After Toggle */
         .before-after-toggle {
             position: fixed;
-            bottom: 32px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--white);
-            border: 1px solid var(--border-light);
-            border-radius: 50px;
-            padding: 6px;
-            display: flex;
-            box-shadow: var(--shadow-medium);
             z-index: 1000;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
+            padding-bottom: env(safe-area-inset-bottom);
         }
         
-        .toggle-option {
-            padding: 12px 24px;
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(26, 32, 44, 0.1);
             border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            min-width: 80px;
-            text-align: center;
-            user-select: none;
+            padding: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            animation: fade-in-up 0.6s ease-out;
         }
         
-        .toggle-option.active {
+        .toggle-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: rgba(26, 32, 44, 0.05);
+            border-radius: 50px;
+            padding: 2px;
+            height: 40px;
+        }
+        
+        .toggle-indicator {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            height: 36px;
+            width: 84px;
             background: var(--accent-blue);
-            color: white;
+            border-radius: 50px;
+            transition: transform 0.2s ease-out;
             box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
         }
         
-        .toggle-option:not(.active) {
-            color: var(--text-secondary);
+        .toggle-option {
+            position: relative;
+            z-index: 10;
+            height: 36px;
+            width: 84px;
+            border-radius: 50px;
+            border: none;
             background: transparent;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            font-family: 'Inter', sans-serif;
         }
         
-        .toggle-option:not(.active):hover {
+        .toggle-option.active {
+            color: white;
+        }
+        
+        .toggle-option:not(.active) {
+            color: #64748B;
+        }
+        
+        .toggle-option:hover:not(.active) {
             color: var(--accent-blue);
-            background: rgba(43, 108, 176, 0.1);
         }
         
-        /* State transition styles */
-        .state-transitioning {
-            transition: all 0.5s ease;
+        .toggle-indicator.after {
+            transform: translateX(84px);
         }
         
-        .state-transitioning .hero-content,
-        .state-transitioning .floating-tools-content,
-        .state-transitioning .process-step,
-        .state-transitioning .output-metric,
-        .state-transitioning .tool-badge {
-            transition: all 0.5s ease;
+        /* Content State Containers - Setup AI Style */
+        .content-state-container {
+            position: relative;
+            width: 100%;
         }
         
-        /* BEFORE state styles (problematic theme) */
-        body.before-state {
-            --bg-primary: #F7F8FA;
-            --text-primary: #2D3748;
-            --text-secondary: #4A5568;
-            --accent-blue: #4A5568;
-            --accent-blue-dark: #2D3748;
-            --accent-blue-light: #718096;
+        .content-state {
+            transition: opacity 0.5s ease-out;
+            width: 100%;
         }
         
-        body.before-state .section-hero {
+        .content-state.before-content {
+            position: relative;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .content-state.after-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* When AFTER is active */
+        body.after-active .content-state.before-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        body.after-active .content-state.after-content {
+            opacity: 1;
+            pointer-events: auto;
+            position: relative;
+        }
+        
+        /* Background color transitions */
+        .content-state {
+            transition: all 0.5s ease-out;
+        }
+        
+        .content-state.before-content {
+            background-color: #FAFBFD;
+        }
+        
+        .content-state.after-content {
+            background-color: #FAF8F4;
+        }
+        
+        /* Section background transitions */
+        .section-hero.before-content {
             background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
         }
         
-        body.before-state .floating-tools {
+        .section-hero.after-content {
+            background: linear-gradient(135deg, #1A202C 0%, #2C5282 100%);
+        }
+        
+        .floating-tools.before-content {
             background: linear-gradient(135deg, #f7f8fa 0%, #edf2f7 100%);
         }
         
-        body.before-state .tools-cluster {
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 8px;
-            max-width: none;
-            margin-left: 0;
+        .floating-tools.after-content {
+            background: linear-gradient(135deg, #faf8f4 0%, #f1f5f9 100%);
         }
         
-        body.before-state .tool-badge {
-            background: rgba(248, 248, 248, 0.7);
-            color: #9CA3AF;
-            border: 1px solid rgba(209, 213, 219, 0.6);
-            transform: rotate(-2deg);
-            opacity: 0.7;
-        }
-        
-        body.before-state .tool-badge:nth-child(even) {
-            transform: rotate(1deg);
-        }
-        
-        body.before-state .tool-badge:nth-child(3n) {
-            transform: rotate(-1deg);
-        }
-        
-        /* AFTER state styles (optimized theme) */
-        body.after-state {
-            --bg-primary: #FAFBFD;
-            --text-primary: #1A202C;
-            --text-secondary: #4A5568;
-            --accent-blue: #2B6CB0;
-            --accent-blue-dark: #2C5282;
-            --accent-blue-light: #3182CE;
-        }
-        
-        body.after-state .section-hero {
-            background: linear-gradient(135deg, var(--gray-900) 0%, var(--accent-blue-dark) 100%);
-        }
-        
-        body.after-state .floating-tools {
-            background: linear-gradient(135deg, #fafbfd 0%, #f1f5f9 100%);
-        }
-        
-        body.after-state .tools-cluster {
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        body.after-state .tool-badge {
-            background: rgba(255, 255, 255, 0.95);
-            color: #64748B;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transform: rotate(0deg);
-            opacity: 1;
-        }
-        
-        body.after-state .tool-badge:hover {
-            transform: translateY(-2px) scale(1.02);
+        /* Animation for toggle entrance */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px) translateX(-50%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateX(-50%);
+            }
         }
         
         /* Mobile responsive toggle */
         @media (max-width: 768px) {
             .before-after-toggle {
                 bottom: 20px;
+            }
+            
+            .toggle-container {
                 scale: 0.9;
             }
             
             .toggle-option {
-                padding: 10px 20px;
+                width: 75px;
                 font-size: 13px;
-                min-width: 70px;
+            }
+            
+            .toggle-indicator {
+                width: 75px;
+            }
+            
+            .toggle-indicator.after {
+                transform: translateX(75px);
             }
         }
 
@@ -1189,38 +1214,67 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
-        <section id="inicio" class="section-hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge fade-in">
-                        <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
-                        Excelencia en Investigación Profesional
+        <section id="inicio" class="content-state-container">
+            <!-- BEFORE Content -->
+            <div class="content-state before-content">
+                <div class="section-hero before-content">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-badge fade-in">
+                                <span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>
+                                Procesos Ineficientes Costosos
+                            </div>
+                            
+                            <h1 class="hero-title fade-in">
+                                Estás perdiendo tiempo con decisiones basadas en datos
+                            </h1>
+                            
+                            <p class="hero-subtitle fade-in">
+                                Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros...
+                            </p>
+                            
+                            <div class="hero-buttons fade-in">
+                                <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary">
+                                    <span>¿Cansado de esperar semanas por análisis?</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="#metodologia" class="btn-secondary">
+                                    Ver alternativas
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <h1 class="hero-title fade-in" 
-                        data-before="Estás perdiendo tiempo con decisiones basadas en datos"
-                        data-after="AnalitikAI">
-                        Estás perdiendo tiempo con decisiones basadas en datos
-                    </h1>
-                    
-                    <p class="hero-subtitle fade-in"
-                       data-before="Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros..."
-                       data-after="Investigación y análisis de nivel consultora entregados en <strong>48 horas</strong> vs 2-4 semanas. Para servicios profesionales que necesitan resultados, no promesas.">
-                        Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros...
-                    </p>
-                    
-                    <div class="hero-buttons fade-in">
-                        <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary"
-                           data-before="¿Cansado de esperar semanas por análisis?"
-                           data-after="Empezar Ahora">
-                            <span>¿Cansado de esperar semanas por análisis?</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#metodologia" class="btn-secondary"
-                           data-before="Ver alternativas"
-                           data-after="Nuestra Metodología">
-                            Ver alternativas
-                        </a>
+                </div>
+            </div>
+            
+            <!-- AFTER Content -->
+            <div class="content-state after-content">
+                <div class="section-hero after-content">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-badge fade-in">
+                                <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
+                                Excelencia en Investigación Profesional
+                            </div>
+                            
+                            <h1 class="hero-title fade-in">
+                                AnalitikAI
+                            </h1>
+                            
+                            <p class="hero-subtitle fade-in">
+                                Investigación y análisis de nivel consultora entregados en <strong>48 horas</strong> vs 2-4 semanas. Para servicios profesionales que necesitan resultados, no promesas.
+                            </p>
+                            
+                            <div class="hero-buttons fade-in">
+                                <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary">
+                                    <span>Empezar Ahora</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="#metodologia" class="btn-secondary">
+                                    Nuestra Metodología
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1229,14 +1283,19 @@
         <!-- Problem Section -->
         <section id="problema" class="section section-problem">
             <div class="container">
-                <h2 class="section-title fade-in">El Desafío</h2>
-                <div class="problem-statement fade-in">
+                <h2 class="section-title fade-in"
+                    data-before="El Problema Real"
+                    data-after="La Solución">El Problema Real</h2>
+                <div class="problem-statement fade-in"
+                     data-before='"Todo el mundo vende analytics. Nadie pregunta qué necesitas realmente."'
+                     data-after='"AnalitikAI entiende tu contexto y entrega exactamente lo que necesitas."'>
                     "Todo el mundo vende analytics. Nadie pregunta qué necesitas realmente."
                 </div>
                 
-                <p class="section-subtitle fade-in" style="margin-top: 48px;">
-                    Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, 
-                    mientras los clientes esperan análisis que debería tomar horas, no semanas.
+                <p class="section-subtitle fade-in" style="margin-top: 48px;"
+                   data-before="Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, mientras los clientes esperan análisis que debería tomar horas, no semanas."
+                   data-after="Con AnalitikAI, transforms las semanas de investigación manual en horas de análisis automatizado, entregando a tus clientes exactamente lo que necesitan cuando lo necesitan.">
+                    Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, mientras los clientes esperan análisis que debería tomar horas, no semanas.
                 </p>
             </div>
         </section>
@@ -1307,10 +1366,15 @@
                         <div class="process-icon">
                             <i class="fas fa-ear-listen"></i>
                         </div>
-                        <h3 class="process-title">Comprensión Profunda</h3>
-                        <p class="process-description">
-                            Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, 
-                            inteligencia competitiva. Sin jerga técnica, solo resultados accionables.
+                        <h3 class="process-title"
+                            data-before="Procesos Manuales Lentos"
+                            data-after="Comprensión Profunda">
+                            Procesos Manuales Lentos
+                        </h3>
+                        <p class="process-description"
+                           data-before="Tu equipo pierde semanas buscando información dispersa, revisando documentos manualmente, y tratando de dar sentido a datos desorganizados."
+                           data-after="Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, inteligencia competitiva. Sin jerga técnica, solo resultados accionables.">
+                            Tu equipo pierde semanas buscando información dispersa, revisando documentos manualmente, y tratando de dar sentido a datos desorganizados.
                         </p>
                     </div>
                     
@@ -1318,10 +1382,15 @@
                         <div class="process-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h3 class="process-title">Análisis Experto</h3>
-                        <p class="process-description">
-                            Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights 
-                            con la precisión de un equipo de analistas senior.
+                        <h3 class="process-title"
+                            data-before="Análisis Superficial"
+                            data-after="Análisis Experto">
+                            Análisis Superficial
+                        </h3>
+                        <p class="process-description"
+                           data-before="Consultores tradicionales cobran tarifas premium por trabajo que podría automatizarse, entregando análisis genéricos que no aportan valor real."
+                           data-after="Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights con la precisión de un equipo de analistas senior.">
+                            Consultores tradicionales cobran tarifas premium por trabajo que podría automatizarse, entregando análisis genéricos que no aportan valor real.
                         </p>
                     </div>
                     
@@ -1329,10 +1398,15 @@
                         <div class="process-icon">
                             <i class="fas fa-rocket"></i>
                         </div>
-                        <h3 class="process-title">Entrega Premium</h3>
-                        <p class="process-description">
-                            Informes ejecutivos listos para presentar a clientes, con datos accionables 
-                            y recomendaciones estratégicas. En 48 horas garantizadas.
+                        <h3 class="process-title"
+                            data-before="Retrasos Constantes"
+                            data-after="Entrega Premium">
+                            Retrasos Constantes
+                        </h3>
+                        <p class="process-description"
+                           data-before="Tus clientes esperan semanas por informes básicos. Los plazos se extienden, la calidad es inconsistente, y pierdes oportunidades de negocio."
+                           data-after="Informes ejecutivos listos para presentar a clientes, con datos accionables y recomendaciones estratégicas. En 48 horas garantizadas.">
+                            Tus clientes esperan semanas por informes básicos. Los plazos se extienden, la calidad es inconsistente, y pierdes oportunidades de negocio.
                         </p>
                     </div>
                 </div>
@@ -1445,15 +1519,20 @@
                             <div style="width: 52px; height: 52px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
                                 <i class="fas fa-rocket" style="color: white; font-size: 22px;"></i>
                             </div>
-                            <h3 style="font-size: 22px; font-weight: 600; font-family: 'Inter', sans-serif;">Ventaja de Velocidad</h3>
+                            <h3 style="font-size: 22px; font-weight: 600; font-family: 'Inter', sans-serif;"
+                                data-before="Tiempos de Entrega Lentos"
+                                data-after="Ventaja de Velocidad">Tiempos de Entrega Lentos</h3>
                         </div>
-                        <p style="margin-bottom: 28px; opacity: 0.9; font-size: 16px; line-height: 1.7;">
-                            Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. 
-                            Misma calidad profesional, velocidad incomparable.
+                        <p style="margin-bottom: 28px; opacity: 0.9; font-size: 16px; line-height: 1.7;"
+                           data-before="Tus clientes esperan semanas por análisis básicos. Los consultores tradicionales prometen mucho pero tardan en entregar, afectando tu competitividad."
+                           data-after="Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. Misma calidad profesional, velocidad incomparable.">
+                            Tus clientes esperan semanas por análisis básicos. Los consultores tradicionales prometen mucho pero tardan en entregar, afectando tu competitividad.
                         </p>
-                        <div style="text-align: center; padding: 24px 0;">
-                            <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div>
-                            <div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>
+                        <div style="text-align: center; padding: 24px 0;" 
+                             data-before='<div style="font-size: 52px; font-weight: 700; margin-bottom: 12px; color: #EF4444;">2-4 sem</div><div style="opacity: 0.8; font-size: 18px;">tiempo de entrega típico</div>'
+                             data-after='<div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div><div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>'>
+                            <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px; color: #EF4444;">2-4 sem</div>
+                            <div style="opacity: 0.8; font-size: 18px;">tiempo de entrega típico</div>
                         </div>
                     </div>
                 </div>
@@ -1815,11 +1894,15 @@
         <section id="contacto" class="section" style="background: var(--gray-900); color: white;">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 80px;">
-                    <h2 class="section-title fade-in" style="color: white;">
-                        ¿Listo para Acelerar tu Práctica Profesional?
+                    <h2 class="section-title fade-in" style="color: white;"
+                        data-before="¿Cansado de Procesos Ineficientes?"
+                        data-after="¿Listo para Acelerar tu Práctica Profesional?">
+                        ¿Cansado de Procesos Ineficientes?
                     </h2>
-                    <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.85);">
-                        Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.
+                    <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.85);"
+                       data-before="Deja de perder tiempo y dinero en procesos manuales que podrían automatizarse. Es hora de encontrar una mejor forma de trabajar."
+                       data-after="Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.">
+                        Deja de perder tiempo y dinero en procesos manuales que podrían automatizarse. Es hora de encontrar una mejor forma de trabajar.
                     </p>
                     
                     <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;" class="fade-in">
@@ -1848,9 +1931,9 @@
                 <div class="footer-content">
                     <div class="footer-brand">
                         <h3>📊 AnalitikAI</h3>
-                        <p>
-                            Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. 
-                            Para servicios profesionales que necesitan resultados excepcionales, no promesas.
+                        <p data-before="Procesos manuales lentos, consultores caros, clientes insatisfechos. Los servicios profesionales merecen algo mejor que el statu quo."
+                           data-after="Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. Para servicios profesionales que necesitan resultados excepcionales, no promesas.">
+                            Procesos manuales lentos, consultores caros, clientes insatisfechos. Los servicios profesionales merecen algo mejor que el statu quo.
                         </p>
                         <div style="display: flex; gap: 20px;">
                             <a href="https://linkedin.com/company/analitikai" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease; font-size: 20px;">
@@ -1893,6 +1976,17 @@
             </div>
         </footer>
     </main>
+    
+    <!-- Before/After Toggle Button -->
+    <div class="before-after-toggle">
+        <div class="toggle-container">
+            <div class="toggle-group">
+                <div class="toggle-indicator" id="toggle-indicator"></div>
+                <button class="toggle-option active" data-state="before" id="before-btn">Antes</button>
+                <button class="toggle-option" data-state="after" id="after-btn">Después</button>
+            </div>
+        </div>
+    </div>
     
     <script>
         // Sidebar Toggle
@@ -2180,6 +2274,57 @@
         
         // Initialize calculator when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeROICalculator);
+        
+        // Setup AI Style Before/After Toggle Functionality
+        function initializeBeforeAfterToggle() {
+            const toggleButtons = document.querySelectorAll('.toggle-option');
+            const toggleIndicator = document.getElementById('toggle-indicator');
+            const body = document.body;
+            
+            let currentState = 'before';
+            
+            function switchState(targetState) {
+                if (currentState === targetState) return;
+                
+                currentState = targetState;
+                
+                // Update toggle button states
+                toggleButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.state === targetState) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Move indicator
+                if (targetState === 'after') {
+                    toggleIndicator.classList.add('after');
+                    body.classList.add('after-active');
+                } else {
+                    toggleIndicator.classList.remove('after');
+                    body.classList.remove('after-active');
+                }
+            }
+            
+            // Add click listeners to toggle buttons
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetState = button.dataset.state;
+                    switchState(targetState);
+                });
+            });
+            
+            // Initialize with BEFORE state
+            switchState('before');
+        }
+        
+        // Initialize both systems when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeROICalculator();
+            initializeBeforeAfterToggle();
+        });
+        
+        // Remove duplicate toggle functionality - now handled by initializeBeforeAfterToggle()
         
         // Initialize
         updateActiveNav();
