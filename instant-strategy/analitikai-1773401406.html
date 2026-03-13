@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalitikAI - Tu Partner de Investigación</title>
+    
+    <!-- Analytics Logo -->
+    <link rel="icon" href="data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cdefs%3e%3clinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3e%3cstop offset='0%25' style='stop-color:%23374151;stop-opacity:1'/%3e%3cstop offset='100%25' style='stop-color:%236366F1;stop-opacity:1'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect width='32' height='32' rx='6' fill='url(%23grad)'/%3e%3cg fill='white' opacity='0.95'%3e%3cpath d='M6 20h3v6h-3z'/%3e%3cpath d='M11 16h3v10h-3z'/%3e%3cpath d='M16 12h3v14h-3z'/%3e%3cpath d='M21 8h3v18h-3z'/%3e%3ccircle cx='22.5' cy='8' r='1'/%3e%3cpath d='M6 8l4 3 4-2 4-1' stroke='white' stroke-width='1.2' fill='none' opacity='0.8'/%3e%3c/g%3e%3c/svg%3e">
+    
+    <!-- Google Fonts - Space Grotesk + Inter like Setup AI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Setup AI inspired CSS Variables */
+        :root {
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            
+            --color-accent: #6366f1;
+            --color-accent-hover: #4f46e5;
+            
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --space-xs: 16px;
+            --space-sm: 24px;
+            --space-md: 32px;
+            --space-lg: 48px;
+            --space-xl: 64px;
+            --space-2xl: 96px;
+            --space-3xl: 128px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-gray-50);
+            color: var(--color-gray-800);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container System */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        /* Header - Minimal like Setup AI */
+        .header {
+            padding: var(--space-lg) 0 var(--space-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-gray-200);
+            background: var(--color-gray-50);
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-gray-800);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo::before {
+            content: "📊";
+            font-size: 20px;
+        }
+        
+        .cta-button {
+            background: var(--color-accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: 0;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section - Setup AI emotional hook style */
+        .hero {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            background: var(--color-gray-50);
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            line-height: 1.1;
+            color: var(--color-gray-900);
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        /* Section Styling - Setup AI spacing */
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .section-alt {
+            background: white;
+            border-top: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            color: var(--color-gray-900);
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--color-gray-600);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+        }
+        
+        /* Cards - Setup AI elegant style */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: 12px;
+            border: 1px solid var(--color-gray-200);
+            transition: all 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-color: var(--color-gray-300);
+        }
+        
+        .card-number {
+            width: 48px;
+            height: 48px;
+            background: var(--color-accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            margin-bottom: var(--space-md);
+            font-size: 18px;
+        }
+        
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-gray-900);
+        }
+        
+        .card-text {
+            color: var(--color-gray-600);
+            line-height: 1.6;
+        }
+        
+        /* Feature Icons */
+        .card-icon {
+            font-size: 24px;
+            margin-bottom: var(--space-md);
+        }
+        
+        /* CTA Sections - Setup AI style */
+        .cta-section {
+            background: var(--color-gray-900);
+            color: white;
+            text-align: center;
+            padding: var(--space-3xl) 0;
+        }
+        
+        .cta-section .section-title {
+            color: white;
+        }
+        
+        .cta-section .section-subtitle {
+            color: var(--color-gray-300);
+        }
+        
+        .cta-button-white {
+            background: white;
+            color: var(--color-gray-900);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            display: inline-block;
+            margin-top: var(--space-md);
+        }
+        
+        .cta-button-white:hover {
+            background: var(--color-gray-100);
+            transform: translateY(-1px);
+        }
+        
+        /* Footer - Minimal */
+        .footer {
+            background: var(--color-gray-800);
+            color: var(--color-gray-400);
+            padding: var(--space-xl) 0 var(--space-lg);
+            text-align: center;
+        }
+        
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-gray-300);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto var(--space-sm);
+        }
+        
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--color-gray-500);
+        }
+        
+        /* Glossary Sidebar - Setup AI style */
+        .glossary {
+            position: fixed;
+            right: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+            padding: var(--space-sm);
+            width: 200px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            z-index: 100;
+        }
+        
+        .glossary-title {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-gray-800);
+        }
+        
+        .glossary-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-gray-200);
+            font-size: 12px;
+            color: var(--color-gray-600);
+        }
+        
+        .glossary-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .glossary {
+                display: none;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Remove all toggle and state management */
+        /* Pure linear experience only */
+    </style>
+</head>
+<body>
+    <!-- Header - Minimal Setup AI style -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">AnalitikAI</a>
+            <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">Reservar Llamada</a>
+        </div>
+    </header>
+
+    <!-- Hero - Emotional hook like Setup AI -->
+    <section class="hero">
+        <div class="container-narrow">
+            <h1 class="hero-title">Algo no funciona aquí.</h1>
+            <p class="hero-subtitle">
+                Tienes clientes esperando, propuestas acumulándose, y proyectos que requieren investigación profunda. 
+                Pero cada análisis te consume semanas que no tienes. Hay una manera mejor.
+            </p>
+            <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">Hablar con Nosotros</a>
+        </div>
+    </section>
+
+    <!-- Problem - Human frustration focused -->
+    <section class="section">
+        <div class="container-narrow">
+            <h2 class="section-title">La investigación profesional está rota</h2>
+            <p class="section-subtitle">
+                Contratas juniors que no entienden el contexto. Pagas por consultores que facturan por hora. 
+                O pierdes semanas haciéndolo tú mismo mientras otros proyectos se retrasan. 
+                Cada opción te cuesta más de lo que debería.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solution - AnalitikAI as partner -->
+    <section class="section section-alt">
+        <div class="container-narrow">
+            <div style="text-align: center; margin-bottom: var(--space-xl);">
+                <div style="font-size: 48px; margin-bottom: var(--space-md);">📊</div>
+                <h2 class="section-title">AnalitikAI</h2>
+                <p class="section-subtitle">
+                    Tu partner de investigación. Análisis de nivel senior entregados en 48 horas, 
+                    no semanas. Para servicios profesionales que necesitan resultados, no procesos.
+                </p>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">Ver Cómo Funciona</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process - Human-focused steps -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Así trabajamos contigo</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3 class="card-title">Escuchamos</h3>
+                    <p class="card-text">
+                        30 minutos para entender tu situación, objetivos y limitaciones. 
+                        Sin plantillas ni formularios genéricos.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3 class="card-title">Investigamos</h3>
+                    <p class="card-text">
+                        IA especializada + experiencia humana. Investigación profunda, 
+                        análisis competitivo, inteligencia estratégica.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3 class="card-title">Entregamos</h3>
+                    <p class="card-text">
+                        Informes ejecutivos listos para presentar a tus clientes. 
+                        En 48 horas, no semanas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who we work with -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Para servicios profesionales serios</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">Bufetes de Abogados</h3>
+                    <p class="card-text">
+                        Investigación de precedentes, análisis de jurisprudencia, 
+                        intelligence competitiva y regulatory research.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Consultoras</h3>
+                    <p class="card-text">
+                        Market research, competitive benchmarking, 
+                        planificación estratégica y due diligence.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3 class="card-title">Auditorías</h3>
+                    <p class="card-text">
+                        Investigación regulatoria, análisis de compliance, 
+                        evaluación de riesgos y industry analysis.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3 class="card-title">Investment & Finance</h3>
+                    <p class="card-text">
+                        Investment research, market analysis, 
+                        economic intelligence y sector reports.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA - Setup AI style -->
+    <section class="cta-section">
+        <div class="container-narrow">
+            <h2 class="section-title">¿Preparado para investigación que funciona?</h2>
+            <p class="section-subtitle">
+                Hablemos sobre tu situación específica y diseñemos 
+                una solución que funcione para tu negocio.
+            </p>
+            <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button-white">
+                Reservar Consulta Estratégica
+            </a>
+        </div>
+    </section>
+
+    <!-- Glossary - Setup AI style sidebar -->
+    <div class="glossary">
+        <div class="glossary-title">Glosario</div>
+        <div class="glossary-item">
+            <strong>IA Especializada:</strong> Modelos entrenados específicamente para investigación profesional
+        </div>
+        <div class="glossary-item">
+            <strong>48 Horas:</strong> Tiempo máximo de entrega para informes complejos
+        </div>
+        <div class="glossary-item">
+            <strong>Nivel Senior:</strong> Calidad equivalente a consultor con 8+ años de experiencia
+        </div>
+    </div>
+
+    <!-- Footer - Minimal -->
+    <footer class="footer">
+        <div class="container">
+            <h3 class="footer-title">AnalitikAI</h3>
+            <p class="footer-text">
+                Tu partner de investigación profesional. Análisis de calidad institucional 
+                entregados en horas, no semanas.
+            </p>
+            <p class="footer-copyright">
+                © 2026 AnalitikAI. Investigación inteligente para servicios profesionales.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Only essential JavaScript - NO toggle or state management
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
