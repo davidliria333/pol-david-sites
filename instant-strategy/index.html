@@ -973,157 +973,182 @@
             }
         }
 
-        /* Before/After Toggle Styles */
+        /* Setup AI Style Before/After Toggle */
         .before-after-toggle {
             position: fixed;
-            bottom: 32px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--white);
-            border: 1px solid var(--border-light);
-            border-radius: 50px;
-            padding: 6px;
-            display: flex;
-            box-shadow: var(--shadow-medium);
             z-index: 1000;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
+            padding-bottom: env(safe-area-inset-bottom);
         }
         
-        .toggle-option {
-            padding: 12px 24px;
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(26, 32, 44, 0.1);
             border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            min-width: 80px;
-            text-align: center;
-            user-select: none;
+            padding: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            animation: fade-in-up 0.6s ease-out;
         }
         
-        .toggle-option.active {
+        .toggle-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: rgba(26, 32, 44, 0.05);
+            border-radius: 50px;
+            padding: 2px;
+            height: 40px;
+        }
+        
+        .toggle-indicator {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            height: 36px;
+            width: 84px;
             background: var(--accent-blue);
-            color: white;
+            border-radius: 50px;
+            transition: transform 0.2s ease-out;
             box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
         }
         
-        .toggle-option:not(.active) {
-            color: var(--text-secondary);
+        .toggle-option {
+            position: relative;
+            z-index: 10;
+            height: 36px;
+            width: 84px;
+            border-radius: 50px;
+            border: none;
             background: transparent;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            font-family: 'Inter', sans-serif;
         }
         
-        .toggle-option:not(.active):hover {
+        .toggle-option.active {
+            color: white;
+        }
+        
+        .toggle-option:not(.active) {
+            color: #64748B;
+        }
+        
+        .toggle-option:hover:not(.active) {
             color: var(--accent-blue);
-            background: rgba(43, 108, 176, 0.1);
         }
         
-        /* State transition styles */
-        .state-transitioning {
-            transition: all 0.5s ease;
+        .toggle-indicator.after {
+            transform: translateX(84px);
         }
         
-        .state-transitioning .hero-content,
-        .state-transitioning .floating-tools-content,
-        .state-transitioning .process-step,
-        .state-transitioning .output-metric,
-        .state-transitioning .tool-badge {
-            transition: all 0.5s ease;
+        /* Content State Containers - Setup AI Style */
+        .content-state-container {
+            position: relative;
+            width: 100%;
         }
         
-        /* BEFORE state styles (problematic theme) */
-        body.before-state {
-            --bg-primary: #F7F8FA;
-            --text-primary: #2D3748;
-            --text-secondary: #4A5568;
-            --accent-blue: #4A5568;
-            --accent-blue-dark: #2D3748;
-            --accent-blue-light: #718096;
+        .content-state {
+            transition: opacity 0.5s ease-out;
+            width: 100%;
         }
         
-        body.before-state .section-hero {
+        .content-state.before-content {
+            position: relative;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .content-state.after-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* When AFTER is active */
+        body.after-active .content-state.before-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        body.after-active .content-state.after-content {
+            opacity: 1;
+            pointer-events: auto;
+            position: relative;
+        }
+        
+        /* Background color transitions */
+        .content-state {
+            transition: all 0.5s ease-out;
+        }
+        
+        .content-state.before-content {
+            background-color: #FAFBFD;
+        }
+        
+        .content-state.after-content {
+            background-color: #FAF8F4;
+        }
+        
+        /* Section background transitions */
+        .section-hero.before-content {
             background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
         }
         
-        body.before-state .floating-tools {
+        .section-hero.after-content {
+            background: linear-gradient(135deg, #1A202C 0%, #2C5282 100%);
+        }
+        
+        .floating-tools.before-content {
             background: linear-gradient(135deg, #f7f8fa 0%, #edf2f7 100%);
         }
         
-        body.before-state .tools-cluster {
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 8px;
-            max-width: none;
-            margin-left: 0;
+        .floating-tools.after-content {
+            background: linear-gradient(135deg, #faf8f4 0%, #f1f5f9 100%);
         }
         
-        body.before-state .tool-badge {
-            background: rgba(248, 248, 248, 0.7);
-            color: #9CA3AF;
-            border: 1px solid rgba(209, 213, 219, 0.6);
-            transform: rotate(-2deg);
-            opacity: 0.7;
-        }
-        
-        body.before-state .tool-badge:nth-child(even) {
-            transform: rotate(1deg);
-        }
-        
-        body.before-state .tool-badge:nth-child(3n) {
-            transform: rotate(-1deg);
-        }
-        
-        /* AFTER state styles (optimized theme) */
-        body.after-state {
-            --bg-primary: #FAFBFD;
-            --text-primary: #1A202C;
-            --text-secondary: #4A5568;
-            --accent-blue: #2B6CB0;
-            --accent-blue-dark: #2C5282;
-            --accent-blue-light: #3182CE;
-        }
-        
-        body.after-state .section-hero {
-            background: linear-gradient(135deg, var(--gray-900) 0%, var(--accent-blue-dark) 100%);
-        }
-        
-        body.after-state .floating-tools {
-            background: linear-gradient(135deg, #fafbfd 0%, #f1f5f9 100%);
-        }
-        
-        body.after-state .tools-cluster {
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        body.after-state .tool-badge {
-            background: rgba(255, 255, 255, 0.95);
-            color: #64748B;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transform: rotate(0deg);
-            opacity: 1;
-        }
-        
-        body.after-state .tool-badge:hover {
-            transform: translateY(-2px) scale(1.02);
+        /* Animation for toggle entrance */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px) translateX(-50%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateX(-50%);
+            }
         }
         
         /* Mobile responsive toggle */
         @media (max-width: 768px) {
             .before-after-toggle {
                 bottom: 20px;
+            }
+            
+            .toggle-container {
                 scale: 0.9;
             }
             
             .toggle-option {
-                padding: 10px 20px;
+                width: 75px;
                 font-size: 13px;
-                min-width: 70px;
+            }
+            
+            .toggle-indicator {
+                width: 75px;
+            }
+            
+            .toggle-indicator.after {
+                transform: translateX(75px);
             }
         }
 
@@ -1189,40 +1214,67 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
-        <section id="inicio" class="section-hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge fade-in"
-                         data-before='<span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>Procesos Ineficientes Costosos'
-                         data-after='<span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>Excelencia en Investigación Profesional'>
-                        <span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>
-                        Procesos Ineficientes Costosos
+        <section id="inicio" class="content-state-container">
+            <!-- BEFORE Content -->
+            <div class="content-state before-content">
+                <div class="section-hero before-content">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-badge fade-in">
+                                <span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>
+                                Procesos Ineficientes Costosos
+                            </div>
+                            
+                            <h1 class="hero-title fade-in">
+                                Estás perdiendo tiempo con decisiones basadas en datos
+                            </h1>
+                            
+                            <p class="hero-subtitle fade-in">
+                                Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros...
+                            </p>
+                            
+                            <div class="hero-buttons fade-in">
+                                <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary">
+                                    <span>¿Cansado de esperar semanas por análisis?</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="#metodologia" class="btn-secondary">
+                                    Ver alternativas
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <h1 class="hero-title fade-in" 
-                        data-before="Estás perdiendo tiempo con decisiones basadas en datos"
-                        data-after="AnalitikAI">
-                        Estás perdiendo tiempo con decisiones basadas en datos
-                    </h1>
-                    
-                    <p class="hero-subtitle fade-in"
-                       data-before="Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros..."
-                       data-after="Investigación y análisis de nivel consultora entregados en <strong>48 horas</strong> vs 2-4 semanas. Para servicios profesionales que necesitan resultados, no promesas.">
-                        Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros...
-                    </p>
-                    
-                    <div class="hero-buttons fade-in">
-                        <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary"
-                           data-before="¿Cansado de esperar semanas por análisis?"
-                           data-after="Empezar Ahora">
-                            <span>¿Cansado de esperar semanas por análisis?</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#metodologia" class="btn-secondary"
-                           data-before="Ver alternativas"
-                           data-after="Nuestra Metodología">
-                            Ver alternativas
-                        </a>
+                </div>
+            </div>
+            
+            <!-- AFTER Content -->
+            <div class="content-state after-content">
+                <div class="section-hero after-content">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-badge fade-in">
+                                <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
+                                Excelencia en Investigación Profesional
+                            </div>
+                            
+                            <h1 class="hero-title fade-in">
+                                AnalitikAI
+                            </h1>
+                            
+                            <p class="hero-subtitle fade-in">
+                                Investigación y análisis de nivel consultora entregados en <strong>48 horas</strong> vs 2-4 semanas. Para servicios profesionales que necesitan resultados, no promesas.
+                            </p>
+                            
+                            <div class="hero-buttons fade-in">
+                                <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary">
+                                    <span>Empezar Ahora</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="#metodologia" class="btn-secondary">
+                                    Nuestra Metodología
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1927,8 +1979,13 @@
     
     <!-- Before/After Toggle Button -->
     <div class="before-after-toggle">
-        <div class="toggle-option active" data-state="before">Antes</div>
-        <div class="toggle-option" data-state="after">Después</div>
+        <div class="toggle-container">
+            <div class="toggle-group">
+                <div class="toggle-indicator" id="toggle-indicator"></div>
+                <button class="toggle-option active" data-state="before" id="before-btn">Antes</button>
+                <button class="toggle-option" data-state="after" id="after-btn">Después</button>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -2218,17 +2275,18 @@
         // Initialize calculator when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeROICalculator);
         
-        // Before/After Toggle Functionality
+        // Setup AI Style Before/After Toggle Functionality
         function initializeBeforeAfterToggle() {
             const toggleButtons = document.querySelectorAll('.toggle-option');
+            const toggleIndicator = document.getElementById('toggle-indicator');
             const body = document.body;
             
-            // Set initial state (BEFORE)
-            body.classList.add('before-state');
+            let currentState = 'before';
             
             function switchState(targetState) {
-                // Add transition class
-                body.classList.add('state-transitioning');
+                if (currentState === targetState) return;
+                
+                currentState = targetState;
                 
                 // Update toggle button states
                 toggleButtons.forEach(btn => {
@@ -2238,27 +2296,14 @@
                     }
                 });
                 
-                // Update body classes
-                body.classList.remove('before-state', 'after-state');
-                body.classList.add(targetState + '-state');
-                
-                // Switch content based on data attributes
-                const elementsWithData = document.querySelectorAll('[data-before][data-after]');
-                elementsWithData.forEach(element => {
-                    const beforeContent = element.dataset.before;
-                    const afterContent = element.dataset.after;
-                    
-                    if (targetState === 'before') {
-                        element.innerHTML = beforeContent;
-                    } else {
-                        element.innerHTML = afterContent;
-                    }
-                });
-                
-                // Remove transition class after animation completes
-                setTimeout(() => {
-                    body.classList.remove('state-transitioning');
-                }, 500);
+                // Move indicator
+                if (targetState === 'after') {
+                    toggleIndicator.classList.add('after');
+                    body.classList.add('after-active');
+                } else {
+                    toggleIndicator.classList.remove('after');
+                    body.classList.remove('after-active');
+                }
             }
             
             // Add click listeners to toggle buttons
@@ -2269,7 +2314,7 @@
                 });
             });
             
-            // Initialize with BEFORE state content
+            // Initialize with BEFORE state
             switchState('before');
         }
         
@@ -2279,68 +2324,7 @@
             initializeBeforeAfterToggle();
         });
         
-        // Before/After Toggle Functionality
-        const toggleButtons = document.querySelectorAll('.toggle-option');
-        const body = document.body;
-        
-        // Initialize default state
-        let currentState = 'before';
-        
-        // Elements that need content switching
-        const switchableElements = document.querySelectorAll('[data-before][data-after]');
-        
-        function updateContent(state) {
-            switchableElements.forEach(element => {
-                const beforeContent = element.getAttribute('data-before');
-                const afterContent = element.getAttribute('data-after');
-                
-                if (state === 'before') {
-                    if (element.tagName === 'A') {
-                        element.querySelector('span').textContent = beforeContent;
-                    } else {
-                        element.innerHTML = beforeContent;
-                    }
-                } else {
-                    if (element.tagName === 'A') {
-                        element.querySelector('span').textContent = afterContent;
-                    } else {
-                        element.innerHTML = afterContent;
-                    }
-                }
-            });
-        }
-        
-        function switchState(newState) {
-            if (currentState === newState) return;
-            
-            currentState = newState;
-            
-            // Update button active states
-            toggleButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-state') === newState) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Update body class for styling changes
-            body.classList.remove('before-state', 'after-state');
-            body.classList.add(`${newState}-state`);
-            
-            // Update content
-            updateContent(newState);
-        }
-        
-        // Add click listeners to toggle buttons
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const state = button.getAttribute('data-state');
-                switchState(state);
-            });
-        });
-        
-        // Initialize with default "before" state
-        switchState('before');
+        // Remove duplicate toggle functionality - now handled by initializeBeforeAfterToggle()
         
         // Initialize
         updateActiveNav();
