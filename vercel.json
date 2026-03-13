@@ -168,7 +168,7 @@
                     "value": "analitikai.com"
                 }
             ],
-            "destination": "/analitikai/index.html"
+            "destination": "/instant-strategy/index.html"
         },
         {
             "source": "/(.*)",
@@ -178,7 +178,7 @@
                     "value": "analitikai.com"
                 }
             ],
-            "destination": "/analitikai/$1"
+            "destination": "/instant-strategy/$1"
         },
         {
             "source": "/",
@@ -188,7 +188,7 @@
                     "value": "www.analitikai.com"
                 }
             ],
-            "destination": "/analitikai/index.html"
+            "destination": "/instant-strategy/index.html"
         },
         {
             "source": "/(.*)",
@@ -198,7 +198,7 @@
                     "value": "www.analitikai.com"
                 }
             ],
-            "destination": "/analitikai/$1"
+            "destination": "/instant-strategy/$1"
         }
     ]
 }
