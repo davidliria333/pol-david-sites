@@ -16,9 +16,9 @@
     {"source":"/(.*)","has":[{"type":"host","value":"retenpro.com"}],"destination":"/retenpro/$1"},
     {"source":"/","has":[{"type":"host","value":"www.retenpro.com"}],"destination":"/retenpro/index.html"},
     {"source":"/(.*)","has":[{"type":"host","value":"www.retenpro.com"}],"destination":"/retenpro/$1"},
-    {"source":"/","has":[{"type":"host","value":"analitikai.com"}],"destination":"/instant-strategy/analitikai-1773401406.html"},
+    {"source":"/","has":[{"type":"host","value":"analitikai.com"}],"destination":"/instant-strategy/index.html"},
     {"source":"/(.*)","has":[{"type":"host","value":"analitikai.com"}],"destination":"/instant-strategy/$1"},
-    {"source":"/","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/analitikai-1773401406.html"},
+    {"source":"/","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/index.html"},
     {"source":"/(.*)","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/$1"}
   ],
   "headers": [
@@ -27,7 +27,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "value": "no-cache, no-store, must-revalidate"
         },
         {
           "key": "Pragma", 
@@ -36,14 +36,6 @@
         {
           "key": "Expires",
           "value": "0"
-        },
-        {
-          "key": "Last-Modified",
-          "value": "Thu, 13 Mar 2026 11:30:00 GMT"
-        },
-        {
-          "key": "ETag",
-          "value": "analitikai-v4-1773401406"
         }
       ]
     }
