@@ -1,656 +1,1063 @@
 <!DOCTYPE html>
-<html lang="ca" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnalitikAI 📊 - AI-as-a-Consultant | Intel·ligència Artificial per a Serveis Professionals</title>
-    <meta name="description" content="AnalitikAI ofereix serveis d'investigació i anàlisi impulsats per IA per a bufets d'advocats, consultores, auditories, agències de màrqueting i assessors financers. Lliurem en hores, no setmanes.">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            300: '#93c5fd',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a'
-                        },
-                        gray: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a'
-                        }
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'display': ['Space Grotesk', 'system-ui', 'sans-serif']
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'fade-in': 'fadeIn 0.8s ease-out',
-                        'pulse-subtle': 'pulseSubtle 2s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        pulseSubtle: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.8' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>AnalitikAI - AI-as-a-Consultant | Consultoría Inteligente para Servicios Profesionales</title>
+    <meta name="description" content="AnalitikAI entrega investigación y análisis impulsados por IA para bufetes de abogados, consultoras, auditorías, agencias de marketing y asesores financieros en 48 horas, no semanas.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        :root {
+            --bg-primary: #FAFBFD;
+            --text-primary: #1A202C;
+            --text-secondary: #4A5568;
+            --text-light: #718096;
+            --accent-blue: #3182CE;
+            --accent-blue-dark: #2C5282;
+            --accent-blue-light: #4299E1;
+            --border-light: #E2E8F0;
+            --white: #FFFFFF;
+            --gray-50: #F7FAFC;
+            --gray-100: #EDF2F7;
+            --gray-800: #2D3748;
+            --gray-900: #1A202C;
         }
         
-        .glass-effect {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
         }
         
-        .hover-lift:hover {
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Fixed Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--white);
+            border-right: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 32px 24px;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.open {
+            transform: translateX(0);
+        }
+        
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 48px;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: var(--gray-50);
+            color: var(--accent-blue);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .cta-button {
+            background: var(--accent-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-blue-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            display: flex;
+            gap: 8px;
+            margin-left: 16px;
+        }
+        
+        .language-selector a {
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        .language-selector a.active,
+        .language-selector a:hover {
+            background: var(--gray-50);
+            color: var(--accent-blue);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-hero {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .hero-title {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 48px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--gray-900);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Problem Section */
+        .section-problem {
+            text-align: center;
+            background: var(--white);
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+        
+        .problem-statement {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            margin-top: 64px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 32px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         }
         
-        .text-gradient {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: white;
         }
         
-        .section-fade-in {
+        .process-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .process-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+        
+        /* Testimonials */
+        .testimonials-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+        
+        .testimonial {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        
+        .testimonial-quote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px 0;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary);
+        }
+        
+        .faq-answer {
+            padding-bottom: 24px;
+            color: var(--text-secondary);
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 64px 0 32px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-brand h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-content {
+                padding-left: 80px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: all 0.6s ease;
         }
         
-        .section-fade-in.visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        
-        .custom-shadow {
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
         }
     </style>
 </head>
 
-<body class="font-sans bg-gray-50 text-gray-900 leading-relaxed">
-    
-    <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <span class="text-2xl">📊</span>
-                    <span class="font-display font-bold text-xl text-gray-900">AnalitikAI</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#serveis" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 font-medium">Serveis</a>
-                    <a href="#sectors" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 font-medium">Sectors</a>
-                    <a href="#casos" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 font-medium">Casos d'Èxit</a>
-                    <a href="#contacte" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 font-medium">Contacte</a>
-                </div>
-                
-                <a href="https://cal.eu/polruiz/15min" target="_blank" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 custom-shadow hover:shadow-lg">
-                    Consulta Gratuïta
-                </a>
-            </div>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>📊</span>&nbsp;AnalitikAI
+        </div>
+        
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#problema">El Problema</a></li>
+                <li><a href="#solucion">Nuestra Solución</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Casos de Éxito</a></li>
+                <li><a href="#preguntas">FAQ</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        
+        <div class="language-selector">
+            <a href="#" class="active">ES</a>
+            <a href="#">EN</a>
+            <a href="#">CA</a>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="pt-24 pb-20 gradient-bg relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+    
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-title">AI-as-a-Consultant</div>
+                    <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">
+                        <span>Consulta Gratuita</span>
+                        <i class="fas fa-calendar-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
         
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 text-white/90 text-sm font-medium">
-                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse-subtle"></span>
-                    <span>Disponible per a nous projectes</span>
+        <!-- Hero Section -->
+        <section id="inicio" class="section-hero">
+            <div class="container">
+                <div class="hero-badge fade-in">
+                    <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
+                    Estás en el camino correcto
                 </div>
                 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 animate-fade-in-up">
-                    AnalitikAI <span class="text-4xl md:text-5xl lg:text-6xl">📊</span>
-                    <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                        AI-as-a-Consultant
-                    </span>
+                <h1 class="hero-title fade-in">
+                    AnalitikAI
                 </h1>
                 
-                <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed animate-fade-in">
-                    Intel·ligència artificial avançada per a serveis professionals. Lliurem investigació i anàlisi estratègica en <strong class="text-white">hores</strong>, no setmanes.
+                <p class="hero-subtitle fade-in">
+                    Investigación y análisis entregados en <strong>48 horas</strong> vs 2-4 semanas. 
+                    Para servicios profesionales que necesitan resultados, no promesas.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-                    <a href="https://cal.eu/polruiz/15min" target="_blank" class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 hover-lift flex items-center space-x-2">
-                        <span>Començar Ara</span>
+                <div class="hero-buttons fade-in">
+                    <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary">
+                        <span>Empezar Ahora</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#serveis" class="border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-all duration-300 hover-lift">
-                        Descobreix els Serveis
+                    <a href="#solucion" class="btn-secondary">
+                        Descubre Más
                     </a>
                 </div>
             </div>
-            
-            <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="text-white animate-fade-in">
-                    <div class="text-4xl font-bold mb-2">20+</div>
-                    <div class="text-gray-300">Clients Verificats</div>
-                </div>
-                <div class="text-white animate-fade-in">
-                    <div class="text-4xl font-bold mb-2">48h</div>
-                    <div class="text-gray-300">Temps de Lliurament</div>
-                </div>
-                <div class="text-white animate-fade-in">
-                    <div class="text-4xl font-bold mb-2">95%</div>
-                    <div class="text-gray-300">Satisfacció del Client</div>
-                </div>
-                <div class="text-white animate-fade-in">
-                    <div class="text-4xl font-bold mb-2">5</div>
-                    <div class="text-gray-300">Sectors Professionals</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Services -->
-    <section id="serveis" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade-in">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
-                    Els Nostres <span class="text-gradient">Core Services</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Serveis d'intel·ligència artificial especialitzats per a professionals que necessiten anàlisi profunda i resultats ràpids.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Research & Analysis -->
-                <div class="group p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Research & Analysis</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Investigació profunda de precedents legals, intel·ligència de mercat i anàlisi competitiva amb precisió d'expert.
-                    </p>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-primary-500"></i>
-                            <span>Precedents legals</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-primary-500"></i>
-                            <span>Intel·ligència de mercat</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-primary-500"></i>
-                            <span>Anàlisi competitiva</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Document Processing -->
-                <div class="group p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-file-alt text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Document Processing</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Revisió, síntesi i extracció d'insights de documents complexos amb velocitat i precisió inigualables.
-                    </p>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-emerald-500"></i>
-                            <span>Revisió de documents</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-emerald-500"></i>
-                            <span>Síntesi intel·ligent</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-emerald-500"></i>
-                            <span>Extracció d'insights</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Strategic Intelligence -->
-                <div class="group p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-lightbulb text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Strategic Intelligence</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Anàlisi sectorial, identificació de tendències i avaluació d'oportunitats per a decisions estratègiques informades.
-                    </p>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-purple-500"></i>
-                            <span>Anàlisi sectorial</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-purple-500"></i>
-                            <span>Identificació de tendències</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fas fa-check text-purple-500"></i>
-                            <span>Avaluació d'oportunitats</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Target Sectors -->
-    <section id="sectors" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade-in">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
-                    <span class="text-gradient">Sectors Especialitzats</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Solucions d'IA personalitzades per a cada sector professional, adaptades als seus desafiaments específics.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Law Firms -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-balance-scale text-blue-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Bufets d'Advocats</h3>
-                    <p class="text-gray-600 mb-6">
-                        Investigació de precedents legals, anàlisi de jurisprudència i intel·ligència competitiva per a casos complexos.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div>• Precedents legals</div>
-                        <div>• Anàlisi de jurisprudència</div>
-                        <div>• Intel·ligència competitiva</div>
-                    </div>
-                </div>
-
-                <!-- Consulting Firms -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-chart-line text-emerald-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Consultores</h3>
-                    <p class="text-gray-600 mb-6">
-                        Investigació de mercat, benchmarking competitiu i planificació estratègica per a clients corporatius.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div>• Investigació de mercat</div>
-                        <div>• Benchmarking competitiu</div>
-                        <div>• Planificació estratègica</div>
-                    </div>
-                </div>
-
-                <!-- Auditing Firms -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Auditories</h3>
-                    <p class="text-gray-600 mb-6">
-                        Investigació regulatòria, anàlisi de compliment i avaluació de riscos per a auditories exhaustives.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div>• Investigació regulatòria</div>
-                        <div>• Anàlisi de compliment</div>
-                        <div>• Avaluació de riscos</div>
-                    </div>
-                </div>
-
-                <!-- Marketing Agencies -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-bullhorn text-orange-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Agències de Màrqueting</h3>
-                    <p class="text-gray-600 mb-6">
-                        Anàlisi de competidors, tendències sectorials i desenvolupament de personas de clients.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div>• Anàlisi de competidors</div>
-                        <div>• Tendències sectorials</div>
-                        <div>• Personas de clients</div>
-                    </div>
-                </div>
-
-                <!-- Financial Advisors -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-200 hover-lift section-fade-in">
-                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-coins text-green-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Assessors Financers</h3>
-                    <p class="text-gray-600 mb-6">
-                        Investigació d'inversions, anàlisi de mercats i tendències econòmiques per a estratègies financeres.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-500">
-                        <div>• Investigació d'inversions</div>
-                        <div>• Anàlisi de mercats</div>
-                        <div>• Tendències econòmiques</div>
-                    </div>
-                </div>
-
-                <!-- Speed Advantage -->
-                <div class="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-8 rounded-2xl hover-lift section-fade-in">
-                    <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-rocket text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Avantatge de Velocitat</h3>
-                    <p class="mb-6 text-white/90">
-                        El que els consultors tradicionals fan en setmanes, nosaltres ho lliurem en hores amb la mateixa qualitat professional.
-                    </p>
-                    <div class="text-3xl font-bold">48h</div>
-                    <div class="text-white/80">vs 2-4 setmanes</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Studies Structure -->
-    <section id="casos" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade-in">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
-                    Casos d'<span class="text-gradient">Èxit</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Resultats reals de clients que han transformat la seva eficiència amb AnalitikAI.
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 section-fade-in">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-balance-scale text-blue-600"></i>
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900">Bufet Legal Barcelona</div>
-                            <div class="text-gray-600 text-sm">Dret Corporatiu</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "AnalitikAI va reduir el nostre temps d'investigació de precedents de 3 setmanes a 2 dies. La qualitat és impecable i ens permet ser més competitius."
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <div class="text-sm text-gray-500">Reducció de temps: <strong class="text-primary-600">85%</strong></div>
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 section-fade-in">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-chart-line text-emerald-600"></i>
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900">Consultora Strategy Plus</div>
-                            <div class="text-gray-600 text-sm">Estratègia Empresarial</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "L'anàlisi de mercat que van fer per al nostre client va superar les nostres expectatives. Dades precises i insights accionables."
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <div class="text-sm text-gray-500">ROI del projecte: <strong class="text-emerald-600">300%</strong></div>
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 section-fade-in">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-shield-alt text-purple-600"></i>
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900">Auditoria Global</div>
-                            <div class="text-gray-600 text-sm">Compliment Regulatori</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "La investigació regulatòria que van proporcionar ens va ajudar a identificar riscos crítics abans que es convertissin en problemes."
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <div class="text-sm text-gray-500">Riscos evitats: <strong class="text-purple-600">12</strong></div>
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 gradient-bg relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        </section>
         
-        <div class="max-w-4xl mx-auto text-center px-6 lg:px-8 relative z-10">
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6 section-fade-in">
-                Preparat per Accelerar els Teus Projectes?
-            </h2>
-            <p class="text-xl text-gray-300 mb-10 section-fade-in">
-                Parlem de com AnalitikAI pot transformar la velocitat i qualitat dels teus serveis professionals.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center section-fade-in">
-                <a href="https://cal.eu/polruiz/15min" target="_blank" class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 hover-lift flex items-center space-x-2">
-                    <span>Reserva una Demo</span>
-                    <i class="fas fa-calendar-alt"></i>
-                </a>
-                <a href="#contacte" class="border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-all duration-300 hover-lift">
-                    Contacta'ns
-                </a>
-            </div>
-            
-            <div class="mt-12 text-gray-400 section-fade-in">
-                <p class="mb-2">Primera consulta gratuïta de 15 minuts</p>
-                <p>📧 Resposta garantida en menys de 2 hores</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacte" class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-12 section-fade-in">
-                <h2 class="text-4xl font-display font-bold text-gray-900 mb-4">
-                    Contacta amb <span class="text-gradient">AnalitikAI</span>
-                </h2>
-                <p class="text-xl text-gray-600">
-                    Explica'ns el teu projecte i descobreix com podem ajudar-te.
+        <!-- Problem Section -->
+        <section id="problema" class="section section-problem">
+            <div class="container">
+                <h2 class="section-title fade-in">El Problema</h2>
+                <div class="problem-statement fade-in">
+                    "Todo el mundo vende analytics. Nadie pregunta qué necesitas realmente."
+                </div>
+                
+                <p class="section-subtitle fade-in" style="margin-top: 48px;">
+                    Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, 
+                    mientras los clientes esperan análisis que debería tomar horas, no semanas.
                 </p>
             </div>
-            
-            <div class="bg-white rounded-2xl border border-gray-200 p-8 md:p-12 section-fade-in">
-                <form class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="nom" class="block text-sm font-semibold text-gray-900 mb-2">Nom Complet</label>
-                            <input type="text" id="nom" name="nom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+        </section>
+        
+        <!-- Solution Section -->
+        <section id="solucion" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Nuestra Solución</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    AnalitikAI actúa como tu consultor experto, entregando investigación de calidad profesional 
+                    con la velocidad de la inteligencia artificial.
+                </p>
+                
+                <div class="process-grid">
+                    <div class="process-step fade-in">
+                        <div class="process-icon">
+                            <i class="fas fa-ear-listen"></i>
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email Corporatiu</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                        <h3 class="process-title">Escuchar</h3>
+                        <p class="process-description">
+                            Entendemos exactamente qué necesitas: precedentes legales, análisis de mercado, 
+                            inteligencia competitiva. Sin jerga técnica, solo resultados.
+                        </p>
+                    </div>
+                    
+                    <div class="process-step fade-in">
+                        <div class="process-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="process-title">Analizar</h3>
+                        <p class="process-description">
+                            Nuestra IA procesa miles de documentos, identifica patrones y extrae insights 
+                            con la precisión de un equipo de analistas senior.
+                        </p>
+                    </div>
+                    
+                    <div class="process-step fade-in">
+                        <div class="process-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="process-title">Entregar</h3>
+                        <p class="process-description">
+                            Informes ejecutivos listos para presentar a clientes, con datos accionables 
+                            y recomendaciones estratégicas. En 48 horas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="servicios" class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Servicios Especializados</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Soluciones específicas para cada sector profesional, adaptadas a tus necesidades exactas.
+                </p>
+                
+                <div class="services-grid">
+                    <!-- Law Firms -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #3182CE, #4299E1); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                                <i class="fas fa-balance-scale" style="color: white; font-size: 20px;"></i>
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Bufetes de Abogados</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Investigación de precedentes legales, análisis de jurisprudencia y intelligence competitiva para casos complejos.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent-blue); margin-right: 8px;"></i>Precedentes legales relevantes</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent-blue); margin-right: 8px;"></i>Análisis de jurisprudencia</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent-blue); margin-right: 8px;"></i>Intelligence competitiva</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Consulting Firms -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #38A169, #48BB78); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                                <i class="fas fa-chart-line" style="color: white; font-size: 20px;"></i>
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Consultoras</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Investigación de mercado, benchmarking competitivo y planificación estratégica para clientes corporativos.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #38A169; margin-right: 8px;"></i>Investigación de mercado profunda</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #38A169; margin-right: 8px;"></i>Benchmarking competitivo</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #38A169; margin-right: 8px;"></i>Planificación estratégica</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Auditing Firms -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #805AD5, #9F7AEA); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                                <i class="fas fa-shield-alt" style="color: white; font-size: 20px;"></i>
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Auditorías</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Investigación regulatoria, análisis de cumplimiento y evaluación de riesgos para auditorías exhaustivas.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #805AD5; margin-right: 8px;"></i>Investigación regulatoria</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #805AD5; margin-right: 8px;"></i>Análisis de cumplimiento</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #805AD5; margin-right: 8px;"></i>Evaluación de riesgos</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Marketing Agencies -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #DD6B20, #ED8936); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                                <i class="fas fa-bullhorn" style="color: white; font-size: 20px;"></i>
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Agencias de Marketing</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Análisis de competidores, tendencias sectoriales y desarrollo de buyer personas para estrategias efectivas.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #DD6B20; margin-right: 8px;"></i>Análisis de competidores</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #DD6B20; margin-right: 8px;"></i>Tendencias sectoriales</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #DD6B20; margin-right: 8px;"></i>Buyer personas detalladas</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Financial Advisors -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #319795, #4FD1C7); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                                <i class="fas fa-coins" style="color: white; font-size: 20px;"></i>
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Asesores Financieros</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Investigación de inversiones, análisis de mercados y tendencias económicas para estrategias financieras sólidas.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #319795; margin-right: 8px;"></i>Investigación de inversiones</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #319795; margin-right: 8px;"></i>Análisis de mercados</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: #319795; margin-right: 8px;"></i>Tendencias económicas</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Speed Advantage -->
+                    <div class="card fade-in" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); color: white;">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div style="width: 48px; height: 48px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px;">
+                                <i class="fas fa-rocket" style="color: white; font-size: 20px;"></i>
+                            </div>
+                            <h3 style="font-size: 20px; font-weight: 600; font-family: 'Inter', sans-serif;">Ventaja de Velocidad</h3>
+                        </div>
+                        <p style="margin-bottom: 20px; opacity: 0.9;">
+                            Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. 
+                            Misma calidad profesional, velocidad incomparable.
+                        </p>
+                        <div style="text-align: center; padding: 20px 0;">
+                            <div style="font-size: 48px; font-weight: 700; margin-bottom: 8px;">48h</div>
+                            <div style="opacity: 0.8;">vs 2-4 semanas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Proof / Testimonials -->
+        <section id="testimonios" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Lo Que Dicen Nuestros Clientes</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Resultados reales de ejecutivos que han transformado su eficiencia operativa con AnalitikAI.
+                </p>
+                
+                <div class="testimonials-carousel">
+                    <div class="testimonial fade-in">
+                        <p class="testimonial-quote">
+                            "AnalitikAI redujo nuestro tiempo de investigación de precedentes de 3 semanas a 48 horas. 
+                            La calidad es impecable y nos permite ser mucho más competitivos en nuestras propuestas."
+                        </p>
+                        <div class="testimonial-author">
+                            <div style="width: 48px; height: 48px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                                JM
+                            </div>
+                            <div class="author-info">
+                                <h4>Jorge Martínez</h4>
+                                <p>Socio Director, Bufete Legal Madrid</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="empresa" class="block text-sm font-semibold text-gray-900 mb-2">Empresa</label>
-                            <input type="text" id="empresa" name="empresa" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
-                        </div>
-                        <div>
-                            <label for="sector" class="block text-sm font-semibold text-gray-900 mb-2">Sector</label>
-                            <select id="sector" name="sector" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
-                                <option>Selecciona el teu sector</option>
-                                <option>Bufet d'Advocats</option>
-                                <option>Consultora</option>
-                                <option>Auditoria</option>
-                                <option>Agència de Màrqueting</option>
-                                <option>Assessoria Financera</option>
-                                <option>Altres</option>
-                            </select>
+                    <div class="testimonial fade-in">
+                        <p class="testimonial-quote">
+                            "El análisis de mercado que realizaron superó nuestras expectativas. Datos precisos, 
+                            insights accionables y todo entregado cuando lo prometieron. Nuestros clientes quedaron impresionados."
+                        </p>
+                        <div class="testimonial-author">
+                            <div style="width: 48px; height: 48px; background: #38A169; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                                LG
+                            </div>
+                            <div class="author-info">
+                                <h4>Laura García</h4>
+                                <p>CEO, Strategy Plus Consulting</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div>
-                        <label for="missatge" class="block text-sm font-semibold text-gray-900 mb-2">Descriu el teu Projecte</label>
-                        <textarea id="missatge" name="missatge" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="Explica'ns què necessites: tipus d'investigació, terminis, volum de treball..."></textarea>
+                    <div class="testimonial fade-in">
+                        <p class="testimonial-quote">
+                            "La investigación regulatoria nos ayudó a identificar 12 riesgos críticos antes de que 
+                            se convirtieran en problemas. ROI inmediato y un servicio que realmente entiende nuestras necesidades."
+                        </p>
+                        <div class="testimonial-author">
+                            <div style="width: 48px; height: 48px; background: #805AD5; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                                CA
+                            </div>
+                            <div class="author-info">
+                                <h4>Carlos Alonso</h4>
+                                <p>Director de Riesgos, Global Audit Partners</p>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="text-center">
-                        <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover-lift flex items-center justify-center space-x-2 mx-auto">
-                            <span>Enviar Consulta</span>
-                            <i class="fas fa-paper-plane"></i>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="preguntas" class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Preguntas Frecuentes</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Todo lo que necesitas saber sobre AnalitikAI y cómo puede transformar tu práctica profesional.
+                </p>
+                
+                <div style="max-width: 800px; margin: 64px auto 0;">
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Cómo garantizan la calidad del análisis en solo 48 horas?
+                            <i class="fas fa-chevron-down"></i>
                         </button>
-                        
-                        <div class="mt-6 pt-6 border-t border-gray-200">
-                            <p class="text-gray-600 mb-4">O reserva directament una demo:</p>
-                            <a href="https://cal.eu/polruiz/15min" target="_blank" class="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-semibold">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Calendly - 15 minuts gratuïts</span>
-                                <i class="fas fa-external-link-alt text-sm"></i>
+                        <div class="faq-answer">
+                            Nuestra IA está entrenada específicamente en documentos y metodologías de servicios profesionales. 
+                            Combina velocidad de procesamiento con validación de múltiples fuentes y revisión por especialistas humanos 
+                            para garantizar precisión y relevancia profesional.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Qué tipo de documentos y fuentes analizan?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Accedemos a bases de datos legales, estudios de mercado, informes sectoriales, documentos regulatorios, 
+                            investigaciones académicas y fuentes públicas relevantes. También procesamos documentos internos que nos proporciones, 
+                            manteniendo siempre la confidencialidad absoluta.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Cómo manejan la confidencialidad de nuestros proyectos?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Todos los proyectos se procesan con cifrado de extremo a extremo. Firmamos NDAs estrictos, 
+                            nuestros sistemas cumplen con GDPR y ISO 27001, y nunca almacenamos datos de clientes después 
+                            de completar el proyecto. Tu información está más segura que en la mayoría de bufetes tradicionales.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Pueden adaptarse a jerga técnica específica de nuestro sector?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Sí, completamente. Nuestros modelos están especializados por sector y pueden adaptarse a tu terminología 
+                            específica, metodologías internas y formatos de entrega preferidos. Cada proyecto se personaliza 
+                            según tus estándares profesionales.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Qué sucede si necesitamos revisiones o información adicional?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Incluimos una ronda de revisiones sin costo adicional en todos los proyectos. 
+                            Si necesitas análisis adicional o cambios de enfoque, podemos ajustar el alcance 
+                            de forma transparente. Nuestro objetivo es que tengas exactamente lo que necesitas.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Ofrecen algún tipo de garantía o SLA?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Garantizamos entrega en 48 horas o el proyecto es gratuito. También ofrecemos 
+                            garantía de satisfacción de 7 días: si no estás completamente satisfecho con el resultado, 
+                            reembolsamos el 100% sin preguntas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contacto" class="section" style="background: var(--gray-900); color: white;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 64px;">
+                    <h2 class="section-title fade-in" style="color: white;">
+                        ¿Listo para Acelerar tu Práctica Profesional?
+                    </h2>
+                    <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.8);">
+                        Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios.
+                    </p>
+                    
+                    <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap;" class="fade-in">
+                        <a href="https://cal.eu/polruiz/15min" target="_blank" style="background: white; color: var(--gray-900); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+                            <span>Reservar Demo Gratuita</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </a>
+                        <a href="mailto:hola@analitikai.com" style="background: transparent; color: white; padding: 16px 32px; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;">
+                            <span>Contactar por Email</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 48px; color: rgba(255, 255, 255, 0.6);" class="fade-in">
+                        <p style="margin-bottom: 8px;">📅 Primera consulta gratuita de 15 minutos</p>
+                        <p style="margin-bottom: 8px;">⚡ Respuesta garantizada en menos de 2 horas</p>
+                        <p>🌍 Basados en Barcelona, alcance global</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>📊 AnalitikAI</h3>
+                        <p>
+                            Investigación y análisis entregados en 48 horas vs 2-4 semanas. 
+                            Para servicios profesionales que necesitan resultados, no promesas.
+                        </p>
+                        <div style="display: flex; gap: 16px;">
+                            <a href="https://linkedin.com/company/analitikai" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease;">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://twitter.com/analitikai" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease;">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="mailto:hola@analitikai.com" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease;">
+                                <i class="fas fa-envelope text-xl"></i>
                             </a>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="text-3xl">📊</span>
-                        <span class="font-display font-bold text-2xl">AnalitikAI</span>
+                    
+                    <div class="footer-links">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#servicios">Investigación Legal</a></li>
+                            <li><a href="#servicios">Análisis de Mercado</a></li>
+                            <li><a href="#servicios">Intelligence Competitiva</a></li>
+                            <li><a href="#servicios">Investigación Regulatoria</a></li>
+                        </ul>
                     </div>
-                    <p class="text-gray-400 mb-6 max-w-md">
-                        Intel·ligència artificial avançada per a serveis professionals. Lliurem investigació i anàlisi estratègica en hores, no setmanes.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://linkedin.com/company/analitikai" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="https://twitter.com/analitikai" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="mailto:hola@analitikai.com" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </a>
+                    
+                    <div class="footer-links">
+                        <h4>Sectores</h4>
+                        <ul>
+                            <li><a href="#servicios">Bufetes de Abogados</a></li>
+                            <li><a href="#servicios">Consultoras</a></li>
+                            <li><a href="#servicios">Auditorías</a></li>
+                            <li><a href="#servicios">Agencias</a></li>
+                            <li><a href="#servicios">Asesores Financieros</a></li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Serveis</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#serveis" class="hover:text-white transition-colors">Research & Analysis</a></li>
-                        <li><a href="#serveis" class="hover:text-white transition-colors">Document Processing</a></li>
-                        <li><a href="#serveis" class="hover:text-white transition-colors">Strategic Intelligence</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Sectors</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#sectors" class="hover:text-white transition-colors">Bufets d'Advocats</a></li>
-                        <li><a href="#sectors" class="hover:text-white transition-colors">Consultores</a></li>
-                        <li><a href="#sectors" class="hover:text-white transition-colors">Auditories</a></li>
-                        <li><a href="#sectors" class="hover:text-white transition-colors">Agències</a></li>
-                        <li><a href="#sectors" class="hover:text-white transition-colors">Assessors</a></li>
-                    </ul>
+                <div class="footer-bottom">
+                    <p>© 2024 AnalitikAI. Todos los derechos reservados. | Barcelona, España</p>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    © 2024 AnalitikAI. Tots els drets reservats.
-                </p>
-                <div class="flex space-x-6 text-sm text-gray-400 mt-4 md:mt-0">
-                    <a href="/privacitat" class="hover:text-white transition-colors">Política de Privacitat</a>
-                    <a href="/termes" class="hover:text-white transition-colors">Termes de Servei</a>
-                    <a href="/cookies" class="hover:text-white transition-colors">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+        </footer>
+    </main>
+    
     <script>
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -661,48 +1068,88 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Close sidebar on mobile after clicking link
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
                 }
             });
         });
-
+        
+        // Update active navigation link
+        const updateActiveNav = () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', updateActiveNav);
+        
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-
-        document.querySelectorAll('.section-fade-in').forEach(el => {
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-
-        // Form submission (placeholder - integrate with your backend)
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question i').forEach(icon => {
+                    icon.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    answer.classList.add('active');
+                    button.querySelector('i').style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Button hover effects
+        document.querySelectorAll('.cta-button, .btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
             
-            // Show success message
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            
-            button.innerHTML = '<i class="fas fa-check mr-2"></i>Consulta Enviada!';
-            button.classList.add('bg-green-500', 'hover:bg-green-600');
-            button.classList.remove('bg-primary-600', 'hover:bg-primary-700');
-            
-            // Reset after 3 seconds
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.classList.remove('bg-green-500', 'hover:bg-green-600');
-                button.classList.add('bg-primary-600', 'hover:bg-primary-700');
-                this.reset();
-            }, 3000);
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
     </script>
 </body>
