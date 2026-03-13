@@ -287,7 +287,7 @@
             border-color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Floating Tools Section - Setup AI Style */
+        /* Floating Tools Section - Setup AI Style - Repositioned */
         .floating-tools {
             position: relative;
             padding: 120px 0;
@@ -311,105 +311,308 @@
         .floating-tools-subtitle {
             font-size: 22px;
             color: var(--text-secondary);
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        .tools-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            pointer-events: none;
+        /* Repositioned Tools - Static cluster in dedicated white space */
+        .tools-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .tool-badge {
-            position: absolute;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 10px 18px;
+            border-radius: 22px;
+            font-size: 13px;
             font-weight: 500;
             color: #64748B;
-            background: rgba(248, 250, 252, 0.85);
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            animation: gentleFloat 40s infinite linear;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
             white-space: nowrap;
-            opacity: 0.7;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
         
         .tool-badge:hover {
-            opacity: 1;
-            transform: scale(1.05);
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 1);
             color: #475569;
         }
         
         /* Setup AI Style Professional Colors */
         .analytics-tool {
-            background: rgba(241, 245, 249, 0.85);
+            background: rgba(241, 245, 249, 0.9);
             color: #64748B;
-            border: 1px solid rgba(203, 213, 225, 0.5);
+            border: 1px solid rgba(203, 213, 225, 0.6);
         }
         
         .research-tool {
-            background: rgba(248, 250, 252, 0.85);
+            background: rgba(248, 250, 252, 0.9);
             color: #64748B;
-            border: 1px solid rgba(226, 232, 240, 0.5);
+            border: 1px solid rgba(226, 232, 240, 0.6);
         }
         
         .business-tool {
-            background: rgba(239, 246, 255, 0.85);
+            background: rgba(239, 246, 255, 0.9);
             color: #64748B;
-            border: 1px solid rgba(219, 234, 254, 0.5);
+            border: 1px solid rgba(219, 234, 254, 0.6);
         }
         
         .legal-tool {
-            background: rgba(250, 250, 250, 0.85);
+            background: rgba(250, 250, 250, 0.9);
             color: #64748B;
-            border: 1px solid rgba(229, 229, 229, 0.5);
+            border: 1px solid rgba(229, 229, 229, 0.6);
         }
         
         .data-tool {
-            background: rgba(249, 250, 251, 0.85);
+            background: rgba(249, 250, 251, 0.9);
             color: #64748B;
-            border: 1px solid rgba(229, 231, 235, 0.5);
+            border: 1px solid rgba(229, 231, 235, 0.6);
         }
-        
-        /* Gentle, professional animation */
-        @keyframes gentleFloat {
-            0% {
-                transform: translateX(-80px) translateY(0px);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.7;
-            }
-            90% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateX(calc(100vw + 80px)) translateY(-5px);
-                opacity: 0;
-            }
+
+        /* ROI Calculator Section */
+        .roi-calculator {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            border: 1px solid var(--border-light);
         }
-        
-        /* More subtle staggered positioning */
-        .tool-row-1 { animation-delay: 0s; top: 20%; }
-        .tool-row-2 { animation-delay: -8s; top: 30%; }
-        .tool-row-3 { animation-delay: -16s; top: 40%; }
-        .tool-row-4 { animation-delay: -24s; top: 50%; }
-        .tool-row-5 { animation-delay: -32s; top: 60%; }
-        .tool-row-6 { animation-delay: -10s; top: 70%; }
-        .tool-row-7 { animation-delay: -18s; top: 80%; }
-        .tool-row-8 { animation-delay: -26s; top: 35%; }
+
+        .calculator-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            padding: 60px;
+            border: 1px solid var(--border-light);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .calculator-inputs {
+            padding-right: 20px;
+        }
+
+        .calculator-outputs {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            position: sticky;
+            top: 120px;
+        }
+
+        .input-group {
+            margin-bottom: 32px;
+        }
+
+        .input-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .input-slider-container {
+            position: relative;
+        }
+
+        .input-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--gray-100);
+            outline: none;
+            appearance: none;
+            margin: 20px 0;
+        }
+
+        .input-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
+        }
+
+        .input-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .slider-value {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-blue);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .input-slider:hover + .slider-value,
+        .input-slider:focus + .slider-value {
+            opacity: 1;
+        }
+
+        .dropdown-select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 16px;
+            background: var(--white);
+            color: var(--text-primary);
+            transition: border-color 0.3s ease;
+        }
+
+        .dropdown-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .output-metric {
+            margin-bottom: 28px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .output-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .output-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .output-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .calculator-cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .cta-primary {
+            background: var(--accent-blue);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(43, 108, 176, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: var(--accent-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(43, 108, 176, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--accent-blue);
+            padding: 16px 32px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-proof {
+            text-align: center;
+            margin-top: 40px;
+            padding: 24px;
+            background: var(--gray-50);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        .social-proof-stat {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .social-proof-text {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
         
         /* Section Styles */
         .section-title {
@@ -731,6 +934,43 @@
             .process-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .calculator-container {
+                padding: 40px 24px;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .calculator-outputs {
+                position: static;
+                order: -1;
+                margin-bottom: 20px;
+            }
+            
+            .tools-cluster {
+                gap: 12px;
+                padding: 0 10px;
+            }
+            
+            .tool-badge {
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
         }
 
         /* Animations */
@@ -770,6 +1010,7 @@
                     <li><a href="#solucion">NUESTRA SOLUCIÓN</a></li>
                     <li><a href="#proceso">CÓMO FUNCIONA</a></li>
                     <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#roi-calculator">CALCULADORA ROI</a></li>
                     <li><a href="#precios">PRECIOS</a></li>
                     <li><a href="#preguntas">FAQ</a></li>
                     <li><a href="#contacto">CONTACTO</a></li>
@@ -839,7 +1080,7 @@
             </div>
         </section>
         
-        <!-- Floating Tools Section -->
+        <!-- Floating Tools Section - Repositioned -->
         <section class="floating-tools">
             <div class="container">
                 <div class="floating-tools-content">
@@ -848,46 +1089,41 @@
                         AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente, 
                         creando flujos de trabajo automatizados que se adaptan a tu contexto específico.
                     </p>
+                    
+                    <!-- Tools clustered in dedicated white space -->
+                    <div class="tools-cluster fade-in">
+                        <!-- Analytics Tools -->
+                        <div class="tool-badge analytics-tool">Excel</div>
+                        <div class="tool-badge analytics-tool">Power BI</div>
+                        <div class="tool-badge analytics-tool">Tableau</div>
+                        <div class="tool-badge analytics-tool">SPSS</div>
+                        <div class="tool-badge analytics-tool">SQL Server</div>
+                        <div class="tool-badge analytics-tool">MongoDB</div>
+                        
+                        <!-- Research Tools -->
+                        <div class="tool-badge research-tool">Perplexity</div>
+                        <div class="tool-badge research-tool">ChatGPT</div>
+                        <div class="tool-badge research-tool">Claude</div>
+                        <div class="tool-badge research-tool">Google Scholar</div>
+                        <div class="tool-badge research-tool">PubMed</div>
+                        <div class="tool-badge research-tool">JSTOR</div>
+                        
+                        <!-- Business Tools -->
+                        <div class="tool-badge business-tool">Salesforce</div>
+                        <div class="tool-badge business-tool">HubSpot</div>
+                        <div class="tool-badge business-tool">Microsoft 365</div>
+                        <div class="tool-badge business-tool">Google Workspace</div>
+                        
+                        <!-- Legal Tools -->
+                        <div class="tool-badge legal-tool">Westlaw</div>
+                        <div class="tool-badge legal-tool">LexisNexis</div>
+                        <div class="tool-badge legal-tool">Thomson Reuters</div>
+                        
+                        <!-- Data Sources -->
+                        <div class="tool-badge data-tool">Bloomberg</div>
+                        <div class="tool-badge data-tool">Reuters</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="tools-container">
-                <!-- Analytics Tools Row 1 - Muted colors as specified -->
-                <div class="tool-badge analytics-tool tool-row-1" style="left: 15%;">Excel</div>
-                <div class="tool-badge analytics-tool tool-row-1" style="left: 35%;">Power BI</div>
-                <div class="tool-badge analytics-tool tool-row-1" style="left: 55%;">Tableau</div>
-                <div class="tool-badge analytics-tool tool-row-1" style="left: 75%;">SPSS</div>
-                
-                <!-- Research Tools Row 2 - Subtle grays as specified -->
-                <div class="tool-badge research-tool tool-row-2" style="left: 10%;">Perplexity</div>
-                <div class="tool-badge research-tool tool-row-2" style="left: 40%;">ChatGPT</div>
-                <div class="tool-badge research-tool tool-row-2" style="left: 70%;">Claude</div>
-                
-                <!-- Business Tools Row 3 - Soft blues as specified -->
-                <div class="tool-badge business-tool tool-row-3" style="left: 25%;">Salesforce</div>
-                <div class="tool-badge business-tool tool-row-3" style="left: 60%;">HubSpot</div>
-                
-                <!-- Legal Tools Row 4 - Professional tones as specified -->
-                <div class="tool-badge legal-tool tool-row-4" style="left: 20%;">Westlaw</div>
-                <div class="tool-badge legal-tool tool-row-4" style="left: 50%;">LexisNexis</div>
-                <div class="tool-badge legal-tool tool-row-4" style="left: 80%;">Thomson Reuters</div>
-                
-                <!-- Analytics Tools Row 5 -->
-                <div class="tool-badge analytics-tool tool-row-5" style="left: 30%;">SQL Server</div>
-                <div class="tool-badge analytics-tool tool-row-5" style="left: 65%;">MongoDB</div>
-                
-                <!-- Research Tools Row 6 -->
-                <div class="tool-badge research-tool tool-row-6" style="left: 15%;">Google Scholar</div>
-                <div class="tool-badge research-tool tool-row-6" style="left: 45%;">PubMed</div>
-                <div class="tool-badge research-tool tool-row-6" style="left: 75%;">JSTOR</div>
-                
-                <!-- Business Tools Row 7 -->
-                <div class="tool-badge business-tool tool-row-7" style="left: 35%;">Microsoft 365</div>
-                <div class="tool-badge business-tool tool-row-7" style="left: 65%;">Google Workspace</div>
-                
-                <!-- Data Sources Row 8 -->
-                <div class="tool-badge data-tool tool-row-8" style="left: 20%;">Bloomberg</div>
-                <div class="tool-badge data-tool tool-row-8" style="left: 55%;">Reuters</div>
             </div>
         </section>
         
@@ -1052,6 +1288,182 @@
                         <div style="text-align: center; padding: 24px 0;">
                             <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div>
                             <div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ROI Calculator Section -->
+        <section id="roi-calculator" class="section roi-calculator">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Calculadora de ROI</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Descubre exactamente cuánto puedes ahorrar en tiempo y costes con AnalitikAI. 
+                    Resultados personalizados para tu tipo de empresa y volumen de trabajo.
+                </p>
+                
+                <div class="calculator-container fade-in">
+                    <div class="calculator-grid">
+                        <!-- Input Controls -->
+                        <div class="calculator-inputs">
+                            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: var(--text-primary);">
+                                <i class="fas fa-sliders-h" style="color: var(--accent-blue); margin-right: 12px;"></i>
+                                Configuración de tu Empresa
+                            </h3>
+                            
+                            <!-- Company Type -->
+                            <div class="input-group">
+                                <label class="input-label">Tipo de Empresa</label>
+                                <select id="companyType" class="dropdown-select">
+                                    <option value="legal">Bufete Legal</option>
+                                    <option value="consulting">Consultoría</option>
+                                    <option value="audit">Auditoría</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="financial">Financiera</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Projects per month -->
+                            <div class="input-group">
+                                <label class="input-label">Proyectos por mes</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="50" value="10">
+                                    <div class="slider-value" id="projectsValue">10</div>
+                                    <div class="slider-labels">
+                                        <span>1</span>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Hours per project -->
+                            <div class="input-group">
+                                <label class="input-label">Horas promedio por proyecto tradicional</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="hoursPerProject" class="input-slider" min="10" max="200" value="40">
+                                    <div class="slider-value" id="hoursValue">40h</div>
+                                    <div class="slider-labels">
+                                        <span>10h</span>
+                                        <span>200h</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Internal hourly cost -->
+                            <div class="input-group">
+                                <label class="input-label">Coste interno por hora</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="internalCost" class="input-slider" min="50" max="500" value="150">
+                                    <div class="slider-value" id="internalValue">€150</div>
+                                    <div class="slider-labels">
+                                        <span>€50</span>
+                                        <span>€500</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Delivery time -->
+                            <div class="input-group">
+                                <label class="input-label">Tiempo de entrega tradicional (semanas)</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="deliveryTime" class="input-slider" min="1" max="12" value="3">
+                                    <div class="slider-value" id="deliveryValue">3 semanas</div>
+                                    <div class="slider-labels">
+                                        <span>1 sem</span>
+                                        <span>12 sem</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- External projects percentage -->
+                            <div class="input-group">
+                                <label class="input-label">% de proyectos externalizados</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="externalPercentage" class="input-slider" min="0" max="100" value="30">
+                                    <div class="slider-value" id="externalPercentValue">30%</div>
+                                    <div class="slider-labels">
+                                        <span>0%</span>
+                                        <span>100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- External consultant cost -->
+                            <div class="input-group">
+                                <label class="input-label">Coste consultor externo por hora</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="consultantCost" class="input-slider" min="200" max="800" value="400">
+                                    <div class="slider-value" id="consultantValue">€400</div>
+                                    <div class="slider-labels">
+                                        <span>€200</span>
+                                        <span>€800</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Real-time Outputs -->
+                        <div class="calculator-outputs">
+                            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px;">
+                                <i class="fas fa-chart-line" style="margin-right: 12px;"></i>
+                                Tus Ahorros con AnalitikAI
+                            </h3>
+                            
+                            <div class="output-metric roi-highlight">
+                                <div class="output-label">Ahorro Mensual Total</div>
+                                <div class="output-value" id="monthlySavings">€15,600</div>
+                                <div class="output-subtitle">vs métodos tradicionales</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">Tiempo Ahorrado</div>
+                                <div class="output-value" id="timeSaved">280h</div>
+                                <div class="output-subtitle">por mes</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">Proyectos Adicionales Posibles</div>
+                                <div class="output-value" id="additionalProjects">+7</div>
+                                <div class="output-subtitle">por mes con el mismo equipo</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">ROI</div>
+                                <div class="output-value" id="roiPercentage">520%</div>
+                                <div class="output-subtitle">retorno de inversión anual</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">Periodo de Recuperación</div>
+                                <div class="output-value" id="paybackPeriod">0.7</div>
+                                <div class="output-subtitle">meses</div>
+                            </div>
+                            
+                            <div class="calculator-cta">
+                                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 20px; font-size: 16px;">
+                                    ¿Quieres un análisis personalizado de estos ahorros?
+                                </p>
+                                <div class="cta-buttons">
+                                    <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-primary">
+                                        <span>Reservar Demo</span>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </a>
+                                    <a href="#contacto" class="cta-secondary" style="background: transparent; color: white; border-color: rgba(255,255,255,0.4);" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                                        <span>Informe Detallado</span>
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Proof -->
+                    <div class="social-proof fade-in">
+                        <div class="social-proof-stat">45% de ahorro promedio</div>
+                        <div class="social-proof-text">
+                            Nuestros clientes reducen sus costes operativos en un 45% promedio mientras 
+                            aumentan su capacidad de entrega en un 60%. Resultados medidos en los primeros 90 días.
                         </div>
                     </div>
                 </div>
@@ -1429,24 +1841,179 @@
             });
         });
         
-        // Subtle hover effects for floating tool badges - Setup AI style
-        document.querySelectorAll('.tool-badge').forEach(badge => {
-            badge.addEventListener('mouseenter', function() {
-                this.style.animationPlayState = 'paused';
-                this.style.transform = 'scale(1.05)';
-                this.style.zIndex = '1000';
-                this.style.background = 'rgba(255, 255, 255, 0.95)';
-                this.style.color = '#475569';
+        
+        // ROI Calculator functionality
+        function initializeROICalculator() {
+            const elements = {
+                companyType: document.getElementById('companyType'),
+                projectsPerMonth: document.getElementById('projectsPerMonth'),
+                hoursPerProject: document.getElementById('hoursPerProject'),
+                internalCost: document.getElementById('internalCost'),
+                deliveryTime: document.getElementById('deliveryTime'),
+                externalPercentage: document.getElementById('externalPercentage'),
+                consultantCost: document.getElementById('consultantCost'),
+                
+                // Value displays
+                projectsValue: document.getElementById('projectsValue'),
+                hoursValue: document.getElementById('hoursValue'),
+                internalValue: document.getElementById('internalValue'),
+                deliveryValue: document.getElementById('deliveryValue'),
+                externalPercentValue: document.getElementById('externalPercentValue'),
+                consultantValue: document.getElementById('consultantValue'),
+                
+                // Outputs
+                monthlySavings: document.getElementById('monthlySavings'),
+                timeSaved: document.getElementById('timeSaved'),
+                additionalProjects: document.getElementById('additionalProjects'),
+                roiPercentage: document.getElementById('roiPercentage'),
+                paybackPeriod: document.getElementById('paybackPeriod')
+            };
+            
+            // Update slider value displays
+            function updateSliderValues() {
+                elements.projectsValue.textContent = elements.projectsPerMonth.value;
+                elements.hoursValue.textContent = elements.hoursPerProject.value + 'h';
+                elements.internalValue.textContent = '€' + elements.internalCost.value;
+                elements.deliveryValue.textContent = elements.deliveryTime.value + (elements.deliveryTime.value == 1 ? ' semana' : ' semanas');
+                elements.externalPercentValue.textContent = elements.externalPercentage.value + '%';
+                elements.consultantValue.textContent = '€' + elements.consultantCost.value;
+            }
+            
+            // Calculate ROI metrics
+            function calculateROI() {
+                const projects = parseInt(elements.projectsPerMonth.value);
+                const hours = parseInt(elements.hoursPerProject.value);
+                const internalRate = parseInt(elements.internalCost.value);
+                const deliveryWeeks = parseInt(elements.deliveryTime.value);
+                const externalPercent = parseInt(elements.externalPercentage.value) / 100;
+                const consultantRate = parseInt(elements.consultantCost.value);
+                
+                // AnalitikAI assumptions
+                const analitikAIHours = 8; // 1 day of work vs weeks
+                const analitikAIDelivery = 0.29; // 2 days = 0.29 weeks
+                const analitikAIServiceFee = 5000; // Average project cost
+                
+                // Current costs calculation
+                const internalProjects = projects * (1 - externalPercent);
+                const externalProjects = projects * externalPercent;
+                
+                const currentInternalCost = internalProjects * hours * internalRate;
+                const currentExternalCost = externalProjects * hours * consultantRate;
+                const currentTotalCost = currentInternalCost + currentExternalCost;
+                
+                // AnalitikAI costs
+                const analitikAICost = projects * analitikAIServiceFee;
+                
+                // Time savings
+                const currentTotalHours = projects * hours;
+                const analitikAITotalHours = projects * analitikAIHours;
+                const hoursSaved = currentTotalHours - analitikAITotalHours;
+                
+                // Cost savings
+                const monthlySavings = currentTotalCost - analitikAICost;
+                
+                // Additional projects capacity
+                const additionalProjectCapacity = Math.floor(hoursSaved / hours);
+                
+                // ROI calculation (annual)
+                const annualSavings = monthlySavings * 12;
+                const annualInvestment = analitikAICost * 12;
+                const roi = (annualSavings / annualInvestment) * 100;
+                
+                // Payback period
+                const payback = annualInvestment / annualSavings * 12; // in months
+                
+                // Update displays
+                elements.monthlySavings.textContent = '€' + monthlySavings.toLocaleString();
+                elements.timeSaved.textContent = hoursSaved.toFixed(0) + 'h';
+                elements.additionalProjects.textContent = '+' + additionalProjectCapacity;
+                elements.roiPercentage.textContent = roi.toFixed(0) + '%';
+                elements.paybackPeriod.textContent = payback.toFixed(1);
+            }
+            
+            // Position slider value tooltips
+            function positionSliderValue(slider, valueEl) {
+                const rect = slider.getBoundingClientRect();
+                const value = (slider.value - slider.min) / (slider.max - slider.min);
+                const position = value * (rect.width - 24) + 12; // 24px is thumb width
+                valueEl.style.left = position + 'px';
+            }
+            
+            // Event listeners for all inputs
+            Object.keys(elements).forEach(key => {
+                if (elements[key] && elements[key].addEventListener) {
+                    if (elements[key].type === 'range') {
+                        elements[key].addEventListener('input', () => {
+                            updateSliderValues();
+                            calculateROI();
+                            
+                            // Position the value tooltip
+                            const valueEl = document.getElementById(key.replace(/([A-Z])/g, '$1').toLowerCase().replace(/per|cost|time|percentage/, '') + 'Value') ||
+                                           document.getElementById(key + 'Value') ||
+                                           document.getElementById(key.replace('PerMonth', 'Value').replace('PerProject', 'Value').replace('Cost', 'Value').replace('Time', 'Value').replace('Percentage', 'PercentValue'));
+                            if (valueEl) {
+                                positionSliderValue(elements[key], valueEl);
+                            }
+                        });
+                        
+                        // Show tooltip on hover/focus
+                        elements[key].addEventListener('mouseenter', () => {
+                            const valueKey = key.replace('projectsPerMonth', 'projectsValue')
+                                               .replace('hoursPerProject', 'hoursValue')
+                                               .replace('internalCost', 'internalValue')
+                                               .replace('deliveryTime', 'deliveryValue')
+                                               .replace('externalPercentage', 'externalPercentValue')
+                                               .replace('consultantCost', 'consultantValue');
+                            if (elements[valueKey]) {
+                                elements[valueKey].style.opacity = '1';
+                            }
+                        });
+                        
+                        elements[key].addEventListener('mouseleave', () => {
+                            const valueKey = key.replace('projectsPerMonth', 'projectsValue')
+                                               .replace('hoursPerProject', 'hoursValue')
+                                               .replace('internalCost', 'internalValue')
+                                               .replace('deliveryTime', 'deliveryValue')
+                                               .replace('externalPercentage', 'externalPercentValue')
+                                               .replace('consultantCost', 'consultantValue');
+                            if (elements[valueKey]) {
+                                elements[valueKey].style.opacity = '0';
+                            }
+                        });
+                    }
+                    
+                    if (elements[key].tagName === 'SELECT') {
+                        elements[key].addEventListener('change', () => {
+                            calculateROI();
+                        });
+                    }
+                }
             });
             
-            badge.addEventListener('mouseleave', function() {
-                this.style.animationPlayState = 'running';
-                this.style.transform = 'scale(1)';
-                this.style.zIndex = 'auto';
-                this.style.background = '';
-                this.style.color = '';
-            });
-        });
+            // Initial calculation
+            updateSliderValues();
+            calculateROI();
+            
+            // Position initial tooltips
+            setTimeout(() => {
+                Object.keys(elements).forEach(key => {
+                    if (elements[key] && elements[key].type === 'range') {
+                        const valueKey = key.replace('projectsPerMonth', 'projectsValue')
+                                           .replace('hoursPerProject', 'hoursValue')
+                                           .replace('internalCost', 'internalValue')
+                                           .replace('deliveryTime', 'deliveryValue')
+                                           .replace('externalPercentage', 'externalPercentValue')
+                                           .replace('consultantCost', 'consultantValue');
+                        if (elements[valueKey]) {
+                            positionSliderValue(elements[key], elements[valueKey]);
+                        }
+                    }
+                });
+            }, 100);
+        }
+        
+        // Initialize calculator when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeROICalculator);
         
         // Initialize
         updateActiveNav();
