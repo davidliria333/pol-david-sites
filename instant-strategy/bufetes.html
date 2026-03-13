@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Día en la Vida: Laura, Socia Bufete Madrid | AnalitikAI</title>
+    <meta name="description" content="Descubre cómo AnalitikAI transforma el día a día de un bufete legal: de investigación lenta a precedentes instantáneos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-light: #6b7280;
+            --accent-blue: #2B6CB0;
+            --accent-blue-dark: #1A365D;
+            --accent-blue-light: #3182CE;
+            --accent-green: #38A169;
+            --accent-green-light: #48BB78;
+            --accent-red: #E53E3E;
+            --accent-red-light: #FC8181;
+            --border-light: #e5e7eb;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.25;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(43, 108, 176, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(49, 130, 206, 0.2) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(43, 108, 176, 0.2);
+            padding: 12px 24px;
+            border-radius: 25px;
+            margin-bottom: 32px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid rgba(43, 108, 176, 0.3);
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
+            margin-bottom: 48px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+        
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .timeline-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .timeline-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* State Toggle */
+        .state-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .toggle-container {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 6px;
+            display: flex;
+            gap: 6px;
+        }
+        
+        .toggle-button {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .toggle-button.active {
+            background: var(--white);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .toggle-button.before.active {
+            color: var(--accent-red);
+        }
+        
+        .toggle-button.after.active {
+            color: var(--accent-blue);
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item.active {
+            opacity: 1;
+        }
+        
+        .timeline-content {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            width: 45%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-2px);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-time {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            background: var(--accent-blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .timeline-hour {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+        
+        .timeline-activity {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Before/After States */
+        .state-content {
+            display: none;
+        }
+        
+        .state-content.active {
+            display: block;
+        }
+        
+        .before-state {
+            border-left: 4px solid var(--accent-red);
+            background: rgba(229, 62, 62, 0.05);
+        }
+        
+        .after-state {
+            border-left: 4px solid var(--accent-blue);
+            background: rgba(43, 108, 176, 0.05);
+        }
+        
+        .emotion-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        
+        .stress {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--accent-red);
+        }
+        
+        .relief {
+            background: rgba(43, 108, 176, 0.1);
+            color: var(--accent-blue);
+        }
+        
+        .analitikai-solution {
+            background: rgba(43, 108, 176, 0.1);
+            border: 1px solid rgba(43, 108, 176, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        
+        .solution-title {
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .solution-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ROI Calculator */
+        .roi-calculator {
+            background: var(--gray-50);
+            padding: 80px 0;
+        }
+        
+        .calculator-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .calculator-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 40px 0;
+            text-align: left;
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+        
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .cta-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: var(--white);
+            color: var(--accent-blue);
+            padding: 18px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 42px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+            }
+            
+            .timeline-time {
+                left: 20px;
+                transform: none;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">📊 AnalitikAI</a>
+                <nav>
+                    <a href="index.html" class="nav-link">← Volver al Inicio</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Bufetes de Abogados</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Un Día en la Vida:<br>Laura, Socia Bufete Madrid
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Gestiona un bufete de 50 abogados especializados en derecho corporativo y litigación. 
+                    Descubre cómo AnalitikAI transformó su práctica legal de investigación lenta a precedentes instantáneos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline-header fade-in">
+                <h2 class="timeline-title">De Investigación Manual a Intelligence Legal</h2>
+                <p class="timeline-subtitle">
+                    Descubre cómo AnalitikAI revolucionó un día típico de investigación legal en el bufete de Laura. 
+                    Haz clic en cada hora para ver la transformación.
+                </p>
+            </div>
+
+            <!-- State Toggle -->
+            <div class="state-toggle fade-in">
+                <div class="toggle-container">
+                    <button class="toggle-button before active" onclick="showState('before')">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        ANTES: Sin AnalitikAI
+                    </button>
+                    <button class="toggle-button after" onclick="showState('after')">
+                        <i class="fas fa-gavel"></i>
+                        DESPUÉS: Con AnalitikAI
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline fade-in">
+                <!-- 8:00 AM -->
+                <div class="timeline-item active" onclick="selectTime(this)">
+                    <div class="timeline-time">8:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">8:00 AM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-8">
+                            <div class="timeline-activity">⚖️ Urgencia Legal</div>
+                            <div class="timeline-description">
+                                Laura recibe una llamada urgente: cliente corporativo enfrenta demanda por €2M y necesita precedentes 
+                                sobre casos similares de competencia desleal. Los associates juniors comienzan búsquedas en Westlaw 
+                                que tradicionalmente tomarán 3-4 días.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-clock"></i> Presión de Tiempo
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-8">
+                            <div class="timeline-activity">⚡ Respuesta Inmediata</div>
+                            <div class="timeline-description">
+                                Laura recibe la misma llamada urgente y activa AnalitikAI. En 30 minutos tiene un briefing preliminar 
+                                con 15 precedentes relevantes, análisis de probabilidades de éxito y estrategias sugeridas. 
+                                Responde al cliente con confianza antes del desayuno.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-bolt"></i> Control Inmediato
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-search"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    Búsqueda inteligente de precedentes + análisis de probabilidades + estrategias legales sugeridas en 30 min
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10:00 AM -->
+                <div class="timeline-item" onclick="selectTime(this)">
+                    <div class="timeline-time">10:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">10:00 AM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-10">
+                            <div class="timeline-activity">📚 Investigación Manual</div>
+                            <div class="timeline-description">
+                                Tres associates están sumergidos en bases de datos legales, imprimiendo casos, haciendo fotocopias. 
+                                Han encontrado 40 casos potencialmente relevantes pero necesitan leer cada uno manualmente para determinar relevancia. 
+                                Costo: €180/hora × 3 × 4 días = €17,280.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-books"></i> Proceso Lento
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-10">
+                            <div class="timeline-activity">🎯 Análisis Estratégico</div>
+                            <div class="timeline-description">
+                                Laura y su equipo senior analizan el informe detallado de AnalitikAI, que incluye no solo precedentes 
+                                sino patrones de decisión de jueces específicos, argumentos que históricamente han funcionado, 
+                                y estrategias de defensa optimizadas. Tiempo invertido: 2 horas de trabajo estratégico de alto valor.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-brain"></i> Pensamiento Estratégico
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-chart-line"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    Análisis de patrones judiciales + estrategias optimizadas + argumentos históricos exitosos
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12:00 PM -->
+                <div class="timeline-item" onclick="selectTime(this)">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">12:00 PM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-12">
+                            <div class="timeline-activity">😰 Llamada Angustiosa</div>
+                            <div class="timeline-description">
+                                El cliente llama preguntando por updates. Laura debe explicar que la investigación está en proceso 
+                                y que tendrán resultados preliminares en 2-3 días. El cliente expresa preocupación por los tiempos 
+                                y menciona que está considerando otras opciones.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-phone"></i> Cliente Preocupado
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-12">
+                            <div class="timeline-activity">💼 Presentación Ejecutiva</div>
+                            <div class="timeline-description">
+                                Laura presenta al cliente un análisis legal completo con 3 estrategias viables, precedentes clave, 
+                                y un plan de acción detallado. El cliente queda impresionado con la velocidad y profundidad. 
+                                Autoriza inmediatamente continuar con la estrategia recomendada.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-thumbs-up"></i> Cliente Impresionado
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-presentation"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    Informe ejecutivo listo + múltiples estrategias + plan de acción detallado en 4 horas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2:00 PM -->
+                <div class="timeline-item" onclick="selectTime(this)">
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">2:00 PM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-14">
+                            <div class="timeline-activity">🔍 Supervisión Constante</div>
+                            <div class="timeline-description">
+                                Laura interrumpe su trabajo 6 veces para revisar el progreso de los associates. 
+                                Encuentra que han estado investigando 2 líneas que no son relevantes y que han malinterpretado 
+                                un precedente clave. Debe redireccionar la investigación, perdiendo medio día de trabajo.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-redo"></i> Trabajo Perdido
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-14">
+                            <div class="timeline-activity">📝 Redacción Estratégica</div>
+                            <div class="timeline-description">
+                                Laura se enfoca en redactar la estrategia legal y preparar argumentos sofisticados basados en los insights 
+                                de AnalitikAI. Con los precedentes organizados y analizados, puede concentrarse en crafting 
+                                argumentos convincentes y anticipar contraargumentos.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-pen-fancy"></i> Flow Creativo
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-lightbulb"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    Precedentes pre-organizados + argumentos sugeridos + anticipación de contraargumentos
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4:00 PM -->
+                <div class="timeline-item" onclick="selectTime(this)">
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">4:00 PM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-16">
+                            <div class="timeline-activity">📞 Consultores Externos</div>
+                            <div class="timeline-description">
+                                Laura se ve forzada a contratar un experto externo en competencia desleal por €800/día 
+                                para acelerar la investigación. También considera contratar un segundo bufete para que trabaje 
+                                en paralelo. Los costos se disparan y el cliente no será feliz.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-money-bill-wave"></i> Costos Disparados
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-16">
+                            <div class="timeline-activity">🎯 Estrategia Finalizada</div>
+                            <div class="timeline-description">
+                                Laura completa la estrategia legal integral y ya tiene borradores de los documentos principales. 
+                                Su equipo revisa los argumentos y prepara la presentación para el cliente. Todo usando recursos internos, 
+                                sin consultores externos.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-check-circle"></i> Recursos Optimizados
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-tools"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    Eliminación de consultores externos + recursos internos optimizados + documentos generados automáticamente
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6:00 PM -->
+                <div class="timeline-item" onclick="selectTime(this)">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">6:00 PM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-18">
+                            <div class="timeline-activity">🌙 Noche de Trabajo</div>
+                            <div class="timeline-description">
+                                El equipo se queda hasta las 22:00 para intentar avanzar la investigación. 
+                                Los associates están frustrados, Laura está estresada, y aún necesitan al menos 2 días más 
+                                para tener algo presentable al cliente. Morale del equipo en mínimos históricos.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-tired"></i> Equipo Quemado
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-18">
+                            <div class="timeline-activity">🏠 Salida Temprana</div>
+                            <div class="timeline-description">
+                                Laura y su equipo salen a las 18:00 con una estrategia legal completa lista para presentar mañana. 
+                                El equipo está motivado por la eficiencia conseguida. Laura usa el tiempo libre para planificar 
+                                nuevos casos y desarrollo de negocio.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-home"></i> Balance de Vida
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-clock"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    Trabajo completado en tiempo regular + equipo motivado + tiempo para desarrollo estratégico
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8:00 PM -->
+                <div class="timeline-item" onclick="selectTime(this)">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-hour">8:00 PM</div>
+                        
+                        <!-- BEFORE State -->
+                        <div class="state-content before-state active" id="before-20">
+                            <div class="timeline-activity">📱 Ansiedad Nocturna</div>
+                            <div class="timeline-description">
+                                Laura revisa emails desde casa, preocupada por el progreso del caso. 
+                                Recibe un mensaje de otro cliente preguntando por un caso diferente que también está retrasado. 
+                                Se da cuenta de que el bufete está desarrollando una reputación de lentitud.
+                            </div>
+                            <div class="emotion-indicator stress">
+                                <i class="fas fa-exclamation"></i> Reputación en Riesgo
+                            </div>
+                        </div>
+                        
+                        <!-- AFTER State -->
+                        <div class="state-content after-state" id="after-20">
+                            <div class="timeline-activity">📈 Planificación Estratégica</div>
+                            <div class="timeline-description">
+                                Laura revisa las métricas del mes: 40% de aumento en casos cerrados exitosamente, 
+                                60% de reducción en tiempo de investigación, y 3 nuevas referencias de clientes impresionados 
+                                por la velocidad. Planifica la expansión del bufete.
+                            </div>
+                            <div class="emotion-indicator relief">
+                                <i class="fas fa-trending-up"></i> Crecimiento Sostenible
+                            </div>
+                            <div class="analitikai-solution">
+                                <div class="solution-title">
+                                    <i class="fas fa-chart-bar"></i>
+                                    Solución AnalitikAI
+                                </div>
+                                <div class="solution-description">
+                                    40% más casos exitosos + 60% menos tiempo investigación + nuevas referencias por velocidad
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-calculator">
+        <div class="container">
+            <div class="calculator-card fade-in">
+                <h2 class="calculator-title">ROI para Bufetes como el de Laura</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 18px;">
+                    Basado en bufete con 50 abogados y 25 casos de investigación legal mensual
+                </p>
+                
+                <div class="calculator-grid">
+                    <div class="metric">
+                        <div class="metric-value">€22,400</div>
+                        <div class="metric-label">Ahorro mensual en investigación</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">450h</div>
+                        <div class="metric-label">Horas associates liberadas</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">+12</div>
+                        <div class="metric-label">Casos adicionales facturable</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">680%</div>
+                        <div class="metric-label">ROI anual</div>
+                    </div>
+                </div>
+                
+                <p style="color: var(--text-secondary); margin-top: 32px; font-style: italic;">
+                    "Nuestros clientes nos ven como un bufete del futuro. Entregamos en 48 horas lo que 
+                    otros bufetes entregan en 2 semanas, sin sacrificar calidad." - Laura M., Socia Directora
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="cta-title">¿Listo para Revolucionar tu Práctica Legal?</h2>
+                <p class="cta-subtitle">
+                    Únete a bufetes líderes que ya usan AnalitikAI. Primera consulta gratuita especializada en derecho.
+                </p>
+                <a href="https://cal.eu/polruiz/15min?utm_source=bufetes-page&utm_medium=cta" target="_blank" class="cta-button">
+                    <span>Book Demo para Bufetes</span>
+                    <i class="fas fa-calendar-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentState = 'before';
+        
+        function showState(state) {
+            currentState = state;
+            
+            // Update toggle buttons
+            document.querySelectorAll('.toggle-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.toggle-button.${state}`).classList.add('active');
+            
+            // Update all timeline items
+            document.querySelectorAll('.state-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll(`.state-content.${state}-state`).forEach(content => {
+                content.classList.add('active');
+            });
+        }
+        
+        function selectTime(item) {
+            // Remove active class from all items
+            document.querySelectorAll('.timeline-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Add active class to selected item
+            item.classList.add('active');
+            
+            // Scroll to item
+            item.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Auto-activate timeline items on scroll
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    selectTime(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        document.querySelectorAll('.timeline-item').forEach(el => {
+            timelineObserver.observe(el);
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set first timeline item as active
+            document.querySelector('.timeline-item').classList.add('active');
+        });
+    </script>
+</body>
+</html>

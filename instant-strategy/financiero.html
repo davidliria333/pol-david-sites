@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesor Financiero | AnalitikAI - Transformación Diaria con IA</title>
+    <meta name="description" content="Descubre cómo AnalitikAI transforma el día de un Asesor Financiero desde la incertidumbre del mercado hasta decisiones de inversión respaldadas por datos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-light: #6b7280;
+            --accent-blue: #6366f1;
+            --accent-blue-dark: #4f46e5;
+            --accent-blue-light: #818cf8;
+            --accent-gold: #f59e0b;
+            --accent-gold-light: #fbbf24;
+            --border-light: #e5e7eb;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --financial-color: #319795;
+            --financial-light: #4FD1C7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--financial-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--financial-color) 0%, var(--financial-light) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        .hero .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .persona-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+        
+        /* Timeline Container */
+        .timeline-section {
+            padding: 80px 0;
+        }
+        
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .timeline-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Timeline */
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--border-light);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item.active {
+            transform: scale(1.02);
+        }
+        
+        .timeline-time {
+            width: 80px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--financial-color);
+        }
+        
+        .timeline-marker {
+            width: 24px;
+            height: 24px;
+            background: var(--financial-color);
+            border-radius: 50%;
+            margin: 0 20px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-marker i {
+            color: white;
+            font-size: 10px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-content {
+            border-color: var(--financial-color);
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-4px);
+        }
+        
+        .timeline-item.active .timeline-content {
+            border-color: var(--financial-color);
+            background: linear-gradient(135deg, #fff 0%, #f0fdfa 100%);
+        }
+        
+        .timeline-item.active .timeline-marker {
+            background: var(--financial-color);
+            transform: scale(1.3);
+            box-shadow: 0 0 0 8px rgba(49, 151, 149, 0.1);
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .before, .after {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .before {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .after {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+        }
+        
+        .before h4, .after h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .before h4 {
+            color: #dc2626;
+        }
+        
+        .after h4 {
+            color: #16a34a;
+        }
+        
+        .before p, .after p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        .solution-highlight {
+            background: var(--gray-100);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 4px solid var(--financial-color);
+        }
+        
+        .solution-highlight h5 {
+            color: var(--financial-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .solution-highlight p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        /* ROI Calculator */
+        .roi-section {
+            background: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .roi-calculator {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--financial-color);
+        }
+        
+        .roi-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .roi-input {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .roi-input label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .roi-input input {
+            padding: 12px;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s ease;
+        }
+        
+        .roi-input input:focus {
+            outline: none;
+            border-color: var(--financial-color);
+        }
+        
+        .roi-results {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .roi-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .roi-metric:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .roi-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .roi-value {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--financial-color);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--financial-color) 0%, var(--financial-light) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--financial-color);
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-time {
+                margin-bottom: 8px;
+            }
+            
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+            
+            .roi-inputs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">AnalitikAI</a>
+                <nav>
+                    <a href="index.html" class="nav-link">← Volver al Inicio</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="persona-badge">
+                <i class="fas fa-chart-line"></i> Asesor Financiero
+            </div>
+            <h1>De Incertidumbre a Decisiones Sólidas</h1>
+            <p class="subtitle">Descubre cómo AnalitikAI transforma tu día desde la volatilidad del mercado hasta estrategias de inversión respaldadas por datos</p>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline-header">
+                <h2>Tu Día Transformado Hora por Hora</h2>
+                <p>Haz clic en cada hora para ver la transformación completa de tu rutina diaria</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- 8:00 AM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">8:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Llegas ansioso viendo las noticias financieras. Los mercados se movieron durante la noche y no sabes cómo afecta a los portfolios de tus clientes. Pánico por posibles pérdidas.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Abres tu dashboard y tienes el análisis completo de los movimientos nocturnos. Impacto calculado por cliente, recomendaciones de ajuste ya preparadas.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-globe"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Monitoring global de mercados 24/7 con análisis de impacto automático en portfolios específicos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 9:30 AM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">9:30</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Buscas información sobre nuevos sectores emergentes en múltiples fuentes. Datos desactualizados, análisis superficial, tiempo perdido navegando entre webs financieras.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Consultas tu resumen de oportunidades emergentes con análisis fundamentales completos, ratios clave y proyecciones validadas.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-seedling"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Detección automática de oportunidades emergentes con análisis fundamental y técnico integrado.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 11:00 AM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">11:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Reunión con cliente nervioso por la volatilidad. No tienes datos contextualizados para tranquilizarlo. Improvisas respuestas basadas en intuición general del mercado.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Presentas análisis detallado del portfolio específico del cliente con escenarios de stress-test, comparativas históricas y plan de acción concreto.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-shield-alt"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Análisis de riesgo personalizado con stress-testing automático y recomendaciones de cobertura.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 1:00 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Comes mientras revisas manualmente noticias económicas. Te pierdes eventos importantes porque no puedes procesar todo el flujo de información.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Comida tranquila mientras recibes alertas inteligentes solo sobre eventos que realmente impactan tus inversiones, con contexto y recomendaciones.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-bell"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Alertas inteligentes filtradas por relevancia con análisis automático de impacto en portfolios.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3:00 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Intentas crear reportes de rendimiento con Excel. Los datos están dispersos, los cálculos no cuadran, y te falta contexto histórico para las decisiones.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Generas reportes automáticos con métricas de rendimiento, comparativas de benchmark y análisis de atribución de rendimiento.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-tachometer-alt"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Dashboards automáticos de performance con métricas avanzadas y análisis de atribución en tiempo real.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 4:30 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">16:30</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Evaluación de nuevas inversiones basada en investigación limitada. Dependes de informes bancarios genéricos sin análisis profundo del sector.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Due diligence completo automatizado con análisis sectorial, comparativas de competidores y modelado financiero avanzado.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-microscope"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Due diligence automatizado con modelado financiero y análisis sectorial profundo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 6:00 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Fin del día con dudas sobre las decisiones tomadas. Sensación de haber reaccionado en lugar de anticipar. Incertidumbre sobre las posiciones.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Día terminado con confianza total. Decisiones respaldadas por datos, estrategias claras para mañana, portfolios optimizados.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-compass"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Optimización automática de portfolios con rebalancing inteligente y gestión de riesgos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 7:00 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Te vas preocupado por los movimientos que puedan ocurrir durante la noche. Estrés constante por no poder monitorear los mercados asiáticos.</p>
+                            </div>
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Desconexión total sabiendo que el sistema monitorea los mercados globales y te alertará solo si es necesario actuar.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-moon"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Monitoring nocturno automático con alertas inteligentes solo para eventos que requieren acción inmediata.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ROI Calculator -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="roi-calculator">
+                <h3 style="text-align: center; margin-bottom: 32px; color: var(--financial-color); font-size: 28px; font-weight: 700;">
+                    <i class="fas fa-calculator"></i> Calculadora ROI - Asesoría Financiera
+                </h3>
+                
+                <div class="roi-inputs">
+                    <div class="roi-input">
+                        <label for="hourlyRate">Coste por hora (asesor)</label>
+                        <input type="number" id="hourlyRate" value="120" oninput="calculateROI()">
+                    </div>
+                    <div class="roi-input">
+                        <label for="hoursWeek">Horas semanales en research</label>
+                        <input type="number" id="hoursWeek" value="15" oninput="calculateROI()">
+                    </div>
+                    <div class="roi-input">
+                        <label for="clients">Clientes activos</label>
+                        <input type="number" id="clients" value="45" oninput="calculateROI()">
+                    </div>
+                    <div class="roi-input">
+                        <label for="avgAum">AUM promedio por cliente (€)</label>
+                        <input type="number" id="avgAum" value="150000" oninput="calculateROI()">
+                    </div>
+                </div>
+                
+                <div class="roi-results" id="roiResults">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para Inversiones Más Inteligentes?</h2>
+            <p>Únete a asesores financieros que ya optimizaron sus decisiones con AnalitikAI. Research de inversiones que realmente mueve la aguja.</p>
+            <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">
+                <i class="fas fa-calendar"></i> Agendar Demo Gratuita
+            </a>
+        </div>
+    </section>
+    
+    <script>
+        function toggleTimeline(element) {
+            // Remove active class from all timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            element.classList.add('active');
+        }
+        
+        function calculateROI() {
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+            const hoursWeek = parseFloat(document.getElementById('hoursWeek').value) || 0;
+            const clients = parseFloat(document.getElementById('clients').value) || 0;
+            const avgAum = parseFloat(document.getElementById('avgAum').value) || 0;
+            
+            // Calculations
+            const monthlyResearchCost = hourlyRate * hoursWeek * 4.33;
+            const analitikaiCost = 750; // Base plan
+            const monthlySavings = monthlyResearchCost - analitikaiCost;
+            const annualSavings = monthlySavings * 12;
+            
+            // Performance improvements
+            const totalAum = clients * avgAum;
+            const improvedFees = totalAum * 0.0015 / 12; // 0.15% annual improvement in fees
+            const totalMonthlyBenefit = monthlySavings + improvedFees;
+            const roi = ((totalMonthlyBenefit * 12) / (analitikaiCost * 12)) * 100;
+            
+            // Update results
+            document.getElementById('roiResults').innerHTML = `
+                <div class="roi-metric">
+                    <span class="roi-label">Coste mensual actual (research)</span>
+                    <span class="roi-value">€${monthlyResearchCost.toLocaleString()}</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label">Ahorro mensual directo</span>
+                    <span class="roi-value">€${monthlySavings.toLocaleString()}</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label">Mejora comisiones (0.15%)</span>
+                    <span class="roi-value">€${improvedFees.toLocaleString()}</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label"><strong>Beneficio total mensual</strong></span>
+                    <span class="roi-value"><strong>€${totalMonthlyBenefit.toLocaleString()}</strong></span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label"><strong>ROI anual</strong></span>
+                    <span class="roi-value"><strong>${roi.toFixed(0)}%</strong></span>
+                </div>
+            `;
+        }
+        
+        // Initialize calculator
+        calculateROI();
+        
+        // Set first timeline item as active by default
+        document.querySelector('.timeline-item').classList.add('active');
+    </script>
+</body>
+</html>
