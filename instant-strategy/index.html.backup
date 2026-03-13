@@ -1192,11 +1192,9 @@
         <section id="inicio" class="section-hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge fade-in"
-                         data-before='<span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>Procesos Ineficientes Costosos'
-                         data-after='<span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>Excelencia en Investigación Profesional'>
-                        <span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span>
-                        Procesos Ineficientes Costosos
+                    <div class="hero-badge fade-in">
+                        <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
+                        Excelencia en Investigación Profesional
                     </div>
                     
                     <h1 class="hero-title fade-in" 
@@ -1231,19 +1229,14 @@
         <!-- Problem Section -->
         <section id="problema" class="section section-problem">
             <div class="container">
-                <h2 class="section-title fade-in"
-                    data-before="El Problema Real"
-                    data-after="La Solución">El Problema Real</h2>
-                <div class="problem-statement fade-in"
-                     data-before='"Todo el mundo vende analytics. Nadie pregunta qué necesitas realmente."'
-                     data-after='"AnalitikAI entiende tu contexto y entrega exactamente lo que necesitas."'>
+                <h2 class="section-title fade-in">El Desafío</h2>
+                <div class="problem-statement fade-in">
                     "Todo el mundo vende analytics. Nadie pregunta qué necesitas realmente."
                 </div>
                 
-                <p class="section-subtitle fade-in" style="margin-top: 48px;"
-                   data-before="Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, mientras los clientes esperan análisis que debería tomar horas, no semanas."
-                   data-after="Con AnalitikAI, transforms las semanas de investigación manual en horas de análisis automatizado, entregando a tus clientes exactamente lo que necesitan cuando lo necesitan.">
-                    Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, mientras los clientes esperan análisis que debería tomar horas, no semanas.
+                <p class="section-subtitle fade-in" style="margin-top: 48px;">
+                    Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, 
+                    mientras los clientes esperan análisis que debería tomar horas, no semanas.
                 </p>
             </div>
         </section>
@@ -1314,15 +1307,10 @@
                         <div class="process-icon">
                             <i class="fas fa-ear-listen"></i>
                         </div>
-                        <h3 class="process-title"
-                            data-before="Procesos Manuales Lentos"
-                            data-after="Comprensión Profunda">
-                            Procesos Manuales Lentos
-                        </h3>
-                        <p class="process-description"
-                           data-before="Tu equipo pierde semanas buscando información dispersa, revisando documentos manualmente, y tratando de dar sentido a datos desorganizados."
-                           data-after="Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, inteligencia competitiva. Sin jerga técnica, solo resultados accionables.">
-                            Tu equipo pierde semanas buscando información dispersa, revisando documentos manualmente, y tratando de dar sentido a datos desorganizados.
+                        <h3 class="process-title">Comprensión Profunda</h3>
+                        <p class="process-description">
+                            Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, 
+                            inteligencia competitiva. Sin jerga técnica, solo resultados accionables.
                         </p>
                     </div>
                     
@@ -1330,15 +1318,10 @@
                         <div class="process-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h3 class="process-title"
-                            data-before="Análisis Superficial"
-                            data-after="Análisis Experto">
-                            Análisis Superficial
-                        </h3>
-                        <p class="process-description"
-                           data-before="Consultores tradicionales cobran tarifas premium por trabajo que podría automatizarse, entregando análisis genéricos que no aportan valor real."
-                           data-after="Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights con la precisión de un equipo de analistas senior.">
-                            Consultores tradicionales cobran tarifas premium por trabajo que podría automatizarse, entregando análisis genéricos que no aportan valor real.
+                        <h3 class="process-title">Análisis Experto</h3>
+                        <p class="process-description">
+                            Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights 
+                            con la precisión de un equipo de analistas senior.
                         </p>
                     </div>
                     
@@ -1346,15 +1329,10 @@
                         <div class="process-icon">
                             <i class="fas fa-rocket"></i>
                         </div>
-                        <h3 class="process-title"
-                            data-before="Retrasos Constantes"
-                            data-after="Entrega Premium">
-                            Retrasos Constantes
-                        </h3>
-                        <p class="process-description"
-                           data-before="Tus clientes esperan semanas por informes básicos. Los plazos se extienden, la calidad es inconsistente, y pierdes oportunidades de negocio."
-                           data-after="Informes ejecutivos listos para presentar a clientes, con datos accionables y recomendaciones estratégicas. En 48 horas garantizadas.">
-                            Tus clientes esperan semanas por informes básicos. Los plazos se extienden, la calidad es inconsistente, y pierdes oportunidades de negocio.
+                        <h3 class="process-title">Entrega Premium</h3>
+                        <p class="process-description">
+                            Informes ejecutivos listos para presentar a clientes, con datos accionables 
+                            y recomendaciones estratégicas. En 48 horas garantizadas.
                         </p>
                     </div>
                 </div>
@@ -1467,20 +1445,15 @@
                             <div style="width: 52px; height: 52px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
                                 <i class="fas fa-rocket" style="color: white; font-size: 22px;"></i>
                             </div>
-                            <h3 style="font-size: 22px; font-weight: 600; font-family: 'Inter', sans-serif;"
-                                data-before="Tiempos de Entrega Lentos"
-                                data-after="Ventaja de Velocidad">Tiempos de Entrega Lentos</h3>
+                            <h3 style="font-size: 22px; font-weight: 600; font-family: 'Inter', sans-serif;">Ventaja de Velocidad</h3>
                         </div>
-                        <p style="margin-bottom: 28px; opacity: 0.9; font-size: 16px; line-height: 1.7;"
-                           data-before="Tus clientes esperan semanas por análisis básicos. Los consultores tradicionales prometen mucho pero tardan en entregar, afectando tu competitividad."
-                           data-after="Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. Misma calidad profesional, velocidad incomparable.">
-                            Tus clientes esperan semanas por análisis básicos. Los consultores tradicionales prometen mucho pero tardan en entregar, afectando tu competitividad.
+                        <p style="margin-bottom: 28px; opacity: 0.9; font-size: 16px; line-height: 1.7;">
+                            Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. 
+                            Misma calidad profesional, velocidad incomparable.
                         </p>
-                        <div style="text-align: center; padding: 24px 0;" 
-                             data-before='<div style="font-size: 52px; font-weight: 700; margin-bottom: 12px; color: #EF4444;">2-4 sem</div><div style="opacity: 0.8; font-size: 18px;">tiempo de entrega típico</div>'
-                             data-after='<div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div><div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>'>
-                            <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px; color: #EF4444;">2-4 sem</div>
-                            <div style="opacity: 0.8; font-size: 18px;">tiempo de entrega típico</div>
+                        <div style="text-align: center; padding: 24px 0;">
+                            <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div>
+                            <div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>
                         </div>
                     </div>
                 </div>
@@ -1842,15 +1815,11 @@
         <section id="contacto" class="section" style="background: var(--gray-900); color: white;">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 80px;">
-                    <h2 class="section-title fade-in" style="color: white;"
-                        data-before="¿Cansado de Procesos Ineficientes?"
-                        data-after="¿Listo para Acelerar tu Práctica Profesional?">
-                        ¿Cansado de Procesos Ineficientes?
+                    <h2 class="section-title fade-in" style="color: white;">
+                        ¿Listo para Acelerar tu Práctica Profesional?
                     </h2>
-                    <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.85);"
-                       data-before="Deja de perder tiempo y dinero en procesos manuales que podrían automatizarse. Es hora de encontrar una mejor forma de trabajar."
-                       data-after="Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.">
-                        Deja de perder tiempo y dinero en procesos manuales que podrían automatizarse. Es hora de encontrar una mejor forma de trabajar.
+                    <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.85);">
+                        Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.
                     </p>
                     
                     <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;" class="fade-in">
@@ -1879,9 +1848,9 @@
                 <div class="footer-content">
                     <div class="footer-brand">
                         <h3>📊 AnalitikAI</h3>
-                        <p data-before="Procesos manuales lentos, consultores caros, clientes insatisfechos. Los servicios profesionales merecen algo mejor que el statu quo."
-                           data-after="Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. Para servicios profesionales que necesitan resultados excepcionales, no promesas.">
-                            Procesos manuales lentos, consultores caros, clientes insatisfechos. Los servicios profesionales merecen algo mejor que el statu quo.
+                        <p>
+                            Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. 
+                            Para servicios profesionales que necesitan resultados excepcionales, no promesas.
                         </p>
                         <div style="display: flex; gap: 20px;">
                             <a href="https://linkedin.com/company/analitikai" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease; font-size: 20px;">
@@ -1924,12 +1893,6 @@
             </div>
         </footer>
     </main>
-    
-    <!-- Before/After Toggle Button -->
-    <div class="before-after-toggle">
-        <div class="toggle-option active" data-state="before">Antes</div>
-        <div class="toggle-option" data-state="after">Después</div>
-    </div>
     
     <script>
         // Sidebar Toggle
@@ -2217,130 +2180,6 @@
         
         // Initialize calculator when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeROICalculator);
-        
-        // Before/After Toggle Functionality
-        function initializeBeforeAfterToggle() {
-            const toggleButtons = document.querySelectorAll('.toggle-option');
-            const body = document.body;
-            
-            // Set initial state (BEFORE)
-            body.classList.add('before-state');
-            
-            function switchState(targetState) {
-                // Add transition class
-                body.classList.add('state-transitioning');
-                
-                // Update toggle button states
-                toggleButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.state === targetState) {
-                        btn.classList.add('active');
-                    }
-                });
-                
-                // Update body classes
-                body.classList.remove('before-state', 'after-state');
-                body.classList.add(targetState + '-state');
-                
-                // Switch content based on data attributes
-                const elementsWithData = document.querySelectorAll('[data-before][data-after]');
-                elementsWithData.forEach(element => {
-                    const beforeContent = element.dataset.before;
-                    const afterContent = element.dataset.after;
-                    
-                    if (targetState === 'before') {
-                        element.innerHTML = beforeContent;
-                    } else {
-                        element.innerHTML = afterContent;
-                    }
-                });
-                
-                // Remove transition class after animation completes
-                setTimeout(() => {
-                    body.classList.remove('state-transitioning');
-                }, 500);
-            }
-            
-            // Add click listeners to toggle buttons
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetState = button.dataset.state;
-                    switchState(targetState);
-                });
-            });
-            
-            // Initialize with BEFORE state content
-            switchState('before');
-        }
-        
-        // Initialize both systems when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeROICalculator();
-            initializeBeforeAfterToggle();
-        });
-        
-        // Before/After Toggle Functionality
-        const toggleButtons = document.querySelectorAll('.toggle-option');
-        const body = document.body;
-        
-        // Initialize default state
-        let currentState = 'before';
-        
-        // Elements that need content switching
-        const switchableElements = document.querySelectorAll('[data-before][data-after]');
-        
-        function updateContent(state) {
-            switchableElements.forEach(element => {
-                const beforeContent = element.getAttribute('data-before');
-                const afterContent = element.getAttribute('data-after');
-                
-                if (state === 'before') {
-                    if (element.tagName === 'A') {
-                        element.querySelector('span').textContent = beforeContent;
-                    } else {
-                        element.innerHTML = beforeContent;
-                    }
-                } else {
-                    if (element.tagName === 'A') {
-                        element.querySelector('span').textContent = afterContent;
-                    } else {
-                        element.innerHTML = afterContent;
-                    }
-                }
-            });
-        }
-        
-        function switchState(newState) {
-            if (currentState === newState) return;
-            
-            currentState = newState;
-            
-            // Update button active states
-            toggleButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-state') === newState) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Update body class for styling changes
-            body.classList.remove('before-state', 'after-state');
-            body.classList.add(`${newState}-state`);
-            
-            // Update content
-            updateContent(newState);
-        }
-        
-        // Add click listeners to toggle buttons
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const state = button.getAttribute('data-state');
-                switchState(state);
-            });
-        });
-        
-        // Initialize with default "before" state
-        switchState('before');
         
         // Initialize
         updateActiveNav();
