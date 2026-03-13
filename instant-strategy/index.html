@@ -872,18 +872,29 @@
             transform: translateX(88px);
         }
         
-        /* Content State Management - COMPLETELY REWRITTEN */
-        .content-state-before .hero-title { font-size: 72px; }
-        .content-state-before .hero-subtitle { margin-bottom: 56px; }
-        .content-state-before .floating-tools-title { font-size: 48px; }
-        .content-state-before .floating-tools-subtitle { font-size: 22px; margin-bottom: 80px; }
+        /* ENHANCED SETUP AI STYLE TRANSFORMATIONS */
         
-        .content-state-after .hero-title { font-size: 72px; }
-        .content-state-after .hero-subtitle { margin-bottom: 56px; }
-        .content-state-after .floating-tools-title { font-size: 48px; }
-        .content-state-after .floating-tools-subtitle { font-size: 22px; margin-bottom: 80px; }
+        /* All elements fade during transition */
+        .content-transition {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
         
-        /* Before State - Problem-focused */
+        .content-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .content-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* BEFORE STATE - Problem-focused, muted colors */
+        body.before-state {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         body.before-state .section-hero {
             background: linear-gradient(135deg, #4A5568 0%, #2D3748 100%);
         }
@@ -892,13 +903,115 @@
             background: linear-gradient(135deg, #f7f8fa 0%, #edf2f7 100%);
         }
         
-        /* After State - Solution-focused */
+        body.before-state .section-problem {
+            background: #f8f9fa;
+        }
+        
+        body.before-state .tool-badge {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #e0e0e0;
+            color: #6B7280;
+            transform: rotate(-2deg) scale(0.95);
+        }
+        
+        body.before-state .tool-badge:nth-child(even) {
+            transform: rotate(1.5deg) scale(0.92);
+        }
+        
+        body.before-state .tool-badge:nth-child(3n) {
+            transform: rotate(-1deg) scale(0.96);
+        }
+        
+        /* AFTER STATE - Solution-focused, vibrant AnalitikAI branding */
+        body.after-state {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         body.after-state .section-hero {
-            background: linear-gradient(135deg, #1A202C 0%, #2C5282 100%);
+            background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #3B82F6 100%);
+            position: relative;
+        }
+        
+        body.after-state .section-hero::before {
+            background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.2) 0%, transparent 50%);
         }
         
         body.after-state .floating-tools {
-            background: linear-gradient(135deg, #faf8f4 0%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+        
+        body.after-state .section-problem {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        body.after-state .tool-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #1E40AF;
+            transform: rotate(0deg) scale(1);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+        
+        body.after-state .tool-badge:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Enhanced tool organization in AFTER state */
+        body.after-state .tools-cluster {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            justify-items: center;
+        }
+        
+        /* AnalitikAI Brand Elements in AFTER state */
+        body.after-state .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.after-state .btn-primary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1E40AF;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        body.after-state .btn-primary:hover {
+            background: white;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        body.after-state .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        body.after-state .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Section background animations */
+        body.after-state .section {
+            position: relative;
+        }
+        
+        /* Process steps enhancement */
+        body.after-state .process-step {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        body.after-state .process-step:hover {
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+        }
+        
+        body.after-state .process-icon {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
         }
         
         /* Responsive Design - COMPLETELY FIXED */
@@ -1048,6 +1161,81 @@
                 opacity: 1;
                 transform: translateY(0) translateX(-50%);
             }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Enhanced toggle animations */
+        .toggle-indicator {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .toggle-option {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .toggle-option.active {
+            animation: pulse 0.6s ease-out;
+        }
+        
+        /* Enhanced content transitions */
+        .content-transition * {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Special AnalitikAI branding effects */
+        body.after-state .hero-title {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+        
+        body.after-state .hero-subtitle {
+            animation: slideInFromRight 0.8s ease-out 0.2s both;
+        }
+        
+        body.after-state .hero-badge {
+            animation: glow 2s ease-in-out infinite;
         }
     </style>
 </head>
@@ -1665,29 +1853,49 @@
             isInitialized: false
         };
         
-        // Content states
+        // ENHANCED CONTENT STATES - SETUP AI STYLE DRAMATIC TRANSFORMATIONS
         const ContentStates = {
             before: {
-                heroBadge: `<span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span> Procesos Ineficientes Costosos`,
-                heroTitle: "Estás perdiendo tiempo con decisiones basadas en datos",
-                heroSubtitle: "Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros...",
+                // Hero section - Problem-focused
+                heroBadge: `<span style="width: 8px; height: 8px; background: #EF4444; border-radius: 50%; display: inline-block;"></span> Procesos Ineficientes y Costosos`,
+                heroTitle: "Estás perdiendo tiempo con procesos manuales obsoletos",
+                heroSubtitle: "Los informes tardan semanas, las decisiones se basan en intuición, los consultores son lentos y caros. Mientras tanto, la competencia se mueve más rápido.",
                 heroCta: "¿Cansado de esperar semanas por análisis?",
-                heroSecondary: "Ver alternativas",
-                toolsTitle: "Mil opciones. Millones de tutoriales.<br>Y ni uno solo empieza por tu situación.",
-                toolsSubtitle: "Cada herramienta promete ser 'la solución'. Pero ninguna entiende tu contexto específico, tus procesos únicos, o cómo integrar todo en un flujo de trabajo coherente.",
-                contactTitle: "¿Cansado de Procesos Ineficientes?",
-                contactSubtitle: "Deja de perder tiempo y dinero en procesos manuales que podrían automatizarse. Es hora de encontrar una mejor forma de trabajar."
+                heroSecondary: "Ver el problema real",
+                
+                // Tools section - Chaos and confusion
+                toolsTitle: "Mil herramientas. Millones de tutoriales.<br>Y ni uno solo entiende tu situación real.",
+                toolsSubtitle: "Cada herramienta promete ser 'la solución definitiva'. Pero ninguna entiende tu contexto específico, tus procesos únicos, o cómo conectar todo en un flujo de trabajo coherente que realmente funcione.",
+                
+                // Contact section - Problem-focused
+                contactTitle: "¿Cansado de Procesos Que Te Ralentizan?",
+                contactSubtitle: "Deja de perder tiempo y dinero en procesos manuales que podrían automatizarse. Es hora de encontrar una mejor forma de trabajar, pero ¿por dónde empezar?",
+                
+                // Problem section
+                problemTitle: "El Problema Real",
+                problemStatement: "Todo el mundo vende herramientas. Nadie pregunta qué necesitas realmente.",
+                problemDescription: "Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, mientras los clientes esperan análisis que debería tomar horas, no semanas."
             },
             after: {
-                heroBadge: `<span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span> Excelencia en Investigación Profesional`,
-                heroTitle: "AnalitikAI",
-                heroSubtitle: "Investigación y análisis de nivel consultora entregados en <strong>48 horas</strong> vs 2-4 semanas. Para servicios profesionales que necesitan resultados, no promesas.",
-                heroCta: "Empezar Ahora",
-                heroSecondary: "Nuestra Metodología",
-                toolsTitle: "Todas estas herramientas trabajando<br>de forma inteligente para ti.",
-                toolsSubtitle: "AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente, creando flujos de trabajo automatizados que se adaptan a tu contexto específico.",
+                // Hero section - AnalitikAI solution-focused
+                heroBadge: `<span style="width: 8px; height: 8px; background: #10B981; border-radius: 50%; display: inline-block;"></span> AnalitikAI - Tu Consultor AI 24/7`,
+                heroTitle: "AnalitikAI<br><span style='font-size: 0.7em; color: rgba(255,255,255,0.9)'>Consultoría Inteligente en 48 Horas</span>",
+                heroSubtitle: "Investigación y análisis de <strong>nivel consultora</strong> entregados en <strong style='color: #FCD34D'>48 horas garantizadas</strong> vs 2-4 semanas tradicionales. La precisión de McKinsey con la velocidad de la IA.",
+                heroCta: "Empezar Ahora - Demo Gratuita",
+                heroSecondary: "Ver Cómo Funciona",
+                
+                // Tools section - Organized solution
+                toolsTitle: "Todas estas herramientas trabajando<br><strong style='color: #3B82F6'>inteligentemente para ti</strong>.",
+                toolsSubtitle: "AnalitikAI conecta y orquesta todas estas herramientas de forma inteligente, creando flujos de investigación automatizados que se adaptan perfectamente a cada tipo de proyecto profesional.",
+                
+                // Contact section - Solution-focused
                 contactTitle: "¿Listo para Acelerar tu Práctica Profesional?",
-                contactSubtitle: "Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales."
+                contactSubtitle: "Únete a bufetes, consultoras y firmas que ya están entregando análisis en horas, no semanas. Hablemos de tu proyecto específico.",
+                
+                // Problem section transforms to solution
+                problemTitle: "La Solución AnalitikAI",
+                problemStatement: "Finalmente, un consultor AI que entiende servicios profesionales.",
+                problemDescription: "AnalitikAI combina la experiencia de las mejores consultoras con la velocidad de la inteligencia artificial avanzada. Investigación institucional en tiempo récord."
             }
         };
         
@@ -1821,26 +2029,93 @@
                 return;
             }
             
-            console.log(`Switching from ${AppState.currentState} to ${targetState}`);
+            console.log(`🔄 Switching from ${AppState.currentState} to ${targetState} state`);
             
-            AppState.currentState = targetState;
+            // Prevent rapid clicking
+            const toggleButtons = document.querySelectorAll('.toggle-option');
+            toggleButtons.forEach(btn => btn.style.pointerEvents = 'none');
             
-            // Update toggle UI
-            updateToggleUI(targetState);
-            
-            // Update body class
-            updateBodyClass(targetState);
-            
-            // Update content
-            updateContent(targetState);
-            
-            // Scroll to top smoothly
+            // Step 1: Scroll to top immediately for better UX
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
             
-            console.log(`Successfully switched to ${targetState} state`);
+            // Step 2: Start transition - fade out current content
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                mainContent.style.transition = 'opacity 0.3s ease';
+                mainContent.style.opacity = '0.7';
+            }
+            
+            // Step 3: Update toggle UI immediately
+            updateToggleUI(targetState);
+            
+            // Step 4: Update body class and start visual transformation
+            setTimeout(() => {
+                updateBodyClass(targetState);
+                AppState.currentState = targetState;
+            }, 100);
+            
+            // Step 5: Transform content
+            setTimeout(() => {
+                updateContent(targetState);
+            }, 200);
+            
+            // Step 6: Fade content back in and re-enable interactions
+            setTimeout(() => {
+                if (mainContent) {
+                    mainContent.style.opacity = '1';
+                }
+                
+                // Re-enable toggle buttons
+                toggleButtons.forEach(btn => btn.style.pointerEvents = 'auto');
+                
+                // Add a subtle bounce effect to indicate completion
+                const hero = document.querySelector('.section-hero');
+                if (hero) {
+                    hero.style.transform = 'scale(1.01)';
+                    setTimeout(() => {
+                        hero.style.transition = 'transform 0.3s ease';
+                        hero.style.transform = 'scale(1)';
+                    }, 100);
+                }
+                
+                console.log(`✅ Successfully switched to ${targetState} state`);
+                
+                // Trigger a special animation for the "after" state
+                if (targetState === 'after') {
+                    setTimeout(() => {
+                        triggerAnalitikAIBrandAnimation();
+                    }, 500);
+                }
+                
+            }, 800);
+        }
+        
+        // Special branding animation for AnalitikAI reveal
+        function triggerAnalitikAIBrandAnimation() {
+            const heroTitle = document.getElementById('hero-title');
+            if (heroTitle && AppState.currentState === 'after') {
+                // Add a subtle glow effect
+                heroTitle.style.textShadow = '0 0 30px rgba(59, 130, 246, 0.5)';
+                heroTitle.style.transform = 'scale(1.02)';
+                
+                setTimeout(() => {
+                    heroTitle.style.textShadow = 'none';
+                    heroTitle.style.transform = 'scale(1)';
+                }, 1000);
+            }
+            
+            // Animate the tool badges to show organization
+            const toolBadges = document.querySelectorAll('.tool-badge');
+            toolBadges.forEach((badge, index) => {
+                setTimeout(() => {
+                    badge.style.animation = 'pulse 0.6s ease-out';
+                }, index * 50);
+            });
+            
+            console.log('🎨 AnalitikAI brand animation triggered');
         }
         
         function updateToggleUI(state) {
@@ -1869,9 +2144,39 @@
         function updateContent(state) {
             const content = ContentStates[state];
             
-            // Safe element update function
-            function safeUpdate(elementId, property, value) {
+            console.log(`Updating content for ${state} state...`);
+            
+            // Enhanced safe update function with fade animation
+            function safeUpdateWithFade(elementId, property, value) {
                 const element = document.getElementById(elementId);
+                if (element) {
+                    // Fade out
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(10px)';
+                    
+                    setTimeout(() => {
+                        // Update content
+                        if (property === 'innerHTML') {
+                            element.innerHTML = value;
+                        } else if (property === 'textContent') {
+                            element.textContent = value;
+                        }
+                        
+                        // Fade in
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 150);
+                } else {
+                    console.warn(`Element ${elementId} not found for update`);
+                }
+            }
+            
+            // Safe element update function (immediate)
+            function safeUpdate(selector, property, value) {
+                const element = typeof selector === 'string' ? 
+                    (selector.startsWith('#') ? document.getElementById(selector.substring(1)) : document.querySelector(selector)) 
+                    : selector;
+                    
                 if (element) {
                     if (property === 'innerHTML') {
                         element.innerHTML = value;
@@ -1879,28 +2184,156 @@
                         element.textContent = value;
                     }
                 } else {
-                    console.warn(`Element ${elementId} not found for update`);
+                    console.warn(`Element ${selector} not found for update`);
                 }
             }
             
-            // Update hero content
-            safeUpdate('hero-badge', 'innerHTML', content.heroBadge);
-            safeUpdate('hero-title', 'textContent', content.heroTitle);
-            safeUpdate('hero-subtitle', 'innerHTML', content.heroSubtitle);
-            safeUpdate('hero-cta-text', 'textContent', content.heroCta);
+            // Add transition class to main elements
+            document.body.classList.add('content-transition');
             
-            const heroSecondary = document.getElementById('hero-secondary');
-            if (heroSecondary) {
-                heroSecondary.textContent = content.heroSecondary;
+            // Update hero content with fade animation
+            setTimeout(() => {
+                safeUpdateWithFade('hero-badge', 'innerHTML', content.heroBadge);
+                safeUpdateWithFade('hero-title', 'innerHTML', content.heroTitle);
+                safeUpdateWithFade('hero-subtitle', 'innerHTML', content.heroSubtitle);
+                safeUpdateWithFade('hero-cta-text', 'textContent', content.heroCta);
+                
+                const heroSecondary = document.getElementById('hero-secondary');
+                if (heroSecondary) {
+                    heroSecondary.style.opacity = '0';
+                    setTimeout(() => {
+                        heroSecondary.textContent = content.heroSecondary;
+                        heroSecondary.style.opacity = '1';
+                    }, 150);
+                }
+                
+                // Update tools section
+                safeUpdateWithFade('tools-title', 'innerHTML', content.toolsTitle);
+                safeUpdateWithFade('tools-subtitle', 'innerHTML', content.toolsSubtitle);
+                
+                // Update contact section
+                safeUpdateWithFade('contact-title', 'textContent', content.contactTitle);
+                safeUpdateWithFade('contact-subtitle', 'textContent', content.contactSubtitle);
+                
+                // Update problem section (transforms completely)
+                const problemTitle = document.querySelector('.section-problem .section-title');
+                const problemStatement = document.querySelector('.problem-statement');
+                const problemDescription = document.querySelector('.section-problem .section-subtitle');
+                
+                if (problemTitle) {
+                    problemTitle.style.opacity = '0';
+                    setTimeout(() => {
+                        problemTitle.textContent = content.problemTitle;
+                        problemTitle.style.opacity = '1';
+                    }, 150);
+                }
+                
+                if (problemStatement) {
+                    problemStatement.style.opacity = '0';
+                    setTimeout(() => {
+                        problemStatement.textContent = `"${content.problemStatement}"`;
+                        problemStatement.style.opacity = '1';
+                    }, 200);
+                }
+                
+                if (problemDescription) {
+                    problemDescription.style.opacity = '0';
+                    setTimeout(() => {
+                        problemDescription.textContent = content.problemDescription;
+                        problemDescription.style.opacity = '1';
+                    }, 250);
+                }
+                
+                // Transform tool badges arrangement
+                transformToolBadges(state);
+                
+            }, 100);
+            
+            console.log(`Content updated for ${state} state`);
+        }
+        
+        // Transform tool badges between chaotic and organized layouts
+        function transformToolBadges(state) {
+            const toolsCluster = document.querySelector('.tools-cluster');
+            const toolBadges = document.querySelectorAll('.tool-badge');
+            
+            if (!toolsCluster || toolBadges.length === 0) return;
+            
+            if (state === 'after') {
+                // Organized grid layout with smooth positioning
+                toolBadges.forEach((badge, index) => {
+                    badge.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    badge.style.transform = 'rotate(0deg) scale(1)';
+                    badge.style.animation = `fadeInUp 0.6s ease-out ${index * 0.05}s forwards`;
+                });
+                
+                // Add some special badges for AnalitikAI
+                const existingBadges = [...toolBadges];
+                const newBadges = [
+                    'AnalitikAI Core',
+                    'AI Research',
+                    'Smart Analytics'
+                ];
+                
+                newBadges.forEach((badgeText, index) => {
+                    if (index < existingBadges.length) {
+                        const badge = existingBadges[index];
+                        setTimeout(() => {
+                            badge.textContent = badgeText;
+                            badge.style.background = 'linear-gradient(135deg, #3B82F6, #1E40AF)';
+                            badge.style.color = 'white';
+                            badge.style.fontWeight = '600';
+                            badge.style.border = 'none';
+                            badge.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.3)';
+                        }, index * 100);
+                    }
+                });
+                
+            } else {
+                // Chaotic scattered layout
+                toolBadges.forEach((badge, index) => {
+                    badge.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    const randomRotation = (Math.random() - 0.5) * 8; // -4 to +4 degrees
+                    const randomScale = 0.9 + Math.random() * 0.2; // 0.9 to 1.1
+                    badge.style.transform = `rotate(${randomRotation}deg) scale(${randomScale})`;
+                    badge.style.background = 'rgba(255, 255, 255, 0.7)';
+                    badge.style.color = '#6B7280';
+                    badge.style.fontWeight = '500';
+                    badge.style.border = '1px solid #e0e0e0';
+                    badge.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.06)';
+                    
+                    // Reset text to original tools
+                    const originalTexts = [
+                        'Excel', 'Power BI', 'Tableau', 'SPSS', 'SQL Server', 'MongoDB',
+                        'Perplexity', 'ChatGPT', 'Claude', 'Google Scholar', 'PubMed', 'JSTOR',
+                        'Salesforce', 'HubSpot', 'Microsoft 365', 'Google Workspace',
+                        'Westlaw', 'LexisNexis', 'Thomson Reuters', 'Bloomberg', 'Reuters'
+                    ];
+                    
+                    if (index < originalTexts.length) {
+                        badge.textContent = originalTexts[index];
+                    }
+                });
             }
-            
-            // Update tools section
-            safeUpdate('tools-title', 'innerHTML', content.toolsTitle);
-            safeUpdate('tools-subtitle', 'textContent', content.toolsSubtitle);
-            
-            // Update contact section
-            safeUpdate('contact-title', 'textContent', content.contactTitle);
-            safeUpdate('contact-subtitle', 'textContent', content.contactSubtitle);
+        }
+        
+        // Add CSS animation for fade in up effect
+        if (!document.querySelector('#fadeInUpStyle')) {
+            const style = document.createElement('style');
+            style.id = 'fadeInUpStyle';
+            style.textContent = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px) rotate(var(--start-rotation, 0deg)) scale(var(--start-scale, 1));
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0) rotate(0deg) scale(1);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
         }
         
         // FAQ functionality
