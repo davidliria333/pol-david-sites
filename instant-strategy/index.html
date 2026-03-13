@@ -60,26 +60,95 @@
             margin: 0 auto;
             padding: 0 32px;
         }
-        
-        /* Enhanced Sidebar Navigation */
+
+        /* Setup AI Style Sidebar Navigation */
         .sidebar {
             position: fixed;
             left: 0;
             top: 0;
-            width: 320px;
+            width: 280px;
             height: 100vh;
             background: var(--white);
-            border-right: 1px solid var(--border-light);
+            border-right: 1px solid #f0f0f0;
             z-index: 1000;
-            padding: 40px 32px;
+            padding: 32px 0;
             overflow-y: auto;
-            transform: translateX(-100%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-medium);
+            transform: translateX(0);
+            transition: transform 0.3s ease;
         }
         
-        .sidebar.open {
-            transform: translateX(0);
+        .sidebar-content {
+            padding: 0 24px;
+        }
+        
+        .sidebar-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 24px;
+            padding-left: 16px;
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 2px;
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: #f8f9fa;
+            color: var(--accent-blue);
+        }
+        
+        .sidebar-separator {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 24px 16px;
+        }
+        
+        .sidebar-secondary ul {
+            list-style: none;
+        }
+        
+        .sidebar-secondary li {
+            margin-bottom: 2px;
+        }
+        
+        .sidebar-secondary a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #999;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-secondary a:hover {
+            background: #f8f9fa;
+            color: var(--accent-blue);
         }
         
         .sidebar-toggle {
@@ -91,131 +160,28 @@
             background: var(--accent-blue);
             color: white;
             border: none;
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             box-shadow: var(--shadow-medium);
             transition: all 0.2s ease;
         }
         
         .sidebar-toggle:hover {
             background: var(--accent-blue-dark);
-            transform: translateY(-1px);
         }
         
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 56px;
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        
-        .sidebar-nav ul {
-            list-style: none;
-        }
-        
-        .sidebar-nav li {
-            margin-bottom: 4px;
-        }
-        
-        .sidebar-nav a {
-            display: block;
-            padding: 16px 20px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 15px;
-        }
-        
-        .sidebar-nav a:hover,
-        .sidebar-nav a.active {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
-            color: white;
-            transform: translateX(4px);
-        }
-        
-        /* Improved Main Content Layout */
+        /* Main Content with No Margin */
         .main-content {
-            margin-left: 320px;
+            margin-left: 280px;
             min-height: 100vh;
         }
         
-        /* Enhanced Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
-            color: white;
-            padding: 14px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: var(--shadow-soft);
-        }
-        
-        .cta-button:hover {
-            background: linear-gradient(135deg, var(--accent-blue-dark), var(--accent-blue));
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        /* Language Selector */
-        .language-selector {
-            display: flex;
-            gap: 8px;
-            margin-left: 20px;
-        }
-        
-        .language-selector a {
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .language-selector a.active,
-        .language-selector a:hover {
-            background: var(--gray-50);
-            color: var(--accent-blue);
-        }
-        
-        /* Enhanced Sections */
+        /* Full-width sections */
         .section {
+            width: 100%;
             padding: 100px 0;
         }
         
@@ -226,6 +192,8 @@
             padding: 140px 0;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            margin-left: 0;
         }
         
         .section-hero::before {
@@ -318,8 +286,117 @@
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.7);
         }
+
+        /* Floating Tools Section */
+        .floating-tools {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #fafbfd 0%, #f8fafc 100%);
+            overflow: hidden;
+        }
         
-        /* Enhanced Section Styles */
+        .floating-tools-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .floating-tools-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .floating-tools-subtitle {
+            font-size: 22px;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tools-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .tool-badge {
+            position: absolute;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            animation: float 20s infinite linear;
+            white-space: nowrap;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-badge:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            z-index: 1000;
+        }
+        
+        /* Tool Categories Colors */
+        .analytics-tool {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+        }
+        
+        .research-tool {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+        }
+        
+        .business-tool {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+        }
+        
+        .legal-tool {
+            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+        }
+        
+        .data-tool {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateX(-100px) translateY(0px);
+            }
+            25% {
+                transform: translateX(calc(100vw + 100px)) translateY(-20px);
+            }
+            50% {
+                transform: translateX(-100px) translateY(10px);
+            }
+            75% {
+                transform: translateX(calc(100vw + 100px)) translateY(-15px);
+            }
+            100% {
+                transform: translateX(-100px) translateY(0px);
+            }
+        }
+        
+        /* Staggered animation delays for each row */
+        .tool-row-1 { animation-delay: 0s; top: 15%; }
+        .tool-row-2 { animation-delay: -5s; top: 35%; }
+        .tool-row-3 { animation-delay: -10s; top: 55%; }
+        .tool-row-4 { animation-delay: -15s; top: 75%; }
+        .tool-row-5 { animation-delay: -7s; top: 25%; }
+        .tool-row-6 { animation-delay: -12s; top: 45%; }
+        .tool-row-7 { animation-delay: -3s; top: 65%; }
+        .tool-row-8 { animation-delay: -18s; top: 85%; }
+        
+        /* Section Styles */
         .section-title {
             font-size: 52px;
             font-weight: 700;
@@ -353,7 +430,7 @@
             line-height: 1.4;
         }
         
-        /* Enhanced Process Section */
+        /* Process Grid */
         .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -419,7 +496,7 @@
             line-height: 1.8;
             font-size: 16px;
         }
-        
+
         /* Enhanced Cards */
         .card {
             background: var(--white);
@@ -452,8 +529,8 @@
         .card:hover::before {
             opacity: 1;
         }
-        
-        /* Enhanced Services Grid */
+
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -461,7 +538,7 @@
             margin-top: 80px;
         }
         
-        /* Enhanced Methodology Section */
+        /* Methodology Grid */
         .methodology-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -510,8 +587,8 @@
             line-height: 1.7;
             font-size: 15px;
         }
-        
-        /* Enhanced FAQ */
+
+        /* FAQ */
         .faq-item {
             border-bottom: 1px solid var(--border-light);
             margin-bottom: 8px;
@@ -552,8 +629,8 @@
         .faq-answer.active {
             display: block;
         }
-        
-        /* Enhanced Footer */
+
+        /* Footer */
         .footer {
             background: var(--gray-900);
             color: white;
@@ -579,11 +656,19 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        
-        /* Mobile Responsive Improvements */
+
+        /* Mobile Responsive */
         @media (max-width: 1024px) {
             .sidebar {
-                width: 100%;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .sidebar-toggle {
+                display: block;
             }
             
             .main-content {
@@ -596,10 +681,6 @@
         }
         
         @media (max-width: 768px) {
-            .sidebar-toggle {
-                display: block;
-            }
-            
             .hero-title {
                 font-size: 56px;
             }
@@ -616,13 +697,13 @@
                 font-size: 20px;
             }
             
+            .floating-tools-title {
+                font-size: 36px;
+            }
+            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-            
-            .header-content {
-                padding-left: 100px;
             }
             
             .footer-content {
@@ -636,8 +717,8 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Enhanced Animations */
+
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
@@ -654,33 +735,40 @@
         .fade-in:nth-child(2) { transition-delay: 0.2s; }
         .fade-in:nth-child(3) { transition-delay: 0.3s; }
         .fade-in:nth-child(4) { transition-delay: 0.4s; }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Enhanced Sidebar Navigation -->
+    <!-- Setup AI Style Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <div class="sidebar-logo">
-            <span>📊</span>&nbsp;AnalitikAI
-        </div>
-        
-        <div class="sidebar-nav">
-            <ul>
-                <li><a href="#inicio" class="active">Inicio</a></li>
-                <li><a href="#problema">El Problema</a></li>
-                <li><a href="#solucion">Nuestra Solución</a></li>
-                <li><a href="#proceso">Proceso</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#metodologia">Metodología</a></li>
-                <li><a href="#preguntas">FAQ</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-        
-        <div class="language-selector">
-            <a href="#" class="active">ES</a>
-            <a href="#">EN</a>
-            <a href="#">CA</a>
+        <div class="sidebar-content">
+            <div class="sidebar-label">GLOSSARY</div>
+            
+            <div class="sidebar-nav">
+                <ul>
+                    <li><a href="#problema" class="nav-link">EL PROBLEMA</a></li>
+                    <li><a href="#solucion">NUESTRA SOLUCIÓN</a></li>
+                    <li><a href="#proceso">CÓMO FUNCIONA</a></li>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#precios">PRECIOS</a></li>
+                    <li><a href="#preguntas">FAQ</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-separator"></div>
+            
+            <div class="sidebar-secondary">
+                <ul>
+                    <li><a href="#metodologia">METODOLOGÍA</a></li>
+                    <li><a href="#casos">CASOS DE ÉXITO</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     
@@ -691,20 +779,7 @@
     
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Enhanced Header -->
-        <header class="header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="header-title">AI-as-a-Consultant</div>
-                    <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">
-                        <span>Consulta Gratuita</span>
-                        <i class="fas fa-calendar-alt"></i>
-                    </a>
-                </div>
-            </div>
-        </header>
-        
-        <!-- Enhanced Hero Section -->
+        <!-- Hero Section -->
         <section id="inicio" class="section-hero">
             <div class="container">
                 <div class="hero-content">
@@ -747,6 +822,81 @@
                     Los servicios profesionales pierden semanas en investigación básica que podría automatizarse, 
                     mientras los clientes esperan análisis que debería tomar horas, no semanas.
                 </p>
+            </div>
+        </section>
+        
+        <!-- Floating Tools Section -->
+        <section class="floating-tools">
+            <div class="container">
+                <div class="floating-tools-content">
+                    <h2 class="floating-tools-title fade-in">Mil opciones. Millones de tutoriales.<br>Y ni uno solo empieza por tu situación.</h2>
+                    <p class="floating-tools-subtitle fade-in">
+                        AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente, 
+                        creando flujos de trabajo automatizados que se adaptan a tu contexto específico.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tools-container">
+                <!-- Analytics Tools Row 1 -->
+                <div class="tool-badge analytics-tool tool-row-1" style="left: 10%;">Excel</div>
+                <div class="tool-badge analytics-tool tool-row-1" style="left: 25%;">Power BI</div>
+                <div class="tool-badge analytics-tool tool-row-1" style="left: 40%;">Tableau</div>
+                <div class="tool-badge analytics-tool tool-row-1" style="left: 55%;">SPSS</div>
+                <div class="tool-badge analytics-tool tool-row-1" style="left: 70%;">R Studio</div>
+                <div class="tool-badge analytics-tool tool-row-1" style="left: 85%;">Python</div>
+                
+                <!-- Research Tools Row 2 -->
+                <div class="tool-badge research-tool tool-row-2" style="left: 5%;">Perplexity</div>
+                <div class="tool-badge research-tool tool-row-2" style="left: 20%;">ChatGPT</div>
+                <div class="tool-badge research-tool tool-row-2" style="left: 35%;">Claude</div>
+                <div class="tool-badge research-tool tool-row-2" style="left: 50%;">Gemini</div>
+                <div class="tool-badge research-tool tool-row-2" style="left: 65%;">Copilot</div>
+                <div class="tool-badge research-tool tool-row-2" style="left: 80%;">Anthropic</div>
+                
+                <!-- Business Tools Row 3 -->
+                <div class="tool-badge business-tool tool-row-3" style="left: 15%;">Salesforce</div>
+                <div class="tool-badge business-tool tool-row-3" style="left: 30%;">HubSpot</div>
+                <div class="tool-badge business-tool tool-row-3" style="left: 45%;">Notion</div>
+                <div class="tool-badge business-tool tool-row-3" style="left: 60%;">Slack</div>
+                <div class="tool-badge business-tool tool-row-3" style="left: 75%;">Zapier</div>
+                
+                <!-- Legal Tools Row 4 -->
+                <div class="tool-badge legal-tool tool-row-4" style="left: 8%;">Westlaw</div>
+                <div class="tool-badge legal-tool tool-row-4" style="left: 23%;">LexisNexis</div>
+                <div class="tool-badge legal-tool tool-row-4" style="left: 38%;">Thomson Reuters</div>
+                <div class="tool-badge legal-tool tool-row-4" style="left: 53%;">vLex</div>
+                <div class="tool-badge legal-tool tool-row-4" style="left: 68%;">Wolters Kluwer</div>
+                <div class="tool-badge legal-tool tool-row-4" style="left: 83%;">Aranzadi</div>
+                
+                <!-- Data Sources Row 5 -->
+                <div class="tool-badge data-tool tool-row-5" style="left: 12%;">Bloomberg</div>
+                <div class="tool-badge data-tool tool-row-5" style="left: 27%;">Reuters</div>
+                <div class="tool-badge data-tool tool-row-5" style="left: 42%;">SEC Edgar</div>
+                <div class="tool-badge data-tool tool-row-5" style="left: 57%;">Refinitiv</div>
+                <div class="tool-badge data-tool tool-row-5" style="left: 72%;">S&P Capital IQ</div>
+                
+                <!-- Analytics Tools Row 6 -->
+                <div class="tool-badge analytics-tool tool-row-6" style="left: 18%;">SQL Server</div>
+                <div class="tool-badge analytics-tool tool-row-6" style="left: 33%;">MongoDB</div>
+                <div class="tool-badge analytics-tool tool-row-6" style="left: 48%;">Databricks</div>
+                <div class="tool-badge analytics-tool tool-row-6" style="left: 63%;">Snowflake</div>
+                <div class="tool-badge analytics-tool tool-row-6" style="left: 78%;">BigQuery</div>
+                
+                <!-- Research Tools Row 7 -->
+                <div class="tool-badge research-tool tool-row-7" style="left: 6%;">Semantic Scholar</div>
+                <div class="tool-badge research-tool tool-row-7" style="left: 21%;">Google Scholar</div>
+                <div class="tool-badge research-tool tool-row-7" style="left: 36%;">PubMed</div>
+                <div class="tool-badge research-tool tool-row-7" style="left: 51%;">JSTOR</div>
+                <div class="tool-badge research-tool tool-row-7" style="left: 66%;">ResearchGate</div>
+                <div class="tool-badge research-tool tool-row-7" style="left: 81%;">ArXiv</div>
+                
+                <!-- Business Tools Row 8 -->
+                <div class="tool-badge business-tool tool-row-8" style="left: 14%;">Microsoft 365</div>
+                <div class="tool-badge business-tool tool-row-8" style="left: 29%;">Google Workspace</div>
+                <div class="tool-badge business-tool tool-row-8" style="left: 44%;">Asana</div>
+                <div class="tool-badge business-tool tool-row-8" style="left: 59%;">Trello</div>
+                <div class="tool-badge business-tool tool-row-8" style="left: 74%;">Monday.com</div>
             </div>
         </section>
         
@@ -917,8 +1067,40 @@
             </div>
         </section>
         
-        <!-- Methodology & Excellence Section (Replaces "Estamos Empezando") -->
-        <section id="metodologia" class="section" style="background: var(--gray-50);">
+        <!-- Pricing Section -->
+        <section id="precios" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Precios Transparentes</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Tarifas claras y competitivas para investigación de nivel consultora premium.
+                </p>
+                
+                <div style="max-width: 900px; margin: 80px auto 0; text-align: center;">
+                    <div style="background: white; padding: 60px 40px; border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-soft);">
+                        <div style="width: 88px; height: 88px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px;">
+                            <i class="fas fa-handshake" style="color: white; font-size: 36px;"></i>
+                        </div>
+                        <h3 style="font-size: 28px; margin-bottom: 24px; color: var(--text-primary);">Consulta Gratuita</h3>
+                        <p style="color: var(--text-secondary); font-size: 18px; line-height: 1.7; margin-bottom: 32px;">
+                            Cada proyecto es único. Reserva una consulta de 15 minutos para revisar tu caso específico 
+                            y recibir una propuesta personalizada sin compromiso.
+                        </p>
+                        <div style="margin-bottom: 32px;">
+                            <div style="font-size: 16px; color: var(--text-light); margin-bottom: 8px;">Precios típicos:</div>
+                            <div style="font-size: 24px; color: var(--text-primary); font-weight: 600;">€2,500 - €8,500 por proyecto</div>
+                            <div style="font-size: 14px; color: var(--text-light); margin-top: 8px;">Según complejidad y alcance</div>
+                        </div>
+                        <a href="https://cal.eu/polruiz/15min" target="_blank" style="background: var(--accent-blue); color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s ease;">
+                            <span>Reservar Consulta</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Methodology & Excellence Section -->
+        <section id="metodologia" class="section" style="background: var(--white);">
             <div class="container">
                 <h2 class="section-title fade-in" style="text-align: center;">Metodología & Excelencia</h2>
                 <p class="section-subtitle fade-in" style="text-align: center;">
@@ -971,20 +1153,29 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </section>
+        
+        <!-- Success Cases Section -->
+        <section id="casos" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Casos de Éxito</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Resultados reales para servicios profesionales que confiaron en AnalitikAI.
+                </p>
                 
                 <div style="max-width: 900px; margin: 80px auto 0; text-align: center;">
                     <div style="background: white; padding: 48px 40px; border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-soft);">
-                        <div style="width: 88px; height: 88px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px;">
-                            <i class="fas fa-handshake" style="color: white; font-size: 36px;"></i>
+                        <div style="width: 88px; height: 88px; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px;">
+                            <i class="fas fa-trophy" style="color: white; font-size: 36px;"></i>
                         </div>
-                        <h3 style="font-size: 28px; margin-bottom: 24px; color: var(--text-primary);">Compromiso con la Excelencia</h3>
+                        <h3 style="font-size: 28px; margin-bottom: 24px; color: var(--text-primary);">Próximamente</h3>
                         <p style="color: var(--text-secondary); font-size: 18px; line-height: 1.7; margin-bottom: 32px;">
-                            Nuestro objetivo es establecer un nuevo estándar en consultoría de investigación: 
-                            la velocidad de la tecnología combinada con la calidad y profundidad del análisis tradicional.
+                            Estamos trabajando con nuestros primeros clientes para crear casos de estudio detallados. 
+                            Muy pronto compartiremos resultados específicos y testimonios.
                         </p>
-                        <p style="color: var(--text-primary); font-size: 18px; font-weight: 600;">
-                            <strong>¿Tienes un proyecto desafiante?</strong> Nos especializamos en casos complejos 
-                            que requieren investigación profunda y análisis sofisticado.
+                        <p style="color: var(--text-primary); font-size: 16px; font-weight: 600;">
+                            ¿Quieres ser uno de nuestros casos de éxito iniciales?
                         </p>
                     </div>
                 </div>
@@ -1106,7 +1297,7 @@
             </div>
         </section>
         
-        <!-- Enhanced Footer -->
+        <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -1159,7 +1350,7 @@
     </main>
     
     <script>
-        // Enhanced Sidebar Toggle
+        // Sidebar Toggle
         const sidebarToggle = document.getElementById('sidebar-toggle');
         const sidebar = document.getElementById('sidebar');
         
@@ -1195,10 +1386,10 @@
             });
         });
         
-        // Update active navigation link with better detection
+        // Update active navigation link
         const updateActiveNav = () => {
             const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.sidebar-nav a');
+            const navLinks = document.querySelectorAll('.sidebar-nav a, .sidebar-secondary a');
             
             let current = '';
             const scrollPos = window.scrollY + 120;
@@ -1219,7 +1410,7 @@
             });
         };
         
-        // Throttled scroll listener for better performance
+        // Throttled scroll listener
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -1231,7 +1422,7 @@
             }
         });
         
-        // Enhanced Intersection Observer for fade-in animations
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -80px 0px'
@@ -1249,7 +1440,7 @@
             observer.observe(el);
         });
         
-        // Enhanced FAQ Functionality
+        // FAQ Functionality
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
@@ -1271,25 +1462,23 @@
             });
         });
         
-        // Enhanced button hover effects
-        document.querySelectorAll('.cta-button, .btn-primary, .btn-secondary').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
+        // Enhanced hover effects for floating tool badges
+        document.querySelectorAll('.tool-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.transform = 'scale(1.15)';
+                this.style.zIndex = '1000';
             });
             
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+            badge.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = 'auto';
             });
         });
         
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.section-hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
+        // Initialize
+        updateActiveNav();
     </script>
 </body>
 </html>
