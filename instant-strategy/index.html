@@ -441,7 +441,7 @@
 
         .slider-wrapper {
             position: relative;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .input-slider {
@@ -502,27 +502,25 @@
             border: none;
         }
 
-        /* Modern value display - positioned BELOW slider */
+        /* STATIC value display - positioned BELOW slider with more space */
         .slider-value-display {
-            position: absolute;
-            top: 20px;
-            font-size: 16px;
-            font-weight: 700;
+            position: static;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 600;
             color: #6366f1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 80px;
-            height: 32px;
+            display: block;
+            min-width: auto;
+            height: auto;
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.08));
             border: 2px solid rgba(99, 102, 241, 0.25);
             border-radius: 8px;
-            padding: 0 12px;
+            padding: 12px;
             transition: all 0.3s ease;
             white-space: nowrap;
             box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
             backdrop-filter: blur(10px);
-            transform: translateX(-50%);
             pointer-events: none;
         }
 
@@ -548,14 +546,13 @@
         /* Responsive Design for Mobile */
         @media (max-width: 768px) {
             .slider-value-display {
-                font-size: 14px;
-                min-width: 70px;
-                height: 28px;
-                top: 16px;
+                font-size: 16px;
+                margin-top: 25px;
+                padding: 10px;
             }
 
             .slider-wrapper {
-                margin-bottom: 70px;
+                margin-bottom: 90px;
             }
 
             .input-group {
@@ -2262,13 +2259,7 @@
                 elements.paybackPeriod.textContent = payback.toFixed(1);
             }
 
-            // Position slider value tooltips
-            function positionSliderValue(slider, valueEl) {
-                const rect = slider.getBoundingClientRect();
-                const value = (slider.value - slider.min) / (slider.max - slider.min);
-                const position = value * (rect.width - 24) + 12; // 24px is thumb width
-                valueEl.style.left = position + 'px';
-            }
+
 
             // Event listeners for all inputs
             Object.keys(elements).forEach(key => {
@@ -2277,14 +2268,6 @@
                         elements[key].addEventListener('input', () => {
                             updateSliderValues();
                             calculateROI();
-
-                            // Position the value tooltip
-                            const valueEl = document.getElementById(key.replace(/([A-Z])/g, '$1').toLowerCase().replace(/per|cost|time|percentage/, '') + 'Value') ||
-                                           document.getElementById(key + 'Value') ||
-                                           document.getElementById(key.replace('PerMonth', 'Value').replace('PerProject', 'Value').replace('Cost', 'Value').replace('Time', 'Value').replace('Percentage', 'PercentValue'));
-                            if (valueEl) {
-                                positionSliderValue(elements[key], valueEl);
-                            }
                         });
 
                         // Show tooltip on hover/focus
@@ -2325,39 +2308,13 @@
             updateSliderValues();
             calculateROI();
 
-            // Position initial tooltips
-            setTimeout(() => {
-                Object.keys(elements).forEach(key => {
-                    if (elements[key] && elements[key].type === 'range') {
-                        const valueKey = key.replace('projectsPerMonth', 'projectsValue')
-                                           .replace('hoursPerProject', 'hoursValue')
-                                           .replace('internalCost', 'internalValue')
-                                           .replace('deliveryTime', 'deliveryValue')
-                                           .replace('externalPercentage', 'externalPercentValue')
-                                           .replace('consultantCost', 'consultantValue');
-                        if (elements[valueKey]) {
-                            positionSliderValue(elements[key], elements[valueKey]);
-                        }
-                    }
-                });
-            }, 100);
+
         }
 
         // Initialize calculator when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeSimpleROICalculator);
 
-        // Perfect Slider Value Positioning Function
-        function updateSliderValue(slider, valueDisplay) {
-            if (!slider || !valueDisplay) return;
-            
-            const percent = (slider.value - slider.min) / (slider.max - slider.min);
-            const sliderWidth = slider.offsetWidth;
-            const thumbWidth = 24; // thumb width in pixels
-            const position = percent * (sliderWidth - thumbWidth) + (thumbWidth / 2);
-            
-            valueDisplay.style.left = position + 'px';
-            valueDisplay.style.transform = 'translateX(-50%)';
-        }
+
 
         // Simple ROI Calculator - Realistic Logic with Perfect Centering
         function initializeSimpleROICalculator() {
@@ -2375,14 +2332,12 @@
                 const projects = parseInt(projectsSlider.value);
                 const hourlyRate = parseInt(hourlyRateSlider.value);
 
-                // Update slider displays with perfect centering
+                // Update slider displays - STATIC positioning
                 if (projectsValueDisplay) {
                     projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
-                    updateSliderValue(projectsSlider, projectsValueDisplay);
                 }
                 if (hourlyRateValueDisplay) {
                     hourlyRateValueDisplay.textContent = '€' + hourlyRate;
-                    updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay);
                 }
 
                 // NEW REALISTIC CALCULATION LOGIC
@@ -2416,30 +2371,16 @@
                 }
             }
 
-            // Add event listeners with perfect positioning updates
+            // Add event listeners - NO positioning updates (static layout)
             if (projectsSlider) {
                 projectsSlider.addEventListener('input', updateCalculator);
-                projectsSlider.addEventListener('input', () => updateSliderValue(projectsSlider, projectsValueDisplay));
             }
             if (hourlyRateSlider) {
                 hourlyRateSlider.addEventListener('input', updateCalculator);
-                hourlyRateSlider.addEventListener('input', () => updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay));
             }
 
-            // Handle window resize to recalculate positions
-            window.addEventListener('resize', () => {
-                updateSliderValue(projectsSlider, projectsValueDisplay);
-                updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay);
-            });
-
-            // Initial calculation and positioning
+            // Initial calculation - NO positioning needed (static layout)
             updateCalculator();
-            
-            // Delay initial positioning to ensure elements are fully rendered
-            setTimeout(() => {
-                updateSliderValue(projectsSlider, projectsValueDisplay);
-                updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay);
-            }, 100);
         }
 
         // Initialize
