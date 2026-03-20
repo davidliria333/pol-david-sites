@@ -477,23 +477,18 @@
 
         .slider-value {
             position: absolute;
-            top: -35px;
+            top: 35px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--accent-blue);
-            color: white;
+            background: transparent;
+            color: #dc2626;
             padding: 6px 12px;
             border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .input-slider:hover + .slider-value,
-        .input-slider:focus + .slider-value {
             opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         .dropdown-select {
@@ -1025,7 +1020,6 @@
                 <ul>
                     <li><a href="#problema" class="nav-link">EL PROBLEMA</a></li>
                     <li><a href="#solucion">NUESTRA SOLUCIÓN</a></li>
-                    <li><a href="#solucion">CÓMO FUNCIONA</a></li>
                     <li><a href="#servicios">SERVICIOS</a></li>
                     <li><a href="#roi-calculator">CALCULADORA ROI</a></li>
                     <li><a href="#precios">PRECIOS</a></li>
@@ -1332,8 +1326,14 @@
                 <h2 class="section-title fade-in" style="text-align: center; color: #dc2626; font-size: 56px; margin-bottom: 16px;">
                     ¿Cuánto Dinero Pierdes Cada Mes?
                 </h2>
-                <p class="section-subtitle fade-in" style="text-align: center; font-size: 22px; color: var(--text-secondary); margin-bottom: 60px;">
+                <p class="section-subtitle fade-in" style="text-align: center; font-size: 22px; color: var(--text-secondary); margin-bottom: 8px;">
                     Descubre el coste real de la investigación tradicional vs AnalitikAI
+                </p>
+                <p class="fade-in" style="text-align: center; font-size: 18px; color: var(--text-light); margin-bottom: 16px; font-style: italic;">
+                    Cálculos basados en promedios del sector
+                </p>
+                <p class="fade-in" style="text-align: center; font-size: 16px; color: var(--text-light); margin-bottom: 60px;">
+                    Factor de utilización del 65% aplicado
                 </p>
                 
                 <div class="calculator-container fade-in" style="max-width: 900px;">
@@ -2174,7 +2174,7 @@
         // Initialize calculator when DOM is loaded  
         document.addEventListener('DOMContentLoaded', initializeSimpleROICalculator);
         
-        // Simple ROI Calculator - Conversion Optimized
+        // Simple ROI Calculator - Realistic Logic
         function initializeSimpleROICalculator() {
             const projectsSlider = document.getElementById('projectsPerMonth');
             const hourlyRateSlider = document.getElementById('hourlyRate');
@@ -2194,31 +2194,34 @@
                 if (projectsValue) projectsValue.textContent = projects;
                 if (hourlyRateValue) hourlyRateValue.textContent = '€' + hourlyRate;
                 
-                // Calculation logic from specs
-                const currentTimePerProject = 120; // 3 weeks = 120 hours
-                const analitikAITimePerProject = 16; // 2 days = 16 hours  
-                const timeSavedPerProject = 104; // 120 - 16 = 104 hours
+                // NEW REALISTIC CALCULATION LOGIC
+                const traditionalTimePerProject = 25; // hours (not 120!)
+                const analitikAITimePerProject = 4; // hours (not 16)
+                const timeSavedPerProject = 21; // 25 - 4 = 21 hours
+                const utilizationFactor = 0.65; // 65% (not 100%)
+                const actualUsableTimeSaved = timeSavedPerProject * utilizationFactor; // 21 * 0.65 = 13.6 hours
                 const analitikAIProjectCost = 750; // €750 per project
                 
-                const monthlyTimeSaved = projects * timeSavedPerProject;
-                const monthlyOpportunityValue = monthlyTimeSaved * hourlyRate;
-                const analitikAIMonthlyCost = projects * analitikAIProjectCost;
-                const netMonthlySavings = monthlyOpportunityValue - analitikAIMonthlyCost;
+                // Monthly calculation
+                const usableTimeSaved = projects * actualUsableTimeSaved;
+                const valueOfTime = usableTimeSaved * hourlyRate;
+                const analitikAICost = projects * analitikAIProjectCost;
+                const netSavings = valueOfTime - analitikAICost;
                 
                 // ROI calculation (annual)
-                const annualSavings = netMonthlySavings * 12;
-                const annualCost = analitikAIMonthlyCost * 12;
-                const roi = Math.max(0, (annualSavings / annualCost) * 100);
+                const annualNetSavings = netSavings * 12;
+                const annualCost = analitikAICost * 12;
+                const roi = annualCost > 0 ? (annualNetSavings / annualCost) * 100 : 0;
                 
                 // Update displays
                 if (monthlySavings) {
-                    monthlySavings.textContent = '€' + Math.max(0, netMonthlySavings).toLocaleString('es-ES');
+                    monthlySavings.textContent = '€' + Math.max(0, netSavings).toLocaleString('es-ES');
                 }
                 if (timeSavedText) {
-                    timeSavedText.textContent = 'Tiempo liberado: ' + monthlyTimeSaved.toLocaleString('es-ES') + ' horas';
+                    timeSavedText.textContent = 'Tiempo útil liberado: ' + usableTimeSaved.toFixed(1) + ' horas (factor 65% aplicado)';
                 }
                 if (roiPercentage) {
-                    roiPercentage.textContent = Math.round(roi) + '% ROI anual';
+                    roiPercentage.textContent = Math.round(Math.max(0, roi)) + '% ROI anual';
                 }
             }
             
