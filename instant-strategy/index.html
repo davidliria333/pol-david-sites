@@ -436,14 +436,12 @@
         /* MODERN SLIDER DESIGN - Setup-AI Inspired */
         .input-slider-container {
             position: relative;
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            display: block;
         }
 
         .slider-wrapper {
-            flex: 1;
             position: relative;
+            margin-bottom: 40px;
         }
 
         .input-slider {
@@ -504,30 +502,33 @@
             border: none;
         }
 
-        /* Modern value display - positioned to the RIGHT */
+        /* Modern value display - perfectly centered over slider thumb */
         .slider-value-display {
-            font-size: 18px;
+            position: absolute;
+            top: -50px;
+            font-size: 16px;
             font-weight: 700;
             color: #6366f1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 90px;
-            height: 40px;
+            min-width: 80px;
+            height: 32px;
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.08));
             border: 2px solid rgba(99, 102, 241, 0.25);
-            border-radius: 10px;
-            padding: 0 16px;
+            border-radius: 8px;
+            padding: 0 12px;
             transition: all 0.3s ease;
             white-space: nowrap;
             box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
             backdrop-filter: blur(10px);
+            transform: translateX(-50%);
+            pointer-events: none;
         }
 
         .slider-value-display:hover {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.12));
             border-color: rgba(99, 102, 241, 0.4);
-            transform: scale(1.03);
             box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
         }
 
@@ -537,7 +538,6 @@
             font-size: 12px;
             color: var(--text-light);
             margin-top: 8px;
-            padding-right: 100px; /* Account for value display width */
         }
 
         .slider-value {
@@ -547,21 +547,10 @@
 
         /* Responsive Design for Mobile */
         @media (max-width: 768px) {
-            .input-slider-container {
-                flex-direction: column;
-                gap: 12px;
-                align-items: stretch;
-            }
-
             .slider-value-display {
-                align-self: center;
-                min-width: 120px;
-                font-size: 18px;
-            }
-
-            .slider-labels {
-                padding-right: 0;
-                margin-top: 8px;
+                font-size: 14px;
+                min-width: 70px;
+                height: 28px;
             }
 
             .input-group {
@@ -1571,12 +1560,12 @@
                                     <div class="input-slider-container">
                                         <div class="slider-wrapper">
                                             <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5">
+                                            <div class="slider-value-display" id="projectsValueDisplay">5 proyectos</div>
                                             <div class="slider-labels">
                                                 <span>1</span>
                                                 <span>15</span>
                                             </div>
                                         </div>
-                                        <div class="slider-value-display" id="projectsValueDisplay">5 proyectos</div>
                                     </div>
                                 </div>
 
@@ -1587,13 +1576,13 @@
                                     </label>
                                     <div class="input-slider-container">
                                         <div class="slider-wrapper">
-                                            <input type="range" id="hourlyRate" class="input-slider" min="100" max="500" value="200" step="25">
+                                            <input type="range" id="hourlyRate" class="input-slider" min="50" max="400" value="150" step="25">
+                                            <div class="slider-value-display" id="hourlyRateValueDisplay">€150</div>
                                             <div class="slider-labels">
-                                                <span>€100</span>
-                                                <span>€500</span>
+                                                <span>€50</span>
+                                                <span>€400</span>
                                             </div>
                                         </div>
-                                        <div class="slider-value-display" id="hourlyRateValueDisplay">€200</div>
                                     </div>
                                 </div>
                             </div>
@@ -2352,7 +2341,20 @@
         // Initialize calculator when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeSimpleROICalculator);
 
-        // Simple ROI Calculator - Realistic Logic
+        // Perfect Slider Value Positioning Function
+        function updateSliderValue(slider, valueDisplay) {
+            if (!slider || !valueDisplay) return;
+            
+            const percent = (slider.value - slider.min) / (slider.max - slider.min);
+            const sliderWidth = slider.offsetWidth;
+            const thumbWidth = 24; // thumb width in pixels
+            const position = percent * (sliderWidth - thumbWidth) + (thumbWidth / 2);
+            
+            valueDisplay.style.left = position + 'px';
+            valueDisplay.style.transform = 'translateX(-50%)';
+        }
+
+        // Simple ROI Calculator - Realistic Logic with Perfect Centering
         function initializeSimpleROICalculator() {
             const projectsSlider = document.getElementById('projectsPerMonth');
             const hourlyRateSlider = document.getElementById('hourlyRate');
@@ -2368,12 +2370,14 @@
                 const projects = parseInt(projectsSlider.value);
                 const hourlyRate = parseInt(hourlyRateSlider.value);
 
-                // Update slider displays
+                // Update slider displays with perfect centering
                 if (projectsValueDisplay) {
                     projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
+                    updateSliderValue(projectsSlider, projectsValueDisplay);
                 }
                 if (hourlyRateValueDisplay) {
                     hourlyRateValueDisplay.textContent = '€' + hourlyRate;
+                    updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay);
                 }
 
                 // NEW REALISTIC CALCULATION LOGIC
@@ -2407,16 +2411,30 @@
                 }
             }
 
-            // Add event listeners
+            // Add event listeners with perfect positioning updates
             if (projectsSlider) {
                 projectsSlider.addEventListener('input', updateCalculator);
+                projectsSlider.addEventListener('input', () => updateSliderValue(projectsSlider, projectsValueDisplay));
             }
             if (hourlyRateSlider) {
                 hourlyRateSlider.addEventListener('input', updateCalculator);
+                hourlyRateSlider.addEventListener('input', () => updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay));
             }
 
-            // Initial calculation
+            // Handle window resize to recalculate positions
+            window.addEventListener('resize', () => {
+                updateSliderValue(projectsSlider, projectsValueDisplay);
+                updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay);
+            });
+
+            // Initial calculation and positioning
             updateCalculator();
+            
+            // Delay initial positioning to ensure elements are fully rendered
+            setTimeout(() => {
+                updateSliderValue(projectsSlider, projectsValueDisplay);
+                updateSliderValue(hourlyRateSlider, hourlyRateValueDisplay);
+            }, 100);
         }
 
         // Initialize
