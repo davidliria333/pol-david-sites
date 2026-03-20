@@ -152,6 +152,7 @@
             font-size: 18px;
             line-height: 1.7;
             color: var(--text-primary);
+            text-align: justify;
         }
 
         .essay-body p {
@@ -299,6 +300,44 @@
             outline-offset: 2px;
         }
 
+        /* Interactive Highlight System */
+        .highlight-phrase {
+            background: linear-gradient(120deg, #f0f9ff 0%, #dbeafe 100%);
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all 0.8s ease;
+            opacity: 0.3;
+            transform: translateY(2px);
+        }
+
+        .highlight-phrase.visible {
+            opacity: 1;
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+        }
+
+        .highlight-phrase.emotional {
+            background: linear-gradient(120deg, #fef3c7 0%, #fbbf24 100%);
+            font-weight: 500;
+        }
+
+        .highlight-phrase.concept {
+            background: linear-gradient(120deg, #ecfdf5 0%, #10b981 100%);
+            color: #065f46;
+            font-weight: 500;
+        }
+
+        .highlight-phrase.time {
+            background: linear-gradient(120deg, #fce7f3 0%, #f472b6 100%);
+            color: #831843;
+        }
+
+        .highlight-phrase.invisible {
+            background: linear-gradient(120deg, #f3e8ff 0%, #a855f7 100%);
+            color: #581c87;
+            font-weight: 500;
+        }
+
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
@@ -334,14 +373,14 @@
             
             <div class="essay-body">
                 <p class="essay-intro">
-                    Son las 11 de la noche. Tu socio junior te manda otro email: "No encuentro el precedente que buscamos." 
+                    Son las <span class="highlight-phrase time">11 de la noche</span>. Tu socio junior te manda otro email: "No encuentro el precedente que buscamos." 
                     Mañana el cliente llama preguntando por el informe. Tu equipo lleva dos semanas buscando algo que existe, 
                     pero está enterrado en miles de documentos.
                 </p>
                 
                 <p>
-                    Este es el trabajo que nadie ve. No aparece en las facturas. No se menciona en las reuniones de socios. 
-                    Nadie lo celebra cuando sale bien, porque se supone que debe salir bien. Es la investigación invisible 
+                    Este es el <span class="highlight-phrase invisible">trabajo que nadie ve</span>. No aparece en las facturas. No se menciona en las reuniones de socios. 
+                    Nadie lo celebra cuando sale bien, porque se supone que debe salir bien. Es la <span class="highlight-phrase invisible">investigación invisible</span> 
                     que mantiene funcionando cada bufete, cada consultoría, cada auditoría.
                 </p>
                 
@@ -353,7 +392,7 @@
                 </p>
                 
                 <p>
-                    Ese alguien eres tú. Y probablemente estás agotado.
+                    Ese alguien eres tú. Y probablemente estás <span class="highlight-phrase emotional">agotado</span>.
                 </p>
                 
                 <p>
@@ -370,7 +409,7 @@
                 </p>
                 
                 <p>
-                    Aquí es donde reside la verdadera promesa de la automatización. No en reemplazar personas, sino en 
+                    Aquí es donde reside la verdadera promesa de la <span class="highlight-phrase concept">automatización</span>. No en reemplazar personas, sino en 
                     liberarlas del trabajo que nunca debería haber sido para humanos. Una máquina no olvida buscar en 
                     la base de datos correcta. No se cansa de revisar el documento número trescientos. No siente la 
                     fricción de cambiar entre doce pestañas para encontrar un precedente. Simplemente hace la tarea, 
@@ -378,8 +417,8 @@
                 </p>
                 
                 <p>
-                    Pero la brecha entre lo que la automatización puede hacer y lo que un profesional realmente experimenta 
-                    es enorme. Las herramientas existen. Los tutoriales existen. Lo que no existe es confianza. Confianza 
+                    Pero la brecha entre lo que la <span class="highlight-phrase concept">automatización</span> puede hacer y lo que un profesional realmente experimenta 
+                    es enorme. Las herramientas existen. Los tutoriales existen. Lo que no existe es <span class="highlight-phrase emotional">confianza</span>. Confianza 
                     en que funcionará para tu situación específica. Confianza en que no romperás algo. Confianza en que 
                     el tiempo que inviertas configurándolo será menor que el tiempo que actualmente pierdes haciéndolo a mano.
                 </p>
@@ -404,8 +443,8 @@
                 </p>
                 
                 <p class="essay-conclusion">
-                    Eso es lo que significa trabajar bien. No trabajar más, ni más rápido, ni más fuerte. Sino dejar que 
-                    la investigación invisible vuelva a ser invisible, de la mejor manera posible: resuelta, confiable, 
+                    Eso es lo que significa <span class="highlight-phrase concept">trabajar bien</span>. No trabajar más, ni más rápido, ni más fuerte. Sino dejar que 
+                    la <span class="highlight-phrase invisible">investigación invisible</span> vuelva a ser invisible, de la mejor manera posible: resuelta, confiable, 
                     automática. Para que finalmente puedas dirigir tu atención al trabajo que realmente te necesita.
                 </p>
                 
@@ -432,6 +471,35 @@
             const totalHeight = document.body.scrollHeight - window.innerHeight;
             const progressHeight = (window.scrollY / totalHeight) * 100;
             progress.style.width = progressHeight + '%';
+        });
+
+        // Interactive highlighting system using Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const highlightPhrases = document.querySelectorAll('.highlight-phrase');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -10% 0px'
+            };
+
+            const highlightObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add a slight delay for more dramatic effect
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 200);
+                    } else {
+                        // Optional: remove highlight when scrolling away (uncomment if desired)
+                        // entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all highlight phrases
+            highlightPhrases.forEach(phrase => {
+                highlightObserver.observe(phrase);
+            });
         });
 
         // Smooth scroll for anchor links
