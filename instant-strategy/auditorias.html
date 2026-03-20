@@ -974,11 +974,14 @@
             observer.observe(el);
         });
         
-        // Auto-activate timeline items on scroll
+        // Auto-activate timeline items on scroll (only for "after" state)
         const timelineObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                    selectTime(entry.target);
+                    // Only auto-activate when in "after" state, allow manual control in "before" state
+                    if (currentState === 'after') {
+                        selectTime(entry.target);
+                    }
                 }
             });
         }, {
