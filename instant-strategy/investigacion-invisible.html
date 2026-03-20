@@ -252,31 +252,100 @@
             overflow: hidden;
         }
 
-        /* Setup-AI Fluid Highlighting System */
-        .fluid-highlight {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            background-size: 0% 100%;
-            background-repeat: no-repeat;
-            background-position: 0 0;
-            transition: background-size 0.8s ease, transform 0.3s ease, border-bottom-width 0.5s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            position: relative;
-            display: inline;
-            padding: 0;
-            margin: 0;
-        }
+        /* NEW HIGHLIGHTING STRATEGY - Problem/Solution Differentiation */
         
-        .fluid-highlight.revealed {
-            background-size: 100% 100%;
-            transform: translateY(-1px);
-            border-bottom-width: 1px;
+        /* PROBLEM HIGHLIGHTING (RED SYSTEM) 🔴 */
+        .problem-highlight {
+            border-left: 3px solid #EF4444;
+            background: rgba(239, 68, 68, 0.1);
+            padding: 2px 8px 2px 12px;
+            border-radius: 4px;
+            margin: 0 2px;
+            display: inline-block;
+            transition: all 0.4s ease;
+            transform: translateX(-20px);
+            opacity: 0;
+            position: relative;
         }
 
-        .fluid-highlight:hover {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-            background-size: 100% 100%;
-            transform: translateY(-1px);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+        .problem-highlight.revealed {
+            transform: translateX(0);
+            opacity: 1;
+            animation: slideInFromLeft 0.6s ease forwards;
+        }
+
+        .problem-highlight:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-left-color: #DC2626;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+        }
+
+        /* SOLUTION HIGHLIGHTING (GREEN SYSTEM) 🟢 */
+        .solution-highlight {
+            border-left: 3px solid #10B981;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2px 8px 2px 12px;
+            border-radius: 4px;
+            margin: 0 2px;
+            display: inline-block;
+            transition: all 0.4s ease;
+            transform: translateX(20px);
+            opacity: 0;
+            position: relative;
+        }
+
+        .solution-highlight.revealed {
+            transform: translateX(0);
+            opacity: 1;
+            animation: slideInFromRight 0.6s ease forwards;
+        }
+
+        .solution-highlight:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-left-color: #059669;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        /* DYNAMIC REVEAL ANIMATIONS ⚡ */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .problem-highlight,
+            .solution-highlight {
+                padding: 1px 6px 1px 8px;
+                margin: 0 1px;
+                font-size: 16px;
+            }
+        }
+
+        /* Accessibility improvements */
+        .problem-highlight:focus,
+        .solution-highlight:focus {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
         }
 
         /* Fade-in animations */
@@ -485,14 +554,14 @@
             
             <div class="essay-body">
                 <p class="essay-intro">
-                    Son las <span class="fluid-highlight">11 de la noche</span>. Tu socio junior te manda otro email: "No encuentro el precedente que buscamos." 
+                    Son las <span class="problem-highlight">11 de la noche</span>. Tu socio junior te manda otro email: "No encuentro el precedente que buscamos." 
                     Mañana el cliente llama preguntando por el informe. Tu equipo lleva dos semanas buscando algo que existe, 
                     pero está enterrado en miles de documentos.
                 </p>
                 
                 <p>
-                    Este es el <span class="fluid-highlight">trabajo que nadie ve</span>. No aparece en las facturas. No se menciona en las reuniones de socios. 
-                    Nadie lo celebra cuando sale bien, porque se supone que debe salir bien. Es la <span class="fluid-highlight">investigación invisible</span> 
+                    Este es el <span class="problem-highlight">trabajo que nadie ve</span>. No aparece en las facturas. No se menciona en las reuniones de socios. 
+                    Nadie lo celebra cuando sale bien, porque se supone que debe salir bien. Es la <span class="problem-highlight">investigación invisible</span> 
                     que mantiene funcionando cada bufete, cada consultoría, cada auditoría.
                 </p>
                 
@@ -504,7 +573,7 @@
                 </p>
                 
                 <p>
-                    Ese alguien eres tú. Y probablemente estás <span class="fluid-highlight">agotado</span>.
+                    Ese alguien eres tú. Y probablemente estás <span class="problem-highlight">agotado</span>.
                 </p>
                 
                 <p>
@@ -521,16 +590,16 @@
                 </p>
                 
                 <p>
-                    Aquí es donde reside la verdadera promesa de la <span class="fluid-highlight">automatización</span>. No en reemplazar personas, sino en 
-                    <span class="fluid-highlight">liberarlas</span> del trabajo que nunca debería haber sido para humanos. Una máquina no olvida buscar en 
+                    Aquí es donde reside la verdadera promesa de la <span class="solution-highlight">automatización</span>. No en reemplazar personas, sino en 
+                    <span class="solution-highlight">liberarlas</span> del trabajo que nunca debería haber sido para humanos. Una máquina no olvida buscar en 
                     la base de datos correcta. No se cansa de revisar el documento número trescientos. No siente la 
                     fricción de cambiar entre doce pestañas para encontrar un precedente. Simplemente hace la tarea, 
                     cada vez, sin resentimiento.
                 </p>
                 
                 <p>
-                    Pero la brecha entre lo que la <span class="fluid-highlight">automatización</span> puede hacer y lo que un profesional realmente experimenta 
-                    es enorme. Las herramientas existen. Los tutoriales existen. Lo que no existe es <span class="fluid-highlight">confianza</span>. Confianza 
+                    Pero la brecha entre lo que la <span class="solution-highlight">automatización</span> puede hacer y lo que un profesional realmente experimenta 
+                    es enorme. Las herramientas existen. Los tutoriales existen. Lo que no existe es <span class="solution-highlight">confianza</span>. Confianza 
                     en que funcionará para tu situación específica. Confianza en que no romperás algo. Confianza en que 
                     el tiempo que inviertas configurándolo será menor que el tiempo que actualmente pierdes haciéndolo a mano.
                 </p>
@@ -542,21 +611,21 @@
                 </p>
                 
                 <p>
-                    Esa es la diferencia entre una herramienta y una <span class="fluid-highlight">solución</span>. Una herramienta espera que la aprendas. 
-                    Una <span class="fluid-highlight">solución</span> llega ya moldeada a tu día.
+                    Esa es la diferencia entre una herramienta y una <span class="solution-highlight">solución</span>. Una herramienta espera que la aprendas. 
+                    Una <span class="solution-highlight">solución</span> llega ya moldeada a tu día.
                 </p>
                 
                 <p>
-                    Las empresas que <span class="fluid-highlight">prosperarán</span> en la próxima década no serán las que tengan la tecnología más sofisticada. 
-                    Serán aquellas donde el dueño <span class="fluid-highlight">duerme bien</span>, porque la investigación invisible está <span class="fluid-highlight">resuelta</span>. Donde la 
-                    <span class="fluid-highlight">claridad</span> reemplazó al caos no a través de alguna gran transformación, sino a través de cien pequeños 
-                    actos de <span class="fluid-highlight">alivio</span>, cada uno tan menor que apenas se registra, pero que juntos cambian toda la textura 
+                    Las empresas que <span class="solution-highlight">prosperarán</span> en la próxima década no serán las que tengan la tecnología más sofisticada. 
+                    Serán aquellas donde el dueño <span class="solution-highlight">duerme bien</span>, porque la investigación invisible está <span class="solution-highlight">resuelta</span>. Donde la 
+                    <span class="solution-highlight">claridad</span> reemplazó al caos no a través de alguna gran transformación, sino a través de cien pequeños 
+                    actos de <span class="solution-highlight">alivio</span>, cada uno tan menor que apenas se registra, pero que juntos cambian toda la textura 
                     de una vida laboral.
                 </p>
                 
                 <p class="essay-conclusion">
-                    Eso es lo que significa <span class="fluid-highlight">trabajar bien</span>. No trabajar más, ni más rápido, ni más fuerte. Sino dejar que 
-                    la <span class="fluid-highlight">investigación invisible</span> vuelva a ser invisible, de la mejor manera posible: <span class="fluid-highlight">resuelta</span>, <span class="fluid-highlight">confiable</span>, 
+                    Eso es lo que significa <span class="solution-highlight">trabajar bien</span>. No trabajar más, ni más rápido, ni más fuerte. Sino dejar que 
+                    la <span class="solution-highlight">investigación invisible</span> vuelva a ser invisible, de la mejor manera posible: <span class="solution-highlight">resuelta</span>, <span class="solution-highlight">confiable</span>, 
                     automática. Para que finalmente puedas dirigir tu atención al trabajo que realmente te necesita.
                 </p>
                 
@@ -608,8 +677,9 @@
                 paragraphObserver.observe(paragraph);
             });
 
-            // Setup-AI Fluid Highlight System
-            const fluidHighlights = document.querySelectorAll('.fluid-highlight');
+            // NEW Problem/Solution Highlighting System 🔴🟢
+            const problemHighlights = document.querySelectorAll('.problem-highlight');
+            const solutionHighlights = document.querySelectorAll('.solution-highlight');
             
             const highlightObserverOptions = {
                 threshold: 0.3,
@@ -619,32 +689,23 @@
             const highlightObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Add reveal class with slight delay for smooth effect
+                        // Add staggered reveal delays for dynamic effect
+                        const delay = Math.random() * 300 + 100; // Random delay between 100-400ms
                         setTimeout(() => {
                             entry.target.classList.add('revealed');
-                        }, 200);
+                        }, delay);
                     }
                 });
             }, highlightObserverOptions);
 
-            // Observe all fluid highlights
-            fluidHighlights.forEach(highlight => {
+            // Observe all problem highlights (red, slide from left)
+            problemHighlights.forEach(highlight => {
                 highlightObserver.observe(highlight);
-                
-                // Enhanced hover interactions
-                highlight.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
-                    this.style.borderBottomWidth = '2px';
-                });
-                
-                highlight.addEventListener('mouseleave', function() {
-                    if (this.classList.contains('revealed')) {
-                        this.style.transform = 'translateY(-1px)';
-                    } else {
-                        this.style.transform = 'translateY(0px)';
-                    }
-                    this.style.borderBottomWidth = '1px';
-                });
+            });
+
+            // Observe all solution highlights (green, slide from right)
+            solutionHighlights.forEach(highlight => {
+                highlightObserver.observe(highlight);
             });
 
             // Navigation background blur enhancement
