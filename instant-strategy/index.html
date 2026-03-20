@@ -433,38 +433,98 @@
             display: block;
         }
 
+        /* MODERN SLIDER DESIGN - Setup-AI Inspired */
         .input-slider-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .slider-wrapper {
+            flex: 1;
             position: relative;
         }
 
         .input-slider {
             width: 100%;
             height: 8px;
-            border-radius: 4px;
-            background: var(--gray-100);
+            border-radius: 20px;
+            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
             outline: none;
             appearance: none;
-            margin: 20px 0;
+            margin: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
+        .input-slider:hover {
+            transform: scale(1.02);
+        }
+
+        /* WebKit Browsers (Chrome, Safari, Edge) */
         .input-slider::-webkit-slider-thumb {
             appearance: none;
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: var(--accent-blue);
+            background: white;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
+            border: 3px solid #6366f1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(99, 102, 241, 0.3);
+            transition: all 0.2s ease;
         }
 
+        .input-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2), 0 3px 8px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Firefox */
         .input-slider::-moz-range-thumb {
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: var(--accent-blue);
+            background: white;
             cursor: pointer;
+            border: 3px solid #6366f1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+
+        .input-slider::-moz-range-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .input-slider::-moz-range-track {
+            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+            height: 8px;
+            border-radius: 20px;
             border: none;
-            box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
+        }
+
+        /* Modern value display - positioned to the RIGHT */
+        .slider-value-display {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6366f1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            height: 36px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            padding: 0 12px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .slider-value-display:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: scale(1.02);
         }
 
         .slider-labels {
@@ -473,20 +533,58 @@
             font-size: 12px;
             color: var(--text-light);
             margin-top: 8px;
+            padding-right: 100px; /* Account for value display width */
         }
 
         .slider-value {
-            position: absolute;
-            top: 35px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: transparent;
-            color: #dc2626;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 700;
-            white-space: nowrap;
+            /* Hide old slider value completely */
+            display: none !important;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .input-slider-container {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+
+            .slider-value-display {
+                align-self: center;
+                min-width: 120px;
+                font-size: 18px;
+            }
+
+            .slider-labels {
+                padding-right: 0;
+                margin-top: 8px;
+            }
+
+            .input-group {
+                margin-bottom: 32px;
+            }
+
+            .input-label {
+                font-size: 16px !important;
+                margin-bottom: 12px !important;
+            }
+        }
+
+        /* Smooth animations for all interactions */
+        .input-slider-container * {
+            transition: all 0.2s ease;
+        }
+
+        /* Focus states for accessibility */
+        .input-slider:focus {
+            outline: 2px solid #6366f1;
+            outline-offset: 2px;
+        }
+
+        .slider-value-display:focus {
+            outline: 2px solid #6366f1;
+            outline-offset: 2px;
+        }
             opacity: 1;
             transition: opacity 0.3s ease;
         }
@@ -1347,12 +1445,14 @@
                                         Proyectos de investigación por mes
                                     </label>
                                     <div class="input-slider-container">
-                                        <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5" style="height: 12px;">
-                                        <div class="slider-value" id="projectsValue" style="font-size: 18px; font-weight: 700; background: #dc2626;">5</div>
-                                        <div class="slider-labels" style="margin-top: 12px;">
-                                            <span>1</span>
-                                            <span>15</span>
+                                        <div class="slider-wrapper">
+                                            <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5">
+                                            <div class="slider-labels">
+                                                <span>1</span>
+                                                <span>15</span>
+                                            </div>
                                         </div>
+                                        <div class="slider-value-display" id="projectsValueDisplay">5 proyectos</div>
                                     </div>
                                 </div>
                                 
@@ -1362,12 +1462,14 @@
                                         Tu tarifa por hora
                                     </label>
                                     <div class="input-slider-container">
-                                        <input type="range" id="hourlyRate" class="input-slider" min="100" max="500" value="200" step="25" style="height: 12px;">
-                                        <div class="slider-value" id="hourlyRateValue" style="font-size: 18px; font-weight: 700; background: #dc2626;">€200</div>
-                                        <div class="slider-labels" style="margin-top: 12px;">
-                                            <span>€100</span>
-                                            <span>€500</span>
+                                        <div class="slider-wrapper">
+                                            <input type="range" id="hourlyRate" class="input-slider" min="100" max="500" value="200" step="25">
+                                            <div class="slider-labels">
+                                                <span>€100</span>
+                                                <span>€500</span>
+                                            </div>
                                         </div>
+                                        <div class="slider-value-display" id="hourlyRateValueDisplay">€200</div>
                                     </div>
                                 </div>
                             </div>
@@ -2013,7 +2115,8 @@
                 consultantCost: document.getElementById('consultantCost'),
                 
                 // Value displays
-                projectsValue: document.getElementById('projectsValue'),
+                projectsValueDisplay: document.getElementById('projectsValueDisplay'),
+                hourlyRateValueDisplay: document.getElementById('hourlyRateValueDisplay'),
                 hoursValue: document.getElementById('hoursValue'),
                 internalValue: document.getElementById('internalValue'),
                 deliveryValue: document.getElementById('deliveryValue'),
@@ -2030,12 +2133,21 @@
             
             // Update slider value displays
             function updateSliderValues() {
-                elements.projectsValue.textContent = elements.projectsPerMonth.value;
-                elements.hoursValue.textContent = elements.hoursPerProject.value + 'h';
-                elements.internalValue.textContent = '€' + elements.internalCost.value;
-                elements.deliveryValue.textContent = elements.deliveryTime.value + (elements.deliveryTime.value == 1 ? ' semana' : ' semanas');
-                elements.externalPercentValue.textContent = elements.externalPercentage.value + '%';
-                elements.consultantValue.textContent = '€' + elements.consultantCost.value;
+                if (elements.projectsValueDisplay && elements.projectsPerMonth) {
+                    const projects = elements.projectsPerMonth.value;
+                    elements.projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
+                }
+                if (elements.hourlyRateValueDisplay) {
+                    const hourlyRate = document.getElementById('hourlyRate');
+                    if (hourlyRate) {
+                        elements.hourlyRateValueDisplay.textContent = '€' + hourlyRate.value;
+                    }
+                }
+                if (elements.hoursValue) elements.hoursValue.textContent = elements.hoursPerProject ? elements.hoursPerProject.value + 'h' : '';
+                if (elements.internalValue) elements.internalValue.textContent = elements.internalCost ? '€' + elements.internalCost.value : '';
+                if (elements.deliveryValue) elements.deliveryValue.textContent = elements.deliveryTime ? elements.deliveryTime.value + (elements.deliveryTime.value == 1 ? ' semana' : ' semanas') : '';
+                if (elements.externalPercentValue) elements.externalPercentValue.textContent = elements.externalPercentage ? elements.externalPercentage.value + '%' : '';
+                if (elements.consultantValue) elements.consultantValue.textContent = elements.consultantCost ? '€' + elements.consultantCost.value : '';
             }
             
             // Calculate ROI metrics
@@ -2178,8 +2290,8 @@
         function initializeSimpleROICalculator() {
             const projectsSlider = document.getElementById('projectsPerMonth');
             const hourlyRateSlider = document.getElementById('hourlyRate');
-            const projectsValue = document.getElementById('projectsValue');
-            const hourlyRateValue = document.getElementById('hourlyRateValue');
+            const projectsValueDisplay = document.getElementById('projectsValueDisplay');
+            const hourlyRateValueDisplay = document.getElementById('hourlyRateValueDisplay');
             const monthlySavings = document.getElementById('monthlySavings');
             const timeSavedText = document.getElementById('timeSavedText');
             const roiPercentage = document.getElementById('roiPercentage');
@@ -2191,8 +2303,12 @@
                 const hourlyRate = parseInt(hourlyRateSlider.value);
                 
                 // Update slider displays
-                if (projectsValue) projectsValue.textContent = projects;
-                if (hourlyRateValue) hourlyRateValue.textContent = '€' + hourlyRate;
+                if (projectsValueDisplay) {
+                    projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
+                }
+                if (hourlyRateValueDisplay) {
+                    hourlyRateValueDisplay.textContent = '€' + hourlyRate;
+                }
                 
                 // NEW REALISTIC CALCULATION LOGIC
                 const traditionalTimePerProject = 25; // hours (not 120!)
