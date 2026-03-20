@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnalitikAI - AI-as-a-Consultant | Consultoría Inteligente para Servicios Profesionales</title>
     <meta name="description" content="AnalitikAI entrega investigación y análisis impulsados por IA para bufetes de abogados, consultoras, auditorías, agencias de marketing y asesores financieros en 48 horas, no semanas.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --bg-primary: #f9fafb;
@@ -35,13 +35,13 @@
             --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
             --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-primary);
@@ -51,14 +51,14 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         h1, h2, h3, h4 {
             font-family: 'Inter', sans-serif;
             line-height: 1.25;
             font-weight: 700;
             letter-spacing: -0.025em;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -80,11 +80,11 @@
             transform: translateX(0);
             transition: transform 0.3s ease;
         }
-        
+
         .sidebar-content {
             padding: 0 24px;
         }
-        
+
         .sidebar-label {
             font-size: 11px;
             font-weight: 600;
@@ -94,16 +94,16 @@
             margin-bottom: 24px;
             padding-left: 16px;
         }
-        
+
         .sidebar-nav ul {
             list-style: none;
             margin-bottom: 32px;
         }
-        
+
         .sidebar-nav li {
             margin-bottom: 2px;
         }
-        
+
         .sidebar-nav a {
             display: block;
             padding: 12px 16px;
@@ -116,27 +116,27 @@
             border-radius: 6px;
             transition: all 0.2s ease;
         }
-        
+
         .sidebar-nav a:hover,
         .sidebar-nav a.active {
             background: #f8f9fa;
             color: var(--accent-blue);
         }
-        
+
         .sidebar-separator {
             height: 1px;
             background: #f0f0f0;
             margin: 24px 16px;
         }
-        
+
         .sidebar-secondary ul {
             list-style: none;
         }
-        
+
         .sidebar-secondary li {
             margin-bottom: 2px;
         }
-        
+
         .sidebar-secondary a {
             display: block;
             padding: 12px 16px;
@@ -149,12 +149,12 @@
             border-radius: 6px;
             transition: all 0.2s ease;
         }
-        
+
         .sidebar-secondary a:hover {
             background: #f8f9fa;
             color: var(--accent-blue);
         }
-        
+
         .sidebar-toggle {
             display: none;
             position: fixed;
@@ -172,23 +172,23 @@
             box-shadow: var(--shadow-medium);
             transition: all 0.2s ease;
         }
-        
+
         .sidebar-toggle:hover {
             background: var(--accent-blue-dark);
         }
-        
+
         /* Main Content with No Margin */
         .main-content {
             margin-left: 280px;
             min-height: 100vh;
         }
-        
+
         /* Full-width sections */
         .section {
             width: 100%;
             padding: 100px 0;
         }
-        
+
         .section-hero {
             background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
             color: white;
@@ -199,7 +199,7 @@
             width: 100%;
             margin-left: 0;
         }
-        
+
         .section-hero::before {
             content: '';
             position: absolute;
@@ -210,12 +210,12 @@
             background: radial-gradient(circle at 30% 20%, rgba(43, 108, 176, 0.3) 0%, transparent 50%),
                         radial-gradient(circle at 70% 80%, rgba(214, 158, 46, 0.2) 0%, transparent 50%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
         }
-        
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -228,7 +228,7 @@
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .hero-title {
             font-size: 64px;
             font-weight: 700;
@@ -236,7 +236,7 @@
             line-height: 1.1;
             letter-spacing: -0.03em;
         }
-        
+
         .hero-subtitle {
             font-size: 26px;
             margin-bottom: 56px;
@@ -246,14 +246,14 @@
             margin-right: auto;
             font-weight: 300;
         }
-        
+
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn-primary {
             background: white;
             color: var(--gray-900);
@@ -268,7 +268,7 @@
             font-size: 16px;
             box-shadow: var(--shadow-soft);
         }
-        
+
         .btn-secondary {
             background: transparent;
             color: white;
@@ -280,12 +280,12 @@
             transition: all 0.3s ease;
             font-size: 16px;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-strong);
         }
-        
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.7);
@@ -298,13 +298,13 @@
             background: linear-gradient(135deg, #fafbfd 0%, #f8fafc 100%);
             overflow: hidden;
         }
-        
+
         .floating-tools-content {
             text-align: center;
             position: relative;
             z-index: 10;
         }
-        
+
         .floating-tools-title {
             font-size: 40px;
             font-weight: 700;
@@ -312,7 +312,7 @@
             color: var(--text-primary);
             letter-spacing: -0.02em;
         }
-        
+
         .floating-tools-subtitle {
             font-size: 22px;
             color: var(--text-secondary);
@@ -321,7 +321,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Repositioned Tools - Static cluster in dedicated white space */
         .tools-cluster {
             display: flex;
@@ -332,7 +332,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .tool-badge {
             padding: 10px 18px;
             border-radius: 22px;
@@ -346,39 +346,39 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
-        
+
         .tool-badge:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
             background: rgba(255, 255, 255, 1);
             color: #475569;
         }
-        
+
         /* Setup AI Style Professional Colors */
         .analytics-tool {
             background: rgba(241, 245, 249, 0.9);
             color: #64748B;
             border: 1px solid rgba(203, 213, 225, 0.6);
         }
-        
+
         .research-tool {
             background: rgba(248, 250, 252, 0.9);
             color: #64748B;
             border: 1px solid rgba(226, 232, 240, 0.6);
         }
-        
+
         .business-tool {
             background: rgba(239, 246, 255, 0.9);
             color: #64748B;
             border: 1px solid rgba(219, 234, 254, 0.6);
         }
-        
+
         .legal-tool {
             background: rgba(250, 250, 250, 0.9);
             color: #64748B;
             border: 1px solid rgba(229, 229, 229, 0.6);
         }
-        
+
         .data-tool {
             background: rgba(249, 250, 251, 0.9);
             color: #64748B;
@@ -448,14 +448,15 @@
 
         .input-slider {
             width: 100%;
-            height: 8px;
+            height: 10px;
             border-radius: 20px;
-            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             outline: none;
             appearance: none;
             margin: 0;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(99, 102, 241, 0.2);
         }
 
         .input-slider:hover {
@@ -505,26 +506,29 @@
 
         /* Modern value display - positioned to the RIGHT */
         .slider-value-display {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #6366f1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 80px;
-            height: 36px;
-            background: rgba(99, 102, 241, 0.1);
-            border: 2px solid rgba(99, 102, 241, 0.2);
-            border-radius: 8px;
-            padding: 0 12px;
-            transition: all 0.2s ease;
+            min-width: 90px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.08));
+            border: 2px solid rgba(99, 102, 241, 0.25);
+            border-radius: 10px;
+            padding: 0 16px;
+            transition: all 0.3s ease;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .slider-value-display:hover {
-            background: rgba(99, 102, 241, 0.15);
-            border-color: rgba(99, 102, 241, 0.3);
-            transform: scale(1.02);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.12));
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: scale(1.03);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
         }
 
         .slider-labels {
@@ -711,7 +715,7 @@
             color: var(--text-secondary);
             font-size: 16px;
         }
-        
+
         /* Section Styles */
         .section-title {
             font-size: 52px;
@@ -720,7 +724,7 @@
             color: var(--text-primary);
             letter-spacing: -0.01em;
         }
-        
+
         .section-subtitle {
             font-size: 22px;
             color: var(--text-secondary);
@@ -728,13 +732,13 @@
             margin: 0 auto 80px;
             font-weight: 300;
         }
-        
+
         /* Problem Section */
         .section-problem {
             text-align: center;
             background: var(--white);
         }
-        
+
         .problem-statement {
             font-size: 32px;
             font-weight: 600;
@@ -745,7 +749,7 @@
             line-height: 1.4;
             letter-spacing: -0.01em;
         }
-        
+
         /* Process Grid */
         .process-grid {
             display: grid;
@@ -753,7 +757,7 @@
             gap: 40px;
             margin-top: 80px;
         }
-        
+
         .process-step {
             text-align: center;
             padding: 40px 32px;
@@ -764,7 +768,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .process-step::before {
             content: '';
             position: absolute;
@@ -776,16 +780,16 @@
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
-        
+
         .process-step:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-strong);
         }
-        
+
         .process-step:hover::before {
             transform: scaleX(1);
         }
-        
+
         .process-icon {
             width: 88px;
             height: 88px;
@@ -799,14 +803,14 @@
             color: white;
             box-shadow: var(--shadow-soft);
         }
-        
+
         .process-title {
             font-size: 26px;
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--text-primary);
         }
-        
+
         .process-description {
             color: var(--text-secondary);
             line-height: 1.8;
@@ -823,7 +827,7 @@
             position: relative;
             box-shadow: var(--shadow-soft);
         }
-        
+
         .card:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-medium);
@@ -837,7 +841,7 @@
             gap: 32px;
             margin-top: 80px;
         }
-        
+
         /* Methodology Grid */
         .methodology-grid {
             display: grid;
@@ -845,7 +849,7 @@
             gap: 40px;
             margin-top: 80px;
         }
-        
+
         .methodology-item {
             background: var(--white);
             border-radius: 16px;
@@ -855,12 +859,12 @@
             transition: all 0.4s ease;
             position: relative;
         }
-        
+
         .methodology-item:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
         }
-        
+
         .methodology-icon {
             width: 72px;
             height: 72px;
@@ -874,14 +878,14 @@
             color: white;
             box-shadow: var(--shadow-soft);
         }
-        
+
         .methodology-title {
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 16px;
             color: var(--text-primary);
         }
-        
+
         .methodology-description {
             color: var(--text-secondary);
             line-height: 1.7;
@@ -893,7 +897,7 @@
             border-bottom: 1px solid var(--border-light);
             margin-bottom: 8px;
         }
-        
+
         .faq-question {
             width: 100%;
             background: none;
@@ -909,15 +913,15 @@
             color: var(--text-primary);
             transition: color 0.3s ease;
         }
-        
+
         .faq-question:hover {
             color: var(--accent-blue);
         }
-        
+
         .faq-question i {
             transition: transform 0.3s ease;
         }
-        
+
         .faq-answer {
             padding-bottom: 28px;
             color: var(--text-secondary);
@@ -925,7 +929,7 @@
             font-size: 16px;
             line-height: 1.7;
         }
-        
+
         .faq-answer.active {
             display: block;
         }
@@ -936,20 +940,20 @@
             color: white;
             padding: 80px 0 40px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 60px;
             margin-bottom: 60px;
         }
-        
+
         .footer-brand h3 {
             font-size: 24px;
             margin-bottom: 20px;
             font-weight: 700;
         }
-        
+
         .footer-brand p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 32px;
@@ -962,91 +966,91 @@
             .sidebar {
                 transform: translateX(-100%);
             }
-            
+
             .sidebar.open {
                 transform: translateX(0);
             }
-            
+
             .sidebar-toggle {
                 display: block;
             }
-            
+
             .main-content {
                 margin-left: 0;
             }
-            
+
             .container {
                 padding: 0 24px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 56px;
             }
-            
+
             .hero-subtitle {
                 font-size: 22px;
             }
-            
+
             .section-title {
                 font-size: 42px;
             }
-            
+
             .section-subtitle {
                 font-size: 20px;
             }
-            
+
             .floating-tools-title {
                 font-size: 36px;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
+
             .services-grid,
             .methodology-grid,
             .process-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .calculator-container {
                 padding: 40px 24px;
             }
-            
+
             .calculator-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
+
             .calculator-outputs {
                 position: static;
                 order: -1;
                 margin-bottom: 20px;
             }
-            
+
             .tools-cluster {
                 gap: 12px;
                 padding: 0 10px;
             }
-            
+
             .tool-badge {
                 font-size: 12px;
                 padding: 8px 14px;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .cta-primary,
             .cta-secondary {
                 width: 100%;
@@ -1061,23 +1065,23 @@
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Staggered animation delays */
         .fade-in:nth-child(1) { transition-delay: 0.1s; }
         .fade-in:nth-child(2) { transition-delay: 0.2s; }
         .fade-in:nth-child(3) { transition-delay: 0.3s; }
         .fade-in:nth-child(4) { transition-delay: 0.4s; }
-        
+
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-        
+
         /* Contact Form Styles */
         #contact-form input:focus,
         #contact-form textarea:focus {
@@ -1085,16 +1089,16 @@
             border-color: rgba(255, 255, 255, 0.6);
             box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
         }
-        
+
         #contact-form input::placeholder,
         #contact-form textarea::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         #contact-form input[type="file"] {
             color: rgba(255, 255, 255, 0.8);
         }
-        
+
         #contact-form input[type="file"]::-webkit-file-upload-button {
             background: rgba(255, 255, 255, 0.2);
             color: white;
@@ -1113,35 +1117,35 @@
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-content">
             <div class="sidebar-label">GLOSSARY</div>
-            
+
             <div class="sidebar-nav">
                 <ul>
                     <li><a href="#problema" class="nav-link">EL PROBLEMA</a></li>
                     <li><a href="#solucion">NUESTRA SOLUCIÓN</a></li>
                     <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#metodologia">METODOLOGÍA</a></li>
                     <li><a href="#roi-calculator">CALCULADORA ROI</a></li>
                     <li><a href="#precios">PRECIOS</a></li>
-                    <li><a href="#metodologia">METODOLOGÍA</a></li>
                     <li><a href="#preguntas">FAQ</a></li>
                     <li><a href="#contacto">CONTACTO</a></li>
                 </ul>
             </div>
-            
+
             <div class="sidebar-separator"></div>
-            
+
             <div class="sidebar-secondary">
                 <ul>
-                    <li><a href="#metodologia">METODOLOGÍA</a></li>
+                    <li><a href="#metodologia">POR QUÉ SOMOS DIFERENTES</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <!-- Sidebar Toggle Button -->
     <button class="sidebar-toggle" id="sidebar-toggle">
         <i class="fas fa-bars"></i>
     </button>
-    
+
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
@@ -1152,16 +1156,16 @@
                         <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
                         Excelencia en Investigación Profesional
                     </div>
-                    
+
                     <h1 class="hero-title fade-in">
                         Vas por buen camino,<br>pero ¿podrías ir más rápido?
                     </h1>
-                    
+
                     <p class="hero-subtitle fade-in">
-                        <strong>AnalitikAI</strong> entrega investigación y análisis de nivel consultora en <strong>48 horas</strong> vs 2-4 semanas. 
+                        <strong>AnalitikAI</strong> entrega investigación y análisis de nivel consultora en <strong>48 horas</strong> vs 2-4 semanas.
                         Para servicios profesionales que valoran la excelencia y la velocidad.
                     </p>
-                    
+
                     <div class="hero-buttons fade-in">
                         <a href="https://cal.eu/polruiz/15min" target="_blank" class="btn-primary">
                             <span>Empezar Ahora</span>
@@ -1174,7 +1178,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Problem Section -->
         <section id="problema" class="section section-problem">
             <div class="container">
@@ -1182,24 +1186,24 @@
                 <div class="problem-statement fade-in">
                     "Prometiste el informe para el viernes. El cliente llama el lunes. Tu equipo está desbordado investigando lo que un algoritmo podría hacer en horas."
                 </div>
-                
+
                 <p class="section-subtitle fade-in" style="margin-top: 48px;">
-                    Mientras tus competidores entregan en días, tu despacho invierte semanas en investigación. 
+                    Mientras tus competidores entregan en días, tu despacho invierte semanas en investigación.
                     Tus clientes pagan tarifas premium pero esperan como si fuera 1995.
                 </p>
             </div>
         </section>
-        
+
         <!-- Floating Tools Section - Repositioned -->
         <section class="floating-tools">
             <div class="container">
                 <div class="floating-tools-content">
                     <h2 class="floating-tools-title fade-in">Mil opciones. Millones de tutoriales.<br>Y ni uno solo empieza por tu situación.</h2>
                     <p class="floating-tools-subtitle fade-in">
-                        AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente, 
+                        AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente,
                         creando flujos de trabajo automatizados que se adaptan a tu contexto específico.
                     </p>
-                    
+
                     <!-- Tools clustered in dedicated white space -->
                     <div class="tools-cluster fade-in">
                         <!-- Analytics Tools -->
@@ -1209,7 +1213,7 @@
                         <div class="tool-badge analytics-tool">SPSS</div>
                         <div class="tool-badge analytics-tool">SQL Server</div>
                         <div class="tool-badge analytics-tool">MongoDB</div>
-                        
+
                         <!-- Research Tools -->
                         <div class="tool-badge research-tool">Perplexity</div>
                         <div class="tool-badge research-tool">ChatGPT</div>
@@ -1217,18 +1221,18 @@
                         <div class="tool-badge research-tool">Google Scholar</div>
                         <div class="tool-badge research-tool">PubMed</div>
                         <div class="tool-badge research-tool">JSTOR</div>
-                        
+
                         <!-- Business Tools -->
                         <div class="tool-badge business-tool">Salesforce</div>
                         <div class="tool-badge business-tool">HubSpot</div>
                         <div class="tool-badge business-tool">Microsoft 365</div>
                         <div class="tool-badge business-tool">Google Workspace</div>
-                        
+
                         <!-- Legal Tools -->
                         <div class="tool-badge legal-tool">Westlaw</div>
                         <div class="tool-badge legal-tool">LexisNexis</div>
                         <div class="tool-badge legal-tool">Thomson Reuters</div>
-                        
+
                         <!-- Data Sources -->
                         <div class="tool-badge data-tool">Bloomberg</div>
                         <div class="tool-badge data-tool">Reuters</div>
@@ -1236,16 +1240,16 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Solution Section -->
         <section id="solucion" class="section" style="background: var(--gray-50);">
             <div class="container">
                 <h2 class="section-title fade-in" style="text-align: center;">Tu Nuevo Socio Estratégico</h2>
                 <p class="section-subtitle fade-in" style="text-align: center;">
-                    AnalitikAI es tu consultor senior 24/7: entiende tu negocio, domina tu sector, 
+                    AnalitikAI es tu consultor senior 24/7: entiende tu negocio, domina tu sector,
                     y entrega informes ejecutivos listos para facturar en tiempo récord.
                 </p>
-                
+
                 <div class="process-grid">
                     <div class="process-step fade-in">
                         <div class="process-icon">
@@ -1253,45 +1257,45 @@
                         </div>
                         <h3 class="process-title">Comprensión Profunda</h3>
                         <p class="process-description">
-                            Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, 
+                            Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado,
                             inteligencia competitiva. Sin jerga técnica, solo resultados accionables.
                         </p>
                     </div>
-                    
+
                     <div class="process-step fade-in">
                         <div class="process-icon">
                             <i class="fas fa-brain"></i>
                         </div>
                         <h3 class="process-title">Análisis Experto</h3>
                         <p class="process-description">
-                            Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights 
+                            Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights
                             con la precisión de un equipo de analistas senior.
                         </p>
                     </div>
-                    
+
                     <div class="process-step fade-in">
                         <div class="process-icon">
                             <i class="fas fa-rocket"></i>
                         </div>
                         <h3 class="process-title">Entrega Premium</h3>
                         <p class="process-description">
-                            Informes ejecutivos listos para presentar a clientes, con datos accionables 
+                            Informes ejecutivos listos para presentar a clientes, con datos accionables
                             y recomendaciones estratégicas. En 48 horas garantizadas.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Services Section -->
         <section id="servicios" class="section" style="background: var(--white);">
             <div class="container">
                 <h2 class="section-title fade-in" style="text-align: center;">Servicios Especializados</h2>
                 <p class="section-subtitle fade-in" style="text-align: center;">
-                    Soluciones específicas para cada sector profesional, adaptadas a tus necesidades exactas 
+                    Soluciones específicas para cada sector profesional, adaptadas a tus necesidades exactas
                     y estándares de calidad institucional.
                 </p>
-                
+
                 <div class="services-grid">
                     <!-- Law Firms -->
                     <div class="card fade-in">
@@ -1313,7 +1317,7 @@
                             Ver Día en la Vida <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Consulting Firms -->
                     <div class="card fade-in">
                         <div style="display: flex; align-items: center; margin-bottom: 28px;">
@@ -1334,7 +1338,7 @@
                             Ver Día en la Vida <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Auditing Firms -->
                     <div class="card fade-in">
                         <div style="display: flex; align-items: center; margin-bottom: 28px;">
@@ -1355,7 +1359,7 @@
                             Ver Día en la Vida <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Marketing Agencies -->
                     <div class="card fade-in">
                         <div style="display: flex; align-items: center; margin-bottom: 28px;">
@@ -1376,7 +1380,7 @@
                             Ver Día en la Vida <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Financial Advisors -->
                     <div class="card fade-in">
                         <div style="display: flex; align-items: center; margin-bottom: 28px;">
@@ -1397,7 +1401,7 @@
                             Ver Día en la Vida <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Speed Advantage -->
                     <div class="card fade-in" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); color: white;">
                         <div style="display: flex; align-items: center; margin-bottom: 28px;">
@@ -1407,13 +1411,65 @@
                             <h3 style="font-size: 22px; font-weight: 600; font-family: 'Inter', sans-serif;">Ventaja de Velocidad</h3>
                         </div>
                         <p style="margin-bottom: 28px; opacity: 0.9; font-size: 16px; line-height: 1.7;">
-                            Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. 
+                            Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas.
                             Misma calidad profesional, velocidad incomparable.
                         </p>
                         <div style="text-align: center; padding: 24px 0;">
                             <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div>
                             <div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Por Qué AnalitikAI es Diferente -->
+        <section id="metodologia" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Por Qué AnalitikAI es Diferente</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    No somos otra herramienta más. Somos el socio estratégico que necesitas para competir en 2024.
+                </p>
+                
+                <div class="methodology-grid">
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="methodology-title">🎯 Especialización Total</h3>
+                        <p class="methodology-description">
+                            No somos una herramienta genérica. Estamos 100% enfocados en servicios profesionales: conocemos tus clientes, tus deadlines, tus estándares de calidad.
+                        </p>
+                    </div>
+                    
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon" style="background: linear-gradient(135deg, #f59e0b, #f97316);">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="methodology-title">⚡ Velocidad + Precisión</h3>
+                        <p class="methodology-description">
+                            Combinamos algoritmos especializados con bases de datos premium (Westlaw, LexisNexis, Bloomberg) para entregarte exactamente lo que necesitas en 48h.
+                        </p>
+                    </div>
+                    
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="methodology-title">🤝 Partnership, No Solo Software</h3>
+                        <p class="methodology-description">
+                            No te vendemos una herramienta y te dejamos solo. Te acompañamos en cada proyecto, entendemos tu contexto, y mejoramos contigo.
+                        </p>
+                    </div>
+                    
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="methodology-title">🏆 Resultados Medibles</h3>
+                        <p class="methodology-description">
+                            95% de nuestros clientes renuevan. Tiempo promedio ahorrado: 73%. ROI promedio: 340%. No son promesas, son números reales.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1434,7 +1490,7 @@
                 <p class="fade-in" style="text-align: center; font-size: 16px; color: var(--text-light); margin-bottom: 60px;">
                     Factor de utilización del 65% aplicado
                 </p>
-                
+
                 <div class="calculator-container fade-in" style="max-width: 900px;">
                     <div class="calculator-grid" style="grid-template-columns: 1fr; gap: 40px;">
                         <!-- Simplified Input Controls -->
@@ -1456,7 +1512,7 @@
                                         <div class="slider-value-display" id="projectsValueDisplay">5 proyectos</div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Hourly rate -->
                                 <div class="input-group">
                                     <label class="input-label" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">
@@ -1475,7 +1531,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Results Display -->
                         <div class="calculator-outputs" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); padding: 50px; border-radius: 20px; text-align: center;">
                             <!-- Main Savings Display -->
@@ -1490,7 +1546,7 @@
                                     Tiempo liberado: 520 horas
                                 </div>
                             </div>
-                            
+
                             <!-- ROI Highlight -->
                             <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 24px; border-radius: 12px; margin-bottom: 32px;">
                                 <div style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 8px;" id="roiPercentage">
@@ -1500,13 +1556,13 @@
                                     Resultado promedio de nuestros clientes
                                 </div>
                             </div>
-                            
+
                             <!-- Strong CTA -->
                             <div style="background: rgba(255, 255, 255, 0.05); padding: 32px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="font-size: 20px; font-weight: 600; color: white; margin-bottom: 20px;">
                                     ¿Quieres ver exactamente cómo conseguir estos resultados?
                                 </div>
-                                <a href="https://cal.eu/polruiz/15min" target="_blank" 
+                                <a href="https://cal.eu/polruiz/15min" target="_blank"
                                    style="display: inline-block; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 18px; box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3); transition: all 0.3s ease; border: none;">
                                     <span style="margin-right: 12px;">📅</span>
                                     Ver cómo en una demo de 15 min
@@ -1517,7 +1573,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Credibility Footer -->
                     <div style="background: var(--white); border-radius: 16px; padding: 32px; margin-top: 40px; text-align: center; border: 1px solid var(--border-light);" class="fade-in">
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: center;">
@@ -1538,7 +1594,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Pricing Section - Setup AI Style -->
         <section id="precios" class="section" style="background: var(--gray-50);">
             <div class="container">
@@ -1546,7 +1602,7 @@
                 <p class="section-subtitle fade-in" style="text-align: center;">
                     Tarifas transparentes para investigación profesional de clase mundial. Sin letra pequeña, sin sorpresas.
                 </p>
-                
+
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 80px auto 0;">
                     <!-- Investigación Específica - Recommended -->
                     <div class="pricing-card fade-in" style="background: white; border-radius: 12px; padding: 40px 32px; border: 2px solid var(--accent-blue); position: relative; box-shadow: var(--shadow-medium);">
@@ -1556,7 +1612,7 @@
                         <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Investigación Específica</h3>
                         <div style="font-size: 48px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">€750</div>
                         <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 32px;">Cubre la mayoría de proyectos de research</p>
-                        
+
                         <ul style="list-style: none; margin-bottom: 32px; color: var(--text-secondary); font-size: 14px;">
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: var(--accent-blue); margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
@@ -1579,18 +1635,18 @@
                                 <span>14 días de ajustes y soporte</span>
                             </li>
                         </ul>
-                        
+
                         <a href="https://cal.eu/polruiz/15min" target="_blank" style="display: block; background: var(--accent-blue); color: white; text-align: center; padding: 16px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s ease;">
                             Empezar Ahora
                         </a>
                     </div>
-                    
+
                     <!-- Investigación Completa -->
                     <div class="pricing-card fade-in" style="background: white; border-radius: 12px; padding: 40px 32px; border: 1px solid var(--border-light); box-shadow: var(--shadow-soft);">
                         <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Investigación Completa</h3>
                         <div style="font-size: 48px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">€1,500</div>
                         <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 32px;">Renovación multi-proyecto</p>
-                        
+
                         <ul style="list-style: none; margin-bottom: 32px; color: var(--text-secondary); font-size: 14px;">
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: var(--accent-gold); margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
@@ -1602,19 +1658,19 @@
                             </li>
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: var(--accent-gold); margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
-                                <span>Research, análisis, intelligence — todo</span>
+                                <span>Research, análisis, intelligence - todo</span>
                             </li>
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: var(--accent-gold); margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
                                 <span>30 días de ajustes y soporte prioritario</span>
                             </li>
                         </ul>
-                        
+
                         <a href="https://cal.eu/polruiz/15min" target="_blank" style="display: block; background: var(--accent-gold); color: white; text-align: center; padding: 16px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s ease;">
                             Solicitar Propuesta
                         </a>
                     </div>
-                    
+
                     <!-- Retainer -->
                     <div class="pricing-card fade-in" style="background: white; border-radius: 12px; padding: 40px 32px; border: 1px solid var(--border-light); box-shadow: var(--shadow-soft);">
                         <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Retainer</h3>
@@ -1623,11 +1679,11 @@
                             <span style="color: var(--text-secondary); margin-left: 8px; font-size: 16px;">/mes</span>
                         </div>
                         <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 32px;">Nosotros lo manejamos desde aquí</p>
-                        
+
                         <ul style="list-style: none; margin-bottom: 32px; color: var(--text-secondary); font-size: 14px;">
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: #38A169; margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
-                                <span>Canal Slack dedicado — somos un mensaje</span>
+                                <span>Canal Slack dedicado - somos un mensaje</span>
                             </li>
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: #38A169; margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
@@ -1642,18 +1698,18 @@
                                 <span>Tu investigación evoluciona con tu negocio</span>
                             </li>
                         </ul>
-                        
+
                         <a href="https://cal.eu/polruiz/15min" target="_blank" style="display: block; background: #38A169; color: white; text-align: center; padding: 16px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s ease;">
                             Empezar Retainer
                         </a>
                     </div>
-                    
+
                     <!-- Enterprise -->
                     <div class="pricing-card fade-in" style="background: white; border-radius: 12px; padding: 40px 32px; border: 1px solid var(--border-light); box-shadow: var(--shadow-soft);">
                         <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Enterprise</h3>
                         <div style="font-size: 48px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Custom</div>
                         <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 32px;">Consulta especial</p>
-                        
+
                         <ul style="list-style: none; margin-bottom: 32px; color: var(--text-secondary); font-size: 14px;">
                             <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
                                 <i class="fas fa-check" style="color: #805AD5; margin-right: 12px; margin-top: 2px; font-size: 12px;"></i>
@@ -1672,13 +1728,13 @@
                                 <span>Implementación coordinada, nadie se queda atrás</span>
                             </li>
                         </ul>
-                        
+
                         <a href="https://cal.eu/polruiz/15min" target="_blank" style="display: block; background: #805AD5; color: white; text-align: center; padding: 16px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s ease;">
                             Consultar Enterprise
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Pricing Footer -->
                 <div style="text-align: center; margin-top: 60px; padding: 32px; background: white; border-radius: 12px; border: 1px solid var(--border-light); max-width: 800px; margin-left: auto; margin-right: auto; margin-top: 60px;" class="fade-in">
                     <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 16px; color: var(--text-primary);">
@@ -1686,7 +1742,7 @@
                         Garantía de Calidad
                     </h4>
                     <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 16px; line-height: 1.6;">
-                        Si nuestro trabajo no cumple con los estándares acordados, trabajaremos hasta resolverlo sin costo adicional. 
+                        Si nuestro trabajo no cumple con los estándares acordados, trabajaremos hasta resolverlo sin costo adicional.
                         Tu satisfacción es nuestra prioridad absoluta.
                     </p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 24px;">
@@ -1706,99 +1762,8 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Por Qué AnalitikAI es Diferente -->
-        <section id="metodologia" class="section" style="background: var(--white);">
-            <div class="container">
-                <h2 class="section-title fade-in" style="text-align: center;">Por Qué AnalitikAI es Diferente</h2>
-                <p class="section-subtitle fade-in" style="text-align: center;">
-                    No somos otra herramienta genérica de IA. Somos especialistas que entienden tu mundo, 
-                    tus deadlines y tus estándares de calidad profesional.
-                </p>
-                
-                <div class="methodology-grid">
-                    <div class="methodology-item fade-in">
-                        <div class="methodology-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 class="methodology-title">🎯 Especialización Total</h3>
-                        <p class="methodology-description">
-                            <strong>No somos una herramienta genérica.</strong> Estamos 100% enfocados en servicios profesionales: 
-                            conocemos tus clientes, tus deadlines, tus estándares de calidad. Mientras otros hablan de "casos de uso", 
-                            nosotros hablamos tu idioma profesional.
-                        </p>
-                    </div>
-                    
-                    <div class="methodology-item fade-in">
-                        <div class="methodology-icon" style="background: linear-gradient(135deg, #f59e0b, #f97316);">
-                            <i class="fas fa-lightning-bolt"></i>
-                        </div>
-                        <h3 class="methodology-title">⚡ Velocidad + Precisión</h3>
-                        <p class="methodology-description">
-                            Combinamos <strong>algoritmos especializados</strong> con bases de datos premium (Westlaw, LexisNexis, Bloomberg) 
-                            para entregarte exactamente lo que necesitas en 48h. No es magia, es tecnología aplicada 
-                            con 15+ años de experiencia en consultoría.
-                        </p>
-                    </div>
-                    
-                    <div class="methodology-item fade-in">
-                        <div class="methodology-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3 class="methodology-title">🤝 Partnership, No Solo Software</h3>
-                        <p class="methodology-description">
-                            <strong>No te vendemos una herramienta y te dejamos solo.</strong> Te acompañamos en cada proyecto, 
-                            entendemos tu contexto, y mejoramos contigo. Tienes acceso directo a nuestro equipo de analistas 
-                            senior cuando lo necesites.
-                        </p>
-                    </div>
-                    
-                    <div class="methodology-item fade-in">
-                        <div class="methodology-icon" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="methodology-title">🏆 Resultados Medibles</h3>
-                        <p class="methodology-description">
-                            <strong>95% de nuestros clientes renuevan.</strong> Tiempo promedio ahorrado: 73%. 
-                            ROI promedio: 340%. Satisfacción cliente: 4.9/5. No son promesas de marketing, 
-                            son números reales de firmas que trabajan con nosotros hace +2 años.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Credibility Section -->
-                <div class="card fade-in" style="margin-top: 60px; background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%); border: 2px solid var(--accent-blue); padding: 40px;">
-                    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                            <i class="fas fa-shield-check" style="font-size: 32px; color: var(--accent-blue); margin-right: 16px;"></i>
-                            <h3 style="color: var(--accent-blue); font-size: 24px; font-weight: 700; margin: 0;">Validado por Profesionales Líderes</h3>
-                        </div>
-                        <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
-                            Fundado por ex-McKinsey y equipos de las Big Four. Validado por socios de firmas líderes 
-                            en España y Latam. No experimentamos con tu reputación: aplicamos metodologías probadas 
-                            a gran escala, ahora accesibles para tu firma.
-                        </p>
-                        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 32px;">
-                            <div style="text-align: center;">
-                                <div style="font-size: 28px; font-weight: 700; color: var(--accent-blue);">15+</div>
-                                <div style="font-size: 14px; color: var(--text-light);">Años experiencia consultora</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="font-size: 28px; font-weight: 700; color: var(--accent-blue);">200+</div>
-                                <div style="font-size: 14px; color: var(--text-light);">Proyectos completados</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="font-size: 28px; font-weight: 700; color: var(--accent-blue);">50+</div>
-                                <div style="font-size: 14px; color: var(--text-light);">Firmas de confianza</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
 
-        
+
         <!-- FAQ Section -->
         <section id="preguntas" class="section" style="background: var(--white);">
             <div class="container">
@@ -1806,7 +1771,7 @@
                 <p class="section-subtitle fade-in" style="text-align: center;">
                     Todo lo que necesitas saber sobre AnalitikAI y cómo puede transformar tu práctica profesional.
                 </p>
-                
+
                 <div style="max-width: 900px; margin: 80px auto 0;">
                     <div class="faq-item fade-in">
                         <button class="faq-question">
@@ -1814,75 +1779,75 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            Nuestra IA está entrenada específicamente en documentos y metodologías de servicios profesionales. 
-                            Combina velocidad de procesamiento con validación de múltiples fuentes y revisión por especialistas humanos 
+                            Nuestra IA está entrenada específicamente en documentos y metodologías de servicios profesionales.
+                            Combina velocidad de procesamiento con validación de múltiples fuentes y revisión por especialistas humanos
                             para garantizar precisión y relevancia profesional. Cada entregable pasa por múltiples capas de control de calidad.
                         </div>
                     </div>
-                    
+
                     <div class="faq-item fade-in">
                         <button class="faq-question">
                             ¿Qué tipo de fuentes y documentos analizan?
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            Accedemos a bases de datos legales especializadas, estudios de mercado institucionales, informes sectoriales, 
-                            documentos regulatorios oficiales, investigaciones académicas y fuentes públicas de alta calidad. También procesamos 
+                            Accedemos a bases de datos legales especializadas, estudios de mercado institucionales, informes sectoriales,
+                            documentos regulatorios oficiales, investigaciones académicas y fuentes públicas de alta calidad. También procesamos
                             documentos internos que nos proporciones, manteniendo siempre la confidencialidad absoluta con protocolos de seguridad robustos.
                         </div>
                     </div>
-                    
+
                     <div class="faq-item fade-in">
                         <button class="faq-question">
                             ¿Cómo manejan la confidencialidad de nuestros proyectos?
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            La confidencialidad es nuestra prioridad absoluta. Todos los proyectos se procesan con máxima seguridad mediante 
-                            protocolos de cifrado avanzado. Firmamos NDAs estrictos antes de cualquier proyecto, implementamos protocolos 
+                            La confidencialidad es nuestra prioridad absoluta. Todos los proyectos se procesan con máxima seguridad mediante
+                            protocolos de cifrado avanzado. Firmamos NDAs estrictos antes de cualquier proyecto, implementamos protocolos
                             de confidencialidad de nivel bancario, y nunca almacenamos datos de clientes después de completar el proyecto.
                         </div>
                     </div>
-                    
+
                     <div class="faq-item fade-in">
                         <button class="faq-question">
                             ¿Pueden adaptarse a terminología específica de nuestro sector?
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            Absolutamente. Nuestros modelos están especializados por sector y pueden adaptarse completamente a tu terminología 
-                            específica, metodologías internas y formatos de entrega preferidos. Cada proyecto se personaliza según tus estándares 
+                            Absolutamente. Nuestros modelos están especializados por sector y pueden adaptarse completamente a tu terminología
+                            específica, metodologías internas y formatos de entrega preferidos. Cada proyecto se personaliza según tus estándares
                             profesionales, incluyendo estilo de redacción, estructura de informes y nivel de detalle técnico.
                         </div>
                     </div>
-                    
+
                     <div class="faq-item fade-in">
                         <button class="faq-question">
                             ¿Qué sucede si necesitamos revisiones o información adicional?
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            Si necesitas análisis adicional, 
-                            cambios de enfoque, o profundización en áreas específicas, podemos ajustar el alcance de forma transparente. 
+                            Si necesitas análisis adicional,
+                            cambios de enfoque, o profundización en áreas específicas, podemos ajustar el alcance de forma transparente.
                             Nuestro objetivo es que tengas exactamente lo que necesitas para tus clientes.
                         </div>
                     </div>
-                    
+
                     <div class="faq-item fade-in">
                         <button class="faq-question">
                             ¿Ofrecen garantías de calidad y tiempos de entrega?
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            Sí, ofrecemos garantía de entrega en 48 horas y compromiso total con la calidad. Si nuestro trabajo no cumple 
-                            con los estándares acordados, trabajaremos hasta resolver cualquier problema sin costo adicional. 
+                            Sí, ofrecemos garantía de entrega en 48 horas y compromiso total con la calidad. Si nuestro trabajo no cumple
+                            con los estándares acordados, trabajaremos hasta resolver cualquier problema sin costo adicional.
                             En casos excepcionales, consideraremos reembolsos según las circunstancias específicas del proyecto.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Section -->
         <section id="contacto" class="section" style="background: var(--gray-900); color: white;">
             <div class="container">
@@ -1893,7 +1858,7 @@
                     <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.85);">
                         Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.
                     </p>
-                    
+
                     <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;" class="fade-in">
                         <a href="https://cal.eu/polruiz/15min" target="_blank" style="background: white; color: var(--gray-900); padding: 18px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s ease; box-shadow: var(--shadow-soft);">
                             <span>Reservar Demo Gratuita</span>
@@ -1904,65 +1869,65 @@
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
-                    
+
                     <div style="margin-top: 56px; color: rgba(255, 255, 255, 0.7);" class="fade-in">
                         <p style="margin-bottom: 12px; font-size: 16px;">📅 Primera consulta gratuita de 15 minutos</p>
                         <p style="margin-bottom: 12px; font-size: 16px;">⚡ Respuesta garantizada en menos de 2 horas</p>
                         <p style="font-size: 16px;">🌍 Basados en Barcelona, alcance global</p>
                     </div>
-                    
+
                     <!-- Contact Form -->
                     <div id="contact-form" style="max-width: 600px; margin: 80px auto 0; background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);" class="fade-in">
                         <h3 style="color: white; text-align: center; margin-bottom: 32px; font-size: 24px; font-weight: 600;">
                             Formulario de Contacto
                         </h3>
-                        
+
                         <!-- TODO: Configure actual email endpoint -->
                         <form action="#" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 24px;">
                             <!-- Name Field -->
                             <div>
                                 <label style="display: block; color: white; margin-bottom: 8px; font-weight: 500;">Nombre *</label>
-                                <input type="text" name="name" required 
+                                <input type="text" name="name" required
                                        style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 16px; backdrop-filter: blur(5px);">
                             </div>
-                            
+
                             <!-- Email Field -->
                             <div>
                                 <label style="display: block; color: white; margin-bottom: 8px; font-weight: 500;">Email *</label>
-                                <input type="email" name="email" required 
+                                <input type="email" name="email" required
                                        style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 16px; backdrop-filter: blur(5px);">
                             </div>
-                            
+
                             <!-- Company Field -->
                             <div>
                                 <label style="display: block; color: white; margin-bottom: 8px; font-weight: 500;">Empresa</label>
-                                <input type="text" name="company" 
+                                <input type="text" name="company"
                                        style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 16px; backdrop-filter: blur(5px);">
                             </div>
-                            
+
                             <!-- Message Field -->
                             <div>
                                 <label style="display: block; color: white; margin-bottom: 8px; font-weight: 500;">Mensaje *</label>
                                 <textarea name="message" required rows="5"
                                           style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 16px; backdrop-filter: blur(5px); resize: vertical; font-family: 'Inter', sans-serif;"></textarea>
                             </div>
-                            
+
                             <!-- File Upload Field -->
                             <div>
                                 <label style="display: block; color: white; margin-bottom: 8px; font-weight: 500;">Archivo adjunto (opcional)</label>
-                                <input type="file" name="attachment" 
+                                <input type="file" name="attachment"
                                        style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 16px; backdrop-filter: blur(5px);">
                             </div>
-                            
+
                             <!-- Submit Button -->
-                            <button type="submit" 
+                            <button type="submit"
                                     style="background: white; color: var(--gray-900); padding: 16px 32px; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);"
                                     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 24px rgba(255, 255, 255, 0.3)';"
                                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(255, 255, 255, 0.2)';">
                                 Enviar Mensaje
                             </button>
                         </form>
-                        
+
                         <p style="text-align: center; margin-top: 24px; color: rgba(255, 255, 255, 0.7); font-size: 14px;">
                             * Campos obligatorios
                         </p>
@@ -1970,7 +1935,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -1978,7 +1943,7 @@
                     <div class="footer-brand">
                         <h3>📊 AnalitikAI</h3>
                         <p>
-                            Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. 
+                            Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas.
                             Para servicios profesionales que necesitan resultados excepcionales, no promesas.
                         </p>
                         <div style="display: flex; gap: 20px;">
@@ -1993,7 +1958,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="footer-links">
                         <h4>Servicios</h4>
                         <ul>
@@ -2003,7 +1968,7 @@
                             <li><a href="#servicios">Investigación Regulatoria</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-links">
                         <h4>Sectores</h4>
                         <ul>
@@ -2015,32 +1980,32 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="footer-bottom">
                     <p>© 2024 AnalitikAI. Todos los derechos reservados. | Barcelona, España</p>
                 </div>
             </div>
         </footer>
     </main>
-    
+
     <script>
         // Sidebar Toggle
         const sidebarToggle = document.getElementById('sidebar-toggle');
         const sidebar = document.getElementById('sidebar');
-        
+
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
         });
-        
+
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024 && 
-                !sidebar.contains(e.target) && 
+            if (window.innerWidth <= 1024 &&
+                !sidebar.contains(e.target) &&
                 !sidebarToggle.contains(e.target)) {
                 sidebar.classList.remove('open');
             }
         });
-        
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2051,7 +2016,7 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
+
                     // Close sidebar on mobile after clicking link
                     if (window.innerWidth <= 1024) {
                         sidebar.classList.remove('open');
@@ -2059,15 +2024,15 @@
                 }
             });
         });
-        
+
         // Update active navigation link
         const updateActiveNav = () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.sidebar-nav a, .sidebar-secondary a');
-            
+
             let current = '';
             const scrollPos = window.scrollY + 120;
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -2075,7 +2040,7 @@
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').substring(1) === current) {
@@ -2083,7 +2048,7 @@
                 }
             });
         };
-        
+
         // Throttled scroll listener
         let ticking = false;
         window.addEventListener('scroll', () => {
@@ -2095,13 +2060,13 @@
                 ticking = true;
             }
         });
-        
+
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -80px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2109,17 +2074,17 @@
                 }
             });
         }, observerOptions);
-        
+
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-        
+
         // FAQ Functionality
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
                 const isActive = answer.classList.contains('active');
-                
+
                 // Close all FAQ items
                 document.querySelectorAll('.faq-answer').forEach(ans => {
                     ans.classList.remove('active');
@@ -2127,7 +2092,7 @@
                 document.querySelectorAll('.faq-question i').forEach(icon => {
                     icon.style.transform = 'rotate(0deg)';
                 });
-                
+
                 // Open clicked item if it wasn't active
                 if (!isActive) {
                     answer.classList.add('active');
@@ -2135,8 +2100,8 @@
                 }
             });
         });
-        
-        
+
+
         // ROI Calculator functionality
         function initializeROICalculator() {
             const elements = {
@@ -2147,7 +2112,7 @@
                 deliveryTime: document.getElementById('deliveryTime'),
                 externalPercentage: document.getElementById('externalPercentage'),
                 consultantCost: document.getElementById('consultantCost'),
-                
+
                 // Value displays
                 projectsValueDisplay: document.getElementById('projectsValueDisplay'),
                 hourlyRateValueDisplay: document.getElementById('hourlyRateValueDisplay'),
@@ -2156,7 +2121,7 @@
                 deliveryValue: document.getElementById('deliveryValue'),
                 externalPercentValue: document.getElementById('externalPercentValue'),
                 consultantValue: document.getElementById('consultantValue'),
-                
+
                 // Outputs
                 monthlySavings: document.getElementById('monthlySavings'),
                 timeSaved: document.getElementById('timeSaved'),
@@ -2164,7 +2129,7 @@
                 roiPercentage: document.getElementById('roiPercentage'),
                 paybackPeriod: document.getElementById('paybackPeriod')
             };
-            
+
             // Update slider value displays
             function updateSliderValues() {
                 if (elements.projectsValueDisplay && elements.projectsPerMonth) {
@@ -2183,7 +2148,7 @@
                 if (elements.externalPercentValue) elements.externalPercentValue.textContent = elements.externalPercentage ? elements.externalPercentage.value + '%' : '';
                 if (elements.consultantValue) elements.consultantValue.textContent = elements.consultantCost ? '€' + elements.consultantCost.value : '';
             }
-            
+
             // Calculate ROI metrics
             function calculateROI() {
                 const projects = parseInt(elements.projectsPerMonth.value);
@@ -2192,42 +2157,42 @@
                 const deliveryWeeks = parseInt(elements.deliveryTime.value);
                 const externalPercent = parseInt(elements.externalPercentage.value) / 100;
                 const consultantRate = parseInt(elements.consultantCost.value);
-                
+
                 // AnalitikAI assumptions
                 const analitikAIHours = 8; // 1 day of work vs weeks
                 const analitikAIDelivery = 0.29; // 2 days = 0.29 weeks
                 const analitikAIServiceFee = 5000; // Average project cost
-                
+
                 // Current costs calculation
                 const internalProjects = projects * (1 - externalPercent);
                 const externalProjects = projects * externalPercent;
-                
+
                 const currentInternalCost = internalProjects * hours * internalRate;
                 const currentExternalCost = externalProjects * hours * consultantRate;
                 const currentTotalCost = currentInternalCost + currentExternalCost;
-                
+
                 // AnalitikAI costs
                 const analitikAICost = projects * analitikAIServiceFee;
-                
+
                 // Time savings
                 const currentTotalHours = projects * hours;
                 const analitikAITotalHours = projects * analitikAIHours;
                 const hoursSaved = currentTotalHours - analitikAITotalHours;
-                
+
                 // Cost savings
                 const monthlySavings = currentTotalCost - analitikAICost;
-                
+
                 // Additional projects capacity
                 const additionalProjectCapacity = Math.floor(hoursSaved / hours);
-                
+
                 // ROI calculation (annual)
                 const annualSavings = monthlySavings * 12;
                 const annualInvestment = analitikAICost * 12;
                 const roi = (annualSavings / annualInvestment) * 100;
-                
+
                 // Payback period
                 const payback = annualInvestment / annualSavings * 12; // in months
-                
+
                 // Update displays
                 elements.monthlySavings.textContent = '€' + monthlySavings.toLocaleString();
                 elements.timeSaved.textContent = hoursSaved.toFixed(0) + 'h';
@@ -2235,7 +2200,7 @@
                 elements.roiPercentage.textContent = roi.toFixed(0) + '%';
                 elements.paybackPeriod.textContent = payback.toFixed(1);
             }
-            
+
             // Position slider value tooltips
             function positionSliderValue(slider, valueEl) {
                 const rect = slider.getBoundingClientRect();
@@ -2243,7 +2208,7 @@
                 const position = value * (rect.width - 24) + 12; // 24px is thumb width
                 valueEl.style.left = position + 'px';
             }
-            
+
             // Event listeners for all inputs
             Object.keys(elements).forEach(key => {
                 if (elements[key] && elements[key].addEventListener) {
@@ -2251,7 +2216,7 @@
                         elements[key].addEventListener('input', () => {
                             updateSliderValues();
                             calculateROI();
-                            
+
                             // Position the value tooltip
                             const valueEl = document.getElementById(key.replace(/([A-Z])/g, '$1').toLowerCase().replace(/per|cost|time|percentage/, '') + 'Value') ||
                                            document.getElementById(key + 'Value') ||
@@ -2260,7 +2225,7 @@
                                 positionSliderValue(elements[key], valueEl);
                             }
                         });
-                        
+
                         // Show tooltip on hover/focus
                         elements[key].addEventListener('mouseenter', () => {
                             const valueKey = key.replace('projectsPerMonth', 'projectsValue')
@@ -2273,7 +2238,7 @@
                                 elements[valueKey].style.opacity = '1';
                             }
                         });
-                        
+
                         elements[key].addEventListener('mouseleave', () => {
                             const valueKey = key.replace('projectsPerMonth', 'projectsValue')
                                                .replace('hoursPerProject', 'hoursValue')
@@ -2286,7 +2251,7 @@
                             }
                         });
                     }
-                    
+
                     if (elements[key].tagName === 'SELECT') {
                         elements[key].addEventListener('change', () => {
                             calculateROI();
@@ -2294,11 +2259,11 @@
                     }
                 }
             });
-            
+
             // Initial calculation
             updateSliderValues();
             calculateROI();
-            
+
             // Position initial tooltips
             setTimeout(() => {
                 Object.keys(elements).forEach(key => {
@@ -2316,10 +2281,10 @@
                 });
             }, 100);
         }
-        
-        // Initialize calculator when DOM is loaded  
+
+        // Initialize calculator when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeSimpleROICalculator);
-        
+
         // Simple ROI Calculator - Realistic Logic
         function initializeSimpleROICalculator() {
             const projectsSlider = document.getElementById('projectsPerMonth');
@@ -2329,13 +2294,13 @@
             const monthlySavings = document.getElementById('monthlySavings');
             const timeSavedText = document.getElementById('timeSavedText');
             const roiPercentage = document.getElementById('roiPercentage');
-            
+
             function updateCalculator() {
                 if (!projectsSlider || !hourlyRateSlider) return;
-                
+
                 const projects = parseInt(projectsSlider.value);
                 const hourlyRate = parseInt(hourlyRateSlider.value);
-                
+
                 // Update slider displays
                 if (projectsValueDisplay) {
                     projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
@@ -2343,7 +2308,7 @@
                 if (hourlyRateValueDisplay) {
                     hourlyRateValueDisplay.textContent = '€' + hourlyRate;
                 }
-                
+
                 // NEW REALISTIC CALCULATION LOGIC
                 const traditionalTimePerProject = 25; // hours (not 120!)
                 const analitikAITimePerProject = 4; // hours (not 16)
@@ -2351,18 +2316,18 @@
                 const utilizationFactor = 0.65; // 65% (not 100%)
                 const actualUsableTimeSaved = timeSavedPerProject * utilizationFactor; // 21 * 0.65 = 13.6 hours
                 const analitikAIProjectCost = 750; // €750 per project
-                
+
                 // Monthly calculation
                 const usableTimeSaved = projects * actualUsableTimeSaved;
                 const valueOfTime = usableTimeSaved * hourlyRate;
                 const analitikAICost = projects * analitikAIProjectCost;
                 const netSavings = valueOfTime - analitikAICost;
-                
+
                 // ROI calculation (annual)
                 const annualNetSavings = netSavings * 12;
                 const annualCost = analitikAICost * 12;
                 const roi = annualCost > 0 ? (annualNetSavings / annualCost) * 100 : 0;
-                
+
                 // Update displays
                 if (monthlySavings) {
                     monthlySavings.textContent = '€' + Math.max(0, netSavings).toLocaleString('es-ES');
@@ -2374,7 +2339,7 @@
                     roiPercentage.textContent = Math.round(Math.max(0, roi)) + '% ROI anual';
                 }
             }
-            
+
             // Add event listeners
             if (projectsSlider) {
                 projectsSlider.addEventListener('input', updateCalculator);
@@ -2382,11 +2347,11 @@
             if (hourlyRateSlider) {
                 hourlyRateSlider.addEventListener('input', updateCalculator);
             }
-            
+
             // Initial calculation
             updateCalculator();
         }
-        
+
         // Initialize
         updateActiveNav();
     </script>
