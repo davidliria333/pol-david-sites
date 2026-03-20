@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un Día en la Vida: Miguel, Director Auditoría | AnalitikAI</title>
-    <meta name="description" content="Descubre cómo AnalitikAI transforma el compliance y auditoría: de investigación regulatoria manual a intelligence automática.">
+    <title>Socio de Auditoría | AnalitikAI - Transformación Diaria con IA</title>
+    <meta name="description" content="Descubre cómo AnalitikAI transforma el día de un socio de auditoría desde revisiones manuales hasta análisis de riesgos automatizados.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +20,11 @@
             --text-primary: #111827;
             --text-secondary: #4b5563;
             --text-light: #6b7280;
-            --accent-purple: #805AD5;
-            --accent-purple-dark: #553C9A;
-            --accent-purple-light: #9F7AEA;
-            --accent-green: #38A169;
-            --accent-green-light: #48BB78;
-            --accent-red: #E53E3E;
-            --accent-red-light: #FC8181;
+            --accent-blue: #6366f1;
+            --accent-blue-dark: #4f46e5;
+            --accent-blue-light: #818cf8;
+            --accent-gold: #f59e0b;
+            --accent-gold-light: #fbbf24;
             --border-light: #e5e7eb;
             --white: #ffffff;
             --gray-50: #f9fafb;
@@ -36,6 +34,8 @@
             --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.06);
             --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
             --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --audit-color: #059669;
+            --audit-light: #10B981;
         }
         
         * {
@@ -54,19 +54,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.25;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-        }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 32px;
         }
-
+        
         /* Header */
         .header {
             background: var(--white);
@@ -79,13 +72,13 @@
         
         .header-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: 800;
             color: var(--text-primary);
             text-decoration: none;
         }
@@ -98,135 +91,68 @@
         }
         
         .nav-link:hover {
-            color: var(--accent-purple);
+            color: var(--audit-color);
         }
-
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            background: linear-gradient(135deg, var(--audit-color) 0%, var(--audit-light) 100%);
             color: white;
-            padding: 120px 0;
+            padding: 80px 0 60px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(128, 90, 213, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(159, 122, 234, 0.2) 0%, transparent 50%);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(128, 90, 213, 0.2);
-            padding: 12px 24px;
-            border-radius: 25px;
-            margin-bottom: 32px;
-            font-size: 16px;
-            font-weight: 500;
-            border: 1px solid rgba(128, 90, 213, 0.3);
-        }
-        
-        .hero-title {
-            font-size: 56px;
+        .hero h1 {
+            font-size: 48px;
             font-weight: 800;
             margin-bottom: 24px;
             line-height: 1.1;
-            letter-spacing: -0.02em;
         }
         
-        .hero-subtitle {
-            font-size: 22px;
-            margin-bottom: 48px;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+        .hero .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 500;
         }
-
-        /* Timeline Section */
+        
+        .persona-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+        
+        /* Timeline Container */
         .timeline-section {
-            padding: 120px 0;
-            background: var(--white);
+            padding: 80px 0;
         }
         
         .timeline-header {
             text-align: center;
-            margin-bottom: 80px;
-        }
-        
-        .timeline-title {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--text-primary);
-        }
-        
-        .timeline-subtitle {
-            font-size: 20px;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* State Toggle */
-        .state-toggle {
-            display: flex;
-            justify-content: center;
             margin-bottom: 60px;
         }
         
-        .toggle-container {
-            background: var(--gray-100);
-            border-radius: 12px;
-            padding: 6px;
-            display: flex;
-            gap: 6px;
-        }
-        
-        .toggle-button {
-            padding: 12px 24px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .toggle-button.active {
-            background: var(--white);
+        .timeline-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
             color: var(--text-primary);
-            box-shadow: var(--shadow-soft);
         }
         
-        .toggle-button.before.active {
-            color: var(--accent-red);
+        .timeline-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .toggle-button.after.active {
-            color: var(--accent-purple);
-        }
-
         /* Timeline */
         .timeline {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
         }
@@ -237,766 +163,601 @@
             left: 50%;
             top: 0;
             bottom: 0;
-            width: 2px;
+            width: 3px;
             background: var(--border-light);
             transform: translateX(-50%);
         }
         
         .timeline-item {
-            position: relative;
+            display: flex;
+            align-items: center;
             margin-bottom: 40px;
-            opacity: 0.3;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-item.active {
-            opacity: 1;
-        }
-        
-        .timeline-content {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-light);
-            width: 45%;
-            position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
-        .timeline-content:hover {
-            box-shadow: var(--shadow-medium);
-            transform: translateY(-2px);
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: auto;
+        .timeline-item.active {
+            transform: scale(1.02);
         }
         
         .timeline-time {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            background: var(--accent-purple);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: var(--shadow-soft);
-        }
-        
-        .timeline-hour {
-            font-size: 20px;
+            width: 80px;
+            text-align: center;
             font-weight: 700;
-            color: var(--accent-purple);
-            margin-bottom: 12px;
-        }
-        
-        .timeline-activity {
             font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text-primary);
+            color: var(--audit-color);
         }
         
-        .timeline-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        /* Before/After States */
-        .state-content {
-            display: none;
-        }
-        
-        .state-content.active {
-            display: block;
-        }
-        
-        .before-state {
-            border-left: 4px solid var(--accent-red);
-            background: rgba(229, 62, 62, 0.05);
-        }
-        
-        .after-state {
-            border-left: 4px solid var(--accent-purple);
-            background: rgba(128, 90, 213, 0.05);
-        }
-        
-        .emotion-indicator {
-            display: inline-flex;
+        .timeline-marker {
+            width: 24px;
+            height: 24px;
+            background: var(--audit-color);
+            border-radius: 50%;
+            margin: 0 20px;
+            position: relative;
+            z-index: 10;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-marker i {
+            color: white;
+            font-size: 10px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-content {
+            border-color: var(--audit-color);
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-4px);
+        }
+        
+        .timeline-item.active .timeline-content {
+            border-color: var(--audit-color);
+            background: linear-gradient(135deg, #fff 0%, #f0fdf4 100%);
+        }
+        
+        .timeline-item.active .timeline-marker {
+            background: var(--audit-color);
+            transform: scale(1.3);
+            box-shadow: 0 0 0 8px rgba(5, 150, 105, 0.1);
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .before, .after {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .before {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .after {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+        }
+        
+        .before h4, .after h4 {
+            font-size: 16px;
             font-weight: 600;
-            margin-top: 12px;
-        }
-        
-        .stress {
-            background: rgba(229, 62, 62, 0.1);
-            color: var(--accent-red);
-        }
-        
-        .relief {
-            background: rgba(128, 90, 213, 0.1);
-            color: var(--accent-purple);
-        }
-        
-        .analitikai-solution {
-            background: rgba(128, 90, 213, 0.1);
-            border: 1px solid rgba(128, 90, 213, 0.2);
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 16px;
-        }
-        
-        .solution-title {
-            font-weight: 600;
-            color: var(--accent-purple);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
-        .solution-description {
+        .before h4 {
+            color: #dc2626;
+        }
+        
+        .after h4 {
+            color: #16a34a;
+        }
+        
+        .before p, .after p {
             font-size: 14px;
+            line-height: 1.5;
             color: var(--text-secondary);
         }
-
+        
+        .solution-highlight {
+            background: var(--gray-100);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 4px solid var(--audit-color);
+        }
+        
+        .solution-highlight h5 {
+            color: var(--audit-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .solution-highlight p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
         /* ROI Calculator */
-        .roi-calculator {
-            background: var(--gray-50);
-            padding: 80px 0;
-        }
-        
-        .calculator-card {
+        .roi-section {
             background: var(--white);
-            border-radius: 20px;
-            padding: 48px;
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--border-light);
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-light);
         }
         
-        .calculator-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
+        .roi-calculator {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--audit-color);
+        }
+        
+        .roi-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .roi-input {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .roi-input label {
+            font-weight: 600;
+            margin-bottom: 8px;
             color: var(--text-primary);
         }
         
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin: 40px 0;
-            text-align: left;
+        .roi-input input {
+            padding: 12px;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s ease;
         }
         
-        .metric {
-            text-align: center;
+        .roi-input input:focus {
+            outline: none;
+            border-color: var(--audit-color);
         }
         
-        .metric-value {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--accent-purple);
-            margin-bottom: 8px;
+        .roi-results {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
         }
         
-        .metric-label {
-            color: var(--text-secondary);
-            font-size: 14px;
+        .roi-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
         }
-
+        
+        .roi-metric:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .roi-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .roi-value {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--audit-color);
+        }
+        
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-light));
+            background: linear-gradient(135deg, var(--audit-color) 0%, var(--audit-light) 100%);
             color: white;
             padding: 80px 0;
             text-align: center;
         }
         
-        .cta-title {
+        .cta-section h2 {
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 24px;
         }
         
-        .cta-subtitle {
-            font-size: 20px;
-            margin-bottom: 40px;
+        .cta-section p {
+            font-size: 18px;
             opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-button {
+            display: inline-block;
             background: var(--white);
-            color: var(--accent-purple);
-            padding: 18px 36px;
+            color: var(--audit-color);
+            padding: 20px 40px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
+            font-weight: 700;
+            font-size: 18px;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-soft);
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-strong);
         }
-
-        /* Mobile Responsive */
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 42px;
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 18px;
             }
             
             .timeline::before {
-                left: 20px;
+                left: 40px;
             }
             
-            .timeline-content {
-                width: calc(100% - 50px);
-                margin-left: 50px !important;
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
             .timeline-time {
-                left: 20px;
-                transform: none;
+                margin-bottom: 8px;
             }
             
-            .calculator-grid {
+            .before-after {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
             
-            .container {
-                padding: 0 20px;
+            .roi-inputs {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
-
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">📊 AnalitikAI</a>
+                <a href="index.html" class="logo">AnalitikAI</a>
                 <nav>
                     <a href="index.html" class="nav-link">← Volver al Inicio</a>
                 </nav>
             </div>
         </div>
     </header>
-
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Auditorías & Compliance</span>
-                </div>
-                
-                <h1 class="hero-title">
-                    Un Día en la Vida:<br>Miguel, Director de Auditoría
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Especialista en compliance regulatorio para empresas financieras y corporaciones. 
-                    Descubre cómo AnalitikAI transformó su investigación regulatoria manual en intelligence automática de riesgos.
-                </p>
+            <div class="persona-badge">
+                <i class="fas fa-shield-alt"></i> Socio de Auditoría
             </div>
+            <h1>De Revisiones Manuales a Análisis Inteligente</h1>
+            <p class="subtitle">Descubre cómo AnalitikAI transforma tu día desde procedimientos lentos hasta detección automática de riesgos y anomalías</p>
         </div>
     </section>
-
+    
     <!-- Timeline Section -->
     <section class="timeline-section">
         <div class="container">
-            <div class="timeline-header fade-in">
-                <h2 class="timeline-title">De Compliance Manual a Intelligence Automática</h2>
-                <p class="timeline-subtitle">
-                    Explora cómo AnalitikAI revolucionó la gestión de compliance y riesgos regulatorios de Miguel. 
-                    Haz clic en cada hora para ver la transformación completa.
-                </p>
+            <div class="timeline-header">
+                <h2>Tu Día Transformado Hora por Hora</h2>
+                <p>Haz clic en cada hora para ver la transformación completa de tu rutina diaria</p>
             </div>
-
-            <!-- State Toggle -->
-            <div class="state-toggle fade-in">
-                <div class="toggle-container">
-                    <button class="toggle-button before active" onclick="showState('before')">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        ANTES: Sin AnalitikAI
-                    </button>
-                    <button class="toggle-button after" onclick="showState('after')">
-                        <i class="fas fa-shield-check"></i>
-                        DESPUÉS: Con AnalitikAI
-                    </button>
-                </div>
-            </div>
-
-            <!-- Timeline -->
-            <div class="timeline fade-in">
+            
+            <div class="timeline">
                 <!-- 8:00 AM -->
-                <div class="timeline-item active" onclick="selectTime(this)">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
                     <div class="timeline-time">8:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">8:00 AM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-8">
-                            <div class="timeline-activity">🚨 Alerta Regulatoria</div>
-                            <div class="timeline-description">
-                                Miguel recibe una notificación: nueva regulación MIFID III publicada anoche que afecta a 3 clientes principales. 
-                                Necesita analizar 200+ páginas de regulación, identificar impactos específicos, y preparar reportes de compliance 
-                                para cada cliente. Su equipo tardará 2 semanas mínimo.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Revisión manual de estados financieros. El equipo junior pasa horas revisando cifras manualmente, buscando inconsistencias sin saber exactamente qué patrones buscar.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-alarm-clock"></i> Urgencia Crítica
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>AnalitikAI ya escaneó todos los estados financieros, detectó 15 anomalías potenciales, calculó ratios de riesgo y priorizó las áreas que requieren atención inmediata.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-8">
-                            <div class="timeline-activity">🎯 Análisis Instantáneo</div>
-                            <div class="timeline-description">
-                                Miguel recibe la misma alerta y activa AnalitikAI. En 45 minutos tiene un análisis completo: 
-                                impactos específicos por cliente, cambios requeridos en procesos, timeline de implementación, 
-                                y borradores de comunicación a clientes. Responde proactivamente antes que la competencia.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-rocket"></i> Ventaja Competitiva
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-search-plus"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    Análisis regulatorio automático + impactos específicos por cliente + timelines de implementación en 45 min
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-robot"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Análisis automático de estados financieros con detección de anomalías y priorización inteligente de riesgos.</p>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- 10:00 AM -->
-                <div class="timeline-item" onclick="selectTime(this)">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
                     <div class="timeline-time">10:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-search"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">10:00 AM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-10">
-                            <div class="timeline-activity">📚 Investigación Manual</div>
-                            <div class="timeline-description">
-                                El equipo se divide la regulación en secciones. Dos auditores senior leen manualmente, 
-                                toman notas en Excel, y intentan conectar cada requisito con los procesos actuales de los clientes. 
-                                Proceso lento, propenso a errores, y costoso: €200/hora × 3 personas × 80 horas = €48,000.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Testing manual de controles internos. Selección de muestras aleatoria sin criterio de riesgo. Documentación manual lenta y propensa a errores humanos.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-money-bill-wave"></i> Costos Desbordados
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>AnalitikAI optimizó el sampling basado en análisis de riesgo, automatizó tests de controles y generó documentación de hallazgos con evidencia digital integrada.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-10">
-                            <div class="timeline-activity">📋 Estrategia de Compliance</div>
-                            <div class="timeline-description">
-                                Miguel y su equipo revisan el análisis detallado de AnalitikAI y desarrollan estrategias de implementación personalizadas. 
-                                Con los impactos ya identificados, se enfocan en crear roadmaps de compliance y preparar presentaciones ejecutivas 
-                                para los boards de cada cliente.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-chess"></i> Planificación Estratégica
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-route"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    Roadmaps de compliance personalizados + presentaciones ejecutivas + estrategias de implementación priorizadas
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-crosshairs"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Sampling inteligente basado en riesgo con testing automatizado y documentación digital integrada.</p>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- 12:00 PM -->
-                <div class="timeline-item" onclick="selectTime(this)">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
                     <div class="timeline-time">12:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">12:00 PM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-12">
-                            <div class="timeline-activity">😟 Llamadas Defensivas</div>
-                            <div class="timeline-description">
-                                Los clientes llaman preguntando sobre MIFID III tras leer noticias financieras. 
-                                Miguel debe admitir que aún está analizando la regulación y que tendrá respuestas en "algunos días". 
-                                Un cliente menciona que su competencia ya envió un briefing esta mañana.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Reunión sobre hallazgos sin análisis profundo. Presentas observaciones superficiales porque el equipo no tuvo tiempo de investigar patrones subyacentes.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-phone-slash"></i> Perdiendo Terreno
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Presentas análisis completo con patrones de riesgo identificados, impacto cuantificado por área y recomendaciones específicas para cada hallazgo prioritario.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-12">
-                            <div class="timeline-activity">💼 Reuniones Proactivas</div>
-                            <div class="timeline-description">
-                                Miguel programa llamadas con los 3 clientes principales para presentar análisis completos de MIFID III. 
-                                Los clientes quedan impresionados con la velocidad y detalle. Dos clientes solicitan análisis similares 
-                                para otras regulaciones pendientes, generando €25,000 en trabajo adicional.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-handshake"></i> Nuevos Contratos
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-chart-line"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    Respuesta proactiva + análisis detallados impresionan + generación de nuevos contratos por velocidad
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-chart-line"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Análisis de patrones con cuantificación automática de impactos y recomendaciones contextualizadas.</p>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- 2:00 PM -->
-                <div class="timeline-item" onclick="selectTime(this)">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
                     <div class="timeline-time">14:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-database"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">2:00 PM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-14">
-                            <div class="timeline-activity">🔍 Búsqueda de Aguja</div>
-                            <div class="timeline-description">
-                                Miguel y su equipo buscan precedentes de implementación de regulaciones similares en otros países. 
-                                Navegan por múltiples sitios web regulatorios, descargan PDFs, y intentan encontrar casos relevantes. 
-                                Proceso frustrante que consume horas sin garantía de encontrar información útil.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Análisis de datos con Excel y muestreos limitados. Procesos que toman días, riesgo de errores en fórmulas, cobertura incompleta de poblaciones grandes.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-search"></i> Búsqueda Ciega
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>AnalitikAI procesó 100% de las transacciones, identificó outliers automáticamente, validó integridad de datos y generó mapas de calor de riesgos.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-14">
-                            <div class="timeline-activity">📊 Análisis Comparativo</div>
-                            <div class="timeline-description">
-                                Miguel revisa un informe comparativo generado por AnalitikAI que incluye implementaciones de MIFID III 
-                                en Francia, Alemania e Italia, con timelines, costos, y lessons learned. Usa esta información para 
-                                refinar las recomendaciones y anticipar obstáculos en la implementación.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-globe"></i> Perspectiva Global
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-balance-scale"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    Análisis comparativo internacional + lessons learned + anticipación de obstáculos de implementación
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-brain"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Análisis de poblaciones completas con detección automática de outliers y validación integral de datos.</p>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- 4:00 PM -->
-                <div class="timeline-item" onclick="selectTime(this)">
+                <div class="timeline-item" onclick="toggleTimeline(this)">
                     <div class="timeline-time">16:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">4:00 PM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-16">
-                            <div class="timeline-activity">⚠️ Análisis de Riesgos Incompleto</div>
-                            <div class="timeline-description">
-                                El equipo intenta evaluar riesgos de no-compliance, pero carece de datos históricos sobre sanciones 
-                                y multas similares. Pasan 2 horas buscando casos de enforcement, pero la información está fragmentada 
-                                y es difícil de cuantificar. Los riesgos estimados son vagos y poco útiles para decisiones ejecutivas.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Redacción manual del informe de auditoría. Compilación lenta de hallazgos, redacción inconsistente, dificultad para conectar observaciones dispersas en conclusiones sólidas.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-question-circle"></i> Incertidumbre Alta
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>AnalitikAI generó borrador de informe con hallazgos organizados por materialidad, conclusiones basadas en evidencia y recomendaciones priorizadas por impacto.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-16">
-                            <div class="timeline-activity">📈 Matriz de Riesgos Cuantificada</div>
-                            <div class="timeline-description">
-                                Miguel presenta a los clientes una matriz de riesgos detallada con probabilidades cuantificadas, 
-                                rangos de multas basados en precedentes históricos, y análisis costo-beneficio de diferentes estrategias de compliance. 
-                                Los CFOs pueden tomar decisiones informadas con datos concretos.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-chart-bar"></i> Decisiones Data-Driven
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-calculator"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    Matriz de riesgos cuantificada + precedentes de multas + análisis costo-beneficio para decisiones ejecutivas
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-file-alt"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Generación automática de informes con organización por materialidad y priorización basada en impacto.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- 6:00 PM -->
-                <div class="timeline-item" onclick="selectTime(this)">
-                    <div class="timeline-time">18:00</div>
+                
+                <!-- 5:30 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">17:30</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">6:00 PM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-18">
-                            <div class="timeline-activity">📄 Reportes Preliminares</div>
-                            <div class="timeline-description">
-                                El equipo se queda hasta tarde para preparar reportes preliminares con la información parcial recopilada. 
-                                Los documentos están llenos de "pendiente de confirmar" y "sujeto a análisis adicional". 
-                                Miguel sabe que necesitará al menos otra semana para entregar algo sólido.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Reunión con management del cliente sin insights profundos. Presentas hallazgos aislados sin contexto estratégico o benchmarking sectorial.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-clock"></i> Entrega Incompleta
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Presentas análisis comparativo con benchmarks sectoriales, tendencias de riesgo y roadmap de mejoras que conecta hallazgos con objetivos estratégicos del cliente.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-18">
-                            <div class="timeline-activity">✅ Entrega Completa</div>
-                            <div class="timeline-description">
-                                Miguel finaliza 3 reportes completos de compliance MIFID III, cada uno customizado por cliente, 
-                                con timelines de implementación, análisis de riesgos, y recomendaciones específicas. 
-                                Los reportes son tan detallados que los clientes los pueden presentar directamente a sus boards.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-trophy"></i> Excelencia Entregada
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-file-contract"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    3 reportes completos customizados + listos para presentar a boards + timelines detallados de implementación
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-compass"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Análisis comparativo sectorial con roadmaps estratégicos que conectan hallazgos con objetivos de negocio.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- 8:00 PM -->
-                <div class="timeline-item" onclick="selectTime(this)">
-                    <div class="timeline-time">20:00</div>
+                
+                <!-- 7:00 PM -->
+                <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-marker">
+                        <i class="fas fa-home"></i>
+                    </div>
                     <div class="timeline-content">
-                        <div class="timeline-hour">8:00 PM</div>
-                        
-                        <!-- BEFORE State -->
-                        <div class="state-content before-state active" id="before-20">
-                            <div class="timeline-activity">🏠 Trabajo Desde Casa</div>
-                            <div class="timeline-description">
-                                Miguel lleva trabajo a casa para revisar regulaciones adicionales que podrían afectar a otros clientes. 
-                                Se da cuenta de que el backlog de análisis regulatorios se está acumulando y que necesitará contratar 
-                                más personal o rechazar nuevos clientes.
+                        <div class="before-after">
+                            <div class="before">
+                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
+                                <p>Equipo trabajando hasta altas horas revisando papeles de trabajo. Estrés por deadlines de reporting, calidad inconsistente por fatiga, rotación alta de staff.</p>
                             </div>
-                            <div class="emotion-indicator stress">
-                                <i class="fas fa-tired"></i> Backlog Creciente
+                            <div class="after">
+                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
+                                <p>Trabajo terminado en horario normal con calidad superior. Equipo motivado por usar tecnología avanzada, más tiempo para análisis estratégico y desarrollo profesional.</p>
                             </div>
                         </div>
-                        
-                        <!-- AFTER State -->
-                        <div class="state-content after-state" id="after-20">
-                            <div class="timeline-activity">📱 Monitoreo Automatizado</div>
-                            <div class="timeline-description">
-                                Miguel configura AnalitikAI para monitorear 15 regulaciones adicionales relevantes para su cartera de clientes. 
-                                El sistema le enviará alertas automáticas con análisis preliminares cuando se publiquen cambios. 
-                                Puede manejar 5x más clientes con el mismo equipo.
-                            </div>
-                            <div class="emotion-indicator relief">
-                                <i class="fas fa-satellite"></i> Escalabilidad 5x
-                            </div>
-                            <div class="analitikai-solution">
-                                <div class="solution-title">
-                                    <i class="fas fa-bell"></i>
-                                    Solución AnalitikAI
-                                </div>
-                                <div class="solution-description">
-                                    Monitoreo automático de 15+ regulaciones + alertas con análisis preliminares + capacidad 5x mayor
-                                </div>
-                            </div>
+                        <div class="solution-highlight">
+                            <h5><i class="fas fa-balance-scale"></i> SOLUCIÓN ANALITIKAI</h5>
+                            <p>Work-life balance mejorado con calidad superior, equipos motivados y enfoque en análisis de valor añadido.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- ROI Calculator -->
-    <section class="roi-calculator">
+    <section class="roi-section">
         <div class="container">
-            <div class="calculator-card fade-in">
-                <h2 class="calculator-title">ROI para Auditorías como la de Miguel</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 18px;">
-                    Basado en firma de auditoría con 20+ auditores y 30 análisis regulatorios mensuales
-                </p>
+            <div class="roi-calculator">
+                <h3 style="text-align: center; margin-bottom: 32px; color: var(--audit-color); font-size: 28px; font-weight: 700;">
+                    <i class="fas fa-calculator"></i> Calculadora ROI - Auditoría
+                </h3>
                 
-                <div class="calculator-grid">
-                    <div class="metric">
-                        <div class="metric-value">€31,200</div>
-                        <div class="metric-label">Ahorro mensual en análisis regulatorio</div>
+                <div class="roi-inputs">
+                    <div class="roi-input">
+                        <label for="hourlyRate">Coste por hora (socios + seniors)</label>
+                        <input type="number" id="hourlyRate" value="160" oninput="calculateROI()">
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">280h</div>
-                        <div class="metric-label">Horas de investigación ahorradas</div>
+                    <div class="roi-input">
+                        <label for="hoursWeek">Horas semanales en procedimientos</label>
+                        <input type="number" id="hoursWeek" value="35" oninput="calculateROI()">
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">5x</div>
-                        <div class="metric-label">Capacidad de monitoreo regulatorio</div>
+                    <div class="roi-input">
+                        <label for="audits">Auditorías mensuales</label>
+                        <input type="number" id="audits" value="8" oninput="calculateROI()">
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">750%</div>
-                        <div class="metric-label">ROI anual</div>
+                    <div class="roi-input">
+                        <label for="avgValue">Valor promedio auditoría</label>
+                        <input type="number" id="avgValue" value="18000" oninput="calculateROI()">
                     </div>
                 </div>
                 
-                <p style="color: var(--text-secondary); margin-top: 32px; font-style: italic;">
-                    "Pasamos de reactivos a proactivos. Nuestros clientes nos ven como su radar regulatorio inteligente. 
-                    AnalitikAI nos convirtió en la firma de compliance más ágil del mercado." - Miguel R., Director de Auditoría
-                </p>
+                <div class="roi-results" id="roiResults">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
             </div>
         </div>
     </section>
-
+    
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <div class="fade-in">
-                <h2 class="cta-title">¿Listo para Automatizar tu Compliance?</h2>
-                <p class="cta-subtitle">
-                    Únete a firmas líderes que ya usan AnalitikAI para monitoreo regulatorio. Primera consulta gratuita especializada.
-                </p>
-                <a href="https://cal.eu/polruiz/15min?utm_source=auditorias-page&utm_medium=cta" target="_blank" class="cta-button">
-                    <span>Book Demo para Auditorías</span>
-                    <i class="fas fa-calendar-alt"></i>
-                </a>
-            </div>
+            <h2>¿Listo para Auditorías Más Eficientes?</h2>
+            <p>Únete a despachos que ya optimizaron sus procedimientos con AnalitikAI. Análisis de riesgo automatizado que realmente detecta lo importante.</p>
+            <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">
+                <i class="fas fa-calendar"></i> Agendar Demo Gratuita
+            </a>
         </div>
     </section>
-
+    
     <script>
-        let currentState = 'before';
-        
-        function showState(state) {
-            currentState = state;
-            
-            // Update toggle buttons
-            document.querySelectorAll('.toggle-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.toggle-button.${state}`).classList.add('active');
-            
-            // Update all timeline items
-            document.querySelectorAll('.state-content').forEach(content => {
-                content.classList.remove('active');
+        function toggleTimeline(element) {
+            // Remove active class from all timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('active');
             });
             
-            document.querySelectorAll(`.state-content.${state}-state`).forEach(content => {
-                content.classList.add('active');
-            });
+            // Add active class to clicked item
+            element.classList.add('active');
         }
         
-        function selectTime(item) {
-            // Remove active class from all items
-            document.querySelectorAll('.timeline-item').forEach(el => {
-                el.classList.remove('active');
-            });
+        function calculateROI() {
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+            const hoursWeek = parseFloat(document.getElementById('hoursWeek').value) || 0;
+            const audits = parseFloat(document.getElementById('audits').value) || 0;
+            const avgValue = parseFloat(document.getElementById('avgValue').value) || 0;
             
-            // Add active class to selected item
-            item.classList.add('active');
+            // Calculations
+            const monthlyProcedureCost = hourlyRate * hoursWeek * 4.33;
+            const analitikaiCost = 750; // Base plan
+            const monthlySavings = monthlyProcedureCost - analitikaiCost;
+            const annualSavings = monthlySavings * 12;
             
-            // Scroll to item
-            item.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
+            // Performance improvements
+            const monthlyAuditValue = audits * avgValue;
+            const improvedEfficiency = monthlyAuditValue * 0.20; // 20% efficiency improvement
+            const totalMonthlyBenefit = monthlySavings + improvedEfficiency;
+            const roi = ((totalMonthlyBenefit * 12) / (analitikaiCost * 12)) * 100;
+            
+            // Update results
+            document.getElementById('roiResults').innerHTML = `
+                <div class="roi-metric">
+                    <span class="roi-label">Coste mensual actual (procedimientos)</span>
+                    <span class="roi-value">€${monthlyProcedureCost.toLocaleString()}</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label">Ahorro mensual directo</span>
+                    <span class="roi-value">€${monthlySavings.toLocaleString()}</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label">Mejora eficiencia (20%)</span>
+                    <span class="roi-value">€${improvedEfficiency.toLocaleString()}</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label"><strong>Beneficio total mensual</strong></span>
+                    <span class="roi-value"><strong>€${totalMonthlyBenefit.toLocaleString()}</strong></span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-label"><strong>ROI anual</strong></span>
+                    <span class="roi-value"><strong>${roi.toFixed(0)}%</strong></span>
+                </div>
+            `;
         }
         
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Initialize calculator
+        calculateROI();
         
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Auto-activate timeline items on scroll (only for "after" state)
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                    // Only auto-activate when in "after" state, allow manual control in "before" state
-                    if (currentState === 'after') {
-                        selectTime(entry.target);
-                    }
-                }
-            });
-        }, {
-            threshold: 0.5
-        });
-        
-        document.querySelectorAll('.timeline-item').forEach(el => {
-            timelineObserver.observe(el);
-        });
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set first timeline item as active
-            document.querySelector('.timeline-item').classList.add('active');
-        });
+        // Set first timeline item as active by default
+        document.querySelector('.timeline-item').classList.add('active');
     </script>
 </body>
 </html>
