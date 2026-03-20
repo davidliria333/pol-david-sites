@@ -1298,176 +1298,110 @@
             </div>
         </section>
         
-        <!-- ROI Calculator Section -->
+        <!-- ROI Calculator Section - Conversion Optimized -->
         <section id="roi-calculator" class="section roi-calculator">
             <div class="container">
-                <h2 class="section-title fade-in" style="text-align: center;">Calculadora de ROI</h2>
-                <p class="section-subtitle fade-in" style="text-align: center;">
-                    Descubre exactamente cuánto puedes ahorrar en tiempo y costes con AnalitikAI. 
-                    Resultados personalizados para tu tipo de empresa y volumen de trabajo.
+                <h2 class="section-title fade-in" style="text-align: center; color: #dc2626; font-size: 56px; margin-bottom: 16px;">
+                    ¿Cuánto Dinero Pierdes Cada Mes?
+                </h2>
+                <p class="section-subtitle fade-in" style="text-align: center; font-size: 22px; color: var(--text-secondary); margin-bottom: 60px;">
+                    Descubre el coste real de la investigación tradicional vs AnalitikAI
                 </p>
                 
-                <div class="calculator-container fade-in">
-                    <div class="calculator-grid">
-                        <!-- Input Controls -->
-                        <div class="calculator-inputs">
-                            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: var(--text-primary);">
-                                <i class="fas fa-sliders-h" style="color: var(--accent-blue); margin-right: 12px;"></i>
-                                Configuración de tu Empresa
-                            </h3>
-                            
-                            <!-- Company Type -->
-                            <div class="input-group">
-                                <label class="input-label">Tipo de Empresa</label>
-                                <select id="companyType" class="dropdown-select">
-                                    <option value="legal">Bufete Legal</option>
-                                    <option value="consulting">Consultoría</option>
-                                    <option value="audit">Auditoría</option>
-                                    <option value="marketing">Marketing</option>
-                                    <option value="financial">Financiera</option>
-                                </select>
-                            </div>
-                            
-                            <!-- Projects per month -->
-                            <div class="input-group">
-                                <label class="input-label">Proyectos por mes</label>
-                                <div class="input-slider-container">
-                                    <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="50" value="10">
-                                    <div class="slider-value" id="projectsValue">10</div>
-                                    <div class="slider-labels">
-                                        <span>1</span>
-                                        <span>50</span>
+                <div class="calculator-container fade-in" style="max-width: 900px;">
+                    <div class="calculator-grid" style="grid-template-columns: 1fr; gap: 40px;">
+                        <!-- Simplified Input Controls -->
+                        <div class="calculator-inputs" style="background: var(--gray-50); padding: 40px; border-radius: 16px; margin-bottom: 30px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end;">
+                                <!-- Projects per month -->
+                                <div class="input-group">
+                                    <label class="input-label" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">
+                                        Proyectos de investigación por mes
+                                    </label>
+                                    <div class="input-slider-container">
+                                        <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5" style="height: 12px;">
+                                        <div class="slider-value" id="projectsValue" style="font-size: 18px; font-weight: 700; background: #dc2626;">5</div>
+                                        <div class="slider-labels" style="margin-top: 12px;">
+                                            <span>1</span>
+                                            <span>15</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <!-- Hours per project -->
-                            <div class="input-group">
-                                <label class="input-label">Horas promedio por proyecto tradicional</label>
-                                <div class="input-slider-container">
-                                    <input type="range" id="hoursPerProject" class="input-slider" min="10" max="200" value="40">
-                                    <div class="slider-value" id="hoursValue">40h</div>
-                                    <div class="slider-labels">
-                                        <span>10h</span>
-                                        <span>200h</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Internal hourly cost -->
-                            <div class="input-group">
-                                <label class="input-label">Coste interno por hora</label>
-                                <div class="input-slider-container">
-                                    <input type="range" id="internalCost" class="input-slider" min="50" max="500" value="150">
-                                    <div class="slider-value" id="internalValue">€150</div>
-                                    <div class="slider-labels">
-                                        <span>€50</span>
-                                        <span>€500</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Delivery time -->
-                            <div class="input-group">
-                                <label class="input-label">Tiempo de entrega tradicional (semanas)</label>
-                                <div class="input-slider-container">
-                                    <input type="range" id="deliveryTime" class="input-slider" min="1" max="12" value="3">
-                                    <div class="slider-value" id="deliveryValue">3 semanas</div>
-                                    <div class="slider-labels">
-                                        <span>1 sem</span>
-                                        <span>12 sem</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- External projects percentage -->
-                            <div class="input-group">
-                                <label class="input-label">% de proyectos externalizados</label>
-                                <div class="input-slider-container">
-                                    <input type="range" id="externalPercentage" class="input-slider" min="0" max="100" value="30">
-                                    <div class="slider-value" id="externalPercentValue">30%</div>
-                                    <div class="slider-labels">
-                                        <span>0%</span>
-                                        <span>100%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- External consultant cost -->
-                            <div class="input-group">
-                                <label class="input-label">Coste consultor externo por hora</label>
-                                <div class="input-slider-container">
-                                    <input type="range" id="consultantCost" class="input-slider" min="200" max="800" value="400">
-                                    <div class="slider-value" id="consultantValue">€400</div>
-                                    <div class="slider-labels">
-                                        <span>€200</span>
-                                        <span>€800</span>
+                                
+                                <!-- Hourly rate -->
+                                <div class="input-group">
+                                    <label class="input-label" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">
+                                        Tu tarifa por hora
+                                    </label>
+                                    <div class="input-slider-container">
+                                        <input type="range" id="hourlyRate" class="input-slider" min="100" max="500" value="200" step="25" style="height: 12px;">
+                                        <div class="slider-value" id="hourlyRateValue" style="font-size: 18px; font-weight: 700; background: #dc2626;">€200</div>
+                                        <div class="slider-labels" style="margin-top: 12px;">
+                                            <span>€100</span>
+                                            <span>€500</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Real-time Outputs -->
-                        <div class="calculator-outputs">
-                            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px;">
-                                <i class="fas fa-chart-line" style="margin-right: 12px;"></i>
-                                Tus Ahorros con AnalitikAI
-                            </h3>
-                            
-                            <div class="output-metric roi-highlight">
-                                <div class="output-label">Ahorro Mensual Total</div>
-                                <div class="output-value" id="monthlySavings">€15,600</div>
-                                <div class="output-subtitle">vs métodos tradicionales</div>
+                        <!-- Results Display -->
+                        <div class="calculator-outputs" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); padding: 50px; border-radius: 20px; text-align: center;">
+                            <!-- Main Savings Display -->
+                            <div style="margin-bottom: 32px;">
+                                <div style="font-size: 64px; font-weight: 800; color: #10b981; margin-bottom: 8px; line-height: 1;" id="monthlySavings">
+                                    €17,250
+                                </div>
+                                <div style="font-size: 18px; color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+                                    ahorrado por mes
+                                </div>
+                                <div style="font-size: 16px; color: rgba(255, 255, 255, 0.6);" id="timeSavedText">
+                                    Tiempo liberado: 520 horas
+                                </div>
                             </div>
                             
-                            <div class="output-metric">
-                                <div class="output-label">Tiempo Ahorrado</div>
-                                <div class="output-value" id="timeSaved">280h</div>
-                                <div class="output-subtitle">por mes</div>
+                            <!-- ROI Highlight -->
+                            <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 24px; border-radius: 12px; margin-bottom: 32px;">
+                                <div style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 8px;" id="roiPercentage">
+                                    582% ROI anual
+                                </div>
+                                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7);">
+                                    Resultado promedio de nuestros clientes
+                                </div>
                             </div>
                             
-                            <div class="output-metric">
-                                <div class="output-label">Proyectos Adicionales Posibles</div>
-                                <div class="output-value" id="additionalProjects">+7</div>
-                                <div class="output-subtitle">por mes con el mismo equipo</div>
-                            </div>
-                            
-                            <div class="output-metric">
-                                <div class="output-label">ROI</div>
-                                <div class="output-value" id="roiPercentage">520%</div>
-                                <div class="output-subtitle">retorno de inversión anual</div>
-                            </div>
-                            
-                            <div class="output-metric">
-                                <div class="output-label">Periodo de Recuperación</div>
-                                <div class="output-value" id="paybackPeriod">0.7</div>
-                                <div class="output-subtitle">meses</div>
-                            </div>
-                            
-                            <div class="calculator-cta">
-                                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 20px; font-size: 16px;">
-                                    ¿Quieres un análisis personalizado de estos ahorros?
-                                </p>
-                                <div class="cta-buttons">
-                                    <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-primary">
-                                        <span>Reservar Demo</span>
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </a>
-                                    <a href="#contacto" class="cta-secondary" style="background: transparent; color: white; border-color: rgba(255,255,255,0.4);" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                                        <span>Informe Detallado</span>
-                                        <i class="fas fa-file-alt"></i>
-                                    </a>
+                            <!-- Strong CTA -->
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 32px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                <div style="font-size: 20px; font-weight: 600; color: white; margin-bottom: 20px;">
+                                    ¿Quieres ver exactamente cómo conseguir estos resultados?
+                                </div>
+                                <a href="https://cal.eu/polruiz/15min" target="_blank" 
+                                   style="display: inline-block; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 18px; box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3); transition: all 0.3s ease; border: none;">
+                                    <span style="margin-right: 12px;">📅</span>
+                                    Ver cómo en una demo de 15 min
+                                </a>
+                                <div style="margin-top: 16px; font-size: 14px; color: rgba(255, 255, 255, 0.6);">
+                                    ✅ Demo personalizada · ✅ Sin compromisos · ✅ Resultados inmediatos
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Social Proof -->
-                    <div class="social-proof fade-in">
-                        <div class="social-proof-stat">45% de ahorro promedio</div>
-                        <div class="social-proof-text">
-                            Nuestros clientes reducen sus costes operativos en un 45% promedio mientras 
-                            aumentan su capacidad de entrega en un 60%. Resultados medidos en los primeros 90 días.
+                    <!-- Credibility Footer -->
+                    <div style="background: var(--white); border-radius: 16px; padding: 32px; margin-top: 40px; text-align: center; border: 1px solid var(--border-light);" class="fade-in">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: center;">
+                            <div>
+                                <div style="font-size: 32px; font-weight: 800; color: var(--accent-blue); margin-bottom: 8px;">48h</div>
+                                <div style="font-size: 14px; color: var(--text-secondary); font-weight: 500;">Entrega garantizada</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 32px; font-weight: 800; color: var(--accent-blue); margin-bottom: 8px;">95%</div>
+                                <div style="font-size: 14px; color: var(--text-secondary); font-weight: 500;">Precisión validada</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 32px; font-weight: 800; color: var(--accent-blue); margin-bottom: 8px;">100+</div>
+                                <div style="font-size: 14px; color: var(--text-secondary); font-weight: 500;">Proyectos completados</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2152,8 +2086,68 @@
             }, 100);
         }
         
-        // Initialize calculator when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initializeROICalculator);
+        // Initialize calculator when DOM is loaded  
+        document.addEventListener('DOMContentLoaded', initializeSimpleROICalculator);
+        
+        // Simple ROI Calculator - Conversion Optimized
+        function initializeSimpleROICalculator() {
+            const projectsSlider = document.getElementById('projectsPerMonth');
+            const hourlyRateSlider = document.getElementById('hourlyRate');
+            const projectsValue = document.getElementById('projectsValue');
+            const hourlyRateValue = document.getElementById('hourlyRateValue');
+            const monthlySavings = document.getElementById('monthlySavings');
+            const timeSavedText = document.getElementById('timeSavedText');
+            const roiPercentage = document.getElementById('roiPercentage');
+            
+            function updateCalculator() {
+                if (!projectsSlider || !hourlyRateSlider) return;
+                
+                const projects = parseInt(projectsSlider.value);
+                const hourlyRate = parseInt(hourlyRateSlider.value);
+                
+                // Update slider displays
+                if (projectsValue) projectsValue.textContent = projects;
+                if (hourlyRateValue) hourlyRateValue.textContent = '€' + hourlyRate;
+                
+                // Calculation logic from specs
+                const currentTimePerProject = 120; // 3 weeks = 120 hours
+                const analitikAITimePerProject = 16; // 2 days = 16 hours  
+                const timeSavedPerProject = 104; // 120 - 16 = 104 hours
+                const analitikAIProjectCost = 750; // €750 per project
+                
+                const monthlyTimeSaved = projects * timeSavedPerProject;
+                const monthlyOpportunityValue = monthlyTimeSaved * hourlyRate;
+                const analitikAIMonthlyCost = projects * analitikAIProjectCost;
+                const netMonthlySavings = monthlyOpportunityValue - analitikAIMonthlyCost;
+                
+                // ROI calculation (annual)
+                const annualSavings = netMonthlySavings * 12;
+                const annualCost = analitikAIMonthlyCost * 12;
+                const roi = Math.max(0, (annualSavings / annualCost) * 100);
+                
+                // Update displays
+                if (monthlySavings) {
+                    monthlySavings.textContent = '€' + Math.max(0, netMonthlySavings).toLocaleString('es-ES');
+                }
+                if (timeSavedText) {
+                    timeSavedText.textContent = 'Tiempo liberado: ' + monthlyTimeSaved.toLocaleString('es-ES') + ' horas';
+                }
+                if (roiPercentage) {
+                    roiPercentage.textContent = Math.round(roi) + '% ROI anual';
+                }
+            }
+            
+            // Add event listeners
+            if (projectsSlider) {
+                projectsSlider.addEventListener('input', updateCalculator);
+            }
+            if (hourlyRateSlider) {
+                hourlyRateSlider.addEventListener('input', updateCalculator);
+            }
+            
+            // Initial calculation
+            updateCalculator();
+        }
         
         // Initialize
         updateActiveNav();
