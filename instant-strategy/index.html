@@ -441,7 +441,7 @@
 
         .slider-wrapper {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .input-slider {
@@ -502,10 +502,10 @@
             border: none;
         }
 
-        /* Modern value display - perfectly centered over slider thumb */
+        /* Modern value display - positioned BELOW slider */
         .slider-value-display {
             position: absolute;
-            top: -50px;
+            top: 20px;
             font-size: 16px;
             font-weight: 700;
             color: #6366f1;
@@ -551,6 +551,11 @@
                 font-size: 14px;
                 min-width: 70px;
                 height: 28px;
+                top: 16px;
+            }
+
+            .slider-wrapper {
+                margin-bottom: 70px;
             }
 
             .input-group {
