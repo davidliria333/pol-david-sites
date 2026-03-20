@@ -252,59 +252,31 @@
             overflow: hidden;
         }
 
-        /* Linear-Style Highlighting System */
-        .linear-highlight {
-            background: linear-gradient(90deg, transparent, var(--accent-blue-glow), transparent);
-            border-bottom: 1px solid var(--accent-blue-border);
-            padding: 2px 4px;
-            border-radius: 4px;
-            margin: 0 2px;
-            transition: all 0.3s ease;
+        /* Setup-AI Fluid Highlighting System */
+        .fluid-highlight {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            transition: background-size 0.8s ease, transform 0.3s ease, border-bottom-width 0.5s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
             position: relative;
-            animation: breathe 2s ease-in-out infinite;
+            display: inline;
+            padding: 0;
+            margin: 0;
         }
-
-        .linear-highlight:hover {
-            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+        
+        .fluid-highlight.revealed {
+            background-size: 100% 100%;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+            border-bottom-width: 1px;
         }
 
-        /* Specialized highlight variants */
-        .linear-highlight.time {
-            background: linear-gradient(90deg, transparent, var(--accent-red-glow), transparent);
-            border-bottom-color: rgba(239, 68, 68, 0.4);
-            animation: breathe 2.5s ease-in-out infinite;
-        }
-
-        .linear-highlight.concept {
-            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.2), transparent);
-            border-bottom-color: rgba(34, 197, 94, 0.4);
-            animation: breathe 3s ease-in-out infinite;
-        }
-
-        .linear-highlight.emotional {
-            background: linear-gradient(90deg, transparent, var(--accent-gold-glow), transparent);
-            border-bottom-color: rgba(245, 158, 11, 0.4);
-            animation: breathe 2.2s ease-in-out infinite;
-        }
-
-        .linear-highlight.invisible {
-            background: linear-gradient(90deg, transparent, var(--accent-purple-glow), transparent);
-            border-bottom-color: rgba(168, 85, 247, 0.4);
-            animation: breathe 2.8s ease-in-out infinite;
-        }
-
-        /* Breathing animation */
-        @keyframes breathe {
-            0%, 100% { 
-                opacity: 0.8; 
-                filter: brightness(1);
-            }
-            50% { 
-                opacity: 1; 
-                filter: brightness(1.2);
-            }
+        .fluid-highlight:hover {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            background-size: 100% 100%;
+            transform: translateY(-1px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
         }
 
         /* Fade-in animations */
@@ -513,14 +485,14 @@
             
             <div class="essay-body">
                 <p class="essay-intro">
-                    Son las <span class="linear-highlight time">11 de la noche</span>. Tu socio junior te manda otro email: "No encuentro el precedente que buscamos." 
+                    Son las <span class="fluid-highlight">11 de la noche</span>. Tu socio junior te manda otro email: "No encuentro el precedente que buscamos." 
                     Mañana el cliente llama preguntando por el informe. Tu equipo lleva dos semanas buscando algo que existe, 
                     pero está enterrado en miles de documentos.
                 </p>
                 
                 <p>
-                    Este es el <span class="linear-highlight invisible">trabajo que nadie ve</span>. No aparece en las facturas. No se menciona en las reuniones de socios. 
-                    Nadie lo celebra cuando sale bien, porque se supone que debe salir bien. Es la <span class="linear-highlight invisible">investigación invisible</span> 
+                    Este es el <span class="fluid-highlight">trabajo que nadie ve</span>. No aparece en las facturas. No se menciona en las reuniones de socios. 
+                    Nadie lo celebra cuando sale bien, porque se supone que debe salir bien. Es la <span class="fluid-highlight">investigación invisible</span> 
                     que mantiene funcionando cada bufete, cada consultoría, cada auditoría.
                 </p>
                 
@@ -532,7 +504,7 @@
                 </p>
                 
                 <p>
-                    Ese alguien eres tú. Y probablemente estás <span class="linear-highlight emotional">agotado</span>.
+                    Ese alguien eres tú. Y probablemente estás <span class="fluid-highlight">agotado</span>.
                 </p>
                 
                 <p>
@@ -549,16 +521,16 @@
                 </p>
                 
                 <p>
-                    Aquí es donde reside la verdadera promesa de la <span class="linear-highlight concept">automatización</span>. No en reemplazar personas, sino en 
-                    liberarlas del trabajo que nunca debería haber sido para humanos. Una máquina no olvida buscar en 
+                    Aquí es donde reside la verdadera promesa de la <span class="fluid-highlight">automatización</span>. No en reemplazar personas, sino en 
+                    <span class="fluid-highlight">liberarlas</span> del trabajo que nunca debería haber sido para humanos. Una máquina no olvida buscar en 
                     la base de datos correcta. No se cansa de revisar el documento número trescientos. No siente la 
                     fricción de cambiar entre doce pestañas para encontrar un precedente. Simplemente hace la tarea, 
                     cada vez, sin resentimiento.
                 </p>
                 
                 <p>
-                    Pero la brecha entre lo que la <span class="linear-highlight concept">automatización</span> puede hacer y lo que un profesional realmente experimenta 
-                    es enorme. Las herramientas existen. Los tutoriales existen. Lo que no existe es <span class="linear-highlight emotional">confianza</span>. Confianza 
+                    Pero la brecha entre lo que la <span class="fluid-highlight">automatización</span> puede hacer y lo que un profesional realmente experimenta 
+                    es enorme. Las herramientas existen. Los tutoriales existen. Lo que no existe es <span class="fluid-highlight">confianza</span>. Confianza 
                     en que funcionará para tu situación específica. Confianza en que no romperás algo. Confianza en que 
                     el tiempo que inviertas configurándolo será menor que el tiempo que actualmente pierdes haciéndolo a mano.
                 </p>
@@ -570,21 +542,21 @@
                 </p>
                 
                 <p>
-                    Esa es la diferencia entre una herramienta y una solución. Una herramienta espera que la aprendas. 
-                    Una solución llega ya moldeada a tu día.
+                    Esa es la diferencia entre una herramienta y una <span class="fluid-highlight">solución</span>. Una herramienta espera que la aprendas. 
+                    Una <span class="fluid-highlight">solución</span> llega ya moldeada a tu día.
                 </p>
                 
                 <p>
-                    Las empresas que prosperarán en la próxima década no serán las que tengan la tecnología más sofisticada. 
-                    Serán aquellas donde el dueño duerme bien, porque la investigación invisible está resuelta. Donde la 
-                    claridad reemplazó al caos no a través de alguna gran transformación, sino a través de cien pequeños 
-                    actos de alivio, cada uno tan menor que apenas se registra, pero que juntos cambian toda la textura 
+                    Las empresas que <span class="fluid-highlight">prosperarán</span> en la próxima década no serán las que tengan la tecnología más sofisticada. 
+                    Serán aquellas donde el dueño <span class="fluid-highlight">duerme bien</span>, porque la investigación invisible está <span class="fluid-highlight">resuelta</span>. Donde la 
+                    <span class="fluid-highlight">claridad</span> reemplazó al caos no a través de alguna gran transformación, sino a través de cien pequeños 
+                    actos de <span class="fluid-highlight">alivio</span>, cada uno tan menor que apenas se registra, pero que juntos cambian toda la textura 
                     de una vida laboral.
                 </p>
                 
                 <p class="essay-conclusion">
-                    Eso es lo que significa <span class="linear-highlight concept">trabajar bien</span>. No trabajar más, ni más rápido, ni más fuerte. Sino dejar que 
-                    la <span class="linear-highlight invisible">investigación invisible</span> vuelva a ser invisible, de la mejor manera posible: resuelta, confiable, 
+                    Eso es lo que significa <span class="fluid-highlight">trabajar bien</span>. No trabajar más, ni más rápido, ni más fuerte. Sino dejar que 
+                    la <span class="fluid-highlight">investigación invisible</span> vuelva a ser invisible, de la mejor manera posible: <span class="fluid-highlight">resuelta</span>, <span class="fluid-highlight">confiable</span>, 
                     automática. Para que finalmente puedas dirigir tu atención al trabajo que realmente te necesita.
                 </p>
                 
@@ -636,16 +608,42 @@
                 paragraphObserver.observe(paragraph);
             });
 
-            // Enhanced highlight interactions
-            const highlights = document.querySelectorAll('.linear-highlight');
+            // Setup-AI Fluid Highlight System
+            const fluidHighlights = document.querySelectorAll('.fluid-highlight');
             
-            highlights.forEach(highlight => {
+            const highlightObserverOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -20% 0px'
+            };
+
+            const highlightObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add reveal class with slight delay for smooth effect
+                        setTimeout(() => {
+                            entry.target.classList.add('revealed');
+                        }, 200);
+                    }
+                });
+            }, highlightObserverOptions);
+
+            // Observe all fluid highlights
+            fluidHighlights.forEach(highlight => {
+                highlightObserver.observe(highlight);
+                
+                // Enhanced hover interactions
                 highlight.addEventListener('mouseenter', function() {
-                    this.style.animationPlayState = 'paused';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.borderBottomWidth = '2px';
                 });
                 
                 highlight.addEventListener('mouseleave', function() {
-                    this.style.animationPlayState = 'running';
+                    if (this.classList.contains('revealed')) {
+                        this.style.transform = 'translateY(-1px)';
+                    } else {
+                        this.style.transform = 'translateY(0px)';
+                    }
+                    this.style.borderBottomWidth = '1px';
                 });
             });
 
