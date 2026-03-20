@@ -530,13 +530,7 @@
             box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
         }
 
-        .slider-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 8px;
-        }
+
 
         .slider-value {
             /* Hide old slider value completely */
@@ -1564,10 +1558,6 @@
                                         <div class="slider-wrapper">
                                             <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5">
                                             <div class="slider-value-display" id="projectsValueDisplay">5 proyectos</div>
-                                            <div class="slider-labels">
-                                                <span>1</span>
-                                                <span>15</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1579,12 +1569,8 @@
                                     </label>
                                     <div class="input-slider-container">
                                         <div class="slider-wrapper">
-                                            <input type="range" id="hourlyRate" class="input-slider" min="50" max="400" value="150" step="25">
+                                            <input type="range" id="hourlyRate" class="input-slider" min="0" max="500" value="150" step="25">
                                             <div class="slider-value-display" id="hourlyRateValueDisplay">€150</div>
-                                            <div class="slider-labels">
-                                                <span>€50</span>
-                                                <span>€400</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2360,15 +2346,23 @@
                 const annualCost = analitikAICost * 12;
                 const roi = annualCost > 0 ? (annualNetSavings / annualCost) * 100 : 0;
 
-                // Update displays
+                // Update displays - handle €0 hourly rate case
                 if (monthlySavings) {
-                    monthlySavings.textContent = '€' + Math.max(0, netSavings).toLocaleString('es-ES');
+                    if (hourlyRate === 0) {
+                        monthlySavings.textContent = '€' + Math.abs(analitikAICost).toLocaleString('es-ES') + ' costo';
+                    } else {
+                        monthlySavings.textContent = '€' + Math.max(0, netSavings).toLocaleString('es-ES');
+                    }
                 }
                 if (timeSavedText) {
                     timeSavedText.textContent = 'Tiempo útil liberado: ' + usableTimeSaved.toFixed(1) + ' horas (factor 65% aplicado)';
                 }
                 if (roiPercentage) {
-                    roiPercentage.textContent = Math.round(Math.max(0, roi)) + '% ROI anual';
+                    if (hourlyRate === 0) {
+                        roiPercentage.textContent = 'Introduce tu tarifa para ver ROI';
+                    } else {
+                        roiPercentage.textContent = Math.round(Math.max(0, roi)) + '% ROI anual';
+                    }
                 }
             }
 
