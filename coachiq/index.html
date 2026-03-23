@@ -1,148 +1,978 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CoachIQ — Turn Your Coaching Into a 24/7 AI Product</title>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0b;--surface:#131316;--border:#1e1e24;--text:#e4e4e7;--muted:#8a8a96;--accent:#6d5cff;--accent-glow:rgba(109,92,255,.35);--radius:14px}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-
-/* ── utility ─────────────────────────────────────── */
-.container{max-width:1080px;margin:0 auto;padding:0 24px}
-.section{padding:100px 0}
-.section-label{font-size:.8rem;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;font-weight:600}
-.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:16px}
-.section-sub{color:var(--muted);max-width:560px;margin:0 auto 48px;font-size:1.05rem}
-.text-center{text-align:center}
-
-/* ── CTA button ──────────────────────────────────── */
-.btn{display:inline-block;padding:15px 36px;border-radius:50px;background:var(--accent);color:#fff;font-weight:600;font-size:1rem;transition:transform .25s,box-shadow .25s;cursor:pointer;border:none;position:relative;z-index:1}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
-
-/* ── hero ────────────────────────────────────────── */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,var(--accent-glow),transparent 70%);top:-180px;right:-120px;animation:pulse 6s ease-in-out infinite alternate;pointer-events:none}
-.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1.1;max-width:740px;margin:0 auto 20px;letter-spacing:-.02em}
-.hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:560px;margin:0 auto 40px}
-
-/* ── benefits grid ───────────────────────────────── */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;transition:transform .3s,border-color .3s}
-.card:hover{transform:translateY(-4px);border-color:var(--accent)}
-.card .icon{font-size:2rem;margin-bottom:16px;display:block}
-.card h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
-.card p{color:var(--muted);font-size:.95rem}
-
-/* ── how it works ────────────────────────────────── */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;counter-reset:step}
-.step{position:relative;padding:32px 28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:border-color .3s}
-.step:hover{border-color:var(--accent)}
-.step::before{counter-increment:step;content:counter(step);font-size:3rem;font-weight:800;color:var(--accent);opacity:.25;position:absolute;top:20px;right:24px;line-height:1}
-.step h3{font-size:1.05rem;font-weight:600;margin-bottom:8px}
-.step p{color:var(--muted);font-size:.93rem}
-
-/* ── final CTA ───────────────────────────────────── */
-.final-cta{text-align:center;padding:100px 0 80px}
-.final-cta h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
-.final-cta p{color:var(--muted);margin-bottom:36px;font-size:1.05rem}
-
-/* ── footer ──────────────────────────────────────── */
-footer{text-align:center;padding:40px 0;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
-
-/* ── animations ──────────────────────────────────── */
-@keyframes pulse{0%{opacity:.45;transform:scale(1)}100%{opacity:.7;transform:scale(1.12)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0;animation:fadeUp .7s ease forwards}
-.fade-up.d1{animation-delay:.1s}.fade-up.d2{animation-delay:.2s}.fade-up.d3{animation-delay:.3s}.fade-up.d4{animation-delay:.4s}
-
-/* ── responsive ──────────────────────────────────── */
-@media(max-width:640px){.section{padding:72px 0}.hero{min-height:90vh;padding:0 16px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoachIQ - Scale Your Fitness Coaching Business with AI</title>
+    <meta name="description" content="AI-powered coaching platform for fitness influencers and gyms. Scale your coaching business, generate passive income, and maintain your personal brand with professional-grade AI.">
+    
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Professional Color Palette */
+            --primary-navy: #1a202c;
+            --primary-blue: #2563eb;
+            --primary-light: #3b82f6;
+            --accent-green: #10b981;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+            --bg-white: #ffffff;
+            --bg-gray-50: #f9fafb;
+            --bg-gray-100: #f3f4f6;
+            --border-gray: #e5e7eb;
+            --border-light: #f3f4f6;
+            
+            /* Spacing */
+            --section-padding: 120px;
+            --container-padding: 80px;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+        
+        .h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; }
+        .h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        .h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        .h4 { font-size: 1.5rem; }
+        .h5 { font-size: 1.25rem; }
+        
+        .text-lg { font-size: 1.25rem; }
+        .text-base { font-size: 1rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: var(--section-padding) 0;
+        }
+        
+        .section-sm {
+            padding: 80px 0;
+        }
+        
+        /* Flexbox utilities */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        
+        /* Grid */
+        .grid { display: grid; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .gap-8 { gap: 2rem; }
+        .gap-12 { gap: 3rem; }
+        .gap-16 { gap: 4rem; }
+        
+        /* Spacing */
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-16 { margin-bottom: 4rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mt-16 { margin-top: 4rem; }
+        
+        /* Colors */
+        .text-primary { color: var(--primary-blue); }
+        .text-gray { color: var(--text-gray); }
+        .text-light { color: var(--text-light); }
+        .bg-gray { background: var(--bg-gray-50); }
+        .bg-white { background: var(--bg-white); }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-outline {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .btn-lg {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .card-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 200px;
+            padding-bottom: var(--section-padding);
+            background: linear-gradient(135deg, var(--bg-gray-50) 0%, var(--bg-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            background: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-title {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--primary-navy);
+            color: white;
+        }
+        
+        .problem h2,
+        .problem h3 {
+            color: white;
+        }
+        
+        .problem-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            display: block;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* Testimonials */
+        .testimonial {
+            background: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: left;
+        }
+        
+        .testimonial-content {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.875rem;
+        }
+        
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+        
+        .pricing-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-gray);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+        }
+        
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-gray);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .pricing-features li:before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-light));
+            color: white;
+        }
+        
+        .cta-section h2,
+        .cta-section p {
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                padding-top: 150px;
+                padding-bottom: 80px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .navbar {
+                justify-content: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">CoachIQ</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+            </ul>
+            <div class="flex gap-4">
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-outline">Book Demo</a>
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-primary">Get Started</a>
+            </div>
+        </nav>
+    </header>
 
-<!-- hero -->
-<section class="hero">
-  <div class="container">
-    <p class="section-label fade-up">CoachIQ</p>
-    <h1 class="fade-up d1">Turn your coaching into a 24/7 AI product</h1>
-    <p class="fade-up d2">Your methodology, your voice — delivered as a personal AI trainer and nutritionist to every follower or gym member.</p>
-    <a href="https://cal.eu/polruiz/15min" class="btn fade-up d3">Book a Demo</a>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content text-center">
+                <div class="hero-badge animate-fadeInUp">
+                    🚀 For Fitness Influencers & Gym Owners
+                </div>
+                <h1 class="h1 hero-title animate-fadeInUp animate-delay-1">
+                    Scale Your Fitness Coaching Business with <span class="text-primary">AI</span>
+                </h1>
+                <p class="hero-subtitle animate-fadeInUp animate-delay-2">
+                    Transform your coaching expertise into a 24/7 AI platform. Generate passive income while maintaining your personal brand and helping thousands of clients simultaneously.
+                </p>
+                <div class="hero-cta animate-fadeInUp animate-delay-3">
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-lg">Book Free Demo</a>
+                    <a href="#features" class="btn btn-outline btn-lg">See How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- benefits -->
-<section class="section">
-  <div class="container text-center">
-    <p class="section-label">Why CoachIQ</p>
-    <h2 class="section-title">Everything your audience needs, powered by you</h2>
-    <p class="section-sub">Your coaching expertise, scaled to thousands — without burning out.</p>
-    <div class="cards">
-      <div class="card">
-        <span class="icon">🏋️</span>
-        <h3>24/7 Personalized Training Plans</h3>
-        <p>Every subscriber gets a program tailored to their goals, schedule, and fitness level — around the clock.</p>
-      </div>
-      <div class="card">
-        <span class="icon">🥗</span>
-        <h3>AI Nutritionist with Meal Plans</h3>
-        <p>Custom macros, recipes, and grocery lists generated from your nutritional philosophy.</p>
-      </div>
-      <div class="card">
-        <span class="icon">💬</span>
-        <h3>Works via WhatsApp</h3>
-        <p>No apps to download. Your audience gets coached right in the chat app they already use.</p>
-      </div>
-      <div class="card">
-        <span class="icon">🌍</span>
-        <h3>Speaks Your Followers' Language</h3>
-        <p>Automatic multilingual support so you can reach a global audience effortlessly.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Problem Section -->
+    <section class="problem section">
+        <div class="container text-center">
+            <h2 class="h2 mb-8">The Scaling Problem Every Coach Faces</h2>
+            <p class="text-lg mb-16" style="max-width: 700px; margin: 0 auto;">
+                You've built an audience and proven your coaching methods work. But there's only one of you, 24 hours in a day, and your income is capped by the number of clients you can personally handle.
+            </p>
+            
+            <div class="problem-stats">
+                <div class="stat">
+                    <span class="stat-number">24</span>
+                    <p class="stat-label">Hours in your day</p>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <p class="stat-label">Clients want your help</p>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <p class="stat-label">You available</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- how it works -->
-<section class="section" style="background:var(--surface)">
-  <div class="container text-center">
-    <p class="section-label">How It Works</p>
-    <h2 class="section-title">Live in days, not months</h2>
-    <p class="section-sub">Three simple steps to clone your coaching expertise into an AI product.</p>
-    <div class="steps">
-      <div class="step">
-        <h3>We clone your coaching methodology</h3>
-        <p>We study your programs, voice, and style to build an AI that coaches just like you.</p>
-      </div>
-      <div class="step">
-        <h3>Your audience subscribes</h3>
-        <p>Share your AI coach link — followers and members sign up instantly.</p>
-      </div>
-      <div class="step">
-        <h3>They get a personal AI coach that trains like you</h3>
-        <p>Every subscriber receives individualized workouts, nutrition, and accountability 24/7.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Solution Section -->
+    <section class="section bg-gray">
+        <div class="container text-center">
+            <h2 class="h2 mb-8">The Solution: AI That Coaches Like You</h2>
+            <p class="text-lg text-gray mb-16" style="max-width: 800px; margin: 0 auto;">
+                CoachIQ creates a professional AI version of your coaching methodology. Your expertise, your voice, your approach - delivered to unlimited clients 24/7. You maintain full brand control while generating scalable passive income.
+            </p>
+            
+            <div class="grid grid-2 gap-16 items-center">
+                <div class="text-left">
+                    <h3 class="h3 mb-6">Your Coaching Methodology, Amplified</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--border-gray); position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: var(--accent-green); font-weight: 700;">✓</span>
+                            AI learns your unique training philosophy and approach
+                        </li>
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--border-gray); position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: var(--accent-green); font-weight: 700;">✓</span>
+                            Maintains your voice, tone, and personal brand
+                        </li>
+                        <li style="padding: 1rem 0; border-bottom: 1px solid var(--border-gray); position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: var(--accent-green); font-weight: 700;">✓</span>
+                            Scales to thousands without quality loss
+                        </li>
+                        <li style="padding: 1rem 0; position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: var(--accent-green); font-weight: 700;">✓</span>
+                            Works 24/7 across all time zones
+                        </li>
+                    </ul>
+                </div>
+                <div style="background: var(--bg-white); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-gray);">
+                    <h4 class="h5 mb-4">Revenue Potential Calculator</h4>
+                    <div class="flex justify-between items-center mb-4">
+                        <span>Current 1-on-1 clients:</span>
+                        <strong>20 clients</strong>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span>Monthly rate per client:</span>
+                        <strong>$200</strong>
+                    </div>
+                    <div class="flex justify-between items-center mb-4" style="border-top: 1px solid var(--border-gray); padding-top: 1rem;">
+                        <span>Current monthly revenue:</span>
+                        <strong>$4,000</strong>
+                    </div>
+                    <div class="flex justify-between items-center mb-4" style="color: var(--primary-blue);">
+                        <span>With AI at $50/month:</span>
+                        <strong>$50,000+</strong>
+                    </div>
+                    <div class="flex justify-between items-center" style="color: var(--accent-green); font-size: 1.25rem; font-weight: 700;">
+                        <span>Potential increase:</span>
+                        <strong>1,250%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- final CTA -->
-<section class="final-cta">
-  <div class="container">
-    <p class="section-label">Ready?</p>
-    <h2>Scale your coaching without scaling your hours</h2>
-    <p>See how CoachIQ can work for your brand in a 15-minute call.</p>
-    <a href="https://cal.eu/polruiz/15min" class="btn">Book Your Free Call</a>
-  </div>
-</section>
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container text-center">
+            <h2 class="h2 mb-8">Everything You Need to Scale</h2>
+            <p class="text-lg text-gray mb-16" style="max-width: 600px; margin: 0 auto;">
+                Professional-grade features designed specifically for fitness entrepreneurs who want to grow their coaching business.
+            </p>
+            
+            <div class="features-grid">
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3 class="h4 mb-4">AI Training System</h3>
+                    <p class="text-gray">We study your existing programs, methodology, and coaching style to create an AI that thinks and coaches exactly like you.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏋️</div>
+                    <h3 class="h4 mb-4">Personalized Workout Generation</h3>
+                    <p class="text-gray">Creates custom workout plans for each client based on their goals, equipment, schedule, and fitness level - using your training philosophy.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🥗</div>
+                    <h3 class="h4 mb-4">Nutrition Coaching</h3>
+                    <p class="text-gray">AI nutritionist that applies your dietary approach, creates meal plans, calculates macros, and provides grocery lists.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="h4 mb-4">Brand Customization</h3>
+                    <p class="text-gray">Full white-label solution with your branding, colors, logo, and messaging. Your clients only see your brand.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="h4 mb-4">Client Management Dashboard</h3>
+                    <p class="text-gray">Track all your AI-coached clients, monitor progress, view engagement metrics, and manage subscriptions in one place.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3 class="h4 mb-4">Multi-Platform Integration</h3>
+                    <p class="text-gray">Works through WhatsApp, your website, and mobile apps. Clients can access coaching wherever they prefer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- footer -->
-<footer>
-  <div class="container">© 2026 CoachIQ. All rights reserved.</div>
-</footer>
+    <!-- Benefits Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="h2 mb-8">Transform Your Coaching Business</h2>
+                <p class="text-lg text-gray" style="max-width: 600px; margin: 0 auto;">
+                    Join the fitness entrepreneurs who've scaled beyond traditional 1-on-1 coaching limitations.
+                </p>
+            </div>
+            
+            <div class="grid grid-2 gap-16 items-center">
+                <div>
+                    <h3 class="h3 mb-6">Generate Passive Income</h3>
+                    <p class="text-gray mb-8">
+                        Your AI coach works 24/7, serving clients while you sleep, travel, or focus on high-value activities. Create a subscription-based revenue stream that scales infinitely.
+                    </p>
+                    
+                    <h3 class="h3 mb-6">Maintain Quality & Brand</h3>
+                    <p class="text-gray mb-8">
+                        Every interaction reflects your unique coaching style and expertise. Clients receive the same quality guidance they'd get from you personally.
+                    </p>
+                    
+                    <h3 class="h3 mb-6">Reach Global Audience</h3>
+                    <p class="text-gray">
+                        Break geographic limitations. Coach clients worldwide with AI that adapts to different time zones, languages, and cultural preferences.
+                    </p>
+                </div>
+                
+                <div>
+                    <div class="card" style="background: var(--bg-white); margin-bottom: 1.5rem;">
+                        <h4 class="h5 mb-4">📈 Scale Without Limits</h4>
+                        <p class="text-gray">Serve 1,000+ clients with the same effort as 10. No additional time investment required.</p>
+                    </div>
+                    
+                    <div class="card" style="background: var(--bg-white); margin-bottom: 1.5rem;">
+                        <h4 class="h5 mb-4">💰 Recurring Revenue</h4>
+                        <p class="text-gray">Predictable monthly income from subscription-based AI coaching programs.</p>
+                    </div>
+                    
+                    <div class="card" style="background: var(--bg-white);">
+                        <h4 class="h5 mb-4">⚡ Instant Scaling</h4>
+                        <p class="text-gray">Launch new programs and onboard hundreds of clients instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container text-center">
+            <h2 class="h2 mb-8">Success Stories</h2>
+            <p class="text-lg text-gray mb-16" style="max-width: 600px; margin: 0 auto;">
+                See how fitness entrepreneurs are transforming their businesses with CoachIQ.
+            </p>
+            
+            <div class="grid grid-3 gap-8">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "CoachIQ helped me scale from 25 personal training clients to over 500 AI-coached members. My monthly recurring revenue increased by 800% in just 4 months."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div class="author-info">
+                            <h4>Jake Martinez</h4>
+                            <p>Fitness Influencer • 150K Instagram</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "As a gym owner, CoachIQ allowed us to offer personalized coaching to every member without hiring more trainers. Member retention improved by 40%."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>FitCore Gym Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The AI perfectly captures my coaching style. Clients can't tell the difference, and I'm now generating passive income while focusing on content creation."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Mike Rodriguez</h4>
+                            <p>Online Coach • 75K YouTube</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section bg-gray" id="pricing">
+        <div class="container text-center">
+            <h2 class="h2 mb-8">Choose Your Growth Plan</h2>
+            <p class="text-lg text-gray mb-16" style="max-width: 600px; margin: 0 auto;">
+                Professional pricing for serious fitness entrepreneurs ready to scale their coaching business.
+            </p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="h4 mb-4">Starter</h3>
+                    <div class="pricing-price">$497<span>/month</span></div>
+                    <p class="text-gray mb-6">Perfect for influencers and personal trainers getting started with AI coaching</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Up to 100 AI-coached clients</li>
+                        <li>Basic workout & nutrition AI</li>
+                        <li>WhatsApp integration</li>
+                        <li>Brand customization</li>
+                        <li>Client management dashboard</li>
+                        <li>Email support</li>
+                    </ul>
+                    
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3 class="h4 mb-4">Professional</h3>
+                    <div class="pricing-price">$997<span>/month</span></div>
+                    <p class="text-gray mb-6">For established coaches and gym owners ready to scale significantly</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Up to 500 AI-coached clients</li>
+                        <li>Advanced AI with progress tracking</li>
+                        <li>Multi-platform integration</li>
+                        <li>Advanced analytics & reporting</li>
+                        <li>Custom integrations</li>
+                        <li>Priority phone support</li>
+                    </ul>
+                    
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary" style="width: 100%;">Book Demo</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="h4 mb-4">Enterprise</h3>
+                    <div class="pricing-price">Custom</div>
+                    <p class="text-gray mb-6">For large gyms, franchises, and fitness influencers with massive audiences</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Unlimited AI-coached clients</li>
+                        <li>White-label mobile apps</li>
+                        <li>API access & custom integrations</li>
+                        <li>Dedicated account manager</li>
+                        <li>Custom AI training</li>
+                        <li>24/7 priority support</li>
+                    </ul>
+                    
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-outline" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container text-center">
+            <h2 class="h2 mb-8">Ready to Scale Your Coaching Business?</h2>
+            <p class="text-lg mb-12" style="max-width: 600px; margin: 0 auto;">
+                Join the fitness entrepreneurs who've broken through the 1-on-1 coaching ceiling. Book a free demo and see how CoachIQ can transform your business.
+            </p>
+            
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-lg" style="background: white; color: var(--primary-blue);">Book Free Demo</a>
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-outline btn-lg" style="border-color: white; color: white;">Get Started Today</a>
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.8;">
+                ✓ No setup fees &nbsp;&nbsp;•&nbsp;&nbsp; ✓ 30-day money-back guarantee &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Setup completed in 7 days
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CoachIQ</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">
+                        Scale your fitness coaching business with professional AI technology.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="https://cal.eu/polruiz/15min">Book Demo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="https://cal.eu/polruiz/15min">Contact Sales</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 CoachIQ. All rights reserved. | Built for fitness entrepreneurs who want to scale.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .testimonial, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
