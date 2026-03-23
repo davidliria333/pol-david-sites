@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoachIQ - Scale Your Fitness Coaching Business with AI</title>
-    <meta name="description" content="AI-powered coaching platform for fitness influencers and gyms. Scale your coaching business, generate passive income, and maintain your personal brand with professional-grade AI.">
+    <title>CoachIQ - Scale Your Empire. Transform Lives. Build Legacy.</title>
+    <meta name="description" content="Scale your fitness empire with AI-powered coaching that transforms businesses and builds communities. Join elite fitness entrepreneurs who've broken through revenue limits.">
     
     <style>
         /* Reset & Base */
@@ -15,28 +15,27 @@
         }
         
         :root {
-            /* Elegant Dark Business Color Palette */
-            --primary-black: #0a0a0a;
-            --primary-dark: #0f1419;
-            --secondary-dark: #1a1f2e;
-            --card-dark: #252b3d;
-            --border-dark: #374151;
-            --accent-primary: #1e40af;
-            --accent-secondary: #3b82f6;
-            --accent-tertiary: #0891b2;
-            --accent-success: #059669;
-            --text-white: #ffffff;
-            --text-light: #f3f4f6;
-            --text-gray: #6b7280;
-            --text-muted: #9ca3af;
+            /* SoulCycle + Nike Inspired Colors */
+            --primary-yellow: #FFD700;
+            --bright-orange: #FF6B35;
+            --energetic-coral: #FF4F5A;
+            --power-white: #FFFFFF;
+            --pure-black: #000000;
+            --charcoal: #1A1A1A;
+            --electric-blue: #00BFFF;
+            --victory-green: #00FF88;
             
-            /* Spacing */
-            --section-padding: 120px;
-            --container-padding: 80px;
+            /* Gradients */
+            --hero-gradient: linear-gradient(135deg, #FFD700 0%, #FF6B35 50%, #FF4F5A 100%);
+            --power-gradient: linear-gradient(135deg, #FF4F5A 0%, #000000 100%);
+            --success-gradient: linear-gradient(135deg, #00FF88 0%, #00BFFF 100%);
             
             /* Typography */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-display: 'Inter', system-ui, sans-serif;
+            --font-hero: 'Inter', 'Arial Black', sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            
+            /* Spacing */
+            --section-padding: 100px;
         }
         
         html {
@@ -44,45 +43,63 @@
         }
         
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-body);
             line-height: 1.6;
-            color: var(--text-light);
-            background: var(--primary-dark);
+            color: var(--charcoal);
+            background: var(--power-white);
             -webkit-font-smoothing: antialiased;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            overflow-x: hidden;
         }
         
-        /* Typography */
+        /* Typography - Bold Nike Style */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-white);
-            font-family: var(--font-display);
+            font-weight: 900;
+            line-height: 1.1;
+            font-family: var(--font-hero);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
         
-        .h1 { 
-            font-size: clamp(2.5rem, 5vw, 4.5rem); 
-            font-weight: 700; 
-            background: linear-gradient(135deg, var(--text-white) 0%, var(--accent-secondary) 100%);
+        .hero-title { 
+            font-size: clamp(3rem, 8vw, 7rem); 
+            font-weight: 900;
+            background: var(--hero-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 0.9;
+            margin-bottom: 2rem;
         }
-        .h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 600; }
-        .h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; }
-        .h4 { font-size: 1.5rem; font-weight: 600; }
-        .h5 { font-size: 1.25rem; font-weight: 600; }
         
-        .text-lg { font-size: 1.25rem; }
-        .text-base { font-size: 1rem; }
-        .text-sm { font-size: 0.875rem; }
-        .text-xs { font-size: 0.75rem; }
+        .h2 { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 900;
+            color: var(--pure-black);
+            margin-bottom: 1.5rem;
+        }
+        
+        .h3 { 
+            font-size: clamp(1.8rem, 4vw, 3rem); 
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 600;
+            color: var(--charcoal);
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.4;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         
         /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -92,222 +109,133 @@
             position: relative;
         }
         
-        .section-sm {
-            padding: 80px 0;
-        }
-        
-        /* Flexbox utilities */
+        .text-center { text-align: center; }
         .flex { display: flex; }
         .flex-col { flex-direction: column; }
         .items-center { align-items: center; }
         .justify-center { justify-content: center; }
         .justify-between { justify-content: space-between; }
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
+        .gap-4 { gap: 1rem; }
+        .gap-8 { gap: 2rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-16 { margin-bottom: 4rem; }
         
         /* Grid */
         .grid { display: grid; }
         .grid-2 { grid-template-columns: repeat(2, 1fr); }
         .grid-3 { grid-template-columns: repeat(3, 1fr); }
-        .grid-4 { grid-template-columns: repeat(4, 1fr); }
-        .gap-8 { gap: 2rem; }
-        .gap-12 { gap: 3rem; }
-        .gap-16 { gap: 4rem; }
+        .grid-auto { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
         
-        /* Spacing */
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mb-12 { margin-bottom: 3rem; }
-        .mb-16 { margin-bottom: 4rem; }
-        .mb-20 { margin-bottom: 5rem; }
-        .mt-8 { margin-top: 2rem; }
-        .mt-16 { margin-top: 4rem; }
-        
-        /* Colors */
-        .text-accent { color: var(--accent-primary); }
-        .text-secondary { color: var(--accent-secondary); }
-        .text-tertiary { color: var(--accent-tertiary); }
-        .text-success { color: var(--accent-success); }
-        .text-gray { color: var(--text-gray); }
-        .text-muted { color: var(--text-muted); }
-        
-        /* Buttons */
+        /* Buttons - Nike Style Strong CTAs */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 1.5rem 3rem;
+            border-radius: 0;
+            font-weight: 900;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
-            border: 2px solid transparent;
-            font-size: 1rem;
+            border: 3px solid transparent;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
+            min-width: 250px;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+            background: var(--pure-black);
+            color: var(--power-white);
+            border-color: var(--pure-black);
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+            background: var(--bright-orange);
+            border-color: var(--bright-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
         }
         
-        .btn-outline {
-            border-color: var(--accent-secondary);
-            color: var(--accent-secondary);
+        .btn-secondary {
             background: transparent;
-            backdrop-filter: blur(10px);
+            color: var(--pure-black);
+            border-color: var(--pure-black);
         }
         
-        .btn-outline:hover {
-            background: var(--accent-secondary);
-            color: var(--primary-dark);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+        .btn-secondary:hover {
+            background: var(--primary-yellow);
+            border-color: var(--primary-yellow);
+            color: var(--pure-black);
+            transform: translateY(-3px);
         }
         
-        .btn-lg {
-            padding: 1.25rem 2.5rem;
-            font-size: 1.125rem;
-        }
-        
-        .btn-ghost {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-white);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        /* Cards */
-        .card {
-            background: var(--card-dark);
-            border: 1px solid var(--border-dark);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            backdrop-filter: blur(20px);
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-        
-        .card:hover::before {
-            opacity: 1;
-        }
-        
-        .card-icon {
-            width: 4rem;
-            height: 4rem;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+        .btn-hero {
+            padding: 2rem 4rem;
+            font-size: 1.3rem;
+            margin: 1rem;
         }
         
         /* Header */
         .header {
-            background: rgba(13, 17, 23, 0.9);
-            backdrop-filter: blur(20px);
+            background: var(--power-white);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--border-dark);
+            border-bottom: 3px solid var(--primary-yellow);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            height: 90px;
         }
         
         .logo {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-white);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--pure-black);
             text-decoration: none;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
         
         .nav-links a {
-            color: var(--text-gray);
+            color: var(--charcoal);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
             position: relative;
         }
         
         .nav-links a:hover {
-            color: var(--text-white);
+            color: var(--bright-orange);
+            transform: translateY(-2px);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-secondary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
+        /* Hero Section - SoulCycle Energy + Nike Power */
         .hero {
             padding-top: 200px;
             padding-bottom: var(--section-padding);
+            background: linear-gradient(135deg, var(--power-white) 0%, #FFF8DC 50%, var(--power-white) 100%);
             position: relative;
             overflow: hidden;
-            background: var(--primary-dark);
-            background-image: 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="%23f85149" opacity="0.03"><rect width="1920" height="1080"/><circle cx="200" cy="200" r="3"/><circle cx="600" cy="150" r="2"/><circle cx="1000" cy="250" r="4"/><circle cx="1400" cy="180" r="3"/><circle cx="300" cy="400" r="2"/><circle cx="800" cy="350" r="3"/><circle cx="1200" cy="420" r="2"/><circle cx="1600" cy="380" r="4"/></svg>');
         }
         
         .hero::before {
@@ -317,10 +245,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(ellipse at center top, rgba(30, 64, 175, 0.12) 0%, transparent 70%),
-                radial-gradient(ellipse at center bottom, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
-            z-index: 1;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
         }
         
         .hero-content {
@@ -329,73 +256,86 @@
         }
         
         .hero-badge {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: var(--hero-gradient);
+            color: var(--power-white);
             border-radius: 50px;
-            padding: 0.75rem 2rem;
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: var(--accent-secondary);
-            display: inline-block;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .hero-title {
-            max-width: 900px;
-            margin: 0 auto 2rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            line-height: 1.7;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.5;
+            font-weight: 600;
         }
         
         .hero-cta {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
         
         .hero-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding-top: 4rem;
-            border-top: 1px solid var(--border-dark);
+            border-top: 3px solid var(--primary-yellow);
         }
         
         .hero-stat {
             text-align: center;
+            background: var(--power-white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-stat:hover {
+            border-color: var(--bright-orange);
+            transform: translateY(-10px);
         }
         
         .hero-stat-number {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 900;
-            color: var(--accent-secondary);
+            background: var(--power-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
             line-height: 1;
         }
         
         .hero-stat-label {
-            color: var(--text-gray);
-            margin-top: 0.5rem;
-            font-weight: 500;
+            color: var(--charcoal);
+            margin-top: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
         
-        /* Problem Section */
+        /* Problem Section - SoulCycle Challenge Inspiration */
         .problem {
-            background: var(--primary-black);
+            background: var(--pure-black);
+            color: var(--power-white);
             position: relative;
         }
         
@@ -407,9 +347,8 @@
             right: 0;
             bottom: 0;
             background-image: 
-                linear-gradient(45deg, transparent 49%, rgba(30, 64, 175, 0.03) 50%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(59, 130, 246, 0.03) 50%, transparent 51%);
-            background-size: 60px 60px;
+                radial-gradient(circle at 30% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 70% 60%, rgba(255, 79, 90, 0.1) 0%, transparent 60%);
         }
         
         .problem-content {
@@ -417,61 +356,130 @@
             z-index: 1;
         }
         
+        .problem .h2 {
+            color: var(--power-white);
+        }
+        
         .problem-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
         }
         
-        .stat {
+        .problem-stat {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(59, 130, 246, 0.15);
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
         
-        .stat-number {
-            font-size: 3.5rem;
+        .problem-stat:hover {
+            border-color: var(--primary-yellow);
+            transform: translateY(-10px);
+        }
+        
+        .problem-stat-number {
+            font-size: 4rem;
             font-weight: 900;
-            color: var(--accent-secondary);
+            color: var(--primary-yellow);
             display: block;
             line-height: 1;
         }
         
-        .stat-label {
-            color: var(--text-gray);
+        .problem-stat-label {
+            color: var(--power-white);
             margin-top: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.1rem;
         }
         
         /* Solution Section */
         .solution {
-            background: var(--secondary-dark);
+            background: linear-gradient(135deg, #FFF8DC 0%, var(--power-white) 50%, #FFF8DC 100%);
             position: relative;
         }
         
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+        
+        .solution-features {
+            list-style: none;
+        }
+        
+        .solution-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--power-white);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--bright-orange);
+            transition: all 0.3s ease;
+        }
+        
+        .solution-feature:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+        
+        .solution-feature-icon {
+            background: var(--hero-gradient);
+            color: var(--power-white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .solution-feature-content h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--pure-black);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .solution-feature-content p {
+            color: var(--charcoal);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
         .revenue-calculator {
-            background: var(--card-dark);
-            border: 1px solid var(--border-dark);
-            border-radius: 20px;
+            background: var(--pure-black);
+            color: var(--power-white);
+            border-radius: 30px;
             padding: 3rem;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
         
         .revenue-calculator::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
-            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--hero-gradient);
+            opacity: 0.1;
         }
         
         .revenue-calculator > * {
@@ -479,46 +487,69 @@
             z-index: 1;
         }
         
+        .calc-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .calc-header h4 {
+            font-size: 2rem;
+            color: var(--primary-yellow);
+            margin-bottom: 0.5rem;
+        }
+        
         .calc-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-dark);
-            font-size: 1.1rem;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
+            font-weight: 600;
         }
         
         .calc-row:last-child {
             border-bottom: none;
-            border-top: 2px solid var(--accent-secondary);
-            margin-top: 1rem;
-            padding-top: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-success);
+            border-top: 3px solid var(--primary-yellow);
+            margin-top: 1.5rem;
+            padding-top: 2rem;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--victory-green);
+        }
+        
+        .calc-highlight {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            border: 2px solid var(--primary-yellow);
         }
         
         /* Features Section */
         .features {
-            background: var(--primary-dark);
+            background: var(--power-white);
             position: relative;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
             margin-top: 4rem;
         }
         
         .feature-card {
-            background: var(--card-dark);
-            border: 1px solid var(--border-dark);
-            border-radius: 20px;
+            background: var(--power-white);
+            border: 3px solid transparent;
+            border-radius: 25px;
             padding: 3rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
         
         .feature-card::before {
@@ -527,149 +558,176 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            height: 5px;
+            background: var(--hero-gradient);
             opacity: 0;
             transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--bright-orange);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.2);
         }
         
         .feature-card:hover::before {
             opacity: 1;
         }
         
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-        
         .feature-icon {
-            width: 5rem;
-            height: 5rem;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 16px;
+            width: 80px;
+            height: 80px;
+            background: var(--hero-gradient);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
         
         .feature-card h3 {
-            margin-bottom: 1rem;
             font-size: 1.5rem;
+            color: var(--pure-black);
+            margin-bottom: 1rem;
         }
         
         .feature-card p {
-            color: var(--text-gray);
+            color: var(--charcoal);
             line-height: 1.7;
-            font-size: 1.1rem;
+            font-weight: 500;
         }
         
         /* Benefits Section */
         .benefits {
-            background: var(--secondary-dark);
-            position: relative;
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--bright-orange) 100%);
+            color: var(--power-white);
+        }
+        
+        .benefits .h2 {
+            color: var(--power-white);
         }
         
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
         
         .benefit-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-dark);
-            border-radius: 16px;
-            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--power-white);
+            transform: translateY(-10px);
         }
         
         .benefit-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.6rem;
+            color: var(--power-white);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-weight: 500;
         }
         
         /* Pricing Section */
         .pricing {
-            background: var(--primary-black);
+            background: var(--power-white);
             position: relative;
-        }
-        
-        .pricing::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(30, 64, 175, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
         }
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
             margin: 4rem auto 0;
-            position: relative;
-            z-index: 1;
         }
         
         .pricing-card {
-            background: var(--card-dark);
-            border: 2px solid var(--border-dark);
-            border-radius: 20px;
+            background: var(--power-white);
+            border: 3px solid #E5E5E5;
+            border-radius: 25px;
             padding: 3rem;
             text-align: center;
             position: relative;
-            backdrop-filter: blur(20px);
             transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
         
         .pricing-card.featured {
-            border-color: var(--accent-secondary);
+            border-color: var(--bright-orange);
             transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, #FFF8DC 0%, var(--power-white) 100%);
+            box-shadow: 0 25px 80px rgba(255, 107, 53, 0.3);
         }
         
         .pricing-badge {
             position: absolute;
-            top: -15px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            padding: 0.5rem 2rem;
+            background: var(--hero-gradient);
+            color: var(--power-white);
+            padding: 1rem 3rem;
             border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--pure-black);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
         
         .pricing-price {
             font-size: 4rem;
             font-weight: 900;
-            color: var(--text-white);
+            color: var(--pure-black);
             margin: 2rem 0;
             line-height: 1;
         }
         
         .pricing-price .currency {
-            font-size: 2rem;
+            font-size: 2.5rem;
             vertical-align: top;
-            color: var(--accent-secondary);
         }
         
         .pricing-price .period {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+        
+        .pricing-description {
+            color: var(--charcoal);
             font-weight: 500;
-            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
         
         .pricing-features {
@@ -680,17 +738,18 @@
         
         .pricing-features li {
             padding: 1rem 0;
-            border-bottom: 1px solid var(--border-dark);
+            border-bottom: 2px solid #F0F0F0;
             position: relative;
-            padding-left: 2.5rem;
+            padding-left: 3rem;
             font-size: 1.1rem;
-            color: var(--text-light);
+            font-weight: 600;
+            color: var(--charcoal);
         }
         
         .pricing-features li:before {
             content: '⚡';
-            color: var(--accent-tertiary);
-            font-size: 1.2rem;
+            color: var(--bright-orange);
+            font-size: 1.5rem;
             position: absolute;
             left: 0;
             top: 1rem;
@@ -700,9 +759,10 @@
             border-bottom: none;
         }
         
-        /* CTA Section */
+        /* CTA Section - SoulCycle Community + Nike Action */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-dark) 100%);
+            background: var(--pure-black);
+            color: var(--power-white);
             position: relative;
             overflow: hidden;
         }
@@ -715,7 +775,7 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(ellipse at center, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
+                radial-gradient(ellipse at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
         }
         
         .cta-content {
@@ -723,34 +783,82 @@
             z-index: 1;
         }
         
-        .cta-guarantee {
+        .cta-section .h2 {
+            color: var(--power-white);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-message {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-buttons {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-dark);
+            margin-bottom: 4rem;
+        }
+        
+        .cta-buttons .btn-primary {
+            background: var(--hero-gradient);
+            border-color: transparent;
+        }
+        
+        .cta-buttons .btn-secondary {
+            border-color: var(--power-white);
+            color: var(--power-white);
+        }
+        
+        .cta-buttons .btn-secondary:hover {
+            background: var(--power-white);
+            color: var(--pure-black);
+        }
+        
+        .guarantee-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            border-top: 3px solid var(--primary-yellow);
         }
         
         .guarantee-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-gray);
-            font-weight: 500;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
         
         .guarantee-item::before {
             content: '✓';
-            color: var(--accent-success);
-            font-weight: 700;
+            color: var(--victory-green);
+            font-size: 2rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .guarantee-item-text {
+            color: var(--power-white);
+            font-weight: 600;
+            font-size: 1rem;
         }
         
         /* Footer */
         .footer {
-            background: var(--primary-black);
-            border-top: 1px solid var(--border-dark);
+            background: var(--charcoal);
+            color: var(--power-white);
             padding: 4rem 0 2rem;
         }
         
@@ -762,9 +870,11 @@
         }
         
         .footer-section h4 {
-            color: var(--text-white);
+            color: var(--primary-yellow);
             margin-bottom: 1.5rem;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: 900;
         }
         
         .footer-section ul {
@@ -776,25 +886,28 @@
         }
         
         .footer-section a {
-            color: var(--text-gray);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
         
         .footer-section a:hover {
-            color: var(--text-white);
+            color: var(--primary-yellow);
         }
         
         .footer-brand {
-            color: var(--text-gray);
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.7;
+            font-weight: 500;
         }
         
         .footer-bottom {
-            border-top: 1px solid var(--border-dark);
+            border-top: 2px solid var(--primary-yellow);
             padding-top: 2rem;
             text-align: center;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
         }
         
         /* Responsive Design */
@@ -804,41 +917,52 @@
             }
             
             .section {
-                padding: 80px 0;
+                padding: 60px 0;
             }
             
             .hero {
                 padding-top: 150px;
-                padding-bottom: 80px;
+                padding-bottom: 60px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
             
             .hero-cta {
                 flex-direction: column;
-                gap: 1rem;
+            }
+            
+            .btn-hero {
+                padding: 1.5rem 2.5rem;
+                font-size: 1.1rem;
+                min-width: 200px;
             }
             
             .grid-2,
-            .grid-3,
-            .grid-4 {
+            .grid-3 {
                 grid-template-columns: 1fr;
+            }
+            
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
             .nav-links {
                 display: none;
             }
             
-            .navbar {
-                justify-content: space-between;
-            }
-            
             .hero-stats {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
             
             .problem-stats {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
             
             .pricing-card.featured {
@@ -846,18 +970,21 @@
                 margin-top: 2rem;
             }
             
-            .cta-guarantee {
+            .cta-buttons {
                 flex-direction: column;
-                gap: 1rem;
-                text-align: center;
+                align-items: center;
+            }
+            
+            .guarantee-items {
+                grid-template-columns: 1fr;
             }
         }
         
         /* Animations */
-        @keyframes fadeInUp {
+        @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -865,19 +992,31 @@
             }
         }
         
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            }
         }
         
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out forwards;
+        .animate-slideInUp {
+            animation: slideInUp 0.8s ease-out forwards;
         }
         
-        .animate-delay-1 { animation-delay: 0.1s; }
-        .animate-delay-2 { animation-delay: 0.2s; }
-        .animate-delay-3 { animation-delay: 0.3s; }
-        .animate-delay-4 { animation-delay: 0.4s; }
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
         
         .animate-glow {
             animation: glow 3s ease-in-out infinite;
@@ -896,49 +1035,50 @@
             <a href="#" class="logo">CoachIQ</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Platform</a></li>
-                <li><a href="#benefits">Solutions</a></li>
-                <li><a href="#pricing">Investment</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#features">Power</a></li>
+                <li><a href="#benefits">Transform</a></li>
+                <li><a href="#pricing">Scale</a></li>
+                <li><a href="#contact">Connect</a></li>
             </ul>
             <div class="flex gap-4">
-                <a href="https://cal.eu/polruiz/15min" class="btn btn-outline">Book Demo</a>
-                <a href="https://cal.eu/polruiz/15min" class="btn btn-primary">Get Started</a>
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary">Book Call</a>
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-primary">Scale Now</a>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content text-center">
-                <div class="hero-badge animate-fadeInUp">
-                    🤖 Professional AI Coaching Platform
+                <div class="hero-badge">
+                    🚀 ELITE FITNESS EMPIRE BUILDER
                 </div>
-                <h1 class="h1 hero-title animate-fadeInUp animate-delay-1">
-                    Transform Your Coaching Practice with <span class="text-accent">Intelligent Automation</span>
+                <h1 class="hero-title">
+                    SCALE YOUR<br>
+                    EMPIRE.<br>
+                    <span style="color: var(--pure-black);">TRANSFORM LIVES.</span>
                 </h1>
-                <p class="hero-subtitle animate-fadeInUp animate-delay-2">
-                    Leverage advanced AI technology to scale your coaching methodology while maintaining the personal touch that defines your practice. Deliver consistent, high-quality coaching experiences to more clients, more efficiently.
+                <p class="hero-subtitle">
+                    Break through revenue limits. Build your fitness empire with AI that amplifies your coaching genius. Join elite trainers generating 7-figure businesses while transforming thousands of lives.
                 </p>
-                <div class="hero-cta animate-fadeInUp animate-delay-3">
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-lg">Schedule Consultation</a>
-                    <a href="#features" class="btn btn-ghost btn-lg">Explore Platform</a>
+                <div class="hero-cta">
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-hero">BUILD YOUR EMPIRE</a>
+                    <a href="#features" class="btn btn-secondary btn-hero">UNLOCK YOUR POWER</a>
                 </div>
                 
-                <div class="hero-stats animate-fadeInUp animate-delay-4">
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">UNLIMITED</span>
+                        <p class="hero-stat-label">SCALING POTENTIAL</p>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">100X</span>
+                        <p class="hero-stat-label">REVENUE MULTIPLIER</p>
+                    </div>
                     <div class="hero-stat">
                         <span class="hero-stat-number">24/7</span>
-                        <p class="hero-stat-label">AI Coach Availability</p>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">10x</span>
-                        <p class="hero-stat-label">Revenue Multiplication</p>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">∞</span>
-                        <p class="hero-stat-label">Client Capacity</p>
+                        <p class="hero-stat-label">EMPIRE OPERATION</p>
                     </div>
                 </div>
             </div>
@@ -949,23 +1089,23 @@
     <section class="problem section">
         <div class="container text-center">
             <div class="problem-content">
-                <h2 class="h2 mb-8">The Scaling Challenge</h2>
-                <p class="text-lg mb-16 text-gray" style="max-width: 800px; margin: 0 auto 4rem;">
-                    Successful fitness professionals face a fundamental constraint: time. Your proven methodology delivers excellent results, but traditional one-on-one coaching limits your capacity to serve more clients and grow your practice efficiently.
+                <h2 class="h2">THE EMPIRE BOTTLENECK</h2>
+                <p class="section-subtitle">
+                    You have the knowledge. You have the results. You have the community that believes in your method. But you're trapped by time. Every fitness empire hits the same wall: YOUR CAPACITY CEILING.
                 </p>
                 
                 <div class="problem-stats">
-                    <div class="stat">
-                        <span class="stat-number">168</span>
-                        <p class="stat-label">Hours in your week</p>
+                    <div class="problem-stat">
+                        <span class="problem-stat-number">1</span>
+                        <p class="problem-stat-label">YOU vs. THOUSANDS WHO NEED YOU</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <p class="stat-label">People want your coaching</p>
+                    <div class="problem-stat">
+                        <span class="problem-stat-number">$10M+</span>
+                        <p class="problem-stat-label">REVENUE LEFT ON THE TABLE</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">$5M+</span>
-                        <p class="stat-label">Revenue you're leaving on table</p>
+                    <div class="problem-stat">
+                        <span class="problem-stat-number">∞</span>
+                        <p class="problem-stat-label">LIVES YOU COULD TRANSFORM</p>
                     </div>
                 </div>
             </div>
@@ -974,83 +1114,77 @@
 
     <!-- Solution Section -->
     <section class="solution section">
-        <div class="container text-center">
-            <h2 class="h2 mb-8">Your Expertise, Intelligently Scaled</h2>
-            <p class="text-lg text-gray mb-16" style="max-width: 900px; margin: 0 auto;">
-                CoachIQ's AI platform learns and replicates your coaching methodology, communication style, and training philosophy. This allows you to deliver consistent, personalized coaching experiences at scale while maintaining the quality standards that define your practice.
-            </p>
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="h2">YOUR COACHING DNA, INFINITELY SCALED</h2>
+                <p class="section-subtitle">
+                    CoachIQ doesn't replace you—it amplifies your genius. Our AI learns your exact methodology, your motivational style, your transformation approach. Then scales it to serve thousands while YOU focus on building your empire.
+                </p>
+            </div>
             
-            <div class="grid grid-2 gap-16 items-center">
-                <div class="text-left">
-                    <h3 class="h3 mb-8">Your Elite Methodology, Amplified</h3>
-                    <div style="space-y: 2rem;">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div style="background: var(--accent-red); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 4px; flex-shrink: 0;">
-                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+            <div class="solution-grid">
+                <div>
+                    <ul class="solution-features">
+                        <li class="solution-feature">
+                            <div class="solution-feature-icon">🧠</div>
+                            <div class="solution-feature-content">
+                                <h4>GENIUS REPLICATION ENGINE</h4>
+                                <p>AI studies your training philosophy, communication style, and success patterns. Creates an intelligent coach that thinks, motivates, and transforms like YOU.</p>
                             </div>
-                            <div>
-                                <h4 class="h5 mb-2">Deep Learning Integration</h4>
-                                <p class="text-gray">AI studies your training videos, programs, and client interactions to replicate your exact coaching approach and decision-making process.</p>
-                            </div>
-                        </div>
+                        </li>
                         
-                        <div class="flex items-start gap-4 mb-6">
-                            <div style="background: var(--accent-red); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 4px; flex-shrink: 0;">
-                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+                        <li class="solution-feature">
+                            <div class="solution-feature-icon">⚡</div>
+                            <div class="solution-feature-content">
+                                <h4>INFINITE TRANSFORMATION CAPACITY</h4>
+                                <p>Serve 10,000+ clients with the same personal attention as your elite 1-on-1 coaching. No dilution. No compromise. Pure scaling power.</p>
                             </div>
-                            <div>
-                                <h4 class="h5 mb-2">Voice & Personality Cloning</h4>
-                                <p class="text-gray">Maintains your unique tone, motivational style, and communication patterns. Clients experience authentic coaching that feels personally crafted.</p>
-                            </div>
-                        </div>
+                        </li>
                         
-                        <div class="flex items-start gap-4 mb-6">
-                            <div style="background: var(--accent-red); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 4px; flex-shrink: 0;">
-                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+                        <li class="solution-feature">
+                            <div class="solution-feature-icon">🚀</div>
+                            <div class="solution-feature-content">
+                                <h4>EMPIRE AUTOMATION SUITE</h4>
+                                <p>Handles everything from workout generation to nutrition planning, progress tracking to motivation delivery. Your empire runs itself.</p>
                             </div>
-                            <div>
-                                <h4 class="h5 mb-2">Infinite Scaling Capacity</h4>
-                                <p class="text-gray">Serve 10,000+ clients with the same quality as your premium 1-on-1 coaching. No dilution of expertise or personal attention.</p>
-                            </div>
-                        </div>
+                        </li>
                         
-                        <div class="flex items-start gap-4">
-                            <div style="background: var(--accent-red); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 4px; flex-shrink: 0;">
-                                <span style="color: white; font-size: 14px; font-weight: bold;">✓</span>
+                        <li class="solution-feature">
+                            <div class="solution-feature-icon">🌍</div>
+                            <div class="solution-feature-content">
+                                <h4>GLOBAL DOMINATION READY</h4>
+                                <p>Deploy across all platforms—WhatsApp, Instagram, your app, anywhere your community gathers. Your reach becomes unlimited.</p>
                             </div>
-                            <div>
-                                <h4 class="h5 mb-2">Global 24/7 Availability</h4>
-                                <p class="text-gray">Your AI coach never sleeps, never takes breaks, and provides instant responses across all time zones worldwide.</p>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
                 
                 <div class="revenue-calculator">
-                    <h4 class="h4 mb-6 text-center">Revenue Explosion Calculator</h4>
-                    <div class="calc-row">
-                        <span>Current Elite 1-on-1 Clients:</span>
-                        <strong class="text-white">15 clients</strong>
+                    <div class="calc-header">
+                        <h4>EMPIRE REVENUE PROJECTION</h4>
+                        <p>See your transformation</p>
                     </div>
+                    
                     <div class="calc-row">
-                        <span>Premium Monthly Rate:</span>
-                        <strong class="text-white">$500</strong>
+                        <span>Current Elite Clients:</span>
+                        <strong>20 × $500/mo</strong>
                     </div>
                     <div class="calc-row">
                         <span>Current Monthly Revenue:</span>
-                        <strong class="text-secondary">$7,500</strong>
+                        <strong style="color: var(--primary-yellow);">$10,000</strong>
                     </div>
                     <div class="calc-row">
-                        <span>AI Coaching Members (Year 1):</span>
-                        <strong class="text-white">2,000 × $97/mo</strong>
+                        <span>AI Empire Members (Year 1):</span>
+                        <strong>5,000 × $97/mo</strong>
                     </div>
                     <div class="calc-row">
-                        <span>Total Monthly Revenue:</span>
-                        <strong style="font-size: 2rem;">$194,000</strong>
+                        <span>TOTAL EMPIRE REVENUE:</span>
+                        <strong>$485,000/mo</strong>
                     </div>
-                    <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(5, 150, 105, 0.1); border-radius: 12px; border: 1px solid var(--accent-success);">
-                        <p class="text-success" style="font-size: 1.25rem; font-weight: 700;">Significant Revenue Growth</p>
-                        <p class="text-gray" style="margin-top: 0.5rem;">With improved efficiency</p>
+                    
+                    <div class="calc-highlight">
+                        <h5 style="color: var(--victory-green); font-size: 1.5rem; font-weight: 900; margin-bottom: 0.5rem;">4,750% REVENUE EXPLOSION</h5>
+                        <p style="color: var(--power-white);">While working LESS and impacting MORE lives</p>
                     </div>
                 </div>
             </div>
@@ -1060,58 +1194,58 @@
     <!-- Features Section -->
     <section class="features section" id="features">
         <div class="container text-center">
-            <h2 class="h2 mb-8">Advanced Coaching Technology</h2>
-            <p class="text-lg text-gray mb-16" style="max-width: 700px; margin: 0 auto;">
-                Enterprise-grade AI infrastructure designed specifically for fitness professionals who require reliable, scalable coaching solutions without compromising quality.
+            <h2 class="h2">EMPIRE-GRADE TECHNOLOGY</h2>
+            <p class="section-subtitle">
+                Built for fitness leaders who refuse to accept limits. Enterprise-level AI that amplifies your coaching genius across unlimited clients without losing your personal touch.
             </p>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Neural Coaching Engine</h3>
-                    <p>Advanced machine learning analyzes your entire coaching methodology – from exercise selection to motivation techniques – creating an AI that thinks and coaches exactly like you.</p>
+                    <div class="feature-icon">🎯</div>
+                    <h3>PRECISION COACHING AI</h3>
+                    <p>Learns your exact training methodology, motivation techniques, and success formulas. Delivers YOUR coaching with surgical precision to every client.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Dynamic Program Generation</h3>
-                    <p>Creates infinite workout variations based on individual client goals, available equipment, time constraints, injury history, and current fitness level – all using your training philosophy.</p>
+                    <div class="feature-icon">🔥</div>
+                    <h3>INFINITE PROGRAM ENGINE</h3>
+                    <p>Generates unlimited workout variations using YOUR philosophy. Adapts to each client's goals, equipment, schedule, and progress—all in your signature style.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🥇</div>
-                    <h3>Elite Nutrition Intelligence</h3>
-                    <p>AI nutritionist that applies your dietary philosophy to create personalized meal plans, macro calculations, supplement protocols, and grocery lists tailored to each client's goals.</p>
+                    <h3>ELITE NUTRITION MASTERY</h3>
+                    <p>AI nutritionist that applies YOUR dietary approach. Creates personalized meal plans, macro strategies, and supplement protocols that get results.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Performance Analytics Engine</h3>
-                    <p>Advanced tracking and analysis of client progress, workout performance, and goal achievement with predictive modeling for optimal results and retention.</p>
+                    <div class="feature-icon">📊</div>
+                    <h3>TRANSFORMATION ANALYTICS</h3>
+                    <p>Deep performance tracking and predictive modeling. See exactly what drives results and optimize your empire for maximum impact.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>White-Label Brand Fortress</h3>
-                    <p>Complete brand customization with your colors, logo, messaging, and domain. Clients experience 100% your brand – they never see "powered by" anything else.</p>
+                    <div class="feature-icon">👑</div>
+                    <h3>BRAND EMPIRE FORTRESS</h3>
+                    <p>100% white-label customization. Clients experience pure YOU—your colors, logo, messaging, domain. Zero external branding.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Omnichannel Deployment</h3>
-                    <p>Seamlessly integrates with WhatsApp, Instagram DMs, your website, mobile apps, and any platform where your clients prefer to interact.</p>
+                    <div class="feature-icon">⚡</div>
+                    <h3>OMNICHANNEL DOMINANCE</h3>
+                    <p>Deploy across every platform your community uses. WhatsApp, Instagram, your app, website—seamless empire expansion.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3>Automated Business Operations</h3>
-                    <p>Handles billing, subscription management, client onboarding, progress tracking, and retention campaigns – all while maintaining your personal touch.</p>
+                    <div class="feature-icon">🤖</div>
+                    <h3>AUTOMATED BUSINESS OPS</h3>
+                    <p>Handles billing, onboarding, progress tracking, retention campaigns. Your empire runs automatically while you focus on growth.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Enterprise Security Protocol</h3>
-                    <p>Bank-level encryption, HIPAA compliance, and data protection ensuring your clients' information and your intellectual property are completely secure.</p>
+                    <div class="feature-icon">🛡️</div>
+                    <h3>FORTRESS-LEVEL SECURITY</h3>
+                    <p>Bank-grade encryption and enterprise security. Your methods, your client data, your empire—completely protected.</p>
                 </div>
             </div>
         </div>
@@ -1121,47 +1255,47 @@
     <section class="benefits section" id="benefits">
         <div class="container">
             <div class="text-center mb-16">
-                <h2 class="h2 mb-8">Grow Your Coaching Practice</h2>
-                <p class="text-lg text-gray" style="max-width: 800px; margin: 0 auto;">
-                    Join fitness professionals who have successfully scaled their coaching practices using intelligent automation to serve more clients effectively and efficiently.
+                <h2 class="h2">TRANSFORM YOUR BUSINESS. TRANSFORM YOUR LIFE.</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">
+                    Join the elite circle of fitness entrepreneurs who've broken through the capacity ceiling. Scale your impact, multiply your revenue, and build a legacy that transforms thousands of lives.
                 </p>
             </div>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">💰</div>
-                    <h3 class="h4 mb-4">Multiple Revenue Streams</h3>
-                    <p class="text-gray">Generate income from AI coaching subscriptions, premium programs, nutrition plans, and specialized training protocols through automated delivery systems.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🚀</div>
-                    <h3 class="h4 mb-4">Instant Global Expansion</h3>
-                    <p class="text-gray">Launch in new markets, languages, and time zones instantly. Your AI coach adapts to cultural preferences and local fitness trends automatically.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎖️</div>
-                    <h3 class="h4 mb-4">Enhanced Brand Authority</h3>
-                    <p class="text-gray">Strengthen your position as a fitness authority in your niche. AI amplifies your expertise and thought leadership across multiple client touchpoints.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3 class="h4 mb-4">Predictable Revenue Growth</h3>
-                    <p class="text-gray">Build a subscription-based empire with predictable monthly recurring revenue that scales exponentially without proportional time investment.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3 class="h4 mb-4">Zero Operational Overhead</h3>
-                    <p class="text-gray">No hiring, no management headaches, no scaling bottlenecks. Your AI workforce handles everything while you focus on high-value strategy and content creation.</p>
+                    <h3>EXPLOSIVE REVENUE GROWTH</h3>
+                    <p>Generate multiple 6-7 figure revenue streams through automated AI coaching, premium programs, and scalable transformation systems.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">🌟</div>
-                    <h3 class="h4 mb-4">Expanded Impact</h3>
-                    <p class="text-gray">Reach more people with your proven methodology. Create a meaningful fitness impact that extends beyond traditional one-on-one coaching limitations.</p>
+                    <h3>MASSIVE IMPACT AMPLIFICATION</h3>
+                    <p>Transform thousands of lives with your proven methodology. Your impact becomes unlimited while maintaining quality and results.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>GLOBAL EMPIRE EXPANSION</h3>
+                    <p>Launch in any market, language, or timezone instantly. Your empire grows globally while you sleep, with AI adapting to local preferences.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👑</div>
+                    <h3>INDUSTRY AUTHORITY STATUS</h3>
+                    <p>Become the undisputed leader in your niche. AI amplifies your expertise across every client touchpoint, building unshakeable authority.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>ZERO OPERATIONAL OVERHEAD</h3>
+                    <p>No hiring. No managing. No scaling bottlenecks. Your AI workforce handles everything while you focus on empire strategy.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>PREDICTABLE EMPIRE GROWTH</h3>
+                    <p>Build predictable, scalable revenue that grows exponentially without proportional time investment. True business freedom.</p>
                 </div>
             </div>
         </div>
@@ -1170,74 +1304,74 @@
     <!-- Pricing Section -->
     <section class="pricing section" id="pricing">
         <div class="container text-center">
-            <h2 class="h2 mb-8">Professional Plans</h2>
-            <p class="text-lg text-gray mb-16" style="max-width: 700px; margin: 0 auto;">
-                Choose the plan that best fits your practice size and growth objectives. All plans include comprehensive support and training to ensure successful implementation.
+            <h2 class="h2">CHOOSE YOUR EMPIRE LEVEL</h2>
+            <p class="section-subtitle">
+                Select the plan that matches your ambition. Every plan includes complete setup, training, and support to ensure your empire launches successfully and scales rapidly.
             </p>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3 class="h4 mb-4">Professional</h3>
+                    <div class="pricing-name">EMPIRE STARTER</div>
                     <div class="pricing-price">
                         <span class="currency">$</span>997<span class="period">/month</span>
                     </div>
-                    <p class="text-gray mb-6">Ideal for individual trainers and small practices looking to expand their client capacity with AI coaching</p>
+                    <p class="pricing-description">Perfect for ambitious trainers ready to break through capacity limits and build their first AI-powered revenue stream</p>
                     
                     <ul class="pricing-features">
-                        <li>Up to 500 AI-coached clients</li>
+                        <li>Up to 1,000 AI clients</li>
                         <li>Complete workout & nutrition AI</li>
                         <li>WhatsApp + Instagram integration</li>
                         <li>Full brand customization</li>
-                        <li>Advanced client analytics</li>
-                        <li>Automated billing & subscriptions</li>
-                        <li>Email & chat support</li>
-                        <li>30-day money-back guarantee</li>
+                        <li>Empire analytics dashboard</li>
+                        <li>Automated billing & management</li>
+                        <li>Priority support & training</li>
+                        <li>30-day transformation guarantee</li>
                     </ul>
                     
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-outline" style="width: 100%;">Start Building</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" style="width: 100%;">Start Building</a>
                 </div>
                 
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Elite Choice</div>
-                    <h3 class="h4 mb-4">Business</h3>
+                    <div class="pricing-badge">EMPIRE ELITE</div>
+                    <div class="pricing-name">EMPIRE DOMINATOR</div>
                     <div class="pricing-price">
                         <span class="currency">$</span>1,997<span class="period">/month</span>
                     </div>
-                    <p class="text-gray mb-6">For established coaching businesses and fitness facilities requiring advanced features and higher capacity</p>
+                    <p class="pricing-description">For established coaches ready to dominate their market and build a 7-figure fitness empire with unlimited scaling power</p>
                     
                     <ul class="pricing-features">
-                        <li>Up to 2,500 AI-coached clients</li>
-                        <li>Advanced AI with behavior prediction</li>
-                        <li>Multi-platform deployment suite</li>
+                        <li>Up to 5,000 AI clients</li>
+                        <li>Advanced behavioral AI & prediction</li>
+                        <li>Multi-platform empire deployment</li>
                         <li>Custom mobile app development</li>
-                        <li>Advanced retention algorithms</li>
+                        <li>Advanced retention & growth AI</li>
                         <li>Revenue optimization engine</li>
-                        <li>Priority phone + video support</li>
-                        <li>Quarterly strategy consultations</li>
+                        <li>VIP phone + video support</li>
+                        <li>Monthly strategy consultations</li>
                     </ul>
                     
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary" style="width: 100%;">Book Strategy Call</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary" style="width: 100%;">Dominate Your Market</a>
                 </div>
                 
                 <div class="pricing-card">
-                    <h3 class="h4 mb-4">Enterprise</h3>
+                    <div class="pricing-name">ENTERPRISE EMPIRE</div>
                     <div class="pricing-price">
-                        Custom<span class="period"> pricing</span>
+                        Custom<span class="period"> Investment</span>
                     </div>
-                    <p class="text-gray mb-6">For large fitness organizations, franchises, and enterprises requiring custom solutions and unlimited scaling</p>
+                    <p class="pricing-description">For fitness organizations and franchises building multi-million dollar empires with unlimited client capacity and global reach</p>
                     
                     <ul class="pricing-features">
-                        <li>Unlimited AI-coached clients</li>
+                        <li>Unlimited AI clients</li>
                         <li>White-label mobile app suite</li>
-                        <li>API access & custom integrations</li>
-                        <li>Dedicated success manager</li>
+                        <li>Custom API & integrations</li>
+                        <li>Dedicated empire manager</li>
                         <li>Custom AI model training</li>
                         <li>24/7 enterprise support</li>
                         <li>Revenue sharing opportunities</li>
                         <li>Global expansion support</li>
                     </ul>
                     
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-outline" style="width: 100%;">Contact Enterprise</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" style="width: 100%;">Build Your Empire</a>
                 </div>
             </div>
         </div>
@@ -1247,54 +1381,62 @@
     <section class="cta-section section">
         <div class="container text-center">
             <div class="cta-content">
-                <h2 class="h2 mb-8">Ready to Scale Your Practice?</h2>
-                <p class="text-lg mb-12" style="max-width: 700px; margin: 0 auto; color: var(--text-light);">
-                    Join fitness professionals who have successfully scaled their coaching practices. Schedule a consultation to learn how CoachIQ can help you serve more clients while maintaining quality standards.
+                <h2 class="h2">YOUR EMPIRE AWAITS. THE TIME IS NOW.</h2>
+                <p class="cta-message">
+                    Stop letting your genius be limited by time. Stop leaving millions on the table. Stop settling for small impact. Your empire is calling. Answer it.
                 </p>
                 
-                <div class="flex justify-center gap-4 flex-wrap mb-8">
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-lg">Schedule Consultation</a>
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-outline btn-lg">Request Demo</a>
+                <div class="cta-buttons">
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-hero">BUILD MY EMPIRE NOW</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary btn-hero">BOOK EMPIRE STRATEGY</a>
                 </div>
                 
-                <div class="cta-guarantee">
-                    <div class="guarantee-item">No setup fees</div>
-                    <div class="guarantee-item">30-day money-back guarantee</div>
-                    <div class="guarantee-item">Setup completed in 14 days</div>
-                    <div class="guarantee-item">ROI guarantee or refund</div>
+                <div class="guarantee-items">
+                    <div class="guarantee-item">
+                        <div class="guarantee-item-text">ZERO SETUP FEES</div>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-item-text">30-DAY MONEY BACK</div>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-item-text">14-DAY LAUNCH</div>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-item-text">ROI GUARANTEE</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>CoachIQ</h4>
+                    <h4>CoachIQ Empire</h4>
                     <p class="footer-brand">
-                        Professional AI coaching technology for fitness practitioners seeking to scale their expertise while maintaining quality. Transform your practice with intelligent automation.
+                        Elite AI technology for fitness leaders who refuse to accept limits. Transform your coaching genius into an unlimited empire that scales globally while you focus on what matters most.
                     </p>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Platform</h4>
+                    <h4>Empire Tools</h4>
                     <ul>
-                        <li><a href="#features">Platform Features</a></li>
-                        <li><a href="#pricing">Pricing Plans</a></li>
-                        <li><a href="#benefits">Case Studies</a></li>
-                        <li><a href="https://cal.eu/polruiz/15min">Schedule Consultation</a></li>
+                        <li><a href="#features">Technology Platform</a></li>
+                        <li><a href="#pricing">Empire Plans</a></li>
+                        <li><a href="#benefits">Success Stories</a></li>
+                        <li><a href="https://cal.eu/polruiz/15min">Strategy Session</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Support</h4>
+                    <h4>Empire Support</h4>
                     <ul>
-                        <li><a href="https://cal.eu/polruiz/15min">Contact Support</a></li>
-                        <li><a href="#">Help Center</a></li>
+                        <li><a href="https://cal.eu/polruiz/15min">Contact Empire Team</a></li>
+                        <li><a href="#">Empire Training Center</a></li>
                         <li><a href="#">API Documentation</a></li>
-                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Empire Status</a></li>
                     </ul>
                 </div>
                 
@@ -1303,14 +1445,14 @@
                     <ul>
                         <li><a href="#">About CoachIQ</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Security Center</a></li>
+                        <li><a href="#">Terms of Empire</a></li>
+                        <li><a href="#">Security Fortress</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 CoachIQ. All rights reserved. | Professional AI coaching technology for fitness practitioners.</p>
+                <p>&copy; 2026 CoachIQ Empire. All rights reserved. | Transform Lives. Build Empires. Leave Legacy.</p>
             </div>
         </div>
     </footer>
@@ -1319,53 +1461,68 @@
         // Enhanced animations and interactions
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
+                    entry.target.classList.add('animate-slideInUp');
+                    entry.target.style.opacity = '1';
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        document.querySelectorAll('.card, .feature-card, .benefit-card, .pricing-card, .stat, .hero-stat').forEach(el => {
+        // Observe all animated elements
+        document.querySelectorAll('.feature-card, .benefit-card, .pricing-card, .hero-stat, .problem-stat, .solution-feature').forEach(el => {
+            el.style.opacity = '0';
             observer.observe(el);
         });
 
-        // Add smooth hover effects for pricing cards
-        document.querySelectorAll('.pricing-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                if (!card.classList.contains('featured')) {
-                    card.style.transform = 'translateY(-10px)';
-                    card.style.boxShadow = '0 20px 40px rgba(59, 130, 246, 0.2)';
-                }
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                if (!card.classList.contains('featured')) {
-                    card.style.transform = '';
-                    card.style.boxShadow = '';
-                }
-            });
-        });
-
-        // Enhanced button interactions
+        // Add power-up effects for buttons
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('mouseenter', () => {
                 if (btn.classList.contains('btn-primary')) {
-                    btn.style.transform = 'translateY(-3px) scale(1.02)';
+                    btn.style.transform = 'translateY(-5px) scale(1.03)';
+                    btn.style.boxShadow = '0 20px 40px rgba(255, 107, 53, 0.4)';
                 }
             });
             
             btn.addEventListener('mouseleave', () => {
                 if (btn.classList.contains('btn-primary')) {
                     btn.style.transform = '';
+                    btn.style.boxShadow = '';
                 }
             });
         });
+
+        // Add pulse animation to key elements
+        document.querySelectorAll('.hero-badge, .pricing-badge').forEach(el => {
+            el.classList.add('animate-pulse');
+        });
+
+        // Enhanced scroll effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // Add dynamic text effects
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            heroTitle.addEventListener('mouseenter', () => {
+                heroTitle.style.transform = 'scale(1.02)';
+                heroTitle.style.textShadow = '0 10px 30px rgba(255, 215, 0, 0.3)';
+            });
+            
+            heroTitle.addEventListener('mouseleave', () => {
+                heroTitle.style.transform = '';
+                heroTitle.style.textShadow = '';
+            });
+        }
     </script>
 </body>
 </html>
