@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,6 +153,22 @@
         .sidebar-secondary a:hover {
             background: #f8f9fa;
             color: var(--accent-blue);
+        }
+
+        /* Language Selector Styles */
+        .lang-btn:hover {
+            background: #f8f9fa !important;
+            color: var(--accent-blue) !important;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-blue) !important;
+            color: white !important;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 4px;
         }
 
         .sidebar-toggle {
@@ -1123,6 +1139,20 @@
                     <li><a href="/instant-strategy/investigacion-invisible.html">LA INVESTIGACIÓN INVISIBLE</a></li>
                 </ul>
             </div>
+
+            <div class="sidebar-separator"></div>
+
+            <div class="sidebar-language" style="padding: 0 16px; margin-top: 20px;">
+                <div class="sidebar-label" style="margin-bottom: 16px;">IDIOMA</div>
+                <div class="language-selector">
+                    <button id="lang-es" class="lang-btn active" onclick="changeLanguage('es')" style="background: none; border: none; color: #666; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; border-radius: 6px; cursor: pointer; margin-right: 8px; transition: all 0.2s ease;">
+                        🇪🇸 ES
+                    </button>
+                    <button id="lang-en" class="lang-btn" onclick="changeLanguage('en')" style="background: none; border: none; color: #666; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;">
+                        🇬🇧 EN
+                    </button>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -1231,7 +1261,7 @@
             <div class="container">
                 <h2 class="section-title fade-in" style="text-align: center;">Tu Nuevo Socio Estratégico</h2>
                 <p class="section-subtitle fade-in" style="text-align: center;">
-                    AnalitikAI es tu consultor senior 24/7: entiende tu negocio, domina tu sector,
+                    AnalitikAI es tu consultor sénior 24/7: entiende tu negocio, domina tu sector,
                     y entrega informes ejecutivos listos para facturar en tiempo récord.
                 </p>
 
@@ -1254,7 +1284,7 @@
                         <h3 class="process-title">Análisis Experto</h3>
                         <p class="process-description">
                             Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights
-                            con la precisión de un equipo de analistas senior.
+                            con la precisión de un equipo de analistas sénior.
                         </p>
                     </div>
 
@@ -2033,6 +2063,295 @@
     </main>
 
     <script>
+        // Language Support Data
+        const translations = {
+            es: {
+                // Meta tags
+                title: "AnalitikAI - AI-as-a-Consultant | Consultoría Inteligente para Servicios Profesionales",
+                description: "AnalitikAI entrega investigación y análisis impulsados por IA para bufetes de abogados, consultoras, auditorías, agencias de marketing y asesores financieros en 48 horas, no semanas.",
+                
+                // Navigation
+                problem: "EL PROBLEMA",
+                solution: "NUESTRA SOLUCIÓN", 
+                services: "SERVICIOS",
+                methodology: "METODOLOGÍA",
+                calculator: "CALCULADORA ROI",
+                pricing: "PRECIOS",
+                faq: "FAQ",
+                contact: "CONTACTO",
+                invisible_research: "LA INVESTIGACIÓN INVISIBLE",
+                
+                // Hero Section
+                hero_badge: "Excelencia en Investigación Profesional",
+                hero_title: "Vas por buen camino,<br>pero ¿podrías ir más rápido?",
+                hero_subtitle: "<strong>AnalitikAI</strong> entrega investigación y análisis de nivel consultora en <strong>48 horas</strong> vs 2-4 semanas. Para servicios profesionales que valoran la excelencia y la velocidad.",
+                hero_cta_primary: "Empezar Ahora",
+                hero_cta_secondary: "Nuestra Metodología",
+                
+                // Problem Section
+                problem_title: "El Desafío",
+                problem_statement: '"Prometiste el informe para el viernes. El cliente llama el lunes. Tu equipo está desbordado investigando lo que un algoritmo podría hacer en horas."',
+                problem_subtitle: "Mientras tus competidores entregan en días, tu despacho invierte semanas en investigación. Tus clientes pagan tarifas premium pero esperan como si fuera 1995.",
+                
+                // Tools Section
+                tools_title: "Mil opciones. Millones de tutoriales.<br>Y ni uno solo empieza por tu situación.",
+                tools_subtitle: "AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente, creando flujos de trabajo automatizados que se adaptan a tu contexto específico.",
+                
+                // Solution Section
+                solution_title: "Tu Nuevo Socio Estratégico",
+                solution_subtitle: "AnalitikAI es tu consultor sénior 24/7: entiende tu negocio, domina tu sector, y entrega informes ejecutivos listos para facturar en tiempo récord.",
+                
+                // Process Steps
+                process_deep_understanding: "Comprensión Profunda",
+                process_deep_desc: "Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, inteligencia competitiva. Sin jerga técnica, solo resultados accionables.",
+                process_expert_analysis: "Análisis Experto", 
+                process_expert_desc: "Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights con la precisión de un equipo de analistas sénior.",
+                process_premium_delivery: "Entrega Premium",
+                process_premium_desc: "Informes ejecutivos listos para presentar a clientes, con datos accionables y recomendaciones estratégicas. En 48 horas garantizadas.",
+                
+                // Services
+                services_title: "Servicios Especializados",
+                services_subtitle: "Soluciones específicas para cada sector profesional, adaptadas a tus necesidades exactas y estándares de calidad institucional.",
+                
+                // ROI Calculator
+                roi_title: "¿Cuánto Dinero Pierdes Cada Mes?",
+                roi_subtitle: "Descubre el coste real de la investigación tradicional vs AnalitikAI",
+                roi_projects_label: "Proyectos de investigación por mes",
+                roi_hourly_label: "Tu tarifa por hora", 
+                roi_monthly_savings: "ahorrado por mes",
+                roi_cta_text: "¿Quieres ver exactamente cómo conseguir estos resultados?",
+                roi_cta_button: "Ver cómo en una demo de 15 min",
+                
+                // Pricing
+                pricing_title: "Precios Claros y Directos",
+                pricing_subtitle: "Tarifas transparentes para investigación profesional de clase mundial. Sin letra pequeña, sin sorpresas.",
+                
+                // FAQ
+                faq_title: "Preguntas Frecuentes",
+                faq_subtitle: "Todo lo que necesitas saber sobre AnalitikAI y cómo puede transformar tu práctica profesional.",
+                
+                // Contact
+                contact_title: "¿Listo para Acelerar tu Práctica Profesional?",
+                contact_subtitle: "Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.",
+                contact_demo_btn: "Reservar Demo Gratuita",
+                contact_form_btn: "Usar Formulario",
+                
+                // Footer
+                footer_description: "Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. Para servicios profesionales que necesitan resultados excepcionales, no promesas."
+            },
+            
+            en: {
+                // Meta tags
+                title: "AnalitikAI - AI-as-a-Consultant | Intelligent Consulting for Professional Services",
+                description: "AnalitikAI delivers AI-powered research and analysis for law firms, consultancies, audits, marketing agencies, and financial advisors in 48 hours, not weeks.",
+                
+                // Navigation
+                problem: "THE PROBLEM",
+                solution: "OUR SOLUTION",
+                services: "SERVICES", 
+                methodology: "METHODOLOGY",
+                calculator: "ROI CALCULATOR",
+                pricing: "PRICING",
+                faq: "FAQ",
+                contact: "CONTACT",
+                invisible_research: "THE INVISIBLE RESEARCH",
+                
+                // Hero Section
+                hero_badge: "Excellence in Professional Research",
+                hero_title: "You're on the right track,<br>but could you go faster?",
+                hero_subtitle: "<strong>AnalitikAI</strong> delivers consultant-level research and analysis in <strong>48 hours</strong> vs 2-4 weeks. For professional services that value excellence and speed.",
+                hero_cta_primary: "Get Started",
+                hero_cta_secondary: "Our Methodology",
+                
+                // Problem Section
+                problem_title: "The Challenge",
+                problem_statement: '"You promised the report for Friday. The client calls on Monday. Your team is overwhelmed researching what an algorithm could do in hours."',
+                problem_subtitle: "While your competitors deliver in days, your firm invests weeks in research. Your clients pay premium rates but wait like it's 1995.",
+                
+                // Tools Section
+                tools_title: "A thousand options. Millions of tutorials.<br>And not one starts with your situation.",
+                tools_subtitle: "AnalitikAI intelligently connects and uses all these tools, creating automated workflows that adapt to your specific context.",
+                
+                // Solution Section
+                solution_title: "Your New Strategic Partner",
+                solution_subtitle: "AnalitikAI is your 24/7 senior consultant: understands your business, masters your sector, and delivers executive reports ready to bill in record time.",
+                
+                // Process Steps
+                process_deep_understanding: "Deep Understanding",
+                process_deep_desc: "We analyze exactly what you need: legal precedents, market analysis, competitive intelligence. No technical jargon, just actionable results.",
+                process_expert_analysis: "Expert Analysis",
+                process_expert_desc: "Our AI processes thousands of documents, identifies critical patterns and extracts insights with the precision of a senior analyst team.",
+                process_premium_delivery: "Premium Delivery", 
+                process_premium_desc: "Executive reports ready to present to clients, with actionable data and strategic recommendations. In 48 guaranteed hours.",
+                
+                // Services
+                services_title: "Specialized Services",
+                services_subtitle: "Specific solutions for each professional sector, tailored to your exact needs and institutional quality standards.",
+                
+                // ROI Calculator
+                roi_title: "How Much Money Are You Losing Each Month?",
+                roi_subtitle: "Discover the real cost of traditional research vs AnalitikAI",
+                roi_projects_label: "Research projects per month",
+                roi_hourly_label: "Your hourly rate",
+                roi_monthly_savings: "saved per month",
+                roi_cta_text: "Want to see exactly how to achieve these results?",
+                roi_cta_button: "See how in a 15-min demo",
+                
+                // Pricing
+                pricing_title: "Clear and Direct Pricing",
+                pricing_subtitle: "Transparent rates for world-class professional research. No fine print, no surprises.",
+                
+                // FAQ
+                faq_title: "Frequently Asked Questions",
+                faq_subtitle: "Everything you need to know about AnalitikAI and how it can transform your professional practice.",
+                
+                // Contact
+                contact_title: "Ready to Accelerate Your Professional Practice?",
+                contact_subtitle: "Let's talk about how AnalitikAI can transform the speed and quality of your professional services.",
+                contact_demo_btn: "Book Free Demo",
+                contact_form_btn: "Use Form",
+                
+                // Footer
+                footer_description: "Consultant-level research and analysis delivered in 48 hours vs 2-4 weeks. For professional services that need exceptional results, not promises."
+            }
+        };
+
+        let currentLanguage = 'es';
+
+        // Change Language Function
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update HTML lang attribute
+            document.getElementById('html-root').setAttribute('lang', lang);
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            // Update content
+            updateContent(lang);
+            
+            // Update URL without reload
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.replaceState({}, '', url);
+        }
+
+        // Update Content Function
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            // Update meta tags
+            document.title = t.title;
+            document.querySelector('meta[name="description"]').content = t.description;
+            
+            // Update navigation
+            const navElements = {
+                '[data-translate="problem"]': t.problem,
+                '[data-translate="solution"]': t.solution,
+                '[data-translate="services"]': t.services,
+                '[data-translate="methodology"]': t.methodology,
+                '[data-translate="calculator"]': t.calculator,
+                '[data-translate="pricing"]': t.pricing,
+                '[data-translate="faq"]': t.faq,
+                '[data-translate="contact"]': t.contact,
+                '[data-translate="invisible_research"]': t.invisible_research
+            };
+            
+            // Apply translations to elements with data-translate attributes
+            Object.keys(navElements).forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) element.innerHTML = navElements[selector];
+            });
+            
+            // Update hero section
+            const heroBadge = document.querySelector('.hero-badge');
+            if (heroBadge) heroBadge.innerHTML = '<span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>' + t.hero_badge;
+            
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) heroTitle.innerHTML = t.hero_title;
+            
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle) heroSubtitle.innerHTML = t.hero_subtitle;
+            
+            // Update CTA buttons
+            const ctaPrimary = document.querySelector('.btn-primary span');
+            if (ctaPrimary) ctaPrimary.textContent = t.hero_cta_primary;
+            
+            const ctaSecondary = document.querySelector('.btn-secondary');
+            if (ctaSecondary) ctaSecondary.textContent = t.hero_cta_secondary;
+            
+            // Update section titles with data-translate attributes
+            const sectionTitles = {
+                '[data-section="problem"] .section-title': t.problem_title,
+                '[data-section="solution"] .section-title': t.solution_title,
+                '[data-section="services"] .section-title': t.services_title,
+                '[data-section="pricing"] .section-title': t.pricing_title,
+                '[data-section="faq"] .section-title': t.faq_title,
+                '[data-section="contact"] .section-title': t.contact_title
+            };
+            
+            Object.keys(sectionTitles).forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) element.innerHTML = sectionTitles[selector];
+            });
+        }
+
+        // Add data-translate attributes to navigation elements
+        function addTranslateAttributes() {
+            // Add attributes to navigation links
+            const navLinks = {
+                'a[href="#problema"]': 'problem',
+                'a[href="#solucion"]': 'solution', 
+                'a[href="#servicios"]': 'services',
+                'a[href="#metodologia"]': 'methodology',
+                'a[href="#roi-calculator"]': 'calculator',
+                'a[href="#precios"]': 'pricing',
+                'a[href="#preguntas"]': 'faq',
+                'a[href="#contacto"]': 'contact',
+                'a[href="/instant-strategy/investigacion-invisible.html"]': 'invisible_research'
+            };
+            
+            Object.keys(navLinks).forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) element.setAttribute('data-translate', navLinks[selector]);
+            });
+            
+            // Add attributes to sections
+            const sections = {
+                '#problema': 'problem',
+                '#solucion': 'solution',
+                '#servicios': 'services', 
+                '#precios': 'pricing',
+                '#preguntas': 'faq',
+                '#contacto': 'contact'
+            };
+            
+            Object.keys(sections).forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) element.setAttribute('data-section', sections[selector]);
+            });
+        }
+
+        // Initialize language system
+        function initializeLanguage() {
+            addTranslateAttributes();
+            
+            // Check URL for language parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            
+            if (langParam === 'en') {
+                changeLanguage('en');
+            } else {
+                changeLanguage('es'); // Default to Spanish
+            }
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', initializeLanguage);
+
         // Sidebar Toggle
         const sidebarToggle = document.getElementById('sidebar-toggle');
         const sidebar = document.getElementById('sidebar');
