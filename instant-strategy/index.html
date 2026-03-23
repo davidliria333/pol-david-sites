@@ -957,8 +957,8 @@
             line-height: 1.6;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
+        /* Mobile Responsive - FIXED */
+        @media (max-width: 768px) {
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -977,6 +977,21 @@
 
             .container {
                 padding: 0 24px;
+            }
+        }
+
+        /* Desktop Force - CRITICAL FIX */
+        @media (min-width: 769px) {
+            .sidebar {
+                transform: translateX(0) !important;
+            }
+            
+            .main-content {
+                margin-left: 280px !important;
+            }
+            
+            .sidebar-toggle {
+                display: none !important;
             }
         }
 
