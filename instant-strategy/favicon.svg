@@ -1,96 +1,114 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
-    <!-- Background gradient - Dark blue institutional -->
+    <!-- Background gradient -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#1e40af;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3730a3;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Shield gradient -->
-    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Central hexagon gradient -->
+    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
       <stop offset="50%" style="stop-color:#2563eb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Gold neural network lines -->
-    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.9" />
-      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.9" />
+    <!-- Connection lines gradient -->
+    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:0.7" />
     </linearGradient>
     
-    <!-- Shield border -->
-    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
-    </linearGradient>
+    <!-- Node gradient -->
+    <radialGradient id="nodeGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c7d2fe;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
   
   <!-- Main background -->
   <rect width="32" height="32" rx="6" fill="url(#bgGradient)"/>
   
-  <!-- Shield shape -->
+  <!-- Molecular structure centered -->
   <g transform="translate(16,16)">
-    <!-- Shield body -->
-    <path d="M 0 -12 
-             C -8 -12 -8 -8 -8 -4
-             L -8 4
-             C -8 8 -6 10 0 12
-             C 6 10 8 8 8 4
-             L 8 -4  
-             C 8 -8 8 -12 0 -12 Z" 
-          fill="url(#shieldGradient)" 
-          stroke="url(#borderGradient)" 
-          stroke-width="0.8"/>
     
-    <!-- Neural network pattern inside shield -->
-    <g stroke="url(#goldGradient)" stroke-width="0.6" fill="none" opacity="0.8">
-      <!-- Central hub -->
-      <circle cx="0" cy="0" r="1.5" fill="url(#goldGradient)" opacity="0.9"/>
+    <!-- Central hexagon (main molecule) -->
+    <g filter="url(#glow)">
+      <polygon points="0,-6 5.2,-3 5.2,3 0,6 -5.2,3 -5.2,-3" 
+               fill="url(#hexGradient)" 
+               stroke="url(#connectionGradient)" 
+               stroke-width="0.8"/>
       
-      <!-- Neural connections - horizontal layer -->
-      <line x1="-4" y1="-4" x2="0" y2="0"/>
-      <line x1="4" y1="-4" x2="0" y2="0"/>
-      <line x1="-4" y1="4" x2="0" y2="0"/>
-      <line x1="4" y1="4" x2="0" y2="0"/>
-      
-      <!-- Secondary layer connections -->
-      <line x1="-4" y1="-4" x2="4" y2="-4"/>
-      <line x1="-4" y1="4" x2="4" y2="4"/>
-      <line x1="-4" y1="-4" x2="-4" y2="4"/>
-      <line x1="4" y1="-4" x2="4" y2="4"/>
-      
-      <!-- Cross connections -->
-      <line x1="-4" y1="-4" x2="4" y2="4"/>
-      <line x1="4" y1="-4" x2="-4" y2="4"/>
-      
-      <!-- Neural nodes -->
-      <circle cx="-4" cy="-4" r="0.8" fill="url(#goldGradient)" opacity="0.7"/>
-      <circle cx="4" cy="-4" r="0.8" fill="url(#goldGradient)" opacity="0.7"/>
-      <circle cx="-4" cy="4" r="0.8" fill="url(#goldGradient)" opacity="0.7"/>
-      <circle cx="4" cy="4" r="0.8" fill="url(#goldGradient)" opacity="0.7"/>
-      
-      <!-- Additional smaller nodes -->
-      <circle cx="-2" cy="0" r="0.5" fill="url(#goldGradient)" opacity="0.6"/>
-      <circle cx="2" cy="0" r="0.5" fill="url(#goldGradient)" opacity="0.6"/>
-      <circle cx="0" cy="-2" r="0.5" fill="url(#goldGradient)" opacity="0.6"/>
-      <circle cx="0" cy="2" r="0.5" fill="url(#goldGradient)" opacity="0.6"/>
+      <!-- Inner detail -->
+      <polygon points="0,-3 2.6,-1.5 2.6,1.5 0,3 -2.6,1.5 -2.6,-1.5" 
+               fill="none" 
+               stroke="url(#nodeGradient)" 
+               stroke-width="0.5" 
+               opacity="0.8"/>
     </g>
     
-    <!-- Premium accent - small crown/top element -->
-    <g transform="translate(0,-10)">
-      <path d="M -2 0 L 0 -2 L 2 0 Z" fill="url(#goldGradient)"/>
-      <circle cx="0" cy="-1" r="0.5" fill="url(#goldGradient)"/>
+    <!-- Molecular connections (bonds) -->
+    <g stroke="url(#connectionGradient)" stroke-width="1.2" opacity="0.9">
+      <!-- Primary bonds -->
+      <line x1="0" y1="-6" x2="0" y2="-12" filter="url(#glow)"/>
+      <line x1="5.2" y1="-3" x2="10" y2="-6" filter="url(#glow)"/>
+      <line x1="5.2" y1="3" x2="10" y2="6" filter="url(#glow)"/>
+      <line x1="0" y1="6" x2="0" y2="12" filter="url(#glow)"/>
+      <line x1="-5.2" y1="3" x2="-10" y2="6" filter="url(#glow)"/>
+      <line x1="-5.2" y1="-3" x2="-10" y2="-6" filter="url(#glow)"/>
+      
+      <!-- Secondary bonds -->
+      <line x1="5.2" y1="-3" x2="8" y2="0" opacity="0.7"/>
+      <line x1="5.2" y1="3" x2="8" y2="0" opacity="0.7"/>
+      <line x1="-5.2" y1="-3" x2="-8" y2="0" opacity="0.7"/>
+      <line x1="-5.2" y1="3" x2="-8" y2="0" opacity="0.7"/>
+    </g>
+    
+    <!-- Outer nodes (atoms) -->
+    <g fill="url(#nodeGradient)" stroke="url(#connectionGradient)" stroke-width="0.5">
+      <circle cx="0" cy="-12" r="2.5" filter="url(#glow)"/>
+      <circle cx="10" cy="-6" r="2.5" filter="url(#glow)"/>
+      <circle cx="10" cy="6" r="2.5" filter="url(#glow)"/>
+      <circle cx="0" cy="12" r="2.5" filter="url(#glow)"/>
+      <circle cx="-10" cy="6" r="2.5" filter="url(#glow)"/>
+      <circle cx="-10" cy="-6" r="2.5" filter="url(#glow)"/>
+      
+      <!-- Secondary nodes -->
+      <circle cx="8" cy="0" r="1.8" opacity="0.8"/>
+      <circle cx="-8" cy="0" r="1.8" opacity="0.8"/>
+    </g>
+    
+    <!-- Central core highlight -->
+    <circle cx="0" cy="0" r="1.5" fill="url(#nodeGradient)" opacity="0.9"/>
+    <circle cx="-1" cy="-1" r="0.8" fill="#ffffff" opacity="0.7"/>
+    
+    <!-- Data flow indicators (small moving elements) -->
+    <g fill="#64748b" opacity="0.6">
+      <circle cx="2" cy="-9" r="0.5"/>
+      <circle cx="7" cy="-3" r="0.4"/>
+      <circle cx="7" cy="3" r="0.5"/>
+      <circle cx="2" cy="9" r="0.4"/>
+      <circle cx="-7" cy="3" r="0.5"/>
+      <circle cx="-7" cy="-3" r="0.4"/>
     </g>
   </g>
   
-  <!-- Subtle corner accents for institutional feel -->
-  <g stroke="url(#goldGradient)" stroke-width="0.5" fill="none" opacity="0.5">
-    <path d="M 4 4 L 6 4 L 6 6"/>
-    <path d="M 28 4 L 26 4 L 26 6"/>
-    <path d="M 4 28 L 6 28 L 6 26"/>
-    <path d="M 28 28 L 26 28 L 26 26"/>
+  <!-- Corner scientific notation -->
+  <g fill="url(#connectionGradient)" opacity="0.4" font-family="Arial, monospace" font-size="2">
+    <text x="28" y="6" text-anchor="end">AI</text>
+    <text x="28" y="29" text-anchor="end">²</text>
   </g>
+  
 </svg>
