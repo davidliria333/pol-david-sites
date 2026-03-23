@@ -1,114 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
-    <!-- Background gradient -->
+    <!-- Sophisticated background gradient -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#4f46e5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3730a3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4338ca;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Central hexagon gradient -->
-    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
-    </linearGradient>
+    <!-- Central hexagon - more sophisticated -->
+    <radialGradient id="hexGradient" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="70%" style="stop-color:#e0e7ff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#c7d2fe;stop-opacity:0.8" />
+    </radialGradient>
     
-    <!-- Connection lines gradient -->
-    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.7" />
-      <stop offset="50%" style="stop-color:#f8fafc;stop-opacity:1" />
+    <!-- Clean connection lines -->
+    <linearGradient id="connectionGradient">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
       <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:0.7" />
     </linearGradient>
     
-    <!-- Node gradient -->
+    <!-- Refined node gradient -->
     <radialGradient id="nodeGradient" cx="50%" cy="30%" r="70%">
       <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#e0e7ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c7d2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cbd5e1;stop-opacity:0.9" />
     </radialGradient>
     
-    <!-- Glow effect -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
-      <feMerge> 
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <!-- Subtle shadow -->
+    <filter id="subtleShadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#1e293b" flood-opacity="0.15"/>
     </filter>
   </defs>
   
-  <!-- Main background -->
-  <rect width="32" height="32" rx="6" fill="url(#bgGradient)"/>
+  <!-- Clean background -->
+  <rect width="32" height="32" rx="7" fill="url(#bgGradient)"/>
   
-  <!-- Molecular structure centered -->
+  <!-- Refined molecular structure -->
   <g transform="translate(16,16)">
     
-    <!-- Central hexagon (main molecule) -->
-    <g filter="url(#glow)">
-      <polygon points="0,-6 5.2,-3 5.2,3 0,6 -5.2,3 -5.2,-3" 
-               fill="url(#hexGradient)" 
-               stroke="url(#connectionGradient)" 
-               stroke-width="0.8"/>
-      
-      <!-- Inner detail -->
-      <polygon points="0,-3 2.6,-1.5 2.6,1.5 0,3 -2.6,1.5 -2.6,-1.5" 
-               fill="none" 
-               stroke="url(#nodeGradient)" 
-               stroke-width="0.5" 
-               opacity="0.8"/>
+    <!-- Central hexagon - cleaner and more prominent -->
+    <polygon points="0,-5 4.3,-2.5 4.3,2.5 0,5 -4.3,2.5 -4.3,-2.5" 
+             fill="url(#hexGradient)" 
+             stroke="none"
+             filter="url(#subtleShadow)"/>
+    
+    <!-- Clean molecular bonds - only essential connections -->
+    <g stroke="url(#connectionGradient)" stroke-width="1.5" fill="none">
+      <!-- Primary connections only -->
+      <line x1="0" y1="-5" x2="0" y2="-10"/>
+      <line x1="4.3" y1="-2.5" x2="8.5" y2="-5"/>
+      <line x1="4.3" y1="2.5" x2="8.5" y2="5"/>
+      <line x1="0" y1="5" x2="0" y2="10"/>
+      <line x1="-4.3" y1="2.5" x2="-8.5" y2="5"/>
+      <line x1="-4.3" y1="-2.5" x2="-8.5" y2="-5"/>
     </g>
     
-    <!-- Molecular connections (bonds) -->
-    <g stroke="url(#connectionGradient)" stroke-width="1.2" opacity="0.9">
-      <!-- Primary bonds -->
-      <line x1="0" y1="-6" x2="0" y2="-12" filter="url(#glow)"/>
-      <line x1="5.2" y1="-3" x2="10" y2="-6" filter="url(#glow)"/>
-      <line x1="5.2" y1="3" x2="10" y2="6" filter="url(#glow)"/>
-      <line x1="0" y1="6" x2="0" y2="12" filter="url(#glow)"/>
-      <line x1="-5.2" y1="3" x2="-10" y2="6" filter="url(#glow)"/>
-      <line x1="-5.2" y1="-3" x2="-10" y2="-6" filter="url(#glow)"/>
-      
-      <!-- Secondary bonds -->
-      <line x1="5.2" y1="-3" x2="8" y2="0" opacity="0.7"/>
-      <line x1="5.2" y1="3" x2="8" y2="0" opacity="0.7"/>
-      <line x1="-5.2" y1="-3" x2="-8" y2="0" opacity="0.7"/>
-      <line x1="-5.2" y1="3" x2="-8" y2="0" opacity="0.7"/>
+    <!-- Refined outer nodes -->
+    <g fill="url(#nodeGradient)" stroke="none">
+      <circle cx="0" cy="-10" r="2.2" filter="url(#subtleShadow)"/>
+      <circle cx="8.5" cy="-5" r="2.2" filter="url(#subtleShadow)"/>
+      <circle cx="8.5" cy="5" r="2.2" filter="url(#subtleShadow)"/>
+      <circle cx="0" cy="10" r="2.2" filter="url(#subtleShadow)"/>
+      <circle cx="-8.5" cy="5" r="2.2" filter="url(#subtleShadow)"/>
+      <circle cx="-8.5" cy="-5" r="2.2" filter="url(#subtleShadow)"/>
     </g>
     
-    <!-- Outer nodes (atoms) -->
-    <g fill="url(#nodeGradient)" stroke="url(#connectionGradient)" stroke-width="0.5">
-      <circle cx="0" cy="-12" r="2.5" filter="url(#glow)"/>
-      <circle cx="10" cy="-6" r="2.5" filter="url(#glow)"/>
-      <circle cx="10" cy="6" r="2.5" filter="url(#glow)"/>
-      <circle cx="0" cy="12" r="2.5" filter="url(#glow)"/>
-      <circle cx="-10" cy="6" r="2.5" filter="url(#glow)"/>
-      <circle cx="-10" cy="-6" r="2.5" filter="url(#glow)"/>
-      
-      <!-- Secondary nodes -->
-      <circle cx="8" cy="0" r="1.8" opacity="0.8"/>
-      <circle cx="-8" cy="0" r="1.8" opacity="0.8"/>
-    </g>
+    <!-- Central core - refined highlight -->
+    <circle cx="0" cy="0" r="1.8" fill="url(#hexGradient)" opacity="0.8"/>
+    <circle cx="-0.5" cy="-0.5" r="0.6" fill="#ffffff" opacity="0.8"/>
     
-    <!-- Central core highlight -->
-    <circle cx="0" cy="0" r="1.5" fill="url(#nodeGradient)" opacity="0.9"/>
-    <circle cx="-1" cy="-1" r="0.8" fill="#ffffff" opacity="0.7"/>
-    
-    <!-- Data flow indicators (small moving elements) -->
-    <g fill="#64748b" opacity="0.6">
-      <circle cx="2" cy="-9" r="0.5"/>
-      <circle cx="7" cy="-3" r="0.4"/>
-      <circle cx="7" cy="3" r="0.5"/>
-      <circle cx="2" cy="9" r="0.4"/>
-      <circle cx="-7" cy="3" r="0.5"/>
-      <circle cx="-7" cy="-3" r="0.4"/>
+    <!-- Minimal data flow indicators -->
+    <g fill="#ffffff" opacity="0.6">
+      <circle cx="0" cy="-7.5" r="0.4"/>
+      <circle cx="6.5" cy="-3.8" r="0.4"/>
+      <circle cx="6.5" cy="3.8" r="0.4"/>
+      <circle cx="0" cy="7.5" r="0.4"/>
+      <circle cx="-6.5" cy="3.8" r="0.4"/>
+      <circle cx="-6.5" cy="-3.8" r="0.4"/>
     </g>
   </g>
   
-  <!-- Corner scientific notation -->
-  <g fill="url(#connectionGradient)" opacity="0.4" font-family="Arial, monospace" font-size="2">
-    <text x="28" y="6" text-anchor="end">AI</text>
-    <text x="28" y="29" text-anchor="end">²</text>
-  </g>
+  <!-- Subtle brand mark -->
+  <circle cx="26" cy="6" r="1.2" fill="#ffffff" opacity="0.3"/>
+  <text x="26" y="6.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="1.6" fill="#ffffff" font-weight="600" opacity="0.8">A</text>
   
 </svg>
