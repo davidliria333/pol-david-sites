@@ -1134,6 +1134,71 @@
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.1); opacity: 0.8; }
         }
+        
+        /* Compact Calculator Sliders */
+        .input-slider {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        
+        .input-slider::-webkit-slider-track {
+            background: #ddd;
+            height: 8px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .input-slider::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            border: 3px solid;
+            border-color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .input-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .input-slider::-moz-range-track {
+            background: #ddd;
+            height: 8px;
+            border-radius: 8px;
+            border: none;
+        }
+        
+        .input-slider::-moz-range-thumb {
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            border: 3px solid;
+            border-color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive Calculator */
+        @media (max-width: 768px) {
+            .calculator-container div[style*="grid-template-columns: 380px 1fr"] {
+                grid-template-columns: 1fr !important;
+                max-width: 100% !important;
+            }
+        }
     </style>
 </head>
 
@@ -1720,124 +1785,138 @@
             </div>
         </section>
         
-        <!-- ROI Calculator Section - Professional & Elegant -->
+        <!-- ROI Calculator Section - Compact & Professional -->
         <section id="roi-calculator" class="section roi-calculator">
             <div class="container">
-                <h2 class="section-title fade-in" style="text-align: center; color: var(--text-primary); font-size: 48px; margin-bottom: 24px; font-weight: 600;" data-translate="roi_title">
-                    Análisis de Eficiencia Operativa
-                </h2>
-                <p class="section-subtitle fade-in" style="text-align: center; font-size: 22px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;" data-translate="roi_subtitle">
-                    Evalúe el impacto de optimizar sus procesos de investigación
-                </p>
-                <p class="fade-in" style="text-align: center; font-size: 16px; color: var(--text-light); margin-bottom: 8px;" data-translate="roi_note1">
-                    Análisis basado en datos sectoriales verificados
-                </p>
-                <p class="fade-in" style="text-align: center; font-size: 14px; color: var(--text-light); margin-bottom: 60px;" data-translate="roi_note2">
-                    Metodología de utilización práctica del 65%
-                </p>
+                <div style="text-align: center; margin-bottom: 48px;">
+                    <h2 class="section-title fade-in" style="color: var(--text-primary); font-size: 40px; margin-bottom: 16px; font-weight: 700;" data-translate="roi_title">
+                        Calculadora ROI
+                    </h2>
+                    <p class="section-subtitle fade-in" style="font-size: 18px; color: var(--text-secondary); margin-bottom: 8px;" data-translate="roi_subtitle">
+                        Evalúe el impacto de optimizar sus procesos de investigación
+                    </p>
+                    <span class="fade-in" style="font-size: 14px; color: var(--text-light); font-weight: 500;" data-translate="roi_note1">
+                        📊 Datos sectoriales verificados • 65% utilización práctica
+                    </span>
+                </div>
 
-                <div class="calculator-container fade-in" style="max-width: 900px;">
-                    <div class="calculator-grid" style="grid-template-columns: 1fr; gap: 40px;">
-                        <!-- Professional Input Controls -->
-                        <div class="calculator-inputs" style="background: var(--white); padding: 48px; border-radius: 20px; margin-bottom: 30px; border: 1px solid var(--border-light); box-shadow: 0 2px 20px rgba(0,0,0,0.04);">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end;">
-                                <!-- Projects per month -->
-                                <div class="input-group">
-                                    <label class="input-label" style="font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--text-primary);" data-translate="roi_projects_label">
-                                        Volumen mensual de proyectos
-                                    </label>
-                                    <div class="input-slider-container">
-                                        <div class="slider-wrapper">
-                                            <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5">
-                                            <div class="slider-value-display" id="projectsValueDisplay" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(99, 102, 241, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); color: #4f46e5;">5 proyectos</div>
-                                        </div>
+                <!-- Compact Calculator Design -->
+                <div class="calculator-container fade-in" style="max-width: 1000px; background: white; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); border: 1px solid rgba(99, 102, 241, 0.1); overflow: hidden;">
+                    <div style="display: grid; grid-template-columns: 380px 1fr; gap: 0; align-items: stretch; min-height: 420px;">
+                        
+                        <!-- Compact Input Controls -->
+                        <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 32px 28px; border-right: 1px solid rgba(99, 102, 241, 0.1);">
+                            <div style="margin-bottom: 8px;">
+                                <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Parámetros</h3>
+                                <p style="font-size: 13px; color: var(--text-light);">Ajuste según su realidad</p>
+                            </div>
+
+                            <!-- Projects Input -->
+                            <div style="margin-bottom: 28px;">
+                                <label style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: block;" data-translate="roi_projects_label">
+                                    Proyectos mensuales
+                                </label>
+                                <div class="input-slider-container" style="position: relative;">
+                                    <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="15" value="5" 
+                                           style="width: 100%; height: 8px; border-radius: 12px; background: linear-gradient(90deg, #6366f1, #8b5cf6); outline: none; appearance: none; cursor: pointer; box-shadow: 0 2px 6px rgba(99, 102, 241, 0.15);">
+                                    <div id="projectsValueDisplay" style="text-align: center; margin-top: 12px; font-size: 15px; font-weight: 600; color: #4f46e5; background: rgba(99, 102, 241, 0.08); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2);">
+                                        5 proyectos
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Hourly rate -->
-                                <div class="input-group">
-                                    <label class="input-label" style="font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--text-primary);" data-translate="roi_hourly_label">
-                                        Tarifa profesional (€/hora)
-                                    </label>
-                                    <div class="input-slider-container">
-                                        <div class="slider-wrapper">
-                                            <input type="range" id="hourlyRate" class="input-slider" min="0" max="500" value="150" step="25">
-                                            <div class="slider-value-display" id="hourlyRateValueDisplay" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(99, 102, 241, 0.06)); border: 1px solid rgba(99, 102, 241, 0.2); color: #4f46e5;">€150</div>
-                                        </div>
+                            <!-- Hourly Rate Input -->
+                            <div style="margin-bottom: 28px;">
+                                <label style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: block;" data-translate="roi_hourly_label">
+                                    Tarifa profesional
+                                </label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="hourlyRate" class="input-slider" min="50" max="500" value="150" step="25"
+                                           style="width: 100%; height: 8px; border-radius: 12px; background: linear-gradient(90deg, #10b981, #22c55e); outline: none; appearance: none; cursor: pointer; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);">
+                                    <div id="hourlyRateValueDisplay" style="text-align: center; margin-top: 12px; font-size: 15px; font-weight: 600; color: #059669; background: rgba(16, 185, 129, 0.08); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                                        €150/hora
                                     </div>
                                 </div>
+                            </div>
+
+                            <!-- Industry Selector -->
+                            <div>
+                                <label style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: block;">
+                                    Sector
+                                </label>
+                                <select id="industrySelect" style="width: 100%; padding: 10px 14px; border: 2px solid rgba(99, 102, 241, 0.2); border-radius: 8px; font-size: 14px; background: white; color: var(--text-primary); font-weight: 500; cursor: pointer;">
+                                    <option value="legal">Bufetes de Abogados</option>
+                                    <option value="consulting">Consultoras</option>
+                                    <option value="audit">Auditorías</option>
+                                    <option value="marketing">Agencias Marketing</option>
+                                    <option value="financial">Asesores Financieros</option>
+                                </select>
                             </div>
                         </div>
 
-                        <!-- Professional Results Display -->
-                        <div class="calculator-outputs" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; padding: 48px; border-radius: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-                            <!-- Main Value Proposition -->
-                            <div style="margin-bottom: 40px;">
-                                <div style="font-size: 18px; font-weight: 500; color: #64748b; margin-bottom: 12px;">Optimización mensual estimada</div>
-                                <div style="font-size: 56px; font-weight: 700; color: #0f172a; margin-bottom: 12px; line-height: 1;" id="monthlySavings">
+                        <!-- Compact Results Display -->
+                        <div style="background: white; padding: 32px; display: flex; flex-direction: column; justify-content: center;">
+                            <!-- Main Results -->
+                            <div style="text-align: center; margin-bottom: 24px;">
+                                <div style="font-size: 14px; font-weight: 500; color: #64748b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Ahorro mensual estimado</div>
+                                <div id="monthlySavings" style="font-size: 48px; font-weight: 800; color: #0f172a; margin-bottom: 8px; line-height: 1;">
                                     €17,250
                                 </div>
-                                <div style="font-size: 16px; color: #64748b; margin-bottom: 24px;" data-translate="roi_monthly_savings">
+                                <div style="font-size: 14px; color: #64748b; margin-bottom: 16px;" data-translate="roi_monthly_savings">
                                     en eficiencia operativa
                                 </div>
-                                <div style="font-size: 14px; color: #94a3b8; padding: 12px 24px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;" id="timeSavedText" data-translate="roi_time_saved">
-                                    Capacidad liberada: 68 horas estratégicas
+                                <div id="timeSavedText" style="font-size: 13px; color: #94a3b8; background: #f8fafc; padding: 8px 16px; border-radius: 6px; display: inline-block; border: 1px solid #e2e8f0;" data-translate="roi_time_saved">
+                                    ⏱️ 68 horas estratégicas liberadas
                                 </div>
                             </div>
 
-                            <!-- Professional ROI Highlight -->
-                            <div style="background: #f0f9ff; border: 2px solid #0ea5e9; padding: 28px; border-radius: 16px; margin-bottom: 40px;">
-                                <div style="font-size: 28px; font-weight: 600; color: #0369a1; margin-bottom: 8px;" id="roiPercentage" data-translate="roi_annual_text">
-                                    582% retorno anual
+                            <!-- ROI Metrics Grid -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+                                <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 1px solid #0ea5e9; padding: 16px; border-radius: 12px; text-align: center;">
+                                    <div id="roiPercentage" style="font-size: 20px; font-weight: 700; color: #0369a1; margin-bottom: 4px;">
+                                        582%
+                                    </div>
+                                    <div style="font-size: 11px; color: #0284c7; font-weight: 500;">ROI Anual</div>
                                 </div>
-                                <div style="font-size: 14px; color: #64748b;" data-translate="roi_client_avg">
-                                    Resultados validados con clientes actuales
+                                <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #22c55e; padding: 16px; border-radius: 12px; text-align: center;">
+                                    <div id="paybackPeriod" style="font-size: 20px; font-weight: 700; color: #15803d; margin-bottom: 4px;">
+                                        2.1
+                                    </div>
+                                    <div style="font-size: 11px; color: #16a34a; font-weight: 500;">Meses Payback</div>
                                 </div>
                             </div>
 
-                            <!-- Sophisticated CTA -->
-                            <div style="background: #ffffff; border: 1px solid #e2e8f0; padding: 36px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                                <div style="font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;" data-translate="roi_cta_text">
-                                    Explore cómo implementar esta optimización
-                                </div>
-                                <div style="font-size: 16px; color: var(--text-secondary); margin-bottom: 28px;">
-                                    Análisis personalizado de su flujo actual y plan de optimización
-                                </div>
+                            <!-- CTA Button -->
+                            <div style="text-align: center;">
                                 <a href="https://cal.eu/polruiz/15min" target="_blank"
-                                   style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 16px rgba(99, 102, 241, 0.24); transition: all 0.3s ease; border: none;"
-                                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(99, 102, 241, 0.32)';"
-                                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(99, 102, 241, 0.24)';">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                    <span data-translate="roi_cta_button">Consulta estratégica (15 min)</span>
+                                   style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; padding: 14px 24px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3); transition: all 0.3s ease;"
+                                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(99, 102, 241, 0.4)';"
+                                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(99, 102, 241, 0.3)';">
+                                    <i class="fas fa-calendar-alt" style="font-size: 14px;"></i>
+                                    <span data-translate="roi_cta_button">Validar con Experto (15min)</span>
                                 </a>
-                                <div style="margin-top: 20px; font-size: 13px; color: #94a3b8; display: flex; justify-content: center; gap: 24px;" data-translate="roi_cta_features">
-                                    <span>• Análisis sin compromiso</span>
-                                    <span>• Enfoque personalizado</span>
-                                    <span>• Resultados medibles</span>
+                                <div style="margin-top: 12px; font-size: 11px; color: #94a3b8; display: flex; justify-content: center; gap: 16px;">
+                                    <span>✓ Sin compromiso</span>
+                                    <span>✓ Análisis personalizado</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Professional Trust Indicators -->
-                    <div style="background: var(--white); border-radius: 16px; padding: 40px; margin-top: 48px; text-align: center; border: 1px solid var(--border-light); box-shadow: 0 2px 12px rgba(0,0,0,0.04);" class="fade-in">
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: center;">
+                    <!-- Trust Indicators Bottom Bar -->
+                    <div style="background: linear-gradient(135deg, #f9fafb, #f3f4f6); border-top: 1px solid rgba(99, 102, 241, 0.1); padding: 16px 32px;">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
                             <div>
-                                <div style="font-size: 36px; font-weight: 700; color: #6366f1; margin-bottom: 8px;">48h</div>
-                                <div style="font-size: 14px; color: var(--text-secondary); font-weight: 500;" data-translate="roi_guarantee1">Implementación garantizada</div>
+                                <span style="font-size: 24px; font-weight: 700; color: #6366f1;">48h</span>
+                                <div style="font-size: 11px; color: var(--text-secondary); font-weight: 500;" data-translate="roi_guarantee1">Garantía entrega</div>
                             </div>
                             <div>
-                                <div style="font-size: 36px; font-weight: 700; color: #6366f1; margin-bottom: 8px;">95%</div>
-                                <div style="font-size: 14px; color: var(--text-secondary); font-weight: 500;" data-translate="roi_guarantee2">Precisión metodológica</div>
+                                <span style="font-size: 24px; font-weight: 700; color: #6366f1;">95%</span>
+                                <div style="font-size: 11px; color: var(--text-secondary); font-weight: 500;" data-translate="roi_guarantee2">Precisión validada</div>
                             </div>
                             <div>
-                                <div style="font-size: 36px; font-weight: 700; color: #6366f1; margin-bottom: 8px;">100+</div>
-                                <div style="font-size: 14px; color: var(--text-secondary); font-weight: 500;" data-translate="roi_guarantee3">Casos de éxito</div>
+                                <span style="font-size: 24px; font-weight: 700; color: #6366f1;">100+</span>
+                                <div style="font-size: 11px; color: var(--text-secondary); font-weight: 500;" data-translate="roi_guarantee3">Casos exitosos</div>
                             </div>
                         </div>
                     </div>
@@ -2954,98 +3033,106 @@
             });
         });
 
-        // Simple ROI Calculator - Realistic Logic with Perfect Centering
+        // Compact Professional ROI Calculator
         function initializeSimpleROICalculator() {
             const projectsSlider = document.getElementById('projectsPerMonth');
             const hourlyRateSlider = document.getElementById('hourlyRate');
+            const industrySelect = document.getElementById('industrySelect');
             const projectsValueDisplay = document.getElementById('projectsValueDisplay');
             const hourlyRateValueDisplay = document.getElementById('hourlyRateValueDisplay');
             const monthlySavings = document.getElementById('monthlySavings');
             const timeSavedText = document.getElementById('timeSavedText');
             const roiPercentage = document.getElementById('roiPercentage');
+            const paybackPeriod = document.getElementById('paybackPeriod');
+
+            // Industry-specific parameters
+            const industryFactors = {
+                legal: { timePerProject: 28, efficiency: 0.70, complexity: 1.2 },
+                consulting: { timePerProject: 25, efficiency: 0.65, complexity: 1.0 },
+                audit: { timePerProject: 32, efficiency: 0.72, complexity: 1.3 },
+                marketing: { timePerProject: 18, efficiency: 0.60, complexity: 0.8 },
+                financial: { timePerProject: 22, efficiency: 0.68, complexity: 0.9 }
+            };
 
             function updateCalculator() {
                 if (!projectsSlider || !hourlyRateSlider) return;
 
                 const projects = parseInt(projectsSlider.value);
                 const hourlyRate = parseInt(hourlyRateSlider.value);
+                const industry = industrySelect ? industrySelect.value : 'consulting';
+                const factors = industryFactors[industry];
 
-                // Update slider displays - STATIC positioning
+                // Update slider displays
                 if (projectsValueDisplay) {
-                    if (currentLanguage === 'es') {
-                        projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
-                    } else {
-                        projectsValueDisplay.textContent = projects + (projects == 1 ? ' project' : ' projects');
-                    }
+                    projectsValueDisplay.textContent = projects + (projects == 1 ? ' proyecto' : ' proyectos');
                 }
                 if (hourlyRateValueDisplay) {
-                    hourlyRateValueDisplay.textContent = '€' + hourlyRate;
+                    hourlyRateValueDisplay.textContent = '€' + hourlyRate + '/hora';
                 }
 
-                // NEW REALISTIC CALCULATION LOGIC
-                const traditionalTimePerProject = 25; // hours (not 120!)
-                const analitikAITimePerProject = 4; // hours (not 16)
-                const timeSavedPerProject = 21; // 25 - 4 = 21 hours
-                const utilizationFactor = 0.65; // 65% (not 100%)
-                const actualUsableTimeSaved = timeSavedPerProject * utilizationFactor; // 21 * 0.65 = 13.6 hours
-                const analitikAIProjectCost = 750; // €750 per project
+                // Enhanced calculation with industry factors
+                const traditionalTimePerProject = factors.timePerProject;
+                const analitikAITimePerProject = 4;
+                const timeSavedPerProject = traditionalTimePerProject - analitikAITimePerProject;
+                const usableTimeSaved = timeSavedPerProject * factors.efficiency;
+                const analitikAIProjectCost = 750;
 
-                // Monthly calculation
-                const usableTimeSaved = projects * actualUsableTimeSaved;
-                const valueOfTime = usableTimeSaved * hourlyRate;
-                const analitikAICost = projects * analitikAIProjectCost;
-                const netSavings = valueOfTime - analitikAICost;
+                // Monthly calculations
+                const totalUsableTimeSaved = projects * usableTimeSaved;
+                const valueOfTime = totalUsableTimeSaved * hourlyRate;
+                const totalAnalitikAICost = projects * analitikAIProjectCost;
+                const netSavings = valueOfTime - totalAnalitikAICost;
 
-                // ROI calculation (annual)
+                // Annual metrics
                 const annualNetSavings = netSavings * 12;
-                const annualCost = analitikAICost * 12;
-                const roi = annualCost > 0 ? (annualNetSavings / annualCost) * 100 : 0;
+                const annualInvestment = totalAnalitikAICost * 12;
+                const roi = annualInvestment > 0 ? (annualNetSavings / annualInvestment) * 100 : 0;
+                const payback = netSavings > 0 ? (totalAnalitikAICost / netSavings) : 0;
 
-                // Update displays - handle €0 hourly rate case
+                // Update displays
                 if (monthlySavings) {
-                    if (hourlyRate === 0) {
-                        if (currentLanguage === 'es') {
-                            monthlySavings.textContent = '€' + Math.abs(analitikAICost).toLocaleString('es-ES') + ' inversión';
-                        } else {
-                            monthlySavings.textContent = '€' + Math.abs(analitikAICost).toLocaleString('en-US') + ' investment';
-                        }
+                    if (netSavings <= 0) {
+                        monthlySavings.textContent = '€' + Math.abs(totalAnalitikAICost).toLocaleString('es-ES');
+                        monthlySavings.style.color = '#dc2626';
                     } else {
-                        monthlySavings.textContent = '€' + Math.max(0, netSavings).toLocaleString('es-ES');
+                        monthlySavings.textContent = '€' + Math.round(netSavings).toLocaleString('es-ES');
+                        monthlySavings.style.color = '#0f172a';
                     }
                 }
+
                 if (timeSavedText) {
-                    if (currentLanguage === 'es') {
-                        timeSavedText.textContent = 'Capacidad liberada: ' + usableTimeSaved.toFixed(1) + ' horas estratégicas';
+                    timeSavedText.textContent = '⏱️ ' + Math.round(totalUsableTimeSaved) + ' horas estratégicas liberadas';
+                }
+
+                if (roiPercentage) {
+                    if (hourlyRate < 50) {
+                        roiPercentage.textContent = '—';
                     } else {
-                        timeSavedText.textContent = 'Capacity freed up: ' + usableTimeSaved.toFixed(1) + ' strategic hours';
+                        roiPercentage.textContent = Math.round(Math.max(0, roi)) + '%';
                     }
                 }
-                if (roiPercentage) {
-                    if (hourlyRate === 0) {
-                        if (currentLanguage === 'es') {
-                            roiPercentage.textContent = 'Introduce su tarifa para calcular retorno';
-                        } else {
-                            roiPercentage.textContent = 'Enter your rate to calculate return';
-                        }
+
+                if (paybackPeriod) {
+                    if (payback <= 0 || payback > 24) {
+                        paybackPeriod.textContent = '—';
                     } else {
-                        if (currentLanguage === 'es') {
-                            roiPercentage.textContent = Math.round(Math.max(0, roi)) + '% retorno anual';
-                        } else {
-                            roiPercentage.textContent = Math.round(Math.max(0, roi)) + '% annual return';
-                        }
+                        paybackPeriod.textContent = payback.toFixed(1);
                     }
                 }
             }
 
-            // Add event listeners - NO positioning updates (static layout)
+            // Event listeners
             if (projectsSlider) {
                 projectsSlider.addEventListener('input', updateCalculator);
             }
             if (hourlyRateSlider) {
                 hourlyRateSlider.addEventListener('input', updateCalculator);
             }
+            if (industrySelect) {
+                industrySelect.addEventListener('change', updateCalculator);
+            }
 
-            // Initial calculation - NO positioning needed (static layout)
+            // Initial calculation
             updateCalculator();
         }
 
