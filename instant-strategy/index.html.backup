@@ -1691,7 +1691,107 @@
                         </div>
                     </div>
 
+                    <!-- Trust Badges & Certifications -->
+                    <div style="background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%); border-radius: 20px; padding: 60px 48px; text-align: center; margin-bottom: 80px;" class="fade-in">
+                        <h3 style="color: white; font-size: 32px; margin-bottom: 16px; font-weight: 600;" data-translate="security_certifications_title">
+                            Certificaciones y Estándares Empresariales
+                        </h3>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto;" data-translate="security_certifications_desc">
+                            Cumplimiento verificado con los más altos estándares internacionales de seguridad y privacidad de datos
+                        </p>
 
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 800px; margin: 0 auto;">
+                            <!-- GDPR -->
+                            <div style="background: rgba(255,255,255,0.1); padding: 32px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                                <div style="width: 64px; height: 64px; background: rgba(99, 102, 241, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid rgba(99, 102, 241, 0.3);">
+                                    <i class="fas fa-user-shield" style="color: #818cf8; font-size: 24px;"></i>
+                                </div>
+                                <h4 style="color: white; font-size: 18px; margin-bottom: 8px; font-weight: 600;">GDPR</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-translate="security_gdpr_desc">Protección de datos europea</p>
+                            </div>
+
+                            <!-- ISO 27001 -->
+                            <div style="background: rgba(255,255,255,0.1); padding: 32px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                                <div style="width: 64px; height: 64px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid rgba(34, 197, 94, 0.3);">
+                                    <i class="fas fa-award" style="color: #4ade80; font-size: 24px;"></i>
+                                </div>
+                                <h4 style="color: white; font-size: 18px; margin-bottom: 8px; font-weight: 600;">ISO 27001</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-translate="security_iso_desc">Gestión de seguridad</p>
+                            </div>
+
+                            <!-- SOC 2 -->
+                            <div style="background: rgba(255,255,255,0.1); padding: 32px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                                <div style="width: 64px; height: 64px; background: rgba(168, 85, 247, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid rgba(168, 85, 247, 0.3);">
+                                    <i class="fas fa-certificate" style="color: #c084fc; font-size: 24px;"></i>
+                                </div>
+                                <h4 style="color: white; font-size: 18px; margin-bottom: 8px; font-weight: 600;">SOC 2</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-translate="security_soc_desc">Controles organizacionales</p>
+                            </div>
+
+                            <!-- Bank-Level -->
+                            <div style="background: rgba(255,255,255,0.1); padding: 32px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                                <div style="width: 64px; height: 64px; background: rgba(249, 115, 22, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid rgba(249, 115, 22, 0.3);">
+                                    <i class="fas fa-university" style="color: #fb923c; font-size: 24px;"></i>
+                                </div>
+                                <h4 style="color: white; font-size: 18px; margin-bottom: 8px; font-weight: 600;" data-translate="security_bank_title">Nivel Bancario</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-translate="security_bank_desc">Seguridad financiera</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security-focused CTA -->
+                    <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="fade-in">
+                        <div style="background: white; border-radius: 20px; padding: 48px 40px; box-shadow: 0 16px 48px rgba(0,0,0,0.1); border: 1px solid rgba(99, 102, 241, 0.1);">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                                <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-handshake" style="color: white; font-size: 20px;"></i>
+                                </div>
+                                <h3 style="font-size: 28px; font-weight: 600; color: var(--text-primary); margin: 0;" data-translate="security_cta_title">
+                                    Consulta de Seguridad Gratuita
+                                </h3>
+                            </div>
+                            
+                            <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 32px; line-height: 1.6;" data-translate="security_cta_desc">
+                                Hablemos sobre los requisitos específicos de seguridad de tu organización. 
+                                Evaluación personalizada sin compromiso para casos de uso críticos.
+                            </p>
+
+                            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                                <a href="https://cal.eu/polruiz/15min" target="_blank" 
+                                   style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; padding: 18px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3); transition: all 0.3s ease;"
+                                   onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(99, 102, 241, 0.4)';"
+                                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(99, 102, 241, 0.3)';">
+                                    <i class="fas fa-shield-check"></i>
+                                    <span data-translate="security_cta_consultation">Consulta de Seguridad</span>
+                                </a>
+
+                                <a href="#contact-form" 
+                                   style="display: inline-flex; align-items: center; gap: 12px; background: transparent; color: var(--accent-blue); padding: 18px 36px; border: 2px solid var(--accent-blue); border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease;"
+                                   onmouseover="this.style.background='var(--accent-blue)'; this.style.color='white'; this.style.transform='translateY(-2px)';"
+                                   onmouseout="this.style.background='transparent'; this.style.color='var(--accent-blue)'; this.style.transform='translateY(0)';">
+                                    <i class="fas fa-download"></i>
+                                    <span data-translate="security_cta_whitepaper">Descargar Whitepaper</span>
+                                </a>
+                            </div>
+
+                            <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: var(--text-light); font-size: 14px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                                        <span data-translate="security_guarantee_1">Evaluación sin compromiso</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-user-tie" style="color: #22c55e;"></i>
+                                        <span data-translate="security_guarantee_2">Especialista en seguridad</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-clock" style="color: #22c55e;"></i>
+                                        <span data-translate="security_guarantee_3">Respuesta en 24h</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2345,7 +2445,23 @@
                 security_audit_desc: "Registro detallado de todas las actividades, accesos y modificaciones. Logs inmutables para auditorías y cumplimiento regulatorio.",
                 security_audit_guarantee: "Immutable Audit Logs",
                 
-
+                // Security Certifications
+                security_certifications_title: "Certificaciones y Estándares Empresariales",
+                security_certifications_desc: "Cumplimiento verificado con los más altos estándares internacionales de seguridad y privacidad de datos",
+                security_gdpr_desc: "Protección de datos europea",
+                security_iso_desc: "Gestión de seguridad",
+                security_soc_desc: "Controles organizacionales",
+                security_bank_title: "Nivel Bancario",
+                security_bank_desc: "Seguridad financiera",
+                
+                // Security CTA
+                security_cta_title: "Consulta de Seguridad Gratuita",
+                security_cta_desc: "Hablemos sobre los requisitos específicos de seguridad de tu organización. Evaluación personalizada sin compromiso para casos de uso críticos.",
+                security_cta_consultation: "Consulta de Seguridad",
+                security_cta_whitepaper: "Descargar Whitepaper",
+                security_guarantee_1: "Evaluación sin compromiso",
+                security_guarantee_2: "Especialista en seguridad",
+                security_guarantee_3: "Respuesta en 24h",
                 
                 // ROI Calculator
                 roi_title: "Análisis de Eficiencia Operativa",
@@ -2583,7 +2699,23 @@
                 security_audit_desc: "Detailed logging of all activities, accesses and modifications. Immutable logs for audits and regulatory compliance.",
                 security_audit_guarantee: "Immutable Audit Logs",
                 
-
+                // Security Certifications
+                security_certifications_title: "Enterprise Certifications and Standards",
+                security_certifications_desc: "Verified compliance with the highest international standards for security and data privacy",
+                security_gdpr_desc: "European data protection",
+                security_iso_desc: "Security management",
+                security_soc_desc: "Organizational controls",
+                security_bank_title: "Banking Level",
+                security_bank_desc: "Financial security",
+                
+                // Security CTA
+                security_cta_title: "Free Security Consultation",
+                security_cta_desc: "Let's discuss your organization's specific security requirements. Personalized evaluation without commitment for critical use cases.",
+                security_cta_consultation: "Security Consultation",
+                security_cta_whitepaper: "Download Whitepaper",
+                security_guarantee_1: "No-commitment evaluation",
+                security_guarantee_2: "Security specialist",
+                security_guarantee_3: "24h response",
                 
                 // ROI Calculator
                 roi_title: "Operational Efficiency Analysis",
