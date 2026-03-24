@@ -325,17 +325,45 @@
             overflow: hidden;
         }
         
-        /* Fitness Video/Image Background */
+        /* Rotating Gym Equipment Backgrounds - B&W */
         .hero-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: var(--light-gray);
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .hero-bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(1.2) brightness(0.4) blur(0.5px);
+        }
+        
+        .hero-bg-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-bg-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: 
-                linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-                linear-gradient(45deg, rgba(0, 112, 243, 0.1), transparent),
-                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80') center/cover;
+                radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.6) 100%),
+                linear-gradient(135deg, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.9));
             z-index: 1;
         }
         
@@ -379,20 +407,53 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
         
+        /* Background Indicators */
+        .hero-bg-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 15;
+        }
+        
+        .hero-bg-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .hero-bg-indicator.active {
+            background: var(--nike-blue);
+            transform: scale(1.2);
+        }
+        
         .hero-content {
             position: relative;
             z-index: 10;
-            color: var(--pure-white);
+            color: var(--primary-black);
         }
         
         .hero-content .hero-title {
-            color: var(--pure-white);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--primary-black);
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            font-weight: 900;
         }
         
         .hero-content .hero-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: var(--dark-gray);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+        
+        .hero-content .hero-badge {
+            background: var(--accent-gradient);
+            color: var(--pure-white);
+            box-shadow: 0 4px 16px rgba(0, 112, 243, 0.3);
         }
         
         .hero-badge {
@@ -1066,8 +1127,21 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Fitness Background -->
-        <div class="hero-background"></div>
+        <!-- Rotating Gym Equipment Backgrounds -->
+        <div class="hero-background">
+            <div class="hero-bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1623874514711-0f321325f318?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1599058946847-edb85fc95693?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80');"></div>
+            
+            <!-- Background Indicators -->
+            <div class="hero-bg-indicators">
+                <div class="hero-bg-indicator active" data-slide="0"></div>
+                <div class="hero-bg-indicator" data-slide="1"></div>
+                <div class="hero-bg-indicator" data-slide="2"></div>
+                <div class="hero-bg-indicator" data-slide="3"></div>
+            </div>
+        </div>
         
         <div class="container">
             <div class="hero-content" style="text-align: center;">
@@ -1758,6 +1832,59 @@
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.borderBottom = '1px solid var(--medium-gray)';
             }
+        });
+
+        // Hero Background Rotation with Indicators
+        function initHeroBackgroundRotation() {
+            const slides = document.querySelectorAll('.hero-bg-slide');
+            const indicators = document.querySelectorAll('.hero-bg-indicator');
+            let currentSlide = 0;
+            let autoRotateInterval;
+            
+            if (slides.length <= 1) return;
+            
+            function goToSlide(slideIndex) {
+                // Remove active class from current slide and indicator
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                
+                // Set new current slide
+                currentSlide = slideIndex;
+                
+                // Add active class to new slide and indicator
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+            }
+            
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                goToSlide(nextIndex);
+            }
+            
+            function startAutoRotate() {
+                autoRotateInterval = setInterval(nextSlide, 4500);
+            }
+            
+            function stopAutoRotate() {
+                clearInterval(autoRotateInterval);
+            }
+            
+            // Add click listeners to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopAutoRotate();
+                    setTimeout(startAutoRotate, 8000); // Restart auto-rotate after 8 seconds
+                });
+            });
+            
+            // Start auto-rotate
+            startAutoRotate();
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initHeroBackgroundRotation();
         });
     </script>
 </body>
