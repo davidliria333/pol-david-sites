@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoachIQ - Elite AI Coaching Platform for Fitness Professionals</title>
-    <meta name="description" content="Scale your fitness coaching business with sophisticated AI technology. Professional platform for fitness influencers and gyms to deliver personalized coaching at scale.">
+    <title data-translate="page-title">CoachIQ - Elite AI Coaching Platform for Fitness Professionals</title>
+    <meta name="description" data-translate="page-description" content="Scale your fitness coaching business with sophisticated AI technology. Professional platform for fitness influencers and gyms to deliver personalized coaching at scale.">
     
     <style>
         /* Reset & Base */
@@ -120,6 +120,56 @@
             margin-left: auto;
             margin-right: auto;
             text-align: center;
+        }
+        
+        /* Language Toggle Styles */
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            border-radius: 25px;
+            padding: 4px;
+            margin-right: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lang-option {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            color: var(--dark-gray);
+            border: none;
+            background: transparent;
+        }
+        
+        .lang-option.active {
+            color: var(--pure-white);
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 50px;
+            height: 32px;
+            background: var(--accent-gradient);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+        
+        .toggle-slider.es {
+            transform: translateX(0);
+        }
+        
+        .toggle-slider.en {
+            transform: translateX(54px);
         }
         
         /* Layout */
@@ -248,6 +298,12 @@
         
         .nav-links a:hover::after {
             width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
         
         /* Hero Section - Nike Training Inspired */
@@ -808,6 +864,17 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .language-toggle {
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .nav-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-end;
+            }
         }
         
         @media (max-width: 480px) {
@@ -866,14 +933,22 @@
         <nav class="navbar container">
             <a href="#" class="logo">CoachIQ</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Platform</a></li>
-                <li><a href="#pricing">Plans</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-translate="nav-home">Inicio</a></li>
+                <li><a href="#features" data-translate="nav-platform">Plataforma</a></li>
+                <li><a href="#pricing" data-translate="nav-plans">Planes</a></li>
+                <li><a href="#contact" data-translate="nav-contact">Contacto</a></li>
             </ul>
-            <div style="display: flex; gap: 1rem;">
-                <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary">Book Demo</a>
-                <a href="https://cal.eu/polruiz/15min" class="btn btn-primary">Get Started</a>
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <div class="language-toggle">
+                    <div class="toggle-slider es" id="toggleSlider"></div>
+                    <button class="lang-option active" data-lang="es">ES</button>
+                    <button class="lang-option" data-lang="en">EN</button>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" data-translate="btn-demo">Agendar Demo</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary" data-translate="btn-start">Comenzar</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -882,33 +957,33 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content" style="text-align: center;">
-                <div class="hero-badge">
-                    Professional AI Coaching Platform
+                <div class="hero-badge" data-translate="hero-badge">
+                    Plataforma Profesional de Coaching IA
                 </div>
                 <h1 class="hero-title">
-                    Scale Your<br>
-                    Coaching <span class="accent">Business</span>
+                    <span data-translate="hero-title-1">Escala Tu</span><br>
+                    <span data-translate="hero-title-2">Negocio de</span> <span class="accent" data-translate="hero-title-3">Coaching</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Elite AI-powered coaching platform designed for fitness professionals, influencers, and gyms. Deliver personalized training and nutrition at scale while building a sustainable business.
+                <p class="hero-subtitle" data-translate="hero-subtitle">
+                    Plataforma élite de coaching con IA diseñada para profesionales del fitness, influencers y gimnasios. Ofrece entrenamiento y nutrición personalizada a escala mientras construyes un negocio sostenible.
                 </p>
                 <div class="hero-cta">
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-large">Start Building</a>
-                    <a href="#features" class="btn btn-secondary btn-large">View Platform</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-large" data-translate="btn-start-building">Comenzar a Construir</a>
+                    <a href="#features" class="btn btn-secondary btn-large" data-translate="btn-view-platform">Ver Plataforma</a>
                 </div>
                 
                 <div class="hero-metrics">
                     <div class="hero-metric">
                         <span class="hero-metric-number">500+</span>
-                        <p class="hero-metric-label">Active Coaches</p>
+                        <p class="hero-metric-label" data-translate="metric-coaches">Coaches Activos</p>
                     </div>
                     <div class="hero-metric">
                         <span class="hero-metric-number">24/7</span>
-                        <p class="hero-metric-label">AI Availability</p>
+                        <p class="hero-metric-label" data-translate="metric-availability">Disponibilidad IA</p>
                     </div>
                     <div class="hero-metric">
                         <span class="hero-metric-number">10x</span>
-                        <p class="hero-metric-label">Scale Potential</p>
+                        <p class="hero-metric-label" data-translate="metric-scale">Potencial de Escala</p>
                     </div>
                 </div>
             </div>
@@ -918,23 +993,23 @@
     <!-- Problem Section -->
     <section class="problem section">
         <div class="container" style="text-align: center;">
-            <h2 class="section-title">The Scaling Challenge</h2>
-            <p class="section-subtitle">
-                Great coaches face the same limitation: time. Your expertise can only reach so many clients with traditional 1-on-1 methods. Meanwhile, demand for quality coaching continues to grow exponentially.
+            <h2 class="section-title" data-translate="problem-title">El Desafío del Crecimiento</h2>
+            <p class="section-subtitle" data-translate="problem-subtitle">
+                Los grandes coaches enfrentan la misma limitación: el tiempo. Tu experiencia solo puede alcanzar a ciertos clientes con métodos tradicionales 1-a-1. Mientras tanto, la demanda de coaching de calidad sigue creciendo exponencialmente.
             </p>
             
             <div class="problem-stats">
                 <div class="problem-stat">
                     <span class="problem-stat-number">1:20</span>
-                    <p class="problem-stat-label">Coach to Client Ratio Limit</p>
+                    <p class="problem-stat-label" data-translate="problem-stat-1">Límite Ratio Coach-Cliente</p>
                 </div>
                 <div class="problem-stat">
                     <span class="problem-stat-number">60%</span>
-                    <p class="problem-stat-label">Coaches Struggle to Scale</p>
+                    <p class="problem-stat-label" data-translate="problem-stat-2">Coaches Luchan por Escalar</p>
                 </div>
                 <div class="problem-stat">
                     <span class="problem-stat-number">24hr</span>
-                    <p class="problem-stat-label">Daily Time Constraint</p>
+                    <p class="problem-stat-label" data-translate="problem-stat-3">Limitación Tiempo Diario</p>
                 </div>
             </div>
         </div>
@@ -944,9 +1019,9 @@
     <section class="solution section">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">AI-Powered Business Growth</h2>
-                <p class="section-subtitle">
-                    CoachIQ enables fitness professionals to scale their expertise through intelligent automation. Maintain your personal coaching quality while reaching unlimited clients.
+                <h2 class="section-title" data-translate="solution-title">Crecimiento Empresarial con IA</h2>
+                <p class="section-subtitle" data-translate="solution-subtitle">
+                    CoachIQ permite a profesionales del fitness escalar su experiencia a través de automatización inteligente. Mantén tu calidad de coaching personal mientras alcanzas clientes ilimitados.
                 </p>
             </div>
             
@@ -956,51 +1031,51 @@
                         <li class="solution-feature">
                             <div class="solution-feature-icon">🎯</div>
                             <div>
-                                <h4>Personalized Training Programs</h4>
-                                <p>AI generates custom workouts based on individual goals, experience, and equipment availability. Your methodology, delivered at scale.</p>
+                                <h4 data-translate="feature-personalized-title">Programas de Entrenamiento Personalizados</h4>
+                                <p data-translate="feature-personalized-desc">La IA genera entrenamientos customizados basados en objetivos individuales, experiencia y disponibilidad de equipo. Tu metodología, entregada a escala.</p>
                             </div>
                         </li>
                         
                         <li class="solution-feature">
                             <div class="solution-feature-icon">📊</div>
                             <div>
-                                <h4>Progress Tracking & Analytics</h4>
-                                <p>Comprehensive client monitoring with detailed insights. Track performance, adherence, and results across your entire client base.</p>
+                                <h4 data-translate="feature-tracking-title">Seguimiento de Progreso y Analíticas</h4>
+                                <p data-translate="feature-tracking-desc">Monitoreo integral de clientes con insights detallados. Rastrea rendimiento, adherencia y resultados en toda tu base de clientes.</p>
                             </div>
                         </li>
                         
                         <li class="solution-feature">
                             <div class="solution-feature-icon">🍎</div>
                             <div>
-                                <h4>Nutrition Planning</h4>
-                                <p>Automated meal planning and nutritional guidance tailored to each client's dietary preferences and fitness goals.</p>
+                                <h4 data-translate="feature-nutrition-title">Planificación Nutricional</h4>
+                                <p data-translate="feature-nutrition-desc">Planificación de comidas automatizada y orientación nutricional adaptada a las preferencias dietéticas y objetivos fitness de cada cliente.</p>
                             </div>
                         </li>
                         
                         <li class="solution-feature">
                             <div class="solution-feature-icon">💬</div>
                             <div>
-                                <h4>24/7 Client Support</h4>
-                                <p>AI-powered chat support providing instant answers to common questions while escalating complex issues to you.</p>
+                                <h4 data-translate="feature-support-title">Soporte Cliente 24/7</h4>
+                                <p data-translate="feature-support-desc">Soporte chat con IA que proporciona respuestas instantáneas a preguntas comunes mientras escala temas complejos directamente a ti.</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="solution-visual">
-                    <h3 style="margin-bottom: 2rem; color: var(--primary-black);">Business Growth Potential</h3>
+                    <h3 style="margin-bottom: 2rem; color: var(--primary-black);" data-translate="growth-potential-title">Potencial de Crecimiento Empresarial</h3>
                     
                     <div class="visual-metric">
-                        <div class="visual-metric-value">$5,000/mo</div>
-                        <div class="visual-metric-label">Current Revenue (20 clients)</div>
+                        <div class="visual-metric-value">$5,000/mes</div>
+                        <div class="visual-metric-label" data-translate="current-revenue">Ingresos Actuales (20 clientes)</div>
                     </div>
                     <div class="visual-metric">
-                        <div class="visual-metric-value">$50,000/mo</div>
-                        <div class="visual-metric-label">With CoachIQ (500 clients)</div>
+                        <div class="visual-metric-value">$50,000/mes</div>
+                        <div class="visual-metric-label" data-translate="with-coachiq">Con CoachIQ (500 clientes)</div>
                     </div>
                     <div class="visual-metric">
-                        <div class="visual-metric-value">10x Growth</div>
-                        <div class="visual-metric-label">Revenue Multiplier</div>
+                        <div class="visual-metric-value" data-translate="growth-multiplier">10x Crecimiento</div>
+                        <div class="visual-metric-label" data-translate="revenue-multiplier">Multiplicador de Ingresos</div>
                     </div>
                 </div>
             </div>
@@ -1011,47 +1086,47 @@
     <section class="features section" id="features">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">Professional Platform Features</h2>
-                <p class="section-subtitle">
-                    Enterprise-grade technology designed specifically for fitness professionals who demand excellence in both client delivery and business operations.
+                <h2 class="section-title" data-translate="features-title">Funciones de Plataforma Profesional</h2>
+                <p class="section-subtitle" data-translate="features-subtitle">
+                    Tecnología de nivel empresarial diseñada específicamente para profesionales del fitness que exigen excelencia tanto en la entrega al cliente como en operaciones comerciales.
                 </p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🏋️</div>
-                    <h3>Custom Workout Builder</h3>
-                    <p>Create and customize workout templates that reflect your training philosophy. AI adapts these to each client's specific needs and progression level.</p>
+                    <h3 data-translate="feature-builder-title">Constructor de Entrenamientos Personalizado</h3>
+                    <p data-translate="feature-builder-desc">Crea y personaliza plantillas de entrenamiento que reflejen tu filosofía de entrenamiento. La IA las adapta a las necesidades específicas y nivel de progresión de cada cliente.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h3>Multi-Platform Integration</h3>
-                    <p>Deploy your AI coach across WhatsApp, Instagram, your website, or custom mobile app. Meet your clients where they are.</p>
+                    <h3 data-translate="feature-integration-title">Integración Multi-Plataforma</h3>
+                    <p data-translate="feature-integration-desc">Despliega tu coach IA en WhatsApp, Instagram, tu sitio web, o app móvil personalizada. Encuentra a tus clientes donde estén.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
-                    <h3>Brand Customization</h3>
-                    <p>Complete white-label solution with your branding, colors, and messaging. Clients interact with your brand, not ours.</p>
+                    <h3 data-translate="feature-customization-title">Personalización de Marca</h3>
+                    <p data-translate="feature-customization-desc">Solución completa white-label con tu marca, colores y mensajes. Los clientes interactúan con tu marca, no la nuestra.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">💳</div>
-                    <h3>Payment Processing</h3>
-                    <p>Integrated subscription billing and payment processing. Automated revenue collection with detailed financial analytics.</p>
+                    <h3 data-translate="feature-payment-title">Procesamiento de Pagos</h3>
+                    <p data-translate="feature-payment-desc">Facturación por suscripción integrada y procesamiento de pagos. Recaudación de ingresos automatizada con analíticas financieras detalladas.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📈</div>
-                    <h3>Business Analytics</h3>
-                    <p>Comprehensive dashboard showing client engagement, retention rates, revenue metrics, and growth opportunities.</p>
+                    <h3 data-translate="feature-analytics-title">Analíticas Empresariales</h3>
+                    <p data-translate="feature-analytics-desc">Panel integral mostrando engagement de clientes, tasas de retención, métricas de ingresos y oportunidades de crecimiento.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>Enterprise Security</h3>
-                    <p>Bank-level encryption and data protection. HIPAA-compliant infrastructure ensuring client information stays secure.</p>
+                    <h3 data-translate="feature-security-title">Seguridad Empresarial</h3>
+                    <p data-translate="feature-security-desc">Encriptación y protección de datos de nivel bancario. Infraestructura compatible con HIPAA asegurando que la información del cliente permanezca segura.</p>
                 </div>
             </div>
         </div>
@@ -1061,74 +1136,74 @@
     <section class="pricing section" id="pricing">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 class="section-title">Choose Your Plan</h2>
-                <p class="section-subtitle">
-                    Flexible plans designed to grow with your business. Start small and scale as your client base expands.
+                <h2 class="section-title" data-translate="pricing-title">Elige Tu Plan</h2>
+                <p class="section-subtitle" data-translate="pricing-subtitle">
+                    Planes flexibles diseñados para crecer con tu negocio. Comienza pequeño y escala conforme tu base de clientes se expande.
                 </p>
             </div>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-name">Starter</div>
+                    <div class="pricing-name" data-translate="plan-starter">Iniciador</div>
                     <div class="pricing-price">
-                        $297<span class="period">/month</span>
+                        $297<span class="period" data-translate="per-month">/mes</span>
                     </div>
-                    <p class="pricing-description">Perfect for coaches ready to start scaling their business with AI-powered automation</p>
+                    <p class="pricing-description" data-translate="plan-starter-desc">Perfecto para coaches listos para comenzar a escalar su negocio con automatización powered por IA</p>
                     
                     <ul class="pricing-features">
-                        <li>Up to 100 active clients</li>
-                        <li>Custom workout generation</li>
-                        <li>Basic nutrition planning</li>
-                        <li>WhatsApp integration</li>
-                        <li>Payment processing</li>
-                        <li>Analytics dashboard</li>
-                        <li>Email support</li>
+                        <li data-translate="feature-clients-100">Hasta 100 clientes activos</li>
+                        <li data-translate="feature-custom-workout">Generación de entrenamientos personalizados</li>
+                        <li data-translate="feature-basic-nutrition">Planificación nutricional básica</li>
+                        <li data-translate="feature-whatsapp">Integración WhatsApp</li>
+                        <li data-translate="feature-payment-processing">Procesamiento de pagos</li>
+                        <li data-translate="feature-analytics-dashboard">Panel de analíticas</li>
+                        <li data-translate="feature-email-support">Soporte por email</li>
                     </ul>
                     
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;">Get Started</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;" data-translate="btn-get-started">Comenzar</a>
                 </div>
                 
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-name">Professional</div>
+                    <div class="pricing-badge" data-translate="most-popular">Más Popular</div>
+                    <div class="pricing-name" data-translate="plan-professional">Profesional</div>
                     <div class="pricing-price">
-                        $597<span class="period">/month</span>
+                        $597<span class="period" data-translate="per-month">/mes</span>
                     </div>
-                    <p class="pricing-description">Complete solution for established coaches serious about building a scalable fitness business</p>
+                    <p class="pricing-description" data-translate="plan-professional-desc">Solución completa para coaches establecidos serios sobre construir un negocio fitness escalable</p>
                     
                     <ul class="pricing-features">
-                        <li>Up to 500 active clients</li>
-                        <li>Advanced AI coaching</li>
-                        <li>Complete nutrition system</li>
-                        <li>Multi-platform deployment</li>
-                        <li>Custom branding</li>
-                        <li>Advanced analytics</li>
-                        <li>Priority phone support</li>
-                        <li>Monthly strategy calls</li>
+                        <li data-translate="feature-clients-500">Hasta 500 clientes activos</li>
+                        <li data-translate="feature-advanced-ai">Coaching IA avanzado</li>
+                        <li data-translate="feature-complete-nutrition">Sistema nutricional completo</li>
+                        <li data-translate="feature-multi-platform">Despliegue multi-plataforma</li>
+                        <li data-translate="feature-custom-branding">Marca personalizada</li>
+                        <li data-translate="feature-advanced-analytics">Analíticas avanzadas</li>
+                        <li data-translate="feature-priority-support">Soporte telefónico prioritario</li>
+                        <li data-translate="feature-monthly-calls">Llamadas de estrategia mensuales</li>
                     </ul>
                     
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Start Professional</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" data-translate="btn-start-professional">Comenzar Profesional</a>
                 </div>
                 
                 <div class="pricing-card">
-                    <div class="pricing-name">Enterprise</div>
+                    <div class="pricing-name" data-translate="plan-enterprise">Empresarial</div>
                     <div class="pricing-price">
-                        Custom<span class="period"> pricing</span>
+                        <span data-translate="custom-pricing">Precio</span><span class="period" data-translate="custom"> personalizado</span>
                     </div>
-                    <p class="pricing-description">Tailored solution for large organizations, franchises, and high-volume coaching businesses</p>
+                    <p class="pricing-description" data-translate="plan-enterprise-desc">Solución a medida para grandes organizaciones, franquicias y negocios de coaching de alto volumen</p>
                     
                     <ul class="pricing-features">
-                        <li>Unlimited clients</li>
-                        <li>Custom AI development</li>
-                        <li>White-label mobile app</li>
-                        <li>API access</li>
-                        <li>Dedicated account manager</li>
-                        <li>Custom integrations</li>
-                        <li>24/7 support</li>
-                        <li>Revenue sharing options</li>
+                        <li data-translate="feature-unlimited-clients">Clientes ilimitados</li>
+                        <li data-translate="feature-custom-ai">Desarrollo IA personalizado</li>
+                        <li data-translate="feature-white-label-app">App móvil white-label</li>
+                        <li data-translate="feature-api-access">Acceso API</li>
+                        <li data-translate="feature-account-manager">Gestor de cuenta dedicado</li>
+                        <li data-translate="feature-custom-integrations">Integraciones personalizadas</li>
+                        <li data-translate="feature-24-7-support">Soporte 24/7</li>
+                        <li data-translate="feature-revenue-sharing">Opciones de revenue sharing</li>
                     </ul>
                     
-                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;">Contact Sales</a>
+                    <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;" data-translate="btn-contact-sales">Contactar Ventas</a>
                 </div>
             </div>
         </div>
@@ -1137,28 +1212,28 @@
     <!-- CTA Section -->
     <section class="cta-section section">
         <div class="container" style="text-align: center;">
-            <h2 class="section-title">Ready to Scale Your Coaching Business?</h2>
-            <p class="cta-message">
-                Join hundreds of successful fitness professionals who have transformed their coaching practice into a scalable, profitable business with CoachIQ.
+            <h2 class="section-title" data-translate="cta-title">¿Listo para Escalar Tu Negocio de Coaching?</h2>
+            <p class="cta-message" data-translate="cta-message">
+                Únete a cientos de profesionales del fitness exitosos que han transformado su práctica de coaching en un negocio escalable y rentable con CoachIQ.
             </p>
             
             <div class="cta-buttons">
-                <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-large">Book Your Demo</a>
-                <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary btn-large">Schedule Strategy Call</a>
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-primary btn-large" data-translate="btn-book-demo">Agendar Tu Demo</a>
+                <a href="https://cal.eu/polruiz/15min" class="btn btn-secondary btn-large" data-translate="btn-strategy-call">Programar Llamada Estratégica</a>
             </div>
             
             <div class="guarantee-items">
                 <div class="guarantee-item">
-                    <div class="guarantee-item-text">30-Day Money Back Guarantee</div>
+                    <div class="guarantee-item-text" data-translate="guarantee-money-back">Garantía 30 Días Devolución</div>
                 </div>
                 <div class="guarantee-item">
-                    <div class="guarantee-item-text">Setup & Training Included</div>
+                    <div class="guarantee-item-text" data-translate="guarantee-setup">Setup y Entrenamiento Incluido</div>
                 </div>
                 <div class="guarantee-item">
-                    <div class="guarantee-item-text">Cancel Anytime</div>
+                    <div class="guarantee-item-text" data-translate="guarantee-cancel">Cancela En Cualquier Momento</div>
                 </div>
                 <div class="guarantee-item">
-                    <div class="guarantee-item-text">Enterprise Security</div>
+                    <div class="guarantee-item-text" data-translate="guarantee-security">Seguridad Empresarial</div>
                 </div>
             </div>
         </div>
@@ -1170,49 +1245,346 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>CoachIQ</h4>
-                    <p class="footer-brand">
-                        Professional AI coaching platform for fitness entrepreneurs who demand excellence. Scale your expertise, grow your business, impact more lives.
+                    <p class="footer-brand" data-translate="footer-brand">
+                        Plataforma profesional de coaching IA para emprendedores fitness que exigen excelencia. Escala tu experiencia, haz crecer tu negocio, impacta más vidas.
                     </p>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Platform</h4>
+                    <h4 data-translate="footer-platform">Plataforma</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#">Integrations</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="#features" data-translate="footer-features">Características</a></li>
+                        <li><a href="#pricing" data-translate="footer-pricing">Precios</a></li>
+                        <li><a href="#" data-translate="footer-integrations">Integraciones</a></li>
+                        <li><a href="#" data-translate="footer-api">API</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Support</h4>
+                    <h4 data-translate="footer-support">Soporte</h4>
                     <ul>
-                        <li><a href="https://cal.eu/polruiz/15min">Contact Us</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Status</a></li>
+                        <li><a href="https://cal.eu/polruiz/15min" data-translate="footer-contact">Contáctanos</a></li>
+                        <li><a href="#" data-translate="footer-help">Centro de Ayuda</a></li>
+                        <li><a href="#" data-translate="footer-docs">Documentación</a></li>
+                        <li><a href="#" data-translate="footer-status">Estado</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Company</h4>
+                    <h4 data-translate="footer-company">Empresa</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Security</a></li>
+                        <li><a href="#" data-translate="footer-about">Acerca de</a></li>
+                        <li><a href="#" data-translate="footer-privacy">Política de Privacidad</a></li>
+                        <li><a href="#" data-translate="footer-terms">Términos de Servicio</a></li>
+                        <li><a href="#" data-translate="footer-security">Seguridad</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 CoachIQ. All rights reserved. Professional AI coaching technology.</p>
+                <p data-translate="footer-copyright">&copy; 2024 CoachIQ. Todos los derechos reservados. Tecnología profesional de coaching IA.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Translations object with complete ES/EN content
+        const translations = {
+            'es': {
+                'page-title': 'CoachIQ - Plataforma Élite de Coaching IA para Profesionales del Fitness',
+                'page-description': 'Escala tu negocio de coaching fitness con tecnología sofisticada de IA. Plataforma profesional para influencers fitness y gimnasios para entregar coaching personalizado a escala.',
+                'nav-home': 'Inicio',
+                'nav-platform': 'Plataforma', 
+                'nav-plans': 'Planes',
+                'nav-contact': 'Contacto',
+                'btn-demo': 'Agendar Demo',
+                'btn-start': 'Comenzar',
+                'hero-badge': 'Plataforma Profesional de Coaching IA',
+                'hero-title-1': 'Escala Tu',
+                'hero-title-2': 'Negocio de',
+                'hero-title-3': 'Coaching',
+                'hero-subtitle': 'Plataforma élite de coaching con IA diseñada para profesionales del fitness, influencers y gimnasios. Ofrece entrenamiento y nutrición personalizada a escala mientras construyes un negocio sostenible.',
+                'btn-start-building': 'Comenzar a Construir',
+                'btn-view-platform': 'Ver Plataforma',
+                'metric-coaches': 'Coaches Activos',
+                'metric-availability': 'Disponibilidad IA',
+                'metric-scale': 'Potencial de Escala',
+                'problem-title': 'El Desafío del Crecimiento',
+                'problem-subtitle': 'Los grandes coaches enfrentan la misma limitación: el tiempo. Tu experiencia solo puede alcanzar a ciertos clientes con métodos tradicionales 1-a-1. Mientras tanto, la demanda de coaching de calidad sigue creciendo exponencialmente.',
+                'problem-stat-1': 'Límite Ratio Coach-Cliente',
+                'problem-stat-2': 'Coaches Luchan por Escalar',
+                'problem-stat-3': 'Limitación Tiempo Diario',
+                'solution-title': 'Crecimiento Empresarial con IA',
+                'solution-subtitle': 'CoachIQ permite a profesionales del fitness escalar su experiencia a través de automatización inteligente. Mantén tu calidad de coaching personal mientras alcanzas clientes ilimitados.',
+                'feature-personalized-title': 'Programas de Entrenamiento Personalizados',
+                'feature-personalized-desc': 'La IA genera entrenamientos customizados basados en objetivos individuales, experiencia y disponibilidad de equipo. Tu metodología, entregada a escala.',
+                'feature-tracking-title': 'Seguimiento de Progreso y Analíticas',
+                'feature-tracking-desc': 'Monitoreo integral de clientes con insights detallados. Rastrea rendimiento, adherencia y resultados en toda tu base de clientes.',
+                'feature-nutrition-title': 'Planificación Nutricional',
+                'feature-nutrition-desc': 'Planificación de comidas automatizada y orientación nutricional adaptada a las preferencias dietéticas y objetivos fitness de cada cliente.',
+                'feature-support-title': 'Soporte Cliente 24/7',
+                'feature-support-desc': 'Soporte chat con IA que proporciona respuestas instantáneas a preguntas comunes mientras escala temas complejos directamente a ti.',
+                'growth-potential-title': 'Potencial de Crecimiento Empresarial',
+                'current-revenue': 'Ingresos Actuales (20 clientes)',
+                'with-coachiq': 'Con CoachIQ (500 clientes)',
+                'growth-multiplier': '10x Crecimiento',
+                'revenue-multiplier': 'Multiplicador de Ingresos',
+                'features-title': 'Funciones de Plataforma Profesional',
+                'features-subtitle': 'Tecnología de nivel empresarial diseñada específicamente para profesionales del fitness que exigen excelencia tanto en la entrega al cliente como en operaciones comerciales.',
+                'feature-builder-title': 'Constructor de Entrenamientos Personalizado',
+                'feature-builder-desc': 'Crea y personaliza plantillas de entrenamiento que reflejen tu filosofía de entrenamiento. La IA las adapta a las necesidades específicas y nivel de progresión de cada cliente.',
+                'feature-integration-title': 'Integración Multi-Plataforma',
+                'feature-integration-desc': 'Despliega tu coach IA en WhatsApp, Instagram, tu sitio web, o app móvil personalizada. Encuentra a tus clientes donde estén.',
+                'feature-customization-title': 'Personalización de Marca',
+                'feature-customization-desc': 'Solución completa white-label con tu marca, colores y mensajes. Los clientes interactúan con tu marca, no la nuestra.',
+                'feature-payment-title': 'Procesamiento de Pagos',
+                'feature-payment-desc': 'Facturación por suscripción integrada y procesamiento de pagos. Recaudación de ingresos automatizada con analíticas financieras detalladas.',
+                'feature-analytics-title': 'Analíticas Empresariales',
+                'feature-analytics-desc': 'Panel integral mostrando engagement de clientes, tasas de retención, métricas de ingresos y oportunidades de crecimiento.',
+                'feature-security-title': 'Seguridad Empresarial',
+                'feature-security-desc': 'Encriptación y protección de datos de nivel bancario. Infraestructura compatible con HIPAA asegurando que la información del cliente permanezca segura.',
+                'pricing-title': 'Elige Tu Plan',
+                'pricing-subtitle': 'Planes flexibles diseñados para crecer con tu negocio. Comienza pequeño y escala conforme tu base de clientes se expande.',
+                'plan-starter': 'Iniciador',
+                'per-month': '/mes',
+                'plan-starter-desc': 'Perfecto para coaches listos para comenzar a escalar su negocio con automatización powered por IA',
+                'feature-clients-100': 'Hasta 100 clientes activos',
+                'feature-custom-workout': 'Generación de entrenamientos personalizados',
+                'feature-basic-nutrition': 'Planificación nutricional básica',
+                'feature-whatsapp': 'Integración WhatsApp',
+                'feature-payment-processing': 'Procesamiento de pagos',
+                'feature-analytics-dashboard': 'Panel de analíticas',
+                'feature-email-support': 'Soporte por email',
+                'btn-get-started': 'Comenzar',
+                'most-popular': 'Más Popular',
+                'plan-professional': 'Profesional',
+                'plan-professional-desc': 'Solución completa para coaches establecidos serios sobre construir un negocio fitness escalable',
+                'feature-clients-500': 'Hasta 500 clientes activos',
+                'feature-advanced-ai': 'Coaching IA avanzado',
+                'feature-complete-nutrition': 'Sistema nutricional completo',
+                'feature-multi-platform': 'Despliegue multi-plataforma',
+                'feature-custom-branding': 'Marca personalizada',
+                'feature-advanced-analytics': 'Analíticas avanzadas',
+                'feature-priority-support': 'Soporte telefónico prioritario',
+                'feature-monthly-calls': 'Llamadas de estrategia mensuales',
+                'btn-start-professional': 'Comenzar Profesional',
+                'plan-enterprise': 'Empresarial',
+                'custom-pricing': 'Precio',
+                'custom': ' personalizado',
+                'plan-enterprise-desc': 'Solución a medida para grandes organizaciones, franquicias y negocios de coaching de alto volumen',
+                'feature-unlimited-clients': 'Clientes ilimitados',
+                'feature-custom-ai': 'Desarrollo IA personalizado',
+                'feature-white-label-app': 'App móvil white-label',
+                'feature-api-access': 'Acceso API',
+                'feature-account-manager': 'Gestor de cuenta dedicado',
+                'feature-custom-integrations': 'Integraciones personalizadas',
+                'feature-24-7-support': 'Soporte 24/7',
+                'feature-revenue-sharing': 'Opciones de revenue sharing',
+                'btn-contact-sales': 'Contactar Ventas',
+                'cta-title': '¿Listo para Escalar Tu Negocio de Coaching?',
+                'cta-message': 'Únete a cientos de profesionales del fitness exitosos que han transformado su práctica de coaching en un negocio escalable y rentable con CoachIQ.',
+                'btn-book-demo': 'Agendar Tu Demo',
+                'btn-strategy-call': 'Programar Llamada Estratégica',
+                'guarantee-money-back': 'Garantía 30 Días Devolución',
+                'guarantee-setup': 'Setup y Entrenamiento Incluido',
+                'guarantee-cancel': 'Cancela En Cualquier Momento',
+                'guarantee-security': 'Seguridad Empresarial',
+                'footer-brand': 'Plataforma profesional de coaching IA para emprendedores fitness que exigen excelencia. Escala tu experiencia, haz crecer tu negocio, impacta más vidas.',
+                'footer-platform': 'Plataforma',
+                'footer-features': 'Características',
+                'footer-pricing': 'Precios',
+                'footer-integrations': 'Integraciones',
+                'footer-api': 'API',
+                'footer-support': 'Soporte',
+                'footer-contact': 'Contáctanos',
+                'footer-help': 'Centro de Ayuda',
+                'footer-docs': 'Documentación',
+                'footer-status': 'Estado',
+                'footer-company': 'Empresa',
+                'footer-about': 'Acerca de',
+                'footer-privacy': 'Política de Privacidad',
+                'footer-terms': 'Términos de Servicio',
+                'footer-security': 'Seguridad',
+                'footer-copyright': '© 2024 CoachIQ. Todos los derechos reservados. Tecnología profesional de coaching IA.'
+            },
+            'en': {
+                'page-title': 'CoachIQ - Elite AI Coaching Platform for Fitness Professionals',
+                'page-description': 'Scale your fitness coaching business with sophisticated AI technology. Professional platform for fitness influencers and gyms to deliver personalized coaching at scale.',
+                'nav-home': 'Home',
+                'nav-platform': 'Platform',
+                'nav-plans': 'Plans',
+                'nav-contact': 'Contact',
+                'btn-demo': 'Book Demo',
+                'btn-start': 'Get Started',
+                'hero-badge': 'Professional AI Coaching Platform',
+                'hero-title-1': 'Scale Your',
+                'hero-title-2': 'Coaching',
+                'hero-title-3': 'Business',
+                'hero-subtitle': 'Elite AI-powered coaching platform designed for fitness professionals, influencers, and gyms. Deliver personalized training and nutrition at scale while building a sustainable business.',
+                'btn-start-building': 'Start Building',
+                'btn-view-platform': 'View Platform',
+                'metric-coaches': 'Active Coaches',
+                'metric-availability': 'AI Availability',
+                'metric-scale': 'Scale Potential',
+                'problem-title': 'The Scaling Challenge',
+                'problem-subtitle': 'Great coaches face the same limitation: time. Your expertise can only reach so many clients with traditional 1-on-1 methods. Meanwhile, demand for quality coaching continues to grow exponentially.',
+                'problem-stat-1': 'Coach to Client Ratio Limit',
+                'problem-stat-2': 'Coaches Struggle to Scale',
+                'problem-stat-3': 'Daily Time Constraint',
+                'solution-title': 'AI-Powered Business Growth',
+                'solution-subtitle': 'CoachIQ enables fitness professionals to scale their expertise through intelligent automation. Maintain your personal coaching quality while reaching unlimited clients.',
+                'feature-personalized-title': 'Personalized Training Programs',
+                'feature-personalized-desc': 'AI generates custom workouts based on individual goals, experience, and equipment availability. Your methodology, delivered at scale.',
+                'feature-tracking-title': 'Progress Tracking & Analytics',
+                'feature-tracking-desc': 'Comprehensive client monitoring with detailed insights. Track performance, adherence, and results across your entire client base.',
+                'feature-nutrition-title': 'Nutrition Planning',
+                'feature-nutrition-desc': 'Automated meal planning and nutritional guidance tailored to each client\'s dietary preferences and fitness goals.',
+                'feature-support-title': '24/7 Client Support',
+                'feature-support-desc': 'AI-powered chat support providing instant answers to common questions while escalating complex issues to you.',
+                'growth-potential-title': 'Business Growth Potential',
+                'current-revenue': 'Current Revenue (20 clients)',
+                'with-coachiq': 'With CoachIQ (500 clients)',
+                'growth-multiplier': '10x Growth',
+                'revenue-multiplier': 'Revenue Multiplier',
+                'features-title': 'Professional Platform Features',
+                'features-subtitle': 'Enterprise-grade technology designed specifically for fitness professionals who demand excellence in both client delivery and business operations.',
+                'feature-builder-title': 'Custom Workout Builder',
+                'feature-builder-desc': 'Create and customize workout templates that reflect your training philosophy. AI adapts these to each client\'s specific needs and progression level.',
+                'feature-integration-title': 'Multi-Platform Integration',
+                'feature-integration-desc': 'Deploy your AI coach across WhatsApp, Instagram, your website, or custom mobile app. Meet your clients where they are.',
+                'feature-customization-title': 'Brand Customization',
+                'feature-customization-desc': 'Complete white-label solution with your branding, colors, and messaging. Clients interact with your brand, not ours.',
+                'feature-payment-title': 'Payment Processing',
+                'feature-payment-desc': 'Integrated subscription billing and payment processing. Automated revenue collection with detailed financial analytics.',
+                'feature-analytics-title': 'Business Analytics',
+                'feature-analytics-desc': 'Comprehensive dashboard showing client engagement, retention rates, revenue metrics, and growth opportunities.',
+                'feature-security-title': 'Enterprise Security',
+                'feature-security-desc': 'Bank-level encryption and data protection. HIPAA-compliant infrastructure ensuring client information stays secure.',
+                'pricing-title': 'Choose Your Plan',
+                'pricing-subtitle': 'Flexible plans designed to grow with your business. Start small and scale as your client base expands.',
+                'plan-starter': 'Starter',
+                'per-month': '/month',
+                'plan-starter-desc': 'Perfect for coaches ready to start scaling their business with AI-powered automation',
+                'feature-clients-100': 'Up to 100 active clients',
+                'feature-custom-workout': 'Custom workout generation',
+                'feature-basic-nutrition': 'Basic nutrition planning',
+                'feature-whatsapp': 'WhatsApp integration',
+                'feature-payment-processing': 'Payment processing',
+                'feature-analytics-dashboard': 'Analytics dashboard',
+                'feature-email-support': 'Email support',
+                'btn-get-started': 'Get Started',
+                'most-popular': 'Most Popular',
+                'plan-professional': 'Professional',
+                'plan-professional-desc': 'Complete solution for established coaches serious about building a scalable fitness business',
+                'feature-clients-500': 'Up to 500 active clients',
+                'feature-advanced-ai': 'Advanced AI coaching',
+                'feature-complete-nutrition': 'Complete nutrition system',
+                'feature-multi-platform': 'Multi-platform deployment',
+                'feature-custom-branding': 'Custom branding',
+                'feature-advanced-analytics': 'Advanced analytics',
+                'feature-priority-support': 'Priority phone support',
+                'feature-monthly-calls': 'Monthly strategy calls',
+                'btn-start-professional': 'Start Professional',
+                'plan-enterprise': 'Enterprise',
+                'custom-pricing': 'Custom',
+                'custom': ' pricing',
+                'plan-enterprise-desc': 'Tailored solution for large organizations, franchises, and high-volume coaching businesses',
+                'feature-unlimited-clients': 'Unlimited clients',
+                'feature-custom-ai': 'Custom AI development',
+                'feature-white-label-app': 'White-label mobile app',
+                'feature-api-access': 'API access',
+                'feature-account-manager': 'Dedicated account manager',
+                'feature-custom-integrations': 'Custom integrations',
+                'feature-24-7-support': '24/7 support',
+                'feature-revenue-sharing': 'Revenue sharing options',
+                'btn-contact-sales': 'Contact Sales',
+                'cta-title': 'Ready to Scale Your Coaching Business?',
+                'cta-message': 'Join hundreds of successful fitness professionals who have transformed their coaching practice into a scalable, profitable business with CoachIQ.',
+                'btn-book-demo': 'Book Your Demo',
+                'btn-strategy-call': 'Schedule Strategy Call',
+                'guarantee-money-back': '30-Day Money Back Guarantee',
+                'guarantee-setup': 'Setup & Training Included',
+                'guarantee-cancel': 'Cancel Anytime',
+                'guarantee-security': 'Enterprise Security',
+                'footer-brand': 'Professional AI coaching platform for fitness entrepreneurs who demand excellence. Scale your expertise, grow your business, impact more lives.',
+                'footer-platform': 'Platform',
+                'footer-features': 'Features',
+                'footer-pricing': 'Pricing',
+                'footer-integrations': 'Integrations',
+                'footer-api': 'API',
+                'footer-support': 'Support',
+                'footer-contact': 'Contact Us',
+                'footer-help': 'Help Center',
+                'footer-docs': 'Documentation',
+                'footer-status': 'Status',
+                'footer-company': 'Company',
+                'footer-about': 'About',
+                'footer-privacy': 'Privacy Policy',
+                'footer-terms': 'Terms of Service',
+                'footer-security': 'Security',
+                'footer-copyright': '© 2024 CoachIQ. All rights reserved. Professional AI coaching technology.'
+            }
+        };
+
+        // Language switching functionality
+        let currentLanguage = localStorage.getItem('coachiq-language') || 'es';
+
+        // Initialize language on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setLanguage(currentLanguage);
+            updateUI();
+        });
+
+        // Language toggle event listeners
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                if (lang !== currentLanguage) {
+                    switchLanguage(lang);
+                }
+            });
+        });
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('coachiq-language', lang);
+            setLanguage(lang);
+            updateUI();
+        }
+
+        function setLanguage(lang) {
+            // Update document language
+            document.documentElement.lang = lang;
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    } else if (element.hasAttribute('content')) {
+                        element.setAttribute('content', translations[lang][key]);
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function updateUI() {
+            // Update language toggle buttons
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.lang === currentLanguage) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Update toggle slider position
+            const slider = document.getElementById('toggleSlider');
+            slider.className = `toggle-slider ${currentLanguage}`;
+        }
+
         // Professional animations and interactions
         const observerOptions = {
             threshold: 0.1,
