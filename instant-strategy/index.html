@@ -3183,14 +3183,25 @@
                 });
             });
 
-            // Form Submission Tracking
+            // Form Submission Tracking (HIGH VALUE - Alert worthy)
             document.querySelector('#contact-form form').addEventListener('submit', function(e) {
                 gtag('event', 'form_submission', {
                     'event_category': 'conversion',
                     'event_label': 'contact_form',
                     'value': 100, // High value event
-                    'page_location': window.location.href
+                    'page_location': window.location.href,
+                    'alert_worthy': true, // Trigger smart alert
+                    'lead_type': 'form_contact'
                 });
+                
+                // Send immediate notification (if monitoring active)
+                if (typeof sendSmartAlert !== 'undefined') {
+                    sendSmartAlert('form_lead', {
+                        'company_type': 'professional_service',
+                        'estimated_value': 'high',
+                        'timestamp': new Date().toISOString()
+                    });
+                }
             });
 
             // Calculator Interaction Tracking
@@ -3205,15 +3216,28 @@
                 });
             });
 
-            // Important Link Tracking
+            // Booking Click Tracking (HIGHEST VALUE - Immediate alert)
             document.querySelectorAll('a[href^="https://cal.eu"]').forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     gtag('event', 'booking_click', {
                         'event_category': 'conversion',
                         'event_label': 'calendar_booking',
                         'value': 200, // Very high value event
-                        'page_location': window.location.href
+                        'page_location': window.location.href,
+                        'alert_worthy': true,
+                        'lead_type': 'booking_intent'
                     });
+                    
+                    // IMMEDIATE high-value alert
+                    if (typeof sendSmartAlert !== 'undefined') {
+                        sendSmartAlert('booking_intent', {
+                            'link': this.href,
+                            'timestamp': new Date().toISOString(),
+                            'page_section': this.closest('section')?.id || 'unknown'
+                        });
+                    }
+                    
+                    console.log('🚀 HIGH VALUE: Booking click detected!');
                 });
             });
 
