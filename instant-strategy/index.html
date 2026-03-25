@@ -6,6 +6,27 @@
     <title>AnalitikAI - AI-as-a-Consultant | Consultoría Inteligente para Servicios Profesionales</title>
     <meta name="description" content="AnalitikAI entrega investigación y análisis impulsados por IA para bufetes de abogados, consultoras, auditorías, agencias de marketing y asesores financieros en 48 horas, no semanas.">
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ANALITIKAI2024', {
+        page_title: 'AnalitikAI',
+        page_location: window.location.href,
+        custom_map: {'custom_parameter_1': 'business_type'}
+      });
+
+      // Enhanced ecommerce and conversion tracking
+      gtag('config', 'G-ANALITIKAI2024', {
+        custom_parameter: {
+          'business_type': 'ai_consulting',
+          'service_category': 'professional_services'
+        }
+      });
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3138,6 +3159,133 @@
 
         // Initialize
         updateActiveNav();
+    </script>
+
+    <!-- Enhanced Google Analytics Event Tracking -->
+    <script>
+        // Enhanced Analytics Event Tracking for AnalitikAI
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // CTA Button Tracking
+            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    const buttonText = this.textContent.trim();
+                    const buttonClass = this.className;
+                    const isExternal = this.target === '_blank';
+                    
+                    gtag('event', 'cta_click', {
+                        'event_category': 'engagement',
+                        'event_label': buttonText,
+                        'button_type': buttonClass.includes('btn-primary') ? 'primary' : 'secondary',
+                        'is_external': isExternal,
+                        'page_location': window.location.href
+                    });
+                });
+            });
+
+            // Form Submission Tracking
+            document.querySelector('#contact-form form').addEventListener('submit', function(e) {
+                gtag('event', 'form_submission', {
+                    'event_category': 'conversion',
+                    'event_label': 'contact_form',
+                    'value': 100, // High value event
+                    'page_location': window.location.href
+                });
+            });
+
+            // Calculator Interaction Tracking
+            const calculatorInputs = document.querySelectorAll('#proyectos-mes, #tarifa-hora, #tipo-industria');
+            calculatorInputs.forEach(function(input) {
+                input.addEventListener('change', function() {
+                    gtag('event', 'calculator_interaction', {
+                        'event_category': 'engagement',
+                        'event_label': this.id || this.name,
+                        'value': this.value
+                    });
+                });
+            });
+
+            // Important Link Tracking
+            document.querySelectorAll('a[href^="https://cal.eu"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    gtag('event', 'booking_click', {
+                        'event_category': 'conversion',
+                        'event_label': 'calendar_booking',
+                        'value': 200, // Very high value event
+                        'page_location': window.location.href
+                    });
+                });
+            });
+
+            // Navigation Tracking
+            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    const section = this.getAttribute('href').replace('#', '');
+                    gtag('event', 'internal_navigation', {
+                        'event_category': 'engagement',
+                        'event_label': section,
+                        'page_location': window.location.href
+                    });
+                });
+            });
+
+            // Scroll Depth Tracking
+            let maxScroll = 0;
+            const scrollMilestones = [25, 50, 75, 90, 100];
+            let trackedMilestones = [];
+
+            window.addEventListener('scroll', function() {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                
+                if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                    
+                    scrollMilestones.forEach(function(milestone) {
+                        if (scrollPercent >= milestone && !trackedMilestones.includes(milestone)) {
+                            trackedMilestones.push(milestone);
+                            gtag('event', 'scroll_depth', {
+                                'event_category': 'engagement',
+                                'event_label': milestone + '%',
+                                'value': milestone
+                            });
+                        }
+                    });
+                }
+            });
+
+            // Language Change Tracking
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const language = this.id.replace('lang-', '');
+                    gtag('event', 'language_change', {
+                        'event_category': 'engagement',
+                        'event_label': language,
+                        'page_location': window.location.href
+                    });
+                });
+            });
+
+            // Form Field Focus Tracking (Lead Quality)
+            document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(function(field) {
+                field.addEventListener('focus', function() {
+                    gtag('event', 'form_field_focus', {
+                        'event_category': 'engagement',
+                        'event_label': this.name || this.type,
+                        'page_location': window.location.href
+                    });
+                });
+            });
+
+            // Page Performance Tracking
+            window.addEventListener('load', function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                gtag('event', 'page_timing', {
+                    'event_category': 'performance',
+                    'event_label': 'load_time',
+                    'value': Math.round(loadTime / 1000) // in seconds
+                });
+            });
+        });
     </script>
 </body>
 </html>
