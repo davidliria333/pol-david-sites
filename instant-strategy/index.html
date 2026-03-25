@@ -577,129 +577,78 @@
             background: var(--background-section);
         }
 
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        .contact-info h2 {
-            font-family: 'Source Serif Pro', serif;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--text-primary);
-        }
-
-        .contact-description {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-
-        .contact-details {
-            list-style: none;
-        }
-
-        .contact-details li {
+        .contact-cta-center {
             display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: var(--text-primary);
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-blue);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: var(--background-white);
-            font-size: 18px;
+            margin-top: 60px;
         }
 
-        .contact-form {
+        .consultation-card {
             background: var(--background-white);
-            padding: 40px;
+            padding: 60px;
             border-radius: 8px;
             box-shadow: var(--shadow-soft);
             border: 1px solid var(--border-light);
+            max-width: 600px;
+            text-align: center;
         }
 
-        .form-group {
-            margin-bottom: 24px;
+        @media (max-width: 768px) {
+            .consultation-card {
+                padding: 40px 30px;
+                margin: 0 20px;
+            }
         }
 
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
+        .consultation-title {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
             color: var(--text-primary);
         }
 
-        .form-input {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid var(--border-light);
-            border-radius: 6px;
+        .consultation-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .consultation-features {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
             font-size: 16px;
-            transition: border-color 0.3s ease;
-            background: var(--background-white);
-            font-family: inherit;
+            color: var(--text-primary);
         }
 
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
+        .feature-icon {
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-top: 2px;
         }
 
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
+        .consultation-cta {
+            text-align: center;
         }
 
-        .form-select {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid var(--border-light);
-            border-radius: 6px;
-            font-size: 16px;
-            background: var(--background-white);
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .form-button {
-            width: 100%;
-            background: var(--accent-blue);
-            color: var(--background-white);
-            padding: 18px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
+        .btn-large {
+            padding: 20px 40px;
+            font-size: 18px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
         }
 
-        .form-button:hover {
-            background: #2980b9;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-medium);
+        .consultation-note {
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-light);
         }
 
         /* Footer */
@@ -876,8 +825,8 @@
                     We deliver data-driven insights and strategic intelligence to law firms, consulting practices, audit companies, and financial institutions. Our analytics platform helps professional service organizations make informed decisions based on comprehensive data analysis.
                 </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn-primary" onclick="trackEvent('click', 'cta', 'hero_consultation')">
-                        Schedule Consultation
+                    <a href="https://calendly.com/analitikai/consultation" target="_blank" class="btn-primary" onclick="trackEvent('click', 'cta', 'hero_consultation')">
+                        Book Strategy Call
                     </a>
                     <a href="#use-cases" class="btn-secondary">
                         View Use Cases
@@ -1181,83 +1130,40 @@
     <!-- Contact Section -->
     <section class="contact-section section-alt" id="contact">
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-info animate-on-scroll">
-                    <h2>Schedule a Consultation</h2>
-                    <p class="contact-description">
-                        Discuss your strategic intelligence requirements with our team. We'll explore how our analytics platform can support your organization's decision-making and growth objectives.
-                    </p>
-                    <ul class="contact-details">
-                        <li>
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <strong>Consultation Call</strong><br>
-                                Initial discussion to understand your needs
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Schedule Your Strategy Session</h2>
+                <p class="section-subtitle">
+                    Ready to discuss your strategic intelligence requirements? Book a consultation call with our team to explore how we can support your organization's analytical needs.
+                </p>
+            </div>
+            <div class="contact-cta-center animate-on-scroll">
+                <div class="consultation-card">
+                    <div class="consultation-content">
+                        <h3 class="consultation-title">Strategic Intelligence Consultation</h3>
+                        <p class="consultation-description">
+                            45-minute consultation to understand your business requirements, discuss our approach, and explore how strategic intelligence can support your decision-making.
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">•</span>
+                                <span>Confidential discussion of your business requirements</span>
                             </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">📋</div>
-                            <div>
-                                <strong>Proposal Development</strong><br>
-                                Customized approach and timeline
+                            <div class="feature-item">
+                                <span class="feature-icon">•</span>
+                                <span>Review of our analytical approach and methodologies</span>
                             </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">🎯</div>
-                            <div>
-                                <strong>Project Delivery</strong><br>
-                                Strategic intelligence and ongoing support
+                            <div class="feature-item">
+                                <span class="feature-icon">•</span>
+                                <span>Customized proposal for your specific needs</span>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact-form animate-on-scroll">
-                    <form id="contactForm" action="#" method="post">
-                        <div class="form-group">
-                            <label class="form-label" for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="email">Business Email *</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                        <div class="consultation-cta">
+                            <a href="https://calendly.com/analitikai/consultation" target="_blank" class="btn-primary btn-large" onclick="trackEvent('click', 'cta', 'consultation_booking')">
+                                Book Consultation Call
+                            </a>
+                            <p class="consultation-note">Available Monday-Friday, 9:00-17:00 CET</p>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="company">Organization *</label>
-                            <input type="text" id="company" name="company" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="industry">Industry Sector *</label>
-                            <select id="industry" name="industry" class="form-select" required>
-                                <option value="">Select your industry...</option>
-                                <option value="legal">Legal Services</option>
-                                <option value="consulting">Management Consulting</option>
-                                <option value="audit">Audit & Accounting</option>
-                                <option value="financial">Financial Services</option>
-                                <option value="other">Other Professional Services</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="requirements">Business Requirements *</label>
-                            <textarea id="requirements" name="requirements" class="form-input form-textarea" placeholder="Please describe your strategic intelligence requirements and business objectives..." required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline" class="form-select">
-                                <option value="">Select timeline...</option>
-                                <option value="immediate">Immediate (within 2 weeks)</option>
-                                <option value="short">Short-term (1 month)</option>
-                                <option value="medium">Medium-term (2-3 months)</option>
-                                <option value="planning">Planning stage (3+ months)</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="form-button">
-                            Submit Consultation Request
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1358,27 +1264,11 @@
             });
         });
 
-        // Form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            trackEvent('submit', 'form', 'contact_form');
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            console.log('Form submitted:', data);
-            
-            alert('Thank you for your interest. We will contact you within 24 hours to schedule your consultation.');
-            
-            this.reset();
-        });
-
-        // Industry selection tracking
-        document.getElementById('industry').addEventListener('change', function() {
-            if (this.value) {
-                trackEvent('select', 'form', 'industry_' + this.value);
-            }
+        // Calendar booking tracking
+        document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
+            link.addEventListener('click', function() {
+                trackEvent('click', 'calendar', 'consultation_booking');
+            });
         });
 
         // Performance monitoring
