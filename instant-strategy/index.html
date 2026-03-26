@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnalitikAI - Strategic Intelligence Platform for Professional Services</title>
-    <meta name="description" content="Advanced analytics and strategic intelligence solutions for law firms, consulting practices, audit companies, and financial institutions. Data-driven insights for informed decision making.">
+    <title>AnalitikAI - Goodbye Research Teams | The First AI-as-a-Consultant Platform</title>
+    <meta name="description" content="Stop outsourcing research for weeks. Get consultant-grade analysis in 48 hours. The anti-research team platform for law firms, consultancies, audit companies, and agencies.">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
@@ -22,48 +22,12 @@
         }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" href="/instant-strategy/favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="/instant-strategy/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #0a0e27;
-            --secondary: #1a1d35;
-            --accent: #4f46e5;
-            --accent-light: #6366f1;
-            --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --text-light: #94a3b8;
-            
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-            
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            
-            --gradient-hero: linear-gradient(135deg, #0a0e27 0%, #1e293b  50%, #334155 100%);
-            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            --gradient-border: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -76,28 +40,16 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
+            line-height: 1.6;
+            color: #0f172a;
+            background-color: #ffffff;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        .font-display {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
         }
 
         /* Header */
@@ -106,1092 +58,467 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .header.scrolled {
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-sm);
-            border-bottom-color: var(--border);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            z-index: 100;
+            padding: 16px 0;
         }
 
         .nav {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
+            align-items: center;
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
-            color: var(--text-primary);
+            color: #4f46e5;
             text-decoration: none;
-            letter-spacing: -0.02em;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -8px;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 32px;
-            background: var(--accent-gradient);
-            border-radius: 3px;
         }
 
         .nav-links {
             display: flex;
+            gap: 32px;
             list-style: none;
-            gap: 40px;
-            align-items: center;
         }
 
         .nav-links a {
+            color: #475569;
             text-decoration: none;
-            color: var(--text-secondary);
             font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            padding: 8px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-gradient);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: #4f46e5;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4f46e5;
+            border: 2px solid #4f46e5;
+        }
+
+        .btn-secondary:hover {
+            background: #4f46e5;
+            color: white;
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-hero);
-            position: relative;
-            overflow: hidden;
-            padding: 160px 0 120px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.15) 0%, transparent 50%);
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--gradient-border);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
             text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.9);
-            padding: 8px 20px;
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.3);
             border-radius: 50px;
+            color: #a5b4fc;
             font-size: 14px;
+            margin-bottom: 24px;
             font-weight: 500;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .hero-badge:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .hero-badge::before {
-            content: '✦';
-            color: #4ade80;
-        }
-
-        .hero-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(48px, 5.5vw, 72px);
-            font-weight: 800;
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
             line-height: 1.1;
-            color: #ffffff;
             margin-bottom: 24px;
-            letter-spacing: -0.02em;
         }
 
-        .hero-title .gradient-text {
-            background: linear-gradient(135deg, #60a5fa, #c084fc, #f472b6);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradient-shift 4s ease-in-out infinite;
-        }
-
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(18px, 2vw, 24px);
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
+        .hero .subtitle {
+            font-size: 20px;
+            color: #94a3b8;
             margin-bottom: 40px;
-            max-width: 700px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .hero-cta {
             display: flex;
-            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
-        .cta-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--accent-gradient);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 32px 64px -12px rgba(79, 70, 229, 0.4);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-primary::after {
-            content: '→';
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .cta-primary:hover::after {
-            transform: translateX(4px);
-        }
-
-        .cta-secondary {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 2px;
-        }
-
-        .cta-secondary:hover {
-            color: white;
-            border-bottom-color: white;
-        }
-
-        .trust-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .trust-label {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .trust-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .trust-metric {
+        .hero-stats {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            text-align: center;
         }
 
-        .trust-number {
-            font-family: 'Poppins', sans-serif;
+        .stat {
+            padding: 16px;
+        }
+
+        .stat-number {
             font-size: 32px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 4px;
+            font-weight: 800;
+            color: #4f46e5;
+            display: block;
         }
 
-        .trust-description {
-            color: rgba(255, 255, 255, 0.7);
+        .stat-label {
             font-size: 14px;
+            color: #94a3b8;
+            margin-top: 4px;
         }
 
-        /* Section Styles */
+        /* Problem Section */
         .section {
-            padding: 120px 0;
-            position: relative;
-        }
-
-        .section-alt {
-            background: var(--bg-secondary);
+            padding: 100px 0;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 80px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .section-badge {
-            display: inline-block;
-            background: var(--accent-gradient);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(36px, 4vw, 56px);
+        .section-header h2 {
+            font-size: 48px;
             font-weight: 800;
-            line-height: 1.2;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 16px;
         }
 
-        .section-subtitle {
+        .section-header p {
             font-size: 20px;
-            color: var(--text-secondary);
-            line-height: 1.6;
+            color: #64748b;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Cards */
-        .cards-grid {
+        .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 32px;
-            margin-top: 60px;
+            margin-bottom: 80px;
         }
 
-        .card {
-            background: var(--gradient-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 1px;
-            background: var(--accent-gradient);
-            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(79, 70, 229, 0.2);
-        }
-
-        .card:hover::before {
-            left: 0;
-        }
-
-        .card-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--accent-gradient);
+        .problem-card {
+            padding: 32px;
+            background: #f8fafc;
             border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid #ef4444;
         }
 
-        .card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .card-icon svg {
-            width: 28px;
-            height: 28px;
-            color: white;
-        }
-
-        .card-title {
-            font-family: 'Poppins', sans-serif;
+        .problem-card h3 {
             font-size: 24px;
             font-weight: 700;
-            color: var(--text-primary);
+            color: #0f172a;
             margin-bottom: 16px;
-            line-height: 1.3;
         }
 
-        .card-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 24px;
+        .problem-card p {
+            color: #64748b;
+            line-height: 1.7;
         }
 
-        .card-features {
-            list-style: none;
+        /* Solution Section */
+        .solution {
+            background: #f8fafc;
         }
 
-        .card-features li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            color: var(--text-secondary);
-            font-size: 15px;
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
         }
 
-        .card-features li::before {
-            content: '●';
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Use Cases */
-        .use-case {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 20px;
+        .solution-card {
             padding: 40px;
-            margin-bottom: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #10b981;
         }
 
-        .use-case::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.03), transparent);
-            transition: right 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .use-case:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(79, 70, 229, 0.2);
-        }
-
-        .use-case:hover::after {
-            right: 0;
-        }
-
-        .use-case-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-
-        .use-case-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--accent-gradient);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .use-case-icon svg {
-            width: 24px;
-            height: 24px;
-            color: white;
-        }
-
-        .use-case-meta h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .use-case-meta .industry {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .use-case-content {
-            display: grid;
-            gap: 20px;
-        }
-
-        .use-case-section h4 {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .use-case-section p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .use-case-result {
-            background: var(--bg-tertiary);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-
-        /* Process Timeline */
-        .process-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .process-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .process-step::after {
-            content: '';
-            position: absolute;
-            left: 32px;
-            top: 80px;
-            width: 2px;
-            height: calc(100% - 30px);
-            background: var(--border);
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .process-number {
-            width: 64px;
-            height: 64px;
-            background: var(--accent-gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            flex-shrink: 0;
-            box-shadow: var(--shadow);
-        }
-
-        .process-content h3 {
-            font-family: 'Poppins', sans-serif;
+        .solution-card h3 {
             font-size: 24px;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-
-        .process-content p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--gradient-hero);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-        }
-
-        .contact-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-        }
-
-        .contact-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(40px, 4vw, 56px);
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .contact-subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 24px;
-            padding: 60px;
-            max-width: 600px;
-            margin: 0 auto;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .contact-card {
-                padding: 40px 30px;
-                margin: 0 20px;
-            }
-        }
-
-        .contact-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
+            color: #0f172a;
             margin-bottom: 16px;
         }
 
-        .contact-card p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .contact-features {
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .contact-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .contact-feature::before {
-            content: '✓';
-            background: var(--success);
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .solution-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 50px;
             font-size: 12px;
-            font-weight: bold;
-        }
-
-        .cta-large {
-            padding: 20px 40px;
-            font-size: 18px;
             font-weight: 600;
             margin-bottom: 16px;
         }
 
-        .contact-note {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-primary);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 80px 0 40px;
-        }
-
-        .footer-content {
+        /* Process Section */
+        .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
         }
 
-        .footer-brand h3 {
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .footer-section h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-light);
-        }
-
-        .footer-bottom {
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .step {
             text-align: center;
-            color: rgba(255, 255, 255, 0.5);
+            position: relative;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Loading */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 auto 24px;
         }
 
-        .loading-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
+        .step h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0f172a;
         }
 
-        .spinner {
-            width: 48px;
-            height: 48px;
-            border: 3px solid var(--border);
-            border-top: 3px solid var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        /* Pricing Section */
+        .pricing {
+            background: #0f172a;
+            color: white;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .pricing-card {
+            padding: 40px;
+            background: #1e293b;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card.recommended {
+            border-color: #4f46e5;
+            transform: scale(1.05);
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4f46e5;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 900;
+            color: #4f46e5;
+            margin: 16px 0;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 32px 0;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            text-align: center;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .section {
-                padding: 80px 0;
+            .container {
+                padding: 0 20px;
             }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+
+            .nav-links {
+                display: none;
             }
-            
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
             .hero-cta {
                 flex-direction: column;
             }
-            
-            .trust-metrics {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
 
-        @media (max-width: 640px) {
-            .process-step {
+            .hero-stats {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
+                gap: 24px;
             }
-            
-            .process-step::after {
-                left: 50%;
-                transform: translateX(-50%);
-                top: 100px;
+
+            .section-header h2 {
+                font-size: 36px;
             }
-            
-            .trust-metrics {
-                grid-template-columns: 1fr;
+
+            .pricing-card.recommended {
+                transform: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner"></div>
-    </div>
-
     <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">AnalitikAI</a>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#use-cases">Use Cases</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_call')">Book Demo</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">Strategic Intelligence Platform</div>
-                <h1 class="hero-title">
-                    Advanced Analytics for<br>
-                    <span class="gradient-text">Professional Services</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Transform data into strategic advantages. We deliver comprehensive analytics and intelligence solutions that help professional service organizations make informed decisions and drive sustainable growth.
-                </p>
-                <div class="hero-cta">
-                    <a href="https://calendly.com/analitikai/consultation" target="_blank" class="cta-primary" onclick="trackEvent('click', 'cta', 'hero_consultation')">
-                        Schedule Strategy Session
-                    </a>
-                    <a href="#use-cases" class="cta-secondary">Explore Success Stories</a>
+            <div class="hero-badge">The Anti-Research Team Platform</div>
+            <h1>
+                Goodbye Research Teams.<br>
+                The First AI-as-a-Consultant Platform
+            </h1>
+            <p class="subtitle">
+                Stop outsourcing research for weeks. Get consultant-grade analysis in 48 hours for law firms, consultancies, audit companies, and agencies.
+            </p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'hero', 'book_demo')">Book 15-min Demo</a>
+                <a href="#solution" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Research Projects</span>
                 </div>
-                <div class="trust-section">
-                    <div class="trust-label">Trusted by forward-thinking organizations</div>
-                    <div class="trust-metrics">
-                        <div class="trust-metric">
-                            <div class="trust-number">50+</div>
-                            <div class="trust-description">Professional Clients</div>
-                        </div>
-                        <div class="trust-metric">
-                            <div class="trust-number">5+</div>
-                            <div class="trust-description">Years Expertise</div>
-                        </div>
-                        <div class="trust-metric">
-                            <div class="trust-number">95%</div>
-                            <div class="trust-description">Client Satisfaction</div>
-                        </div>
-                    </div>
+                <div class="stat">
+                    <span class="stat-number">48h</span>
+                    <span class="stat-label">Average Delivery</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">€75k</span>
+                    <span class="stat-label">Average Savings</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section" id="services">
+    <!-- Problem Section -->
+    <section class="section" id="problem">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-badge">Core Services</div>
-                <h2 class="section-title">Strategic Intelligence Solutions</h2>
-                <p class="section-subtitle">
-                    Specialized analytics designed for professional service organizations. We combine deep industry expertise with advanced analytical capabilities to deliver actionable insights.
-                </p>
+            <div class="section-header">
+                <h2>Your Research Is Killing Your Momentum</h2>
+                <p>Every professional service knows this pain. Research bottlenecks are destroying your client delivery speed.</p>
             </div>
-            <div class="cards-grid">
-                <div class="card animate-on-scroll">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 3v18h18"/>
-                            <path d="M18 17V9"/>
-                            <path d="M13 17V5"/>
-                            <path d="M8 17v-3"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Legal Intelligence</h3>
-                    <p class="card-description">
-                        Comprehensive legal market analysis, regulatory intelligence, and competitive positioning for law firms and legal departments.
-                    </p>
-                    <ul class="card-features">
-                        <li>Market analysis and competitive intelligence</li>
-                        <li>Regulatory change tracking and impact assessment</li>
-                        <li>Practice area performance benchmarking</li>
-                        <li>Client industry risk analysis</li>
-                    </ul>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Weeks of Waiting</h3>
+                    <p>Your team spends 2-4 weeks on research that should take days. Clients are waiting. Deals are cooling. Momentum is dead.</p>
                 </div>
-                <div class="card animate-on-scroll">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Business Intelligence</h3>
-                    <p class="card-description">
-                        Strategic market research, competitive analysis, and business intelligence for consulting firms and advisory practices.
-                    </p>
-                    <ul class="card-features">
-                        <li>Market opportunity analysis and sizing</li>
-                        <li>Competitive positioning strategies</li>
-                        <li>Industry trend analysis and forecasting</li>
-                        <li>Service line profitability assessment</li>
-                    </ul>
+                <div class="problem-card">
+                    <h3>Expensive Research Teams</h3>
+                    <p>Junior associates billing €200/hour for basic research. Senior partners reviewing obvious findings. Your margins are disappearing.</p>
                 </div>
-                <div class="card animate-on-scroll">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4"/>
-                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-                            <path d="M10.5 9A6 6 0 0 1 21 10.5"/>
-                            <path d="M10.5 15A6 6 0 0 0 21 13.5"/>
-                            <path d="M13.5 9A6 6 0 0 0 3 10.5"/>
-                            <path d="M13.5 15A6 6 0 0 1 3 13.5"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Audit & Compliance</h3>
-                    <p class="card-description">
-                        Risk assessment, regulatory compliance analysis, and audit intelligence for accounting firms and financial controllers.
-                    </p>
-                    <ul class="card-features">
-                        <li>Regulatory compliance gap analysis</li>
-                        <li>Industry-specific risk intelligence</li>
-                        <li>ESG reporting framework analysis</li>
-                        <li>Internal controls benchmarking</li>
-                    </ul>
-                </div>
-                <div class="card animate-on-scroll">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Financial Services</h3>
-                    <p class="card-description">
-                        Investment research, financial modeling, and regulatory intelligence for financial advisors and investment firms.
-                    </p>
-                    <ul class="card-features">
-                        <li>Investment opportunity evaluation</li>
-                        <li>Financial regulatory compliance tracking</li>
-                        <li>Portfolio risk assessment and modeling</li>
-                        <li>Client wealth management insights</li>
-                    </ul>
+                <div class="problem-card">
+                    <h3>Inconsistent Quality</h3>
+                    <p>Different researchers, different standards. Some reports are brilliant, others are basic. Your brand quality is unpredictable.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section class="section section-alt" id="use-cases">
+    <!-- Solution Section -->
+    <section class="section solution" id="solution">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-badge">Success Stories</div>
-                <h2 class="section-title">Real-World Applications</h2>
-                <p class="section-subtitle">
-                    Discover how leading organizations leverage our strategic intelligence platform to drive informed decision-making and achieve sustainable growth.
-                </p>
+            <div class="section-header">
+                <h2>The AI-as-a-Consultant Revolution</h2>
+                <p>Replace weeks of research with 48-hour consultant-grade analysis. One platform, consistent quality, transparent pricing.</p>
             </div>
-            <div class="use-cases-container">
-                <div class="use-case animate-on-scroll">
-                    <div class="use-case-header">
-                        <div class="use-case-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 3v18h18"/>
-                                <path d="M13 9l3 3-8 8-4-4 2-2"/>
-                            </svg>
-                        </div>
-                        <div class="use-case-meta">
-                            <h3>European Market Expansion Strategy</h3>
-                            <div class="industry">Legal Services</div>
-                        </div>
-                    </div>
-                    <div class="use-case-content">
-                        <div class="use-case-section">
-                            <h4>Challenge</h4>
-                            <p>A mid-size law firm needed comprehensive regulatory and competitive analysis to inform their expansion into three new European markets while ensuring compliance and competitive positioning.</p>
-                        </div>
-                        <div class="use-case-section">
-                            <h4>Solution</h4>
-                            <p>We conducted detailed regulatory landscape analysis, mapped competitive positioning, and identified market gaps and opportunities for differentiation across all target jurisdictions.</p>
-                        </div>
-                        <div class="use-case-result">
-                            <h4>Results</h4>
-                            <p>Successfully entered three markets with clear positioning, avoided regulatory issues, and achieved 25% faster market penetration than projected, establishing a strong European presence.</p>
-                        </div>
-                    </div>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-badge">48h Guarantee</div>
+                    <h3>Speed That Wins</h3>
+                    <p>Get comprehensive analysis in 48 hours, not weeks. Your clients get answers while competitors are still researching.</p>
                 </div>
-
-                <div class="use-case animate-on-scroll">
-                    <div class="use-case-header">
-                        <div class="use-case-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="3"/>
-                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                            </svg>
-                        </div>
-                        <div class="use-case-meta">
-                            <h3>Healthcare Digital Transformation Intelligence</h3>
-                            <div class="industry">Management Consulting</div>
-                        </div>
-                    </div>
-                    <div class="use-case-content">
-                        <div class="use-case-section">
-                            <h4>Challenge</h4>
-                            <p>A boutique consulting firm needed to differentiate their healthcare practice and position against larger competitors in the rapidly evolving digital health transformation space.</p>
-                        </div>
-                        <div class="use-case-section">
-                            <h4>Solution</h4>
-                            <p>We analyzed competitive service offerings, pricing models, and emerging healthcare technology trends while identifying regulatory changes and market gaps for strategic positioning.</p>
-                        </div>
-                        <div class="use-case-result">
-                            <h4>Results</h4>
-                            <p>Repositioned practice around specialized capabilities, improved competitive win rate by 40%, and developed new service lines addressing identified market opportunities.</p>
-                        </div>
-                    </div>
+                <div class="solution-card">
+                    <div class="solution-badge">€2,950 Fixed</div>
+                    <h3>Predictable Costs</h3>
+                    <p>No more €20k research surprises. Fixed pricing, unlimited revisions, transparent delivery. Budget with confidence.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-badge">Consultant-Grade</div>
+                    <h3>Premium Quality</h3>
+                    <p>McKinsey-level analysis powered by AI. Every report includes strategic recommendations, not just data dumps.</p>
                 </div>
             </div>
         </div>
@@ -1200,162 +527,99 @@
     <!-- Process Section -->
     <section class="section" id="process">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-badge">Our Approach</div>
-                <h2 class="section-title">Strategic Intelligence Process</h2>
-                <p class="section-subtitle">
-                    We follow a systematic approach to deliver high-quality strategic intelligence that meets your specific business requirements and decision-making objectives.
-                </p>
+            <div class="section-header">
+                <h2>Ready for Your Client Meeting</h2>
+                <p>Three simple steps. 48-hour delivery. Game-changing results.</p>
             </div>
-            <div class="process-timeline">
-                <div class="process-step animate-on-scroll">
-                    <div class="process-number">1</div>
-                    <div class="process-content">
-                        <h3>Requirements Discovery</h3>
-                        <p>In-depth consultation to understand your specific intelligence requirements, business context, competitive landscape, and strategic decision-making objectives.</p>
-                    </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Brief Us (30 min)</h3>
+                    <p>Tell us what you need. Market analysis, competitive research, due diligence, regulatory review. We handle the rest.</p>
                 </div>
-                <div class="process-step animate-on-scroll">
-                    <div class="process-number">2</div>
-                    <div class="process-content">
-                        <h3>Research & Data Collection</h3>
-                        <p>Comprehensive research using multiple data sources, industry databases, regulatory filings, and proprietary analytical tools to gather relevant intelligence.</p>
-                    </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis (48h)</h3>
+                    <p>Our AI consultant analyzes thousands of sources, generates insights, creates strategic recommendations you can present immediately.</p>
                 </div>
-                <div class="process-step animate-on-scroll">
-                    <div class="process-number">3</div>
-                    <div class="process-content">
-                        <h3>Analysis & Synthesis</h3>
-                        <p>Advanced analysis to identify patterns, trends, and strategic implications, synthesizing findings into actionable business intelligence and recommendations.</p>
-                    </div>
-                </div>
-                <div class="process-step animate-on-scroll">
-                    <div class="process-number">4</div>
-                    <div class="process-content">
-                        <h3>Delivery & Support</h3>
-                        <p>Comprehensive reporting with clear recommendations, strategic insights, and ongoing support for implementation and monitoring of outcomes.</p>
-                    </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Client-Ready Report</h3>
+                    <p>Professional presentation, executive summary, detailed analysis, actionable recommendations. Ready for your client meeting.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section section" id="contact">
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
         <div class="container">
-            <div class="contact-content">
-                <h2 class="contact-title">Ready to Transform Your Strategy?</h2>
-                <p class="contact-subtitle">
-                    Schedule a confidential consultation to discuss your strategic intelligence requirements and discover how we can support your organization's growth objectives.
-                </p>
-                <div class="contact-card">
-                    <h3>Strategic Intelligence Consultation</h3>
-                    <p>45-minute consultation to understand your business requirements, discuss our analytical approach, and explore partnership opportunities.</p>
-                    <div class="contact-features">
-                        <div class="contact-feature">Confidential discussion of strategic requirements</div>
-                        <div class="contact-feature">Review of analytical methodologies and capabilities</div>
-                        <div class="contact-feature">Customized proposal and implementation timeline</div>
-                        <div class="contact-feature">No obligation assessment of potential value</div>
-                    </div>
-                    <a href="https://calendly.com/analitikai/consultation" target="_blank" class="cta-primary cta-large" onclick="trackEvent('click', 'cta', 'consultation_booking')">
-                        Schedule Consultation
-                    </a>
-                    <p class="contact-note">Available Monday-Friday, 9:00-17:00 CET</p>
+            <div class="section-header">
+                <h2>Move at the Speed of AI</h2>
+                <p>Transparent pricing. No surprises. Choose your research intensity.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Research Sprint</h3>
+                    <div class="price">€2,950</div>
+                    <p>Perfect for quick market research, competitor analysis, or regulatory overviews.</p>
+                    <ul class="pricing-features">
+                        <li>48-hour delivery</li>
+                        <li>15-page analysis</li>
+                        <li>Executive summary</li>
+                        <li>1 revision included</li>
+                        <li>Client-ready format</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'pricing', 'research_sprint')">Start Sprint</a>
+                </div>
+                <div class="pricing-card recommended">
+                    <div class="recommended-badge">Most Popular</div>
+                    <h3>Deep Analysis</h3>
+                    <div class="price">€5,950</div>
+                    <p>Comprehensive research with strategic recommendations and implementation roadmap.</p>
+                    <ul class="pricing-features">
+                        <li>48-hour delivery</li>
+                        <li>30-page analysis</li>
+                        <li>Strategic recommendations</li>
+                        <li>Implementation roadmap</li>
+                        <li>3 revisions included</li>
+                        <li>30-min presentation</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'pricing', 'deep_analysis')">Book Deep Analysis</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Monthly Partnership</h3>
+                    <div class="price">€8,500<span style="font-size: 16px;">/month</span></div>
+                    <p>Unlimited research requests for firms that need continuous intelligence.</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited requests</li>
+                        <li>48-hour delivery</li>
+                        <li>Dedicated analyst</li>
+                        <li>Priority support</li>
+                        <li>Monthly strategy calls</li>
+                        <li>Custom templates</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'pricing', 'monthly_partnership')">Start Partnership</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Final CTA -->
+    <section class="section cta">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>AnalitikAI</h3>
-                    <p class="footer-description">
-                        Strategic intelligence platform for professional services. We deliver comprehensive analytics and data-driven insights that help organizations make informed decisions and achieve sustainable growth.
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services">Legal Intelligence</a></li>
-                        <li><a href="#services">Business Intelligence</a></li>
-                        <li><a href="#services">Audit & Compliance</a></li>
-                        <li><a href="#services">Financial Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Industries</h4>
-                    <ul class="footer-links">
-                        <li><a href="/instant-strategy/bufetes.html">Law Firms</a></li>
-                        <li><a href="/instant-strategy/consultoras.html">Consulting Firms</a></li>
-                        <li><a href="/instant-strategy/auditorias.html">Audit Firms</a></li>
-                        <li><a href="/instant-strategy/financiero.html">Financial Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#use-cases">Success Stories</a></li>
-                        <li><a href="#process">Our Process</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+            <div class="section-header">
+                <h2>Ready to Move at the Speed of AI?</h2>
+                <p>Join 150+ professional services that chose speed over status quo.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 AnalitikAI. All rights reserved. Professional strategic intelligence solutions.</p>
-            </div>
+            <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'final', 'book_demo')" style="background: white; color: #4f46e5; font-size: 18px; padding: 16px 32px;">Book Your 15-Minute Demo</a>
         </div>
-    </footer>
+    </section>
 
     <script>
-        // Enhanced loading animation
-        window.addEventListener('load', function() {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            setTimeout(() => {
-                loadingOverlay.classList.add('hidden');
-            }, 600);
-        });
-
-        // Enhanced header scroll effect
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScrollY = currentScrollY;
-        });
-
-        // Enhanced scroll animations with intersection observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach(el => observer.observe(el));
-        });
-
-        // Enhanced smooth scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1366,61 +630,6 @@
                 }
             });
         });
-
-        // Calendar booking tracking
-        document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
-            link.addEventListener('click', function() {
-                trackEvent('click', 'calendar', 'consultation_booking');
-            });
-        });
-
-        // Performance monitoring
-        window.addEventListener('load', function() {
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(() => {
-                    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-                    trackEvent('performance', 'page_load', Math.round(loadTime / 100) * 100 + '_ms');
-                });
-            }
-        });
-
-        // Enhanced card interactions
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Gradient text animation enhancement
-        const gradientTexts = document.querySelectorAll('.gradient-text');
-        gradientTexts.forEach(text => {
-            text.addEventListener('mouseenter', function() {
-                this.style.animationDuration = '1s';
-            });
-            
-            text.addEventListener('mouseleave', function() {
-                this.style.animationDuration = '4s';
-            });
-        });
-
-        // Parallax effect for hero background
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Mobile menu toggle (if needed later)
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
