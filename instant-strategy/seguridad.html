@@ -18,27 +18,73 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #4f46e5;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
             
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
             
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border: #e2e8f0;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
             
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         * {
@@ -354,6 +400,20 @@
         </div>
     </header>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                <span class="breadcrumb-current">Seguridad</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -372,7 +432,7 @@
             <div class="compliance-grid">
                 <div class="compliance-card">
                     <div class="compliance-badge">GDPR Compliant</div>
-                    <div class="compliance-icon">🛡️</div>
+                    <div class="compliance-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>GDPR & Privacidad</h3>
                     <p>Cumplimiento completo del Reglamento General de Protección de Datos. DPO designado y auditorías regulares.</p>
                     <ul class="compliance-features">
@@ -387,7 +447,7 @@
 
                 <div class="compliance-card">
                     <div class="compliance-badge in-progress">En Proceso</div>
-                    <div class="compliance-icon">🔒</div>
+                    <div class="compliance-icon"><i class="fas fa-lock"></i></div>
                     <h3>SOC 2 Type II</h3>
                     <p>Certificación SOC 2 Type II en proceso de obtención. Auditoría independiente de controles de seguridad operacional.</p>
                     <ul class="compliance-features">
@@ -402,7 +462,7 @@
 
                 <div class="compliance-card">
                     <div class="compliance-badge in-progress">Planificado</div>
-                    <div class="compliance-icon">📋</div>
+                    <div class="compliance-icon"><i class="fas fa-clipboard-list"></i></div>
                     <h3>ISO 27001</h3>
                     <p>Implementación de Sistema de Gestión de Seguridad de la Información (SGSI) según estándar ISO 27001.</p>
                     <ul class="compliance-features">
@@ -447,7 +507,7 @@
                 </div>
                 
                 <div class="technical-card">
-                    <h4>🛡️ Monitoreo 24/7</h4>
+                    <h4><i class="fas fa-shield-alt"></i> Monitoreo 24/7</h4>
                     <p>Sistema de detección de intrusiones. Monitoreo continuo de vulnerabilidades. Respuesta automática a incidentes de seguridad.</p>
                 </div>
                 
@@ -497,7 +557,7 @@
             </div>
             <div class="compliance-grid">
                 <div class="compliance-card">
-                    <div class="compliance-icon">⚖️</div>
+                    <div class="compliance-icon"><i class="fas fa-balance-scale"></i></div>
                     <h3>Legal & Despachos</h3>
                     <p>Cumplimiento con estándares de confidencialidad legal. Secreto profesional garantizado.</p>
                     <ul class="compliance-features">
@@ -521,7 +581,7 @@
                 </div>
 
                 <div class="compliance-card">
-                    <div class="compliance-icon">📊</div>
+                    <div class="compliance-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Auditoría & Consultoría</h3>
                     <p>Estándares de independencia y confidencialidad para servicios profesionales.</p>
                     <ul class="compliance-features">

@@ -18,20 +18,73 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        
         :root {
-            --primary: #0f172a;
-            --accent: #4f46e5;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
+            
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         * {
@@ -342,7 +395,7 @@
         }
 
         .deliverables-list li::before {
-            content: "📊";
+            content: "<i class="fas fa-chart-bar"></i>";
             position: absolute;
             left: 0;
             font-size: 12px;
@@ -508,6 +561,20 @@
         </div>
     </header>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                <span class="breadcrumb-current">Consultoria</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -559,7 +626,7 @@
             </div>
             <div class="solutions-grid">
                 <div class="solution-card">
-                    <div class="solution-icon">📊</div>
+                    <div class="solution-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Market Sizing & Analysis</h3>
                     <p>TAM/SAM/SOM analysis con precision consultora en fracción del tiempo</p>
                     <ul class="solution-features">
@@ -572,7 +639,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">🎯</div>
+                    <div class="solution-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Competitive Intelligence</h3>
                     <p>Análisis competitivo profundo con positioning y strategic insights</p>
                     <ul class="solution-features">
@@ -585,7 +652,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">🔍</div>
+                    <div class="solution-icon"><i class="fas fa-search"></i></div>
                     <h3>Due Diligence Comercial</h3>
                     <p>Commercial DD completo para M&A y strategic investments</p>
                     <ul class="solution-features">
@@ -598,7 +665,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">📈</div>
+                    <div class="solution-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Industry Deep Dives</h3>
                     <p>Análisis sectorial exhaustivo con trends y disruption mapping</p>
                     <ul class="solution-features">
@@ -611,7 +678,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">🌐</div>
+                    <div class="solution-icon"><i class="fas fa-globe"></i></div>
                     <h3>Market Entry Strategy</h3>
                     <p>Go-to-market strategy con channel analysis y investment requirements</p>
                     <ul class="solution-features">
@@ -624,7 +691,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">⚡</div>
+                    <div class="solution-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Strategic Options Analysis</h3>
                     <p>Evaluación de alternatives estratégicas con financial modeling</p>
                     <ul class="solution-features">
@@ -654,7 +721,7 @@
                     <p>Framework consolidado que combina market sizing, competitive analysis, regulatory assessment y go-to-market strategy en una metodología integrada.</p>
                 </div>
                 <div class="framework-deliverables">
-                    <h4>📋 Deliverables Incluidos</h4>
+                    <h4><i class="fas fa-clipboard-list"></i> Deliverables Incluidos</h4>
                     <ul class="deliverables-list">
                         <li>Market sizing (TAM/SAM/SOM)</li>
                         <li>Competitive landscape</li>
@@ -676,7 +743,7 @@
                     <p>Metodología estructurada que valida assumptions comerciales, evalúa quality of revenue y identifica synergies y risks en transactions.</p>
                 </div>
                 <div class="framework-deliverables">
-                    <h4>📋 Deliverables Incluidos</h4>
+                    <h4><i class="fas fa-clipboard-list"></i> Deliverables Incluidos</h4>
                     <ul class="deliverables-list">
                         <li>Revenue quality analysis</li>
                         <li>Customer concentration risk</li>
@@ -698,7 +765,7 @@
                     <p>Framework que evalúa digital maturity, identifica opportunities y construye roadmap priorizado para maximizar ROI de digital transformation.</p>
                 </div>
                 <div class="framework-deliverables">
-                    <h4>📋 Deliverables Incluidos</h4>
+                    <h4><i class="fas fa-clipboard-list"></i> Deliverables Incluidos</h4>
                     <ul class="deliverables-list">
                         <li>Digital maturity assessment</li>
                         <li>Technology gap analysis</li>
@@ -725,7 +792,7 @@
 
             <div class="scenario-card">
                 <div class="scenario-header">
-                    <div class="scenario-icon">🏢</div>
+                    <div class="scenario-icon"><i class="fas fa-building"></i></div>
                     <div class="scenario-title">Market Entry para Fortune 500</div>
                 </div>
                 <div class="scenario-context">
@@ -733,14 +800,14 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Approach Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Approach Tradicional</h4>
                         <p><strong>Timeline:</strong> 6-8 semanas</p>
                         <p><strong>Team:</strong> 1 partner + 2 managers + 4 analysts</p>
                         <p><strong>Cost:</strong> €150k en horas</p>
                         <p><strong>Risk:</strong> Research superficial por timeline pressure, recommendations genéricas, board frustrado</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 2 semanas</p>
                         <p><strong>Team:</strong> 1 partner + 1 manager + AnalitikAI</p>
                         <p><strong>Cost:</strong> €40k total</p>
@@ -751,7 +818,7 @@
 
             <div class="scenario-card">
                 <div class="scenario-header">
-                    <div class="scenario-icon">💰</div>
+                    <div class="scenario-icon"><i class="fas fa-dollar-sign"></i></div>
                     <div class="scenario-title">Commercial DD para Private Equity</div>
                 </div>
                 <div class="scenario-context">
@@ -759,13 +826,13 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Approach Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Approach Tradicional</h4>
                         <p><strong>Timeline:</strong> 4 semanas mínimo</p>
                         <p><strong>Issue:</strong> DD timeline no compatible con auction process</p>
                         <p><strong>Result:</strong> Bid conservativo, PE fund pierde deal a competitor más agresivo</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 1 semana</p>
                         <p><strong>Insight:</strong> Revenue quality superior a expectations, identificación de 3 growth levers hidden</p>
                         <p><strong>Result:</strong> Bid agresivo but informed, PE fund gana auction, value creation plan ready</p>
@@ -775,7 +842,7 @@
 
             <div class="scenario-card">
                 <div class="scenario-header">
-                    <div class="scenario-icon">🚀</div>
+                    <div class="scenario-icon"><i class="fas fa-rocket"></i></div>
                     <div class="scenario-title">Digital Transformation Roadmap</div>
                 </div>
                 <div class="scenario-context">
@@ -783,13 +850,13 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Approach Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Approach Tradicional</h4>
                         <p><strong>Timeline:</strong> 8 semanas</p>
                         <p><strong>Problem:</strong> Analysis genérico, benchmarks outdated, priorities unclear</p>
                         <p><strong>Outcome:</strong> Investment committee rechaza proposal, project delayed 6 meses</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 2 semanas</p>
                         <p><strong>Quality:</strong> Benchmarking real-time, ROI modeling preciso, clear prioritization</p>
                         <p><strong>Outcome:</strong> €50M digital investment approved, implementation starts immediately</p>
@@ -809,7 +876,7 @@
             <div class="roi-grid">
                 <div class="roi-metric">
                     <span class="roi-number">5x</span>
-                    <span class="roi-label">Faster Proposal Turnaround</span>
+                    <span class="roi-label">Más Rápido Proposal Turnaround</span>
                 </div>
                 <div class="roi-metric">
                     <span class="roi-number">70%</span>

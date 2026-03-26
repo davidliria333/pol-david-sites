@@ -18,22 +18,73 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        
         :root {
-            --primary: #0f172a;
-            --accent: #4f46e5;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
-            --finance: #f59e0b;
-            --finance-dark: #d97706;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
+            
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         * {
@@ -277,7 +328,7 @@
         }
 
         .solution-features li::before {
-            content: "💰";
+            content: "<i class="fas fa-dollar-sign"></i>";
             position: absolute;
             left: 0;
             font-size: 10px;
@@ -477,6 +528,20 @@
         </div>
     </header>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                <span class="breadcrumb-current">Finanzas</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -528,7 +593,7 @@
             </div>
             <div class="solutions-grid">
                 <div class="solution-card">
-                    <div class="solution-icon">📈</div>
+                    <div class="solution-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Equity Research</h3>
                     <p>Company analysis y sector research con modeling financiero automatizado</p>
                     <ul class="solution-features">
@@ -541,7 +606,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">🏢</div>
+                    <div class="solution-icon"><i class="fas fa-building"></i></div>
                     <h3>Credit Analysis</h3>
                     <p>Análisis crediticio completo con stress testing y scenario analysis</p>
                     <ul class="solution-features">
@@ -567,7 +632,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">🌍</div>
+                    <div class="solution-icon"><i class="fas fa-globe-americas"></i></div>
                     <h3>Macro Research</h3>
                     <p>Análisis macroeconómico y country risk para asset allocation</p>
                     <ul class="solution-features">
@@ -580,7 +645,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">🎯</div>
+                    <div class="solution-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>ESG Integration</h3>
                     <p>ESG research y sustainable investing analysis con impact measurement</p>
                     <ul class="solution-features">
@@ -593,7 +658,7 @@
                 </div>
 
                 <div class="solution-card">
-                    <div class="solution-icon">⚡</div>
+                    <div class="solution-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Market Intelligence</h3>
                     <p>Real-time market analysis y trading support con sentiment analysis</p>
                     <ul class="solution-features">
@@ -617,31 +682,31 @@
             </div>
             <div class="asset-grid">
                 <div class="asset-card">
-                    <span class="asset-icon">📊</span>
+                    <span class="asset-icon"><i class="fas fa-chart-bar"></i></span>
                     <h3>Equities</h3>
                     <p>Large cap, mid cap, small cap. Growth, value, dividend strategies. Sector rotation y thematic investing.</p>
                 </div>
                 
                 <div class="asset-card">
-                    <span class="asset-icon">🏛️</span>
+                    <span class="asset-icon"><i class="fas fa-university"></i></span>
                     <h3>Fixed Income</h3>
                     <p>Government, corporate, high yield. Duration, credit, emerging markets. Inflation-linked securities.</p>
                 </div>
                 
                 <div class="asset-card">
-                    <span class="asset-icon">🏢</span>
+                    <span class="asset-icon"><i class="fas fa-building"></i></span>
                     <h3>Real Estate</h3>
                     <p>Commercial, residential, REITs. Core, value-add, opportunistic strategies. Global property markets.</p>
                 </div>
                 
                 <div class="asset-card">
-                    <span class="asset-icon">⚡</span>
+                    <span class="asset-icon"><i class="fas fa-bolt"></i></span>
                     <h3>Commodities</h3>
                     <p>Energy, metals, agriculture. Supply-demand dynamics. ESG impact on commodity investing.</p>
                 </div>
                 
                 <div class="asset-card">
-                    <span class="asset-icon">💰</span>
+                    <span class="asset-icon"><i class="fas fa-dollar-sign"></i></span>
                     <h3>Currencies</h3>
                     <p>G10, emerging markets. Central bank policies. Currency hedging strategies. Digital currencies.</p>
                 </div>
@@ -673,14 +738,14 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Research Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Research Tradicional</h4>
                         <p><strong>Timeline:</strong> 3-4 semanas</p>
                         <p><strong>Team:</strong> 5 research analysts + 2 portfolio managers</p>
                         <p><strong>Cost:</strong> €100k en horas internas</p>
                         <p><strong>Risk:</strong> Analysis outdated cuando llega IC, opportunity cost masivo</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 48 horas</p>
                         <p><strong>Team:</strong> 1 portfolio manager + AnalitikAI</p>
                         <p><strong>Cost:</strong> €25k total</p>
@@ -691,7 +756,7 @@
 
             <div class="scenario-card">
                 <div class="scenario-header">
-                    <div class="scenario-icon">💼</div>
+                    <div class="scenario-icon"><i class="fas fa-briefcase"></i></div>
                     <div class="scenario-title">PE Due Diligence para Family Office</div>
                 </div>
                 <div class="scenario-context">
@@ -699,13 +764,13 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Process Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Process Tradicional</h4>
                         <p><strong>Timeline:</strong> 8 semanas</p>
                         <p><strong>Challenge:</strong> Limited PE expertise in-house, consultant fees €200k+</p>
                         <p><strong>Outcome:</strong> Missed fundraising window, settle for less attractive terms</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 2 semanas</p>
                         <p><strong>Advantage:</strong> Instant PE expertise, comprehensive fund analysis</p>
                         <p><strong>Outcome:</strong> Optimal allocation decision, first close participation, better economics</p>
@@ -715,7 +780,7 @@
 
             <div class="scenario-card">
                 <div class="scenario-header">
-                    <div class="scenario-icon">⚡</div>
+                    <div class="scenario-icon"><i class="fas fa-bolt"></i></div>
                     <div class="scenario-title">Crisis Response para Pension Fund</div>
                 </div>
                 <div class="scenario-context">
@@ -723,13 +788,13 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Traditional Approach</h4>
+                        <h4><i class="fas fa-times-circle"></i> Traditional Approach</h4>
                         <p><strong>Timeline:</strong> 2-3 semanas</p>
                         <p><strong>Problem:</strong> By then, crisis evolves, analysis stale, trustees frustrated</p>
                         <p><strong>Result:</strong> Reactive positioning, value destruction, governance issues</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 48 horas</p>
                         <p><strong>Value:</strong> Real-time crisis analysis, scenario planning, action plan</p>
                         <p><strong>Result:</strong> Proactive positioning, value preservation, trustee confidence</p>
@@ -748,8 +813,8 @@
             </div>
             <div class="performance-grid">
                 <div class="performance-metric">
-                    <span class="performance-number">15x</span>
-                    <span class="performance-label">Faster Research Output</span>
+                    <span class="performance-number">5x</span>
+                    <span class="performance-label">Más Rápido Research Output</span>
                 </div>
                 <div class="performance-metric">
                     <span class="performance-number">80%</span>
@@ -760,7 +825,7 @@
                     <span class="performance-label">Alpha Improvement</span>
                 </div>
                 <div class="performance-metric">
-                    <span class="performance-number">95%</span>
+                    <span class="performance-number">90%</span>
                     <span class="performance-label">Decision Speed Increase</span>
                 </div>
                 <div class="performance-metric">

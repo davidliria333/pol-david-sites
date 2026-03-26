@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metodologías AnalitikAI | Cómo Garantizamos 95% de Precisión</title>
+    <title>Metodologías AnalitikAI | Cómo Garantizamos 90% de Precisión</title>
     <meta name="description" content="Metodologías propietarias, frameworks de quality assurance y procesos de validación que garantizan research de calidad consultor. Technical deep dive para decision makers.">
 
     <!-- Google Analytics 4 -->
@@ -18,23 +18,73 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #4f46e5;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
             --warning: #f59e0b;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
+            --error: #ef4444;
+            
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
+            
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         * {
@@ -484,10 +534,24 @@
         </div>
     </header>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                <span class="breadcrumb-current">Metodologias</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>Metodologías Propietarias<br>95% Precisión Garantizada</h1>
+            <h1>Metodologías Propietarias<br>90% Precisión Garantizada</h1>
             <p>Deep dive técnico en los frameworks, procesos de validación y quality assurance systems que garantizan research de nivel consultor. Para decision makers técnicos.</p>
         </div>
     </section>
@@ -507,19 +571,19 @@
                 </div>
 
                 <div class="methodology-card">
-                    <div class="methodology-icon">🔍</div>
+                    <div class="methodology-icon"><i class="fas fa-search"></i></div>
                     <h3>Triple Validation</h3>
                     <p>Cada insight pasa por IA cross-validation, expert human review y automated fact-checking antes de ser incluido en deliverables finales.</p>
                 </div>
 
                 <div class="methodology-card">
-                    <div class="methodology-icon">📊</div>
+                    <div class="methodology-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Source Hierarchies</h3>
                     <p>Sistema propietario de ranking de fuentes con preference weighting para primary sources, peer-reviewed content y institutional databases.</p>
                 </div>
 
                 <div class="methodology-card">
-                    <div class="methodology-icon">⚡</div>
+                    <div class="methodology-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Real-time QA</h3>
                     <p>Monitoring continuo de quality metrics con automatic flagging de potential issues y human intervention triggers para complex edge cases.</p>
                 </div>
@@ -582,7 +646,7 @@
             <div class="technical-grid">
                 <div class="technical-section">
                     <div class="technical-header">
-                        <div class="technical-icon">🤖</div>
+                        <div class="technical-icon"><i class="fas fa-robot"></i></div>
                         <div class="technical-title">Multi-LLM Architecture</div>
                     </div>
                     <div class="technical-content">
@@ -616,7 +680,7 @@
 
                 <div class="technical-section">
                     <div class="technical-header">
-                        <div class="technical-icon">📚</div>
+                        <div class="technical-icon"><i class="fas fa-book"></i></div>
                         <div class="technical-title">Source Intelligence System</div>
                     </div>
                     <div class="technical-content">
@@ -650,7 +714,7 @@
 
                 <div class="technical-section">
                     <div class="technical-header">
-                        <div class="technical-icon">🔍</div>
+                        <div class="technical-icon"><i class="fas fa-search"></i></div>
                         <div class="technical-title">Fact-Checking Engine</div>
                     </div>
                     <div class="technical-content">
@@ -665,7 +729,7 @@
                             </div>
                             <div class="spec-item">
                                 <span class="spec-label">Flagging Threshold</span>
-                                <span class="spec-value">Below 85% Confidence</span>
+                                <span class="spec-value">Below 70% Confidence</span>
                             </div>
                             <div class="spec-item">
                                 <span class="spec-label">Human Review</span>
@@ -673,7 +737,7 @@
                             </div>
                         </div>
                         <div class="technical-description">
-                            <p>Automated fact-checking system que verifica cada factual claim contra minimum 3 independent sources. Claims con <85% confidence score trigger human expert review.</p>
+                            <p>Automated fact-checking system que verifica cada factual claim contra minimum 3 independent sources. Claims con <70% confidence score trigger human expert review.</p>
                             
                             <p>Specialized fact-checking algorithms para different content types: financial data, legal precedents, market statistics y regulatory information.</p>
 
@@ -695,31 +759,31 @@
             
             <div class="process-flow">
                 <div class="process-step">
-                    <div class="process-icon">🎯</div>
+                    <div class="process-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Requirement Analysis</h3>
                     <p>Parsing inteligente del briefing con extraction de key requirements, success criteria y quality thresholds</p>
                 </div>
 
                 <div class="process-step">
-                    <div class="process-icon">🔄</div>
+                    <div class="process-icon"><i class="fas fa-sync-alt"></i></div>
                     <h3>Multi-Source Research</h3>
                     <p>Parallel querying de multiple data sources con intelligent source selection based on query type y industry</p>
                 </div>
 
                 <div class="process-step">
-                    <div class="process-icon">⚖️</div>
+                    <div class="process-icon"><i class="fas fa-balance-scale"></i></div>
                     <h3>Consensus Building</h3>
                     <p>Cross-validation entre multiple models y sources con weighted voting y conflict resolution algorithms</p>
                 </div>
 
                 <div class="process-step">
-                    <div class="process-icon">👨‍💼</div>
+                    <div class="process-icon">👨‍<i class="fas fa-briefcase"></i></div>
                     <h3>Expert Validation</h3>
                     <p>Human subject matter expert review con domain expertise validation y strategic context addition</p>
                 </div>
 
                 <div class="process-step">
-                    <div class="process-icon">📋</div>
+                    <div class="process-icon"><i class="fas fa-clipboard-list"></i></div>
                     <h3>Quality Assurance</h3>
                     <p>Final QA check amb comprehensive accuracy verification, formatting validation y client delivery preparation</p>
                 </div>
@@ -737,13 +801,13 @@
             
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <span class="metric-number">95.2%</span>
+                    <span class="metric-number">90%</span>
                     <span class="metric-label">Fact Accuracy Rate</span>
                     <span class="metric-description">Verified against ground truth</span>
                 </div>
 
                 <div class="metric-card">
-                    <span class="metric-number">98.7%</span>
+                    <span class="metric-number">90%</span>
                     <span class="metric-label">Source Reliability</span>
                     <span class="metric-description">Primary & peer-reviewed sources</span>
                 </div>
@@ -767,7 +831,7 @@
                 </div>
 
                 <div class="metric-card">
-                    <span class="metric-number">99.9%</span>
+                    <span class="metric-number">95%</span>
                     <span class="metric-label">Delivery SLA</span>
                     <span class="metric-description">48h commitment met</span>
                 </div>

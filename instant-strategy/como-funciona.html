@@ -18,22 +18,73 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #4f46e5;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
+            
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         * {
@@ -480,6 +531,20 @@
         </div>
     </header>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                <span class="breadcrumb-current">Como Funciona</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -521,7 +586,7 @@
                                 <span class="layer-feature">Real-time Data</span>
                             </div>
                         </div>
-                        <div class="layer-icon">🤖</div>
+                        <div class="layer-icon"><i class="fas fa-robot"></i></div>
                     </div>
 
                     <div class="arch-layer layer-human">
@@ -534,7 +599,7 @@
                                 <span class="layer-feature">Strategic Insights</span>
                             </div>
                         </div>
-                        <div class="layer-icon">👨‍💼</div>
+                        <div class="layer-icon">👨‍<i class="fas fa-briefcase"></i></div>
                     </div>
 
                     <div class="arch-layer layer-output">
@@ -547,7 +612,7 @@
                                 <span class="layer-feature">Action Plan</span>
                             </div>
                         </div>
-                        <div class="layer-icon">📊</div>
+                        <div class="layer-icon"><i class="fas fa-chart-bar"></i></div>
                     </div>
                 </div>
             </div>
@@ -604,25 +669,25 @@
             
             <div class="quality-grid">
                 <div class="quality-card">
-                    <div class="quality-icon">🎯</div>
-                    <h3>95% Precisión Garantizada</h3>
+                    <div class="quality-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>90% Precisión Garantizada</h3>
                     <p>Triple verificación: IA cross-validation + expert review + fact-checking automatizado. Metodología probada con miles de proyectos.</p>
                 </div>
 
                 <div class="quality-card">
-                    <div class="quality-icon">⚡</div>
+                    <div class="quality-icon"><i class="fas fa-bolt"></i></div>
                     <h3>48h Delivery SLA</h3>
                     <p>Compromiso contractual de entrega en 48 horas. Monitoreo en tiempo real del progreso con alertas automáticas.</p>
                 </div>
 
                 <div class="quality-card">
-                    <div class="quality-icon">🔒</div>
+                    <div class="quality-icon"><i class="fas fa-lock"></i></div>
                     <h3>Confidencialidad Total</h3>
                     <p>Encriptación end-to-end, segregación de datos y purga automática post-entrega. Compliance GDPR y secreto profesional.</p>
                 </div>
 
                 <div class="quality-card">
-                    <div class="quality-icon">🔄</div>
+                    <div class="quality-icon"><i class="fas fa-sync-alt"></i></div>
                     <h3>Revisiones Ilimitadas</h3>
                     <p>Ajustes y profundizaciones sin costo adicional durante 30 días. Tu satisfacción es nuestra prioridad absoluta.</p>
                 </div>
@@ -634,7 +699,7 @@
                 </div>
 
                 <div class="quality-card">
-                    <div class="quality-icon">📈</div>
+                    <div class="quality-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Insights Accionables</h3>
                     <p>Más que datos: recomendaciones estratégicas implementables. Cada insight viene con next steps claros.</p>
                 </div>
@@ -674,7 +739,7 @@
                 </div>
 
                 <div class="tech-category">
-                    <h3>📚 Fuentes de Datos</h3>
+                    <h3><i class="fas fa-book"></i> Fuentes de Datos</h3>
                     <ul class="tech-items">
                         <li>
                             <span class="tech-name">Bloomberg Terminal</span>
@@ -696,7 +761,7 @@
                 </div>
 
                 <div class="tech-category">
-                    <h3>🔒 Seguridad</h3>
+                    <h3><i class="fas fa-lock"></i> Seguridad</h3>
                     <ul class="tech-items">
                         <li>
                             <span class="tech-name">AES-256 Encryption</span>

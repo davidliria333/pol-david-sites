@@ -18,21 +18,73 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        
         :root {
-            --primary: #0f172a;
-            --accent: #4f46e5;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
-            --audit: #7c3aed;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
+            
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         * {
@@ -474,6 +526,20 @@
         </div>
     </header>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html" class="breadcrumb-link">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                <span class="breadcrumb-current">Auditoria</span>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -525,7 +591,7 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">📋</div>
+                    <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
                     <h3>Compliance Research</h3>
                     <p>Investigación exhaustiva de regulaciones aplicables y requisitos de compliance</p>
                     <ul class="service-features">
@@ -538,7 +604,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🔍</div>
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Risk Assessment</h3>
                     <p>Análisis de riesgos sectoriales y assessment de controles internos</p>
                     <ul class="service-features">
@@ -551,7 +617,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🏢</div>
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
                     <h3>Industry Analysis</h3>
                     <p>Deep dive sectorial con benchmarking y análisis de mejores prácticas</p>
                     <ul class="service-features">
@@ -564,7 +630,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>ESG & Sustainability</h3>
                     <p>Research ESG completo con frameworks de reporting y materiality assessment</p>
                     <ul class="service-features">
@@ -577,7 +643,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🌐</div>
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
                     <h3>Cross-Border Compliance</h3>
                     <p>Análisis multi-jurisdiccional con mapping de diferencias regulatorias</p>
                     <ul class="service-features">
@@ -590,7 +656,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">💼</div>
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
                     <h3>Internal Audit Support</h3>
                     <p>Research para internal audit con process analysis y control testing support</p>
                     <ul class="service-features">
@@ -614,37 +680,37 @@
             </div>
             <div class="standards-grid">
                 <div class="standard-card">
-                    <span class="standard-icon">📋</span>
+                    <span class="standard-icon"><i class="fas fa-clipboard-list"></i></span>
                     <h3>IFRS / GAAP</h3>
                     <p>Research completo de standards contables y cambios regulatorios</p>
                 </div>
                 
                 <div class="standard-card">
-                    <span class="standard-icon">🛡️</span>
+                    <span class="standard-icon"><i class="fas fa-shield-alt"></i></span>
                     <h3>SOX Compliance</h3>
                     <p>Sarbanes-Oxley requirements y best practices documentation</p>
                 </div>
                 
                 <div class="standard-card">
-                    <span class="standard-icon">🔒</span>
+                    <span class="standard-icon"><i class="fas fa-lock"></i></span>
                     <h3>COSO Framework</h3>
                     <p>Internal control assessment según COSO 2013 framework</p>
                 </div>
                 
                 <div class="standard-card">
-                    <span class="standard-icon">🌍</span>
+                    <span class="standard-icon"><i class="fas fa-globe-americas"></i></span>
                     <h3>GDPR / Privacy</h3>
                     <p>Data protection compliance y privacy impact assessment</p>
                 </div>
                 
                 <div class="standard-card">
-                    <span class="standard-icon">⚖️</span>
+                    <span class="standard-icon"><i class="fas fa-balance-scale"></i></span>
                     <h3>ISA Standards</h3>
                     <p>International Standards on Auditing compliance research</p>
                 </div>
                 
                 <div class="standard-card">
-                    <span class="standard-icon">📈</span>
+                    <span class="standard-icon"><i class="fas fa-chart-line"></i></span>
                     <h3>ESG Frameworks</h3>
                     <p>GRI, SASB, TCFD y otros frameworks de sostenibilidad</p>
                 </div>
@@ -670,14 +736,14 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Proceso Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Proceso Tradicional</h4>
                         <p><strong>Timeline:</strong> 8-10 semanas</p>
                         <p><strong>Team:</strong> 2 partners + 6 managers + 15 seniors</p>
                         <p><strong>Cost:</strong> €200k en horas internas</p>
                         <p><strong>Risk:</strong> Coverage inconsistente entre jurisdicciones, documentation gaps, audit committee frustrated</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 3 semanas</p>
                         <p><strong>Team:</strong> 1 partner + 2 managers + AnalitikAI</p>
                         <p><strong>Cost:</strong> €60k total</p>
@@ -696,13 +762,13 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Proceso Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Proceso Tradicional</h4>
                         <p><strong>Timeline:</strong> 6-8 semanas</p>
                         <p><strong>Challenge:</strong> ESG expertise limitada en team, learning curve steep</p>
                         <p><strong>Result:</strong> IPO delay de 2 meses, competitive disadvantage, client frustration</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 3 semanas</p>
                         <p><strong>Expertise:</strong> ESG frameworks mastery desde día 1</p>
                         <p><strong>Result:</strong> IPO on-schedule, comprehensive ESG documentation, investor confidence</p>
@@ -712,7 +778,7 @@
 
             <div class="scenario-card">
                 <div class="scenario-header">
-                    <div class="scenario-icon">🔍</div>
+                    <div class="scenario-icon"><i class="fas fa-search"></i></div>
                     <div class="scenario-title">Fraud Investigation Support</div>
                 </div>
                 <div class="scenario-context">
@@ -720,13 +786,13 @@
                 </div>
                 <div class="scenario-comparison">
                     <div class="traditional">
-                        <h4>❌ Proceso Tradicional</h4>
+                        <h4><i class="fas fa-times-circle"></i> Proceso Tradicional</h4>
                         <p><strong>Timeline:</strong> 10-12 semanas</p>
                         <p><strong>Problem:</strong> Manual document review, industry context missing, limited benchmarking</p>
                         <p><strong>Outcome:</strong> Incomplete picture, weak recommendations, ongoing risk</p>
                     </div>
                     <div class="with-ai">
-                        <h4>✅ Con AnalitikAI</h4>
+                        <h4><i class="fas fa-check-circle"></i> Con AnalitikAI</h4>
                         <p><strong>Timeline:</strong> 4 semanas</p>
                         <p><strong>Advantage:</strong> Industry fraud patterns analysis, comprehensive benchmarking, complete context</p>
                         <p><strong>Outcome:</strong> Actionable insights, robust controls recommendations, fraud prevention framework</p>
@@ -745,22 +811,22 @@
             </div>
             <div class="trail-features">
                 <div class="trail-feature">
-                    <h3>🔗 Source Traceability</h3>
+                    <h3><i class="fas fa-link"></i> Source Traceability</h3>
                     <p>Cada insight linkeable a source original. Full citation con timestamps y version control. Audit trail desde briefing hasta entrega.</p>
                 </div>
                 
                 <div class="trail-feature">
-                    <h3>📋 Working Papers</h3>
+                    <h3><i class="fas fa-clipboard-list"></i> Working Papers</h3>
                     <p>Documentation estructurada según ISA standards. Work programs, testing matrices y findings documentation audit-ready.</p>
                 </div>
                 
                 <div class="trail-feature">
-                    <h3>🔒 Version Control</h3>
+                    <h3><i class="fas fa-lock"></i> Version Control</h3>
                     <p>Control completo de versiones con change log detallado. Rollback capability y approval workflow para changes críticos.</p>
                 </div>
                 
                 <div class="trail-feature">
-                    <h3>⚡ Real-time Updates</h3>
+                    <h3><i class="fas fa-bolt"></i> Real-time Updates</h3>
                     <p>Monitoring automático de cambios regulatorios. Alerts inmediatas cuando regulations afectan tu assessment.</p>
                 </div>
             </div>
