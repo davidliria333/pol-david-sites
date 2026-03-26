@@ -482,16 +482,148 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+        <!-- Header -->
+    <header class="header" id="header">
         <div class="nav container">
             <a href="index.html" class="logo">AnalitikAI</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="seguridad.html">Seguridad</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-            <a href="#" class="btn">Agendar Demo</a>
+            
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <!-- Platform Dropdown -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-dropdown">Plataforma</a>
+                        <div class="dropdown">
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Descripción General</div>
+                                <a href="como-funciona.html" class="dropdown-link">
+                                    Cómo Funciona
+                                    <div class="dropdown-description">Motor de investigación IA + supervisión humana</div>
+                                </a>
+                                <a href="como-funciona.html#architecture" class="dropdown-link">
+                                    Arquitectura del Sistema
+                                    <div class="dropdown-description">4 capas integradas de procesamiento</div>
+                                </a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Capacidades</div>
+                                <a href="metodologias.html" class="dropdown-link">
+                                    Metodologías de Research
+                                    <div class="dropdown-description">Frameworks propietarios de calidad</div>
+                                </a>
+                                <a href="como-funciona.html#tech-stack" class="dropdown-link">
+                                    Stack Tecnológico
+                                    <div class="dropdown-description">IA enterprise y fuentes premium</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Use Cases Dropdown -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-dropdown">Casos de Uso</a>
+                        <div class="dropdown">
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Por Industria</div>
+                                <a href="legal.html" class="dropdown-link">
+                                    Servicios Legales
+                                    <div class="dropdown-description">Due diligence, investigación regulatoria</div>
+                                </a>
+                                <a href="consultoria.html" class="dropdown-link">
+                                    Consultoría Estratégica
+                                    <div class="dropdown-description">Análisis de mercado, inteligencia competitiva</div>
+                                </a>
+                                <a href="auditoria.html" class="dropdown-link">
+                                    Auditoría & Aseguramiento
+                                    <div class="dropdown-description">Compliance research, análisis sectorial</div>
+                                </a>
+                                <a href="finanzas.html" class="dropdown-link">
+                                    Finanzas & Inversión
+                                    <div class="dropdown-description">Investment research, due diligence financiero</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-dropdown">Recursos</a>
+                        <div class="dropdown">
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Aprender</div>
+                                <a href="blog.html" class="dropdown-link">
+                                    Blog
+                                    <div class="dropdown-description">Insights y tendencias sectoriales</div>
+                                </a>
+                                <a href="estudios-caso.html" class="dropdown-link">
+                                    Estudios de Caso
+                                    <div class="dropdown-description">Escenarios reales de implementación</div>
+                                </a>
+                                <a href="metodologias.html" class="dropdown-link">
+                                    Metodologías
+                                    <div class="dropdown-description">Cómo garantizamos precisión</div>
+                                </a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Soporte</div>
+                                <a href="como-funciona.html" class="dropdown-link">
+                                    Centro de Ayuda
+                                    <div class="dropdown-description">Cómo funciona y soporte técnico</div>
+                                </a>
+                                <a href="seguridad.html" class="dropdown-link">
+                                    Seguridad & Privacidad
+                                    <div class="dropdown-description">GDPR, compliance y protección de datos</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agendar Demo
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-section">
+                <div class="mobile-section-title">Plataforma</div>
+                <div class="mobile-links">
+                    <a href="como-funciona.html" class="mobile-link">Cómo Funciona</a>
+                    <a href="metodologias.html" class="mobile-link">Metodologías</a>
+                </div>
+            </div>
+            
+            <div class="mobile-section">
+                <div class="mobile-section-title">Industrias</div>
+                <div class="mobile-links">
+                    <a href="legal.html" class="mobile-link">Servicios Legales</a>
+                    <a href="consultoria.html" class="mobile-link">Consultoría</a>
+                    <a href="auditoria.html" class="mobile-link">Auditoría</a>
+                    <a href="finanzas.html" class="mobile-link">Finanzas</a>
+                </div>
+            </div>
+            
+            <div class="mobile-section">
+                <div class="mobile-section-title">Recursos</div>
+                <div class="mobile-links">
+                    <a href="blog.html" class="mobile-link">Blog</a>
+                    <a href="estudios-caso.html" class="mobile-link">Estudios de Caso</a>
+                    <a href="seguridad.html" class="mobile-link">Seguridad</a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 32px;">
+                <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agendar Demo
+                </a>
+            </div>
         </div>
     </header>
 
