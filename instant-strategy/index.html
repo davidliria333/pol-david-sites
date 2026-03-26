@@ -26,32 +26,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #4f46e5;
-            --accent-light: #6366f1;
+            /* Modern Color Palette */
+            --primary: #0a0a0a;
+            --primary-light: #1a1a1a;
+            --primary-medium: #2a2a2a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
             --success: #10b981;
             --warning: #f59e0b;
-            --error: #ef4444;
             
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --text-light: #94a3b8;
+            /* Text Colors */
+            --text-primary: #0a0a0a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --text-light: #d1d5db;
             
+            /* Background Colors */
             --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --bg-dark: var(--primary);
             
+            /* Border & Effects */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25), 0 30px 60px -30px rgb(0 0 0 / 0.3);
+            
+            /* Modern Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
         }
 
         * {
@@ -70,10 +83,12 @@
             color: var(--text-primary);
             background-color: var(--bg-primary);
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'cv11', 'ss01';
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -85,30 +100,37 @@
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-sm);
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
+            padding: 16px 0;
+            position: relative;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--accent);
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary);
             text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         .nav-main {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 48px;
         }
 
         .nav-links {
@@ -126,21 +148,30 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 15px;
             padding: 12px 16px;
             display: flex;
             align-items: center;
-            gap: 4px;
-            transition: color 0.2s;
+            gap: 6px;
+            transition: all 0.2s ease;
+            border-radius: 8px;
         }
 
         .nav-link:hover {
             color: var(--accent);
+            background: var(--bg-secondary);
         }
 
         .nav-link.has-dropdown::after {
-            content: "▼";
-            font-size: 10px;
-            transition: transform 0.2s;
+            content: "";
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 14px;
+            transition: transform 0.2s ease;
+            opacity: 0.6;
         }
 
         .nav-item:hover .nav-link.has-dropdown::after {
@@ -150,18 +181,18 @@
         /* Dropdown Menus */
         .dropdown {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 8px);
             left: 0;
             background: white;
             border: 1px solid var(--border);
-            border-radius: 8px;
-            box-shadow: var(--shadow-lg);
-            padding: 16px 0;
-            min-width: 280px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            padding: 24px 0;
+            min-width: 320px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .nav-item:hover .dropdown {
@@ -171,8 +202,8 @@
         }
 
         .dropdown-section {
-            padding: 0 20px;
-            margin-bottom: 16px;
+            padding: 0 24px;
+            margin-bottom: 20px;
         }
 
         .dropdown-section:last-child {
@@ -180,21 +211,23 @@
         }
 
         .dropdown-title {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .dropdown-link {
             display: block;
-            padding: 8px 0;
-            color: var(--text-secondary);
+            padding: 10px 0;
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 14px;
-            transition: color 0.2s;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            line-height: 1.4;
         }
 
         .dropdown-link:hover {
@@ -205,6 +238,7 @@
             font-size: 12px;
             color: var(--text-muted);
             margin-top: 2px;
+            line-height: 1.3;
         }
 
         /* Mobile Menu */
@@ -215,92 +249,161 @@
             font-size: 24px;
             color: var(--text-secondary);
             cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--bg-secondary);
+            color: var(--accent);
         }
 
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 70px;
+            top: 73px;
             left: 0;
             right: 0;
             background: white;
             border-bottom: 1px solid var(--border);
-            padding: 20px;
-            max-height: calc(100vh - 70px);
+            padding: 32px 24px;
+            max-height: calc(100vh - 73px);
             overflow-y: auto;
+            box-shadow: var(--shadow-lg);
         }
 
         .mobile-menu.active {
             display: block;
         }
 
+        .mobile-section {
+            margin-bottom: 32px;
+        }
+
+        .mobile-section-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .mobile-link {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-link:hover {
+            background: var(--bg-secondary);
+            color: var(--accent);
+        }
+
         .btn {
             padding: 12px 24px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s;
+            font-size: 14px;
+            transition: all 0.2s ease;
             cursor: pointer;
             border: none;
-            display: inline-block;
-            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: var(--gradient-accent);
             color: white;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-primary:hover {
-            background: var(--accent-light);
             transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--accent);
-            border: 2px solid var(--accent);
+            border: 1.5px solid var(--accent);
         }
 
         .btn-secondary:hover {
             background: var(--accent);
             color: white;
+            transform: translateY(-1px);
         }
 
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 140px 0 100px;
+            background: var(--gradient-primary);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 8px 16px;
-            background: rgba(79, 70, 229, 0.1);
-            border: 1px solid rgba(79, 70, 229, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50px;
-            color: #a5b4fc;
-            font-size: 14px;
-            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            margin-bottom: 32px;
             font-weight: 500;
+            backdrop-filter: blur(10px);
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: clamp(40px, 5vw, 72px);
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
 
         .hero .subtitle {
-            font-size: 20px;
-            color: #94a3b8;
-            margin-bottom: 40px;
+            font-size: clamp(18px, 2.5vw, 22px);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 48px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.5;
         }
 
         .hero-cta {
@@ -308,36 +411,44 @@
             gap: 16px;
             justify-content: center;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
         }
 
         .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
         .stat {
-            padding: 16px;
+            padding: 24px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .stat-number {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--accent);
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--accent-light);
             display: block;
+            margin-bottom: 4px;
         }
 
         .stat-label {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-top: 4px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
         }
 
         /* Industries Section */
         .industries {
-            padding: 100px 0;
+            padding: 120px 0;
             background: var(--bg-secondary);
         }
 
@@ -347,10 +458,11 @@
         }
 
         .section-header h2 {
-            font-size: 48px;
-            font-weight: 800;
+            font-size: clamp(36px, 4vw, 52px);
+            font-weight: 900;
             color: var(--text-primary);
             margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .section-header p {
@@ -358,39 +470,60 @@
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.5;
         }
 
         .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
         }
 
         .industry-card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
+            background: var(--gradient-surface);
+            padding: 48px 40px;
+            border-radius: 24px;
             box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .industry-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .industry-card:hover::before {
+            transform: scaleX(1);
         }
 
         .industry-icon {
             width: 80px;
             height: 80px;
-            background: var(--accent);
-            border-radius: 50%;
+            background: var(--gradient-accent);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
             color: white;
-            margin: 0 auto 24px;
+            margin: 0 auto 32px;
+            position: relative;
         }
 
         .industry-card h3 {
@@ -409,27 +542,32 @@
         .use-cases-list {
             list-style: none;
             text-align: left;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
         .use-cases-list li {
-            padding: 4px 0;
+            padding: 6px 0;
             color: var(--text-muted);
             font-size: 14px;
             position: relative;
-            padding-left: 16px;
+            padding-left: 20px;
+            line-height: 1.4;
         }
 
         .use-cases-list li::before {
-            content: "•";
+            content: "";
             position: absolute;
             left: 0;
-            color: var(--accent);
+            top: 12px;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
         }
 
         /* Features Section */
         .features {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .features-grid {
@@ -439,10 +577,28 @@
         }
 
         .feature-card {
-            padding: 40px;
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            border-left: 4px solid var(--success);
+            padding: 48px 40px;
+            background: white;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--gradient-accent);
+            border-radius: 0 24px 24px 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .feature-card h3 {
@@ -453,74 +609,89 @@
         }
 
         .feature-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #dcfce7;
-            color: #166534;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
             border-radius: 50px;
             font-size: 12px;
             font-weight: 600;
             margin-bottom: 16px;
         }
 
-        /* Security Section */
-        .security {
-            padding: 100px 0;
-            background: var(--primary);
-            color: white;
-        }
-
-        .security-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .security-card {
-            padding: 32px;
-            background: var(--primary-light);
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .security-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--accent);
+        .feature-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--success);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin: 0 auto 16px;
         }
 
         /* CTA Section */
         .cta {
             padding: 100px 0;
-            background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+            background: var(--gradient-primary);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Footer */
         .footer {
             background: var(--primary);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 48px;
+            margin-bottom: 48px;
         }
 
         .footer-section h4 {
             font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
             color: white;
         }
 
@@ -529,28 +700,29 @@
         }
 
         .footer-links li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
-            color: #94a3b8;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             font-size: 14px;
+            transition: color 0.2s ease;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--accent-light);
         }
 
         .footer-bottom {
-            padding-top: 30px;
+            padding-top: 32px;
             border-top: 1px solid var(--primary-light);
             text-align: center;
-            color: #94a3b8;
+            color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-links {
                 display: none;
@@ -559,6 +731,10 @@
             .mobile-menu-btn {
                 display: block;
             }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -566,8 +742,12 @@
                 padding: 0 20px;
             }
 
-            .hero h1 {
-                font-size: 40px;
+            .nav {
+                padding: 12px 0;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
             }
 
             .hero-cta {
@@ -575,24 +755,60 @@
             }
 
             .hero-stats {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 24px;
             }
 
-            .section-header h2 {
-                font-size: 36px;
+            .industries-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
 
-            .nav {
-                padding: 12px 20px;
+            .industry-card,
+            .feature-card {
+                padding: 32px 24px;
             }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            z-index: 1001;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: var(--gradient-accent);
+            width: 0%;
+            transition: width 0.1s ease;
         }
     </style>
 </head>
 <body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
     <!-- Header -->
-    <header class="header">
-        <div class="nav">
+    <header class="header" id="header">
+        <div class="nav container">
             <a href="#" class="logo">AnalitikAI</a>
             
             <div class="nav-main">
@@ -608,8 +824,8 @@
                                     <div class="dropdown-description">Motor de investigación IA + supervisión humana</div>
                                 </a>
                                 <a href="como-funciona.html#architecture" class="dropdown-link">
-                                    Componentes
-                                    <div class="dropdown-description">Flujos de trabajo e inteligencia sectorial</div>
+                                    Arquitectura del Sistema
+                                    <div class="dropdown-description">4 capas integradas de procesamiento</div>
                                 </a>
                             </div>
                             <div class="dropdown-section">
@@ -637,16 +853,16 @@
                                     <div class="dropdown-description">Due diligence, investigación regulatoria</div>
                                 </a>
                                 <a href="consultoria.html" class="dropdown-link">
-                                    Consultoría
+                                    Consultoría Estratégica
                                     <div class="dropdown-description">Análisis de mercado, inteligencia competitiva</div>
                                 </a>
                                 <a href="auditoria.html" class="dropdown-link">
                                     Auditoría & Aseguramiento
-                                    <div class="dropdown-description">Investigación de compliance, análisis sectorial</div>
+                                    <div class="dropdown-description">Compliance research, análisis sectorial</div>
                                 </a>
                                 <a href="finanzas.html" class="dropdown-link">
                                     Finanzas & Inversión
-                                    <div class="dropdown-description">Investigación financiera, due diligence</div>
+                                    <div class="dropdown-description">Investment research, due diligence financiero</div>
                                 </a>
                             </div>
                         </div>
@@ -668,7 +884,7 @@
                                 </a>
                                 <a href="metodologias.html" class="dropdown-link">
                                     Metodologías
-                                    <div class="dropdown-description">Cómo garantizamos la precisión</div>
+                                    <div class="dropdown-description">Cómo garantizamos precisión</div>
                                 </a>
                             </div>
                             <div class="dropdown-section">
@@ -679,84 +895,105 @@
                                 </a>
                                 <a href="seguridad.html" class="dropdown-link">
                                     Seguridad & Privacidad
-                                    <div class="dropdown-description">GDPR, ISO, protección de datos</div>
+                                    <div class="dropdown-description">GDPR, compliance y protección de datos</div>
                                 </a>
                             </div>
                         </div>
                     </li>
                 </ul>
                 
-                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">Agendar Demo</a>
+                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agendar Demo
+                </a>
             </div>
 
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
 
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
-            <div style="margin-bottom: 20px;">
-                <strong>Plataforma</strong>
-                <div style="margin-left: 16px; margin-top: 8px;">
-                    <a href="como-funciona.html" style="display: block; padding: 4px 0; color: #475569;">Cómo Funciona</a>
-                    <a href="metodologias.html" style="display: block; padding: 4px 0; color: #475569;">Metodologías</a>
-                    <a href="como-funciona.html#tech-stack" style="display: block; padding: 4px 0; color: #475569;">Stack Tecnológico</a>
+            <div class="mobile-section">
+                <div class="mobile-section-title">Plataforma</div>
+                <div class="mobile-links">
+                    <a href="como-funciona.html" class="mobile-link">Cómo Funciona</a>
+                    <a href="metodologias.html" class="mobile-link">Metodologías</a>
+                    <a href="como-funciona.html#tech-stack" class="mobile-link">Stack Tecnológico</a>
                 </div>
             </div>
             
-            <div style="margin-bottom: 20px;">
-                <strong>Casos de Uso</strong>
-                <div style="margin-left: 16px; margin-top: 8px;">
-                    <a href="legal.html" style="display: block; padding: 4px 0; color: #475569;">Servicios Legales</a>
-                    <a href="consultoria.html" style="display: block; padding: 4px 0; color: #475569;">Consultoría</a>
-                    <a href="auditoria.html" style="display: block; padding: 4px 0; color: #475569;">Auditoría</a>
-                    <a href="finanzas.html" style="display: block; padding: 4px 0; color: #475569;">Finanzas</a>
+            <div class="mobile-section">
+                <div class="mobile-section-title">Industrias</div>
+                <div class="mobile-links">
+                    <a href="legal.html" class="mobile-link">Servicios Legales</a>
+                    <a href="consultoria.html" class="mobile-link">Consultoría</a>
+                    <a href="auditoria.html" class="mobile-link">Auditoría</a>
+                    <a href="finanzas.html" class="mobile-link">Finanzas</a>
                 </div>
             </div>
             
-            <div style="margin-bottom: 20px;">
-                <strong>Recursos</strong>
-                <div style="margin-left: 16px; margin-top: 8px;">
-                    <a href="blog.html" style="display: block; padding: 4px 0; color: #475569;">Blog</a>
-                    <a href="estudios-caso.html" style="display: block; padding: 4px 0; color: #475569;">Estudios de Caso</a>
-                    <a href="seguridad.html" style="display: block; padding: 4px 0; color: #475569;">Seguridad</a>
+            <div class="mobile-section">
+                <div class="mobile-section-title">Recursos</div>
+                <div class="mobile-links">
+                    <a href="blog.html" class="mobile-link">Blog</a>
+                    <a href="estudios-caso.html" class="mobile-link">Estudios de Caso</a>
+                    <a href="seguridad.html" class="mobile-link">Seguridad</a>
                 </div>
             </div>
             
-            <a href="#" class="btn btn-primary" style="width: 100%; margin-top: 16px;">Agendar Demo</a>
+            <div style="margin-top: 32px;">
+                <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="trackEvent('cta_click', 'mobile', 'book_demo')">
+                    <i class="fas fa-calendar-alt"></i>
+                    Agendar Demo
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">La Primera Plataforma Anti-Equipos de Investigación</div>
-            <h1>
-                Adiós Equipos de Investigación.<br>
-                La Primera Plataforma de IA como Consultor
-            </h1>
-            <p class="subtitle">
-                Deja de subcontratar investigación durante semanas. Obtén análisis de nivel consultor en 48 horas para despachos legales, consultorías, auditorías y servicios financieros.
-            </p>
-            <div class="hero-cta">
-                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'hero', 'book_demo')">Agendar Demo 15 min</a>
-                <a href="#industries" class="btn btn-secondary">Conocer Más</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Proyectos de Investigación</span>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-sparkles"></i>
+                    La Primera Plataforma Anti-Equipos de Investigación
                 </div>
-                <div class="stat">
-                    <span class="stat-number">48h</span>
-                    <span class="stat-label">Entrega Promedio</span>
+                <h1>
+                    Adiós Equipos de Investigación.<br>
+                    La Primera Plataforma de IA como Consultor
+                </h1>
+                <p class="subtitle">
+                    Deja de subcontratar investigación durante semanas. Obtén análisis de nivel consultor en 48 horas para despachos legales, consultorías, auditorías y servicios financieros.
+                </p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'hero', 'book_demo')">
+                        <i class="fas fa-video"></i>
+                        Agendar Demo 15 min
+                    </a>
+                    <a href="#industries" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        Conocer Más
+                    </a>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">95%</span>
-                    <span class="stat-label">Satisfacción Cliente</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">85%</span>
-                    <span class="stat-label">Reducción de Costos</span>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Proyectos Completados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">48h</span>
+                        <span class="stat-label">Tiempo de Entrega</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">Satisfacción Cliente</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">70%</span>
+                        <span class="stat-label">Reducción de Tiempo</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -771,37 +1008,49 @@
             </div>
             <div class="industries-grid">
                 <div class="industry-card" id="legal">
-                    <div class="industry-icon">⚖️</div>
+                    <div class="industry-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
                     <h3>Servicios Legales</h3>
-                    <p>Investigación jurídica de nivel Big Law en 48 horas. Due diligence, análisis regulatorio y investigación de precedentes con precisión de despacho tier-1.</p>
+                    <p>Investigación jurídica de nivel despacho internacional en 48 horas. Due diligence, análisis regulatorio y investigación de precedentes con precisión profesional.</p>
                     <ul class="use-cases-list">
                         <li>Due diligence para M&A y financiaciones</li>
                         <li>Investigación regulatoria y compliance</li>
                         <li>Análisis de precedentes y jurisprudencia</li>
-                        <li>Investigación de contraparte y stakeholders</li>
+                        <li>Investigación de contraparte</li>
                         <li>Intelligence sectorial para litigios</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'legal')">Ver Casos Legales</a>
+                    <a href="legal.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'legal')">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Casos Legales
+                    </a>
                 </div>
 
                 <div class="industry-card" id="consulting">
-                    <div class="industry-icon">💼</div>
+                    <div class="industry-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <h3>Consultoría Estratégica</h3>
-                    <p>Análisis de mercado y inteligencia competitiva con estándares McKinsey. Research que acelera tus propuestas y potencia tus recomendaciones estratégicas.</p>
+                    <p>Análisis de mercado y inteligencia competitiva con estándares de consultoría internacional. Research que acelera tus propuestas y potencia recomendaciones estratégicas.</p>
                     <ul class="use-cases-list">
-                        <li>Análisis de mercado y sizing</li>
+                        <li>Análisis de mercado y market sizing</li>
                         <li>Inteligencia competitiva y benchmarking</li>
                         <li>Due diligence comercial y estratégico</li>
                         <li>Investigación de tendencias sectoriales</li>
                         <li>Análisis de modelos de negocio</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'consulting')">Ver Casos Consultoría</a>
+                    <a href="consultoria.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'consulting')">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Casos Consultoría
+                    </a>
                 </div>
 
                 <div class="industry-card" id="audit">
-                    <div class="industry-icon">🔍</div>
+                    <div class="industry-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
                     <h3>Auditoría & Aseguramiento</h3>
-                    <p>Investigación de compliance y análisis sectorial para Big 4. Risk assessment, investigación regulatoria y análisis de industria con trazabilidad completa.</p>
+                    <p>Investigación de compliance y análisis sectorial para auditorías empresariales. Risk assessment, investigación regulatoria con trazabilidad completa.</p>
                     <ul class="use-cases-list">
                         <li>Investigación de compliance y regulación</li>
                         <li>Análisis sectorial y benchmarking</li>
@@ -809,13 +1058,18 @@
                         <li>Investigación de background corporativo</li>
                         <li>Análisis de estándares y frameworks</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'audit')">Ver Casos Auditoría</a>
+                    <a href="auditoria.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'audit')">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Casos Auditoría
+                    </a>
                 </div>
 
                 <div class="industry-card" id="finance">
-                    <div class="industry-icon">📊</div>
+                    <div class="industry-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
                     <h3>Finanzas & Inversión</h3>
-                    <p>Research financiero institucional en 48 horas. Análisis de inversión, due diligence financiero e intelligence de mercado para decisiones de inversión críticas.</p>
+                    <p>Research financiero institucional en 48 horas. Análisis de inversión, due diligence financiero e intelligence de mercado para decisiones de inversión.</p>
                     <ul class="use-cases-list">
                         <li>Due diligence financiero y de inversión</li>
                         <li>Análisis de empresas y valoraciones</li>
@@ -823,7 +1077,10 @@
                         <li>Investigación regulatoria financiera</li>
                         <li>Análisis de riesgo y compliance</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'finance')">Ver Casos Finanzas</a>
+                    <a href="finanzas.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'finance')">
+                        <i class="fas fa-arrow-right"></i>
+                        Ver Casos Finanzas
+                    </a>
                 </div>
             </div>
         </div>
@@ -840,44 +1097,17 @@
                 <div class="feature-card">
                     <div class="feature-badge">Garantía 48h</div>
                     <h3>Velocidad que Gana</h3>
-                    <p>Obtén análisis completo en 48 horas, no semanas. Tus clientes reciben respuestas mientras la competencia sigue investigando. Momentum preservado, deals cerrados.</p>
+                    <p>Obtén análisis completo en 48 horas, no semanas. Tus clientes reciben respuestas mientras la competencia sigue investigando. Momentum preservado, proyectos avanzados.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-badge">Pricing Transparente</div>
                     <h3>Costos Predecibles</h3>
-                    <p>Se acabaron las sorpresas de €20k en investigación. Pricing personalizado según scope, revisiones incluidas, entrega transparente. Presupuesta con confianza.</p>
+                    <p>Se acabaron las sorpresas presupuestarias en investigación. Pricing personalizado según scope, revisiones incluidas, entrega transparente. Presupuesta con confianza.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-badge">Nivel Consultor</div>
-                    <h3>Calidad Premium</h3>
-                    <p>Análisis nivel McKinsey potenciado por IA. Cada informe incluye recomendaciones estratégicas, no solo volcado de datos. Presentable directamente al cliente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Security Section -->
-    <section class="security" id="security">
-        <div class="container">
-            <div class="section-header">
-                <h2>Seguridad Enterprise & Compliance</h2>
-                <p>Estándares de seguridad y privacidad diseñados para servicios profesionales regulados</p>
-            </div>
-            <div class="security-grid">
-                <div class="security-card">
-                    <div class="security-icon">🔒</div>
-                    <h3>Seguridad de Datos</h3>
-                    <p>Encriptación end-to-end, centros de datos europeos, segregación de datos cliente. Cumplimiento SOC 2 Type II en proceso.</p>
-                </div>
-                <div class="security-card">
-                    <div class="security-icon">🛡️</div>
-                    <h3>GDPR & Privacidad</h3>
-                    <p>Cumplimiento GDPR completo, DPO designado, políticas de retención transparentes. Derecho al olvido garantizado en 30 días.</p>
-                </div>
-                <div class="security-card">
-                    <div class="security-icon">📋</div>
-                    <h3>Trazabilidad Total</h3>
-                    <p>Audit trail completo, documentación de fuentes, metodología transparente. Cada insight es verificable y defendible.</p>
+                    <h3>Calidad Profesional</h3>
+                    <p>Análisis nivel consultoría internacional potenciado por IA. Cada informe incluye recomendaciones estratégicas, no solo datos. Presentable directamente al cliente.</p>
                 </div>
             </div>
         </div>
@@ -886,12 +1116,20 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <div class="section-header">
+            <div class="cta-content">
                 <h2>¿Listo para Moverse a la Velocidad de la IA?</h2>
-                <p>Únete a 150+ servicios profesionales que eligieron velocidad sobre status quo</p>
+                <p>Únete a servicios profesionales que eligieron velocidad sobre status quo</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn" onclick="trackEvent('cta_click', 'final', 'book_demo')" style="background: white; color: var(--accent); font-size: 16px; padding: 16px 32px;">
+                        <i class="fas fa-calendar-alt"></i>
+                        Agendar Demo 15 Minutos
+                    </a>
+                    <a href="seguridad.html" class="btn" style="background: transparent; border: 2px solid white; color: white; font-size: 16px; padding: 16px 32px;">
+                        <i class="fas fa-shield-alt"></i>
+                        Ver Seguridad & Compliance
+                    </a>
+                </div>
             </div>
-            <a href="#" class="btn" onclick="trackEvent('cta_click', 'final', 'book_demo')" style="background: white; color: #4f46e5; font-size: 18px; padding: 16px 32px; margin-right: 16px;">Agendar Demo 15 Minutos</a>
-            <a href="#security" class="btn btn-secondary" style="border-color: white; color: white;">Ver Seguridad & Compliance</a>
         </div>
     </section>
 
@@ -932,7 +1170,7 @@
                 <div class="footer-section">
                     <h4>Empresa</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html#about">Acerca de AnalitikAI</a></li>
+                        <li><a href="#about">Acerca de AnalitikAI</a></li>
                         <li><a href="seguridad.html">Seguridad & Privacidad</a></li>
                         <li><a href="seguridad.html#gdpr">Cumplimiento GDPR</a></li>
                         <li><a href="#" onclick="trackEvent('contact', 'footer', 'demo')">Contacto</a></li>
@@ -941,26 +1179,55 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 AnalitikAI. Todos los derechos reservados. | <a href="#privacy" style="color: #94a3b8;">Política de Privacidad</a> | <a href="#terms" style="color: #94a3b8;">Términos de Servicio</a></p>
+                <p>&copy; 2024 AnalitikAI. Todos los derechos reservados. | <a href="seguridad.html" style="color: rgba(255, 255, 255, 0.6);">Política de Privacidad</a> | <a href="seguridad.html" style="color: rgba(255, 255, 255, 0.6);">Términos de Servicio</a></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn i');
+            
             menu.classList.toggle('active');
+            
+            if (menu.classList.contains('active')) {
+                btn.className = 'fas fa-times';
+            } else {
+                btn.className = 'fas fa-bars';
+            }
         }
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-progress-bar').style.width = scrolled + '%';
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             });
@@ -973,6 +1240,7 @@
             
             if (!menu.contains(e.target) && !btn.contains(e.target)) {
                 menu.classList.remove('active');
+                document.querySelector('.mobile-menu-btn i').className = 'fas fa-bars';
             }
         });
     </script>
