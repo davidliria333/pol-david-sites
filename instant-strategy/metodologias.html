@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologías AnalitikAI | Cómo Garantizamos 95% de Precisión</title>
+    <meta name="description" content="Metodologías propietarias, frameworks de quality assurance y procesos de validación que garantizan research de calidad consultor. Technical deep dive para decision makers.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Methodology Overview */
+        .methodology-overview {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .methodology-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .methodology-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            margin: 0 auto 24px;
+        }
+
+        .methodology-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .methodology-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Quality Framework */
+        .quality-framework {
+            padding: 100px 0;
+        }
+
+        .framework-diagram {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 60px;
+        }
+
+        .quality-layers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .quality-layer {
+            text-align: center;
+            padding: 32px;
+            border-radius: 16px;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .quality-layer::after {
+            content: "→";
+            position: absolute;
+            right: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .quality-layer:last-child::after {
+            display: none;
+        }
+
+        .layer-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .layer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* Technical Deep Dive */
+        .technical-deep-dive {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .technical-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .technical-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .technical-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .technical-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .technical-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .technical-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .technical-specs {
+            background: var(--bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .spec-value {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Validation Process */
+        .validation-process {
+            padding: 100px 0;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -12px;
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+            z-index: 1;
+        }
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin: 0 auto 16px;
+        }
+
+        .process-step h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Accuracy Metrics */
+        .accuracy-metrics {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .metric-card {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .metric-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .metric-description {
+            color: #cbd5e1;
+            font-size: 12px;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .framework-diagram {
+                padding: 32px;
+            }
+
+            .technical-content {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step::before {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="seguridad.html">Seguridad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Metodologías Propietarias<br>95% Precisión Garantizada</h1>
+            <p>Deep dive técnico en los frameworks, procesos de validación y quality assurance systems que garantizan research de nivel consultor. Para decision makers técnicos.</p>
+        </div>
+    </section>
+
+    <!-- Methodology Overview -->
+    <section class="methodology-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pilares Metodológicos</h2>
+                <p>Cuatro frameworks integrados que aseguran calidad institucional</p>
+            </div>
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <div class="methodology-icon">🧠</div>
+                    <h3>Multi-LLM Ensemble</h3>
+                    <p>Combinamos múltiples modelos especializados con voting mechanisms y consensus algorithms para eliminar hallucinations y maximizar accuracy.</p>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="methodology-icon">🔍</div>
+                    <h3>Triple Validation</h3>
+                    <p>Cada insight pasa por IA cross-validation, expert human review y automated fact-checking antes de ser incluido en deliverables finales.</p>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="methodology-icon">📊</div>
+                    <h3>Source Hierarchies</h3>
+                    <p>Sistema propietario de ranking de fuentes con preference weighting para primary sources, peer-reviewed content y institutional databases.</p>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="methodology-icon">⚡</div>
+                    <h3>Real-time QA</h3>
+                    <p>Monitoring continuo de quality metrics con automatic flagging de potential issues y human intervention triggers para complex edge cases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Framework -->
+    <section class="quality-framework">
+        <div class="container">
+            <div class="section-header">
+                <h2>Framework de Quality Assurance</h2>
+                <p>Proceso de 5 capas que garantiza institutional-grade accuracy</p>
+            </div>
+            
+            <div class="framework-diagram">
+                <div class="quality-layers">
+                    <div class="quality-layer">
+                        <div class="layer-number">1</div>
+                        <div class="layer-title">Input Validation</div>
+                        <p>NLP parsing y requirement extraction con ambiguity detection y clarification prompts</p>
+                    </div>
+
+                    <div class="quality-layer">
+                        <div class="layer-number">2</div>
+                        <div class="layer-title">Multi-Model Processing</div>
+                        <p>Ensemble de 4+ modelos especializados con sector-specific fine-tuning y consensus mechanisms</p>
+                    </div>
+
+                    <div class="quality-layer">
+                        <div class="layer-number">3</div>
+                        <div class="layer-title">Cross-Validation</div>
+                        <p>Automatic fact-checking, source verification y consistency analysis entre multiple outputs</p>
+                    </div>
+
+                    <div class="quality-layer">
+                        <div class="layer-number">4</div>
+                        <div class="layer-title">Expert Review</div>
+                        <p>Human specialist validation, context enrichment y strategic insight addition</p>
+                    </div>
+
+                    <div class="quality-layer">
+                        <div class="layer-number">5</div>
+                        <div class="layer-title">Final QA</div>
+                        <p>Comprehensive quality check, client-ready formatting y delivery preparation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Deep Dive -->
+    <section class="technical-deep-dive">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Deep Dive</h2>
+                <p>Arquitectura y especificaciones técnicas del motor de research</p>
+            </div>
+            
+            <div class="technical-grid">
+                <div class="technical-section">
+                    <div class="technical-header">
+                        <div class="technical-icon">🤖</div>
+                        <div class="technical-title">Multi-LLM Architecture</div>
+                    </div>
+                    <div class="technical-content">
+                        <div class="technical-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Primary Models</span>
+                                <span class="spec-value">GPT-4, Claude-3, Gemini</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Ensemble Method</span>
+                                <span class="spec-value">Weighted Voting + Consensus</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Specialization</span>
+                                <span class="spec-value">Industry Fine-tuning</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Validation Threshold</span>
+                                <span class="spec-value">75% Model Agreement</span>
+                            </div>
+                        </div>
+                        <div class="technical-description">
+                            <p>Utilizamos un ensemble de 4+ large language models con especialización sectorial. Cada query se procesa independientemente por múltiples modelos, y aplicamos weighted voting algorithms para generar consensus.</p>
+                            
+                            <p>Los modelos están fine-tuned específicamente para cada vertical (Legal, Consulting, Audit, Finance) con domain-specific datasets y industry terminology.</p>
+
+                            <p>Threshold de 75% agreement entre models requerido para inclusion automática. Disagreements trigger human review process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="technical-section">
+                    <div class="technical-header">
+                        <div class="technical-icon">📚</div>
+                        <div class="technical-title">Source Intelligence System</div>
+                    </div>
+                    <div class="technical-content">
+                        <div class="technical-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Primary Sources</span>
+                                <span class="spec-value">Bloomberg, LexisNexis, Refinitiv</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Academic Databases</span>
+                                <span class="spec-value">JSTOR, SSRN, RePEc</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Real-time Data</span>
+                                <span class="spec-value">News APIs, Market Feeds</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Quality Scoring</span>
+                                <span class="spec-value">Proprietary Algorithm</span>
+                            </div>
+                        </div>
+                        <div class="technical-description">
+                            <p>Sistema propietario de ranking de sources con multi-dimensional quality scoring. Factores incluyen: source authority, recency, peer review status, citation count y institutional backing.</p>
+                            
+                            <p>Integrated access a 50+ premium databases including financial terminals, legal databases y industry research platforms.</p>
+
+                            <p>Real-time monitoring de source quality con automatic downgrading de sources que muestran declining reliability metrics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="technical-section">
+                    <div class="technical-header">
+                        <div class="technical-icon">🔍</div>
+                        <div class="technical-title">Fact-Checking Engine</div>
+                    </div>
+                    <div class="technical-content">
+                        <div class="technical-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Verification Methods</span>
+                                <span class="spec-value">3-Source Cross-Check</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Confidence Scoring</span>
+                                <span class="spec-value">0-100% Scale</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Flagging Threshold</span>
+                                <span class="spec-value">Below 85% Confidence</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Human Review</span>
+                                <span class="spec-value">Flagged Items</span>
+                            </div>
+                        </div>
+                        <div class="technical-description">
+                            <p>Automated fact-checking system que verifica cada factual claim contra minimum 3 independent sources. Claims con <85% confidence score trigger human expert review.</p>
+                            
+                            <p>Specialized fact-checking algorithms para different content types: financial data, legal precedents, market statistics y regulatory information.</p>
+
+                            <p>Integration con external fact-checking APIs y proprietary databases para maximum verification coverage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Process -->
+    <section class="validation-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proceso de Validación</h2>
+                <p>Workflow step-by-step para garantizar institutional accuracy</p>
+            </div>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-icon">🎯</div>
+                    <h3>Requirement Analysis</h3>
+                    <p>Parsing inteligente del briefing con extraction de key requirements, success criteria y quality thresholds</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">🔄</div>
+                    <h3>Multi-Source Research</h3>
+                    <p>Parallel querying de multiple data sources con intelligent source selection based on query type y industry</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">⚖️</div>
+                    <h3>Consensus Building</h3>
+                    <p>Cross-validation entre multiple models y sources con weighted voting y conflict resolution algorithms</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">👨‍💼</div>
+                    <h3>Expert Validation</h3>
+                    <p>Human subject matter expert review con domain expertise validation y strategic context addition</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">📋</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Final QA check amb comprehensive accuracy verification, formatting validation y client delivery preparation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accuracy Metrics -->
+    <section class="accuracy-metrics">
+        <div class="container">
+            <div class="section-header">
+                <h2>Métricas de Precisión</h2>
+                <p>KPIs verificables de quality assurance y performance</p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">95.2%</span>
+                    <span class="metric-label">Fact Accuracy Rate</span>
+                    <span class="metric-description">Verified against ground truth</span>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-number">98.7%</span>
+                    <span class="metric-label">Source Reliability</span>
+                    <span class="metric-description">Primary & peer-reviewed sources</span>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-number">92.3%</span>
+                    <span class="metric-label">Client Satisfaction</span>
+                    <span class="metric-description">Post-delivery survey score</span>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-number"><0.1%</span>
+                    <span class="metric-label">Hallucination Rate</span>
+                    <span class="metric-description">False information generated</span>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-number">87.4%</span>
+                    <span class="metric-label">First-Pass Success</span>
+                    <span class="metric-description">No revisions required</span>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-number">99.9%</span>
+                    <span class="metric-label">Delivery SLA</span>
+                    <span class="metric-description">48h commitment met</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 style="font-size: 40px; font-weight: 800; margin-bottom: 16px; color: var(--text-primary);">¿Quieres Ver las Metodologías en Acción?</h2>
+            <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 32px;">Demo técnica personalizada con tu caso de uso específico</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn">Agendar Demo Técnica</a>
+                <a href="como-funciona.html" style="padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; background: transparent; color: var(--accent); border: 2px solid var(--accent);">Ver Arquitectura Completa</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

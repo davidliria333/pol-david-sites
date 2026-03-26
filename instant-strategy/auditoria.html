@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalitikAI para Auditoría | Research de Compliance IA para Big 4</title>
+    <meta name="description" content="Investigación de compliance, análisis regulatorio y risk assessment con estándares Big 4 en 48 horas. Trazabilidad completa y audit trail para auditorías enterprise.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --audit: #7c3aed;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--audit);
+            border: 2px solid var(--audit);
+        }
+
+        .btn-secondary:hover {
+            background: var(--audit);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 50px;
+            color: #c4b5fd;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        /* Challenges */
+        .challenges {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .challenge-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--audit);
+        }
+
+        .challenge-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .challenge-stat {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--audit);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--audit);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--audit);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin: 0 auto 16px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-features li {
+            padding: 4px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--audit);
+            font-weight: 600;
+        }
+
+        /* Standards */
+        .standards {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .standard-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--audit);
+        }
+
+        .standard-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .standard-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .standard-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Scenarios */
+        .scenarios {
+            padding: 100px 0;
+        }
+
+        .scenario-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--audit);
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .scenario-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--audit);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .scenario-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .scenario-context {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--text-muted);
+        }
+
+        .scenario-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .traditional, .with-ai {
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .traditional {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .with-ai {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+        }
+
+        .traditional h4 {
+            color: #dc2626;
+            margin-bottom: 12px;
+        }
+
+        .with-ai h4 {
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        /* Audit Trail */
+        .audit-trail {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .trail-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .trail-feature {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .trail-feature h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--audit);
+        }
+
+        .trail-feature p {
+            color: #94a3b8;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .scenario-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="seguridad.html">Seguridad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Auditoría & Aseguramiento • Big 4 Standards</div>
+            <h1>Research de Compliance IA<br>con Audit Trail Completo</h1>
+            <p>Investigación regulatoria, análisis de compliance y risk assessment con estándares Big 4. Trazabilidad total y documentación audit-ready para auditores enterprise.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn">Agendar Demo Auditoría</a>
+                <a href="#services" class="btn-secondary">Ver Servicios Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges -->
+    <section class="challenges">
+        <div class="container">
+            <div class="section-header">
+                <h2>El Research Manual Compromete Tu Auditoría</h2>
+                <p>Las Big 4 pierden eficiencia y calidad por procesos de investigación lentos y fragmentados</p>
+            </div>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <span class="challenge-stat">4-6 semanas</span>
+                    <h3>Compliance Research Lento</h3>
+                    <p>Tus senior associates pasan semanas investigando regulaciones que cambian constantemente. Audit timeline comprometido, partners presionados.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <span class="challenge-stat">30%</span>
+                    <h3>Research Inconsistente</h3>
+                    <p>Diferentes equipos, diferentes estándares de research. Findings inconsistentes entre jurisdicciones. Quality control comprometido.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <span class="challenge-stat">€80K+</span>
+                    <h3>Overhead de Research</h3>
+                    <p>Un solo compliance assessment multi-jurisdiccional cuesta €80k+ en horas internas. Managers revisando trabajo que IA optimizaría.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Servicios de Auditoría IA</h2>
+                <p>Research especializado para cada línea de servicio de auditoría</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Compliance Research</h3>
+                    <p>Investigación exhaustiva de regulaciones aplicables y requisitos de compliance</p>
+                    <ul class="service-features">
+                        <li>Regulatory mapping multi-jurisdiccional</li>
+                        <li>Compliance requirements matrix</li>
+                        <li>Regulatory change tracking</li>
+                        <li>Implementation timeline analysis</li>
+                        <li>Gap assessment framework</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Risk Assessment</h3>
+                    <p>Análisis de riesgos sectoriales y assessment de controles internos</p>
+                    <ul class="service-features">
+                        <li>Industry risk profiling</li>
+                        <li>Control environment assessment</li>
+                        <li>Fraud risk indicators</li>
+                        <li>Regulatory risk mapping</li>
+                        <li>Material weakness identification</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Industry Analysis</h3>
+                    <p>Deep dive sectorial con benchmarking y análisis de mejores prácticas</p>
+                    <ul class="service-features">
+                        <li>Industry benchmarking analysis</li>
+                        <li>Best practices identification</li>
+                        <li>Peer comparison framework</li>
+                        <li>Market trends impact assessment</li>
+                        <li>Sectoral KPIs analysis</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>ESG & Sustainability</h3>
+                    <p>Research ESG completo con frameworks de reporting y materiality assessment</p>
+                    <ul class="service-features">
+                        <li>ESG framework compliance</li>
+                        <li>Materiality assessment</li>
+                        <li>Sustainability reporting standards</li>
+                        <li>Stakeholder impact analysis</li>
+                        <li>ESG risk identification</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Cross-Border Compliance</h3>
+                    <p>Análisis multi-jurisdiccional con mapping de diferencias regulatorias</p>
+                    <ul class="service-features">
+                        <li>Multi-jurisdiction analysis</li>
+                        <li>Regulatory differences mapping</li>
+                        <li>Transfer pricing compliance</li>
+                        <li>International standards alignment</li>
+                        <li>Cross-border risk assessment</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Internal Audit Support</h3>
+                    <p>Research para internal audit con process analysis y control testing support</p>
+                    <ul class="service-features">
+                        <li>Process documentation research</li>
+                        <li>Control testing procedures</li>
+                        <li>Internal audit benchmarking</li>
+                        <li>Audit program optimization</li>
+                        <li>Findings documentation support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards -->
+    <section class="standards">
+        <div class="container">
+            <div class="section-header">
+                <h2>Standards & Frameworks Cubiertos</h2>
+                <p>Cobertura completa de estándares internacionales y mejores prácticas</p>
+            </div>
+            <div class="standards-grid">
+                <div class="standard-card">
+                    <span class="standard-icon">📋</span>
+                    <h3>IFRS / GAAP</h3>
+                    <p>Research completo de standards contables y cambios regulatorios</p>
+                </div>
+                
+                <div class="standard-card">
+                    <span class="standard-icon">🛡️</span>
+                    <h3>SOX Compliance</h3>
+                    <p>Sarbanes-Oxley requirements y best practices documentation</p>
+                </div>
+                
+                <div class="standard-card">
+                    <span class="standard-icon">🔒</span>
+                    <h3>COSO Framework</h3>
+                    <p>Internal control assessment según COSO 2013 framework</p>
+                </div>
+                
+                <div class="standard-card">
+                    <span class="standard-icon">🌍</span>
+                    <h3>GDPR / Privacy</h3>
+                    <p>Data protection compliance y privacy impact assessment</p>
+                </div>
+                
+                <div class="standard-card">
+                    <span class="standard-icon">⚖️</span>
+                    <h3>ISA Standards</h3>
+                    <p>International Standards on Auditing compliance research</p>
+                </div>
+                
+                <div class="standard-card">
+                    <span class="standard-icon">📈</span>
+                    <h3>ESG Frameworks</h3>
+                    <p>GRI, SASB, TCFD y otros frameworks de sostenibilidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios -->
+    <section class="scenarios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Casos de Implementación Real</h2>
+                <p>Situaciones donde AnalitikAI transforma el audit workflow</p>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">🏦</div>
+                    <div class="scenario-title">SOX 404 Assessment para Multinacional</div>
+                </div>
+                <div class="scenario-context">
+                    <p><strong>Contexto:</strong> Fortune 500 financial services company necesita SOX 404 assessment de operaciones en 12 países. Audit committee presiona por timeline acelerado.</p>
+                </div>
+                <div class="scenario-comparison">
+                    <div class="traditional">
+                        <h4>❌ Proceso Tradicional</h4>
+                        <p><strong>Timeline:</strong> 8-10 semanas</p>
+                        <p><strong>Team:</strong> 2 partners + 6 managers + 15 seniors</p>
+                        <p><strong>Cost:</strong> €200k en horas internas</p>
+                        <p><strong>Risk:</strong> Coverage inconsistente entre jurisdicciones, documentation gaps, audit committee frustrated</p>
+                    </div>
+                    <div class="with-ai">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Timeline:</strong> 3 semanas</p>
+                        <p><strong>Team:</strong> 1 partner + 2 managers + AnalitikAI</p>
+                        <p><strong>Cost:</strong> €60k total</p>
+                        <p><strong>Result:</strong> Comprehensive assessment, uniform standards, audit trail completo, early delivery</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">🌱</div>
+                    <div class="scenario-title">ESG Readiness para IPO</div>
+                </div>
+                <div class="scenario-context">
+                    <p><strong>Contexto:</strong> Tech unicorn preparando IPO necesita ESG compliance assessment urgente. Investment bankers exigen documentation completa en 4 semanas.</p>
+                </div>
+                <div class="scenario-comparison">
+                    <div class="traditional">
+                        <h4>❌ Proceso Tradicional</h4>
+                        <p><strong>Timeline:</strong> 6-8 semanas</p>
+                        <p><strong>Challenge:</strong> ESG expertise limitada en team, learning curve steep</p>
+                        <p><strong>Result:</strong> IPO delay de 2 meses, competitive disadvantage, client frustration</p>
+                    </div>
+                    <div class="with-ai">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Timeline:</strong> 3 semanas</p>
+                        <p><strong>Expertise:</strong> ESG frameworks mastery desde día 1</p>
+                        <p><strong>Result:</strong> IPO on-schedule, comprehensive ESG documentation, investor confidence</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">🔍</div>
+                    <div class="scenario-title">Fraud Investigation Support</div>
+                </div>
+                <div class="scenario-context">
+                    <p><strong>Contexto:</strong> Multinational manufacturing company sospecha fraud in subsidiary. Board audit committee necesita investigation completa y recommendations.</p>
+                </div>
+                <div class="scenario-comparison">
+                    <div class="traditional">
+                        <h4>❌ Proceso Tradicional</h4>
+                        <p><strong>Timeline:</strong> 10-12 semanas</p>
+                        <p><strong>Problem:</strong> Manual document review, industry context missing, limited benchmarking</p>
+                        <p><strong>Outcome:</strong> Incomplete picture, weak recommendations, ongoing risk</p>
+                    </div>
+                    <div class="with-ai">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Timeline:</strong> 4 semanas</p>
+                        <p><strong>Advantage:</strong> Industry fraud patterns analysis, comprehensive benchmarking, complete context</p>
+                        <p><strong>Outcome:</strong> Actionable insights, robust controls recommendations, fraud prevention framework</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Trail Features -->
+    <section class="audit-trail">
+        <div class="container">
+            <div class="section-header">
+                <h2>Audit Trail & Documentation</h2>
+                <p>Trazabilidad completa y documentation defendible para cualquier review</p>
+            </div>
+            <div class="trail-features">
+                <div class="trail-feature">
+                    <h3>🔗 Source Traceability</h3>
+                    <p>Cada insight linkeable a source original. Full citation con timestamps y version control. Audit trail desde briefing hasta entrega.</p>
+                </div>
+                
+                <div class="trail-feature">
+                    <h3>📋 Working Papers</h3>
+                    <p>Documentation estructurada según ISA standards. Work programs, testing matrices y findings documentation audit-ready.</p>
+                </div>
+                
+                <div class="trail-feature">
+                    <h3>🔒 Version Control</h3>
+                    <p>Control completo de versiones con change log detallado. Rollback capability y approval workflow para changes críticos.</p>
+                </div>
+                
+                <div class="trail-feature">
+                    <h3>⚡ Real-time Updates</h3>
+                    <p>Monitoring automático de cambios regulatorios. Alerts inmediatas cuando regulations afectan tu assessment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Listo para Acelerar tus Auditorías?</h2>
+                <p>Únete a Big 4 firms que ya están optimizando su audit workflow con AnalitikAI</p>
+            </div>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn">Agendar Demo Auditoría Especializada</a>
+                <a href="seguridad.html" class="btn-secondary">Ver Compliance & Seguridad</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

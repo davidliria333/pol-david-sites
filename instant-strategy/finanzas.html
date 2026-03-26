@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalitikAI para Finanzas | Investment Research IA para Institutional Investors</title>
+    <meta name="description" content="Research financiero institucional, análisis de inversión y due diligence con estándares sell-side en 48 horas. Para investment banks, asset managers y family offices.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --finance: #f59e0b;
+            --finance-dark: #d97706;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--finance);
+            border: 2px solid var(--finance);
+        }
+
+        .btn-secondary:hover {
+            background: var(--finance);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            color: #fbbf24;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .pain-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--finance);
+        }
+
+        .pain-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .pain-stat {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--finance);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Solutions */
+        .solutions {
+            padding: 100px 0;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .solution-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .solution-card:hover {
+            border-color: var(--finance);
+            transform: translateY(-5px);
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--finance);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin: 0 auto 16px;
+        }
+
+        .solution-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .solution-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .solution-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .solution-features li {
+            padding: 4px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .solution-features li::before {
+            content: "💰";
+            position: absolute;
+            left: 0;
+            font-size: 10px;
+        }
+
+        /* Asset Classes */
+        .asset-classes {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .asset-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--finance);
+        }
+
+        .asset-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .asset-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .asset-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Scenarios */
+        .scenarios {
+            padding: 100px 0;
+        }
+
+        .scenario-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--finance);
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .scenario-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--finance);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .scenario-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .scenario-context {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--text-muted);
+        }
+
+        .scenario-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .traditional, .with-ai {
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .traditional {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .with-ai {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+        }
+
+        .traditional h4 {
+            color: #dc2626;
+            margin-bottom: 12px;
+        }
+
+        .with-ai h4 {
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        /* Performance */
+        .performance {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .performance-metric {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .performance-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--finance);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .performance-label {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .scenario-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="seguridad.html">Seguridad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Finanzas & Inversión • Sell-Side Quality</div>
+            <h1>Investment Research IA<br>para Institutional Investors</h1>
+            <p>Research financiero, análisis de inversión y due diligence con estándares sell-side en 48 horas. Para investment banks, asset managers, family offices y fondos institucionales.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn">Agendar Demo Finance</a>
+                <a href="#solutions" class="btn-secondary">Ver Investment Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Lento = Oportunidades Perdidas</h2>
+                <p>Los institutional investors pierden alpha por research bottlenecks y análisis superficial</p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <span class="pain-stat">2-3 semanas</span>
+                    <h3>Investment Research Lento</h3>
+                    <p>Tus research analysts pasan semanas en company analysis que el mercado ya ha procesado. Alpha opportunity perdida, timing subóptimo.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <span class="pain-stat">€500K+</span>
+                    <h3>Research Costs Inflados</h3>
+                    <p>Un solo sector coverage cuesta €500k+ anuales en salarios research. VPs revisando trabajo que IA ejecutaría mejor y más rápido.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <span class="pain-stat">40%</span>
+                    <h3>Coverage Inconsistente</h3>
+                    <p>Diferentes analysts, diferentes standards de research. Client calls con información fragmentada. Reputation risk creciente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investment Solutions IA</h2>
+                <p>Research financiero acelerado sin comprometter rigor institucional</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">📈</div>
+                    <h3>Equity Research</h3>
+                    <p>Company analysis y sector research con modeling financiero automatizado</p>
+                    <ul class="solution-features">
+                        <li>Financial model building & validation</li>
+                        <li>Peer comparison & valuation</li>
+                        <li>Management quality assessment</li>
+                        <li>Industry dynamics analysis</li>
+                        <li>Target price derivation</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🏢</div>
+                    <h3>Credit Analysis</h3>
+                    <p>Análisis crediticio completo con stress testing y scenario analysis</p>
+                    <ul class="solution-features">
+                        <li>Credit risk assessment</li>
+                        <li>Covenant analysis & monitoring</li>
+                        <li>Recovery rate modeling</li>
+                        <li>Industry credit dynamics</li>
+                        <li>ESG credit impact assessment</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">💎</div>
+                    <h3>Alternative Investments</h3>
+                    <p>Due diligence para private equity, real estate y alternative strategies</p>
+                    <ul class="solution-features">
+                        <li>PE/VC fund due diligence</li>
+                        <li>Real estate market analysis</li>
+                        <li>Hedge fund strategy assessment</li>
+                        <li>Infrastructure investment analysis</li>
+                        <li>Commodity market intelligence</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🌍</div>
+                    <h3>Macro Research</h3>
+                    <p>Análisis macroeconómico y country risk para asset allocation</p>
+                    <ul class="solution-features">
+                        <li>Macroeconomic trend analysis</li>
+                        <li>Central bank policy assessment</li>
+                        <li>Country risk evaluation</li>
+                        <li>Currency & rates outlook</li>
+                        <li>Geopolitical risk analysis</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>ESG Integration</h3>
+                    <p>ESG research y sustainable investing analysis con impact measurement</p>
+                    <ul class="solution-features">
+                        <li>ESG scoring & methodology</li>
+                        <li>Climate risk assessment</li>
+                        <li>Impact measurement frameworks</li>
+                        <li>Sustainable finance regulations</li>
+                        <li>ESG data validation</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">⚡</div>
+                    <h3>Market Intelligence</h3>
+                    <p>Real-time market analysis y trading support con sentiment analysis</p>
+                    <ul class="solution-features">
+                        <li>Market sentiment analysis</li>
+                        <li>News flow impact assessment</li>
+                        <li>Technical analysis automation</li>
+                        <li>Volatility forecasting</li>
+                        <li>Event-driven research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asset Classes -->
+    <section class="asset-classes">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cobertura Multi-Asset</h2>
+                <p>Research especializado para todas las asset classes institucionales</p>
+            </div>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <span class="asset-icon">📊</span>
+                    <h3>Equities</h3>
+                    <p>Large cap, mid cap, small cap. Growth, value, dividend strategies. Sector rotation y thematic investing.</p>
+                </div>
+                
+                <div class="asset-card">
+                    <span class="asset-icon">🏛️</span>
+                    <h3>Fixed Income</h3>
+                    <p>Government, corporate, high yield. Duration, credit, emerging markets. Inflation-linked securities.</p>
+                </div>
+                
+                <div class="asset-card">
+                    <span class="asset-icon">🏢</span>
+                    <h3>Real Estate</h3>
+                    <p>Commercial, residential, REITs. Core, value-add, opportunistic strategies. Global property markets.</p>
+                </div>
+                
+                <div class="asset-card">
+                    <span class="asset-icon">⚡</span>
+                    <h3>Commodities</h3>
+                    <p>Energy, metals, agriculture. Supply-demand dynamics. ESG impact on commodity investing.</p>
+                </div>
+                
+                <div class="asset-card">
+                    <span class="asset-icon">💰</span>
+                    <h3>Currencies</h3>
+                    <p>G10, emerging markets. Central bank policies. Currency hedging strategies. Digital currencies.</p>
+                </div>
+                
+                <div class="asset-card">
+                    <span class="asset-icon">🎲</span>
+                    <h3>Alternatives</h3>
+                    <p>Private equity, hedge funds, infrastructure. Illiquid investments. Alternative risk premia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios -->
+    <section class="scenarios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investment Scenarios Reales</h2>
+                <p>Situaciones donde AnalitikAI acelera decisiones de inversión críticas</p>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">🏦</div>
+                    <div class="scenario-title">Sector Rotation para Asset Manager</div>
+                </div>
+                <div class="scenario-context">
+                    <p><strong>Contexto:</strong> $50B asset manager necesita rebalancear portfolio ante changing macro environment. Investment committee meeting en 1 semana, €2B en juego.</p>
+                </div>
+                <div class="scenario-comparison">
+                    <div class="traditional">
+                        <h4>❌ Research Tradicional</h4>
+                        <p><strong>Timeline:</strong> 3-4 semanas</p>
+                        <p><strong>Team:</strong> 5 research analysts + 2 portfolio managers</p>
+                        <p><strong>Cost:</strong> €100k en horas internas</p>
+                        <p><strong>Risk:</strong> Analysis outdated cuando llega IC, opportunity cost masivo</p>
+                    </div>
+                    <div class="with-ai">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Timeline:</strong> 48 horas</p>
+                        <p><strong>Team:</strong> 1 portfolio manager + AnalitikAI</p>
+                        <p><strong>Cost:</strong> €25k total</p>
+                        <p><strong>Result:</strong> Real-time sector analysis, optimal allocation, IC approval, alpha captured</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">💼</div>
+                    <div class="scenario-title">PE Due Diligence para Family Office</div>
+                </div>
+                <div class="scenario-context">
+                    <p><strong>Contexto:</strong> Ultra-HNW family office evaluando $100M commitment a PE fund. Limited knowledge del sector, timeline tight por fundraising close.</p>
+                </div>
+                <div class="scenario-comparison">
+                    <div class="traditional">
+                        <h4>❌ Process Tradicional</h4>
+                        <p><strong>Timeline:</strong> 8 semanas</p>
+                        <p><strong>Challenge:</strong> Limited PE expertise in-house, consultant fees €200k+</p>
+                        <p><strong>Outcome:</strong> Missed fundraising window, settle for less attractive terms</p>
+                    </div>
+                    <div class="with-ai">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Timeline:</strong> 2 semanas</p>
+                        <p><strong>Advantage:</strong> Instant PE expertise, comprehensive fund analysis</p>
+                        <p><strong>Outcome:</strong> Optimal allocation decision, first close participation, better economics</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">⚡</div>
+                    <div class="scenario-title">Crisis Response para Pension Fund</div>
+                </div>
+                <div class="scenario-context">
+                    <p><strong>Contexto:</strong> $20B pension fund necesita crisis assessment post geopolitical event. Trustees demand comprehensive risk analysis en 72 horas.</p>
+                </div>
+                <div class="scenario-comparison">
+                    <div class="traditional">
+                        <h4>❌ Traditional Approach</h4>
+                        <p><strong>Timeline:</strong> 2-3 semanas</p>
+                        <p><strong>Problem:</strong> By then, crisis evolves, analysis stale, trustees frustrated</p>
+                        <p><strong>Result:</strong> Reactive positioning, value destruction, governance issues</p>
+                    </div>
+                    <div class="with-ai">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Timeline:</strong> 48 horas</p>
+                        <p><strong>Value:</strong> Real-time crisis analysis, scenario planning, action plan</p>
+                        <p><strong>Result:</strong> Proactive positioning, value preservation, trustee confidence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="performance">
+        <div class="container">
+            <div class="section-header">
+                <h2>Performance Institutional</h2>
+                <p>Métricas reales de institutional investors que implementaron AnalitikAI</p>
+            </div>
+            <div class="performance-grid">
+                <div class="performance-metric">
+                    <span class="performance-number">15x</span>
+                    <span class="performance-label">Faster Research Output</span>
+                </div>
+                <div class="performance-metric">
+                    <span class="performance-number">80%</span>
+                    <span class="performance-label">Research Cost Reduction</span>
+                </div>
+                <div class="performance-metric">
+                    <span class="performance-number">2.3%</span>
+                    <span class="performance-label">Alpha Improvement</span>
+                </div>
+                <div class="performance-metric">
+                    <span class="performance-number">95%</span>
+                    <span class="performance-label">Decision Speed Increase</span>
+                </div>
+                <div class="performance-metric">
+                    <span class="performance-number">60%</span>
+                    <span class="performance-label">Coverage Expansion</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Listo para Acelerar tu Investment Process?</h2>
+                <p>Únete a institutional investors que ya están capturando más alpha con AnalitikAI</p>
+            </div>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn">Agendar Demo Investment Research</a>
+                <a href="seguridad.html" class="btn-secondary">Ver Compliance & Seguridad</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

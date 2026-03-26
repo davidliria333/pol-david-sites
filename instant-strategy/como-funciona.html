@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Funciona AnalitikAI | Motor de Investigación IA + Supervisión Humana</title>
+    <meta name="description" content="Descubre cómo AnalitikAI combina inteligencia artificial avanzada con supervisión experta para generar investigación de nivel consultor en 48 horas. Arquitectura, proceso y garantías de calidad.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Architecture */
+        .architecture {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .arch-diagram {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 60px;
+        }
+
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .layer-input {
+            background: linear-gradient(135deg, #fef3c7, #fbbf24);
+            border-left: 6px solid #f59e0b;
+        }
+
+        .layer-ai {
+            background: linear-gradient(135deg, #ddd6fe, #8b5cf6);
+            border-left: 6px solid var(--accent);
+        }
+
+        .layer-human {
+            background: linear-gradient(135deg, #d1fae5, #10b981);
+            border-left: 6px solid var(--success);
+        }
+
+        .layer-output {
+            background: linear-gradient(135deg, #dbeafe, #3b82f6);
+            border-left: 6px solid #2563eb;
+        }
+
+        .layer-info {
+            flex: 1;
+        }
+
+        .layer-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .layer-description {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .layer-features {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .layer-feature {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .layer-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-left: 32px;
+        }
+
+        /* Process */
+        .process {
+            padding: 100px 0;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: var(--border);
+            z-index: 1;
+        }
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        .process-step h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .process-time {
+            background: var(--success);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Quality Assurance */
+        .quality {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .quality-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .quality-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            margin: 0 auto 24px;
+        }
+
+        .quality-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .quality-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Technology Stack */
+        .tech-stack {
+            padding: 100px 0;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .tech-category {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .tech-category h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .tech-items {
+            list-style: none;
+        }
+
+        .tech-items li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tech-items li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .tech-purpose {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 32px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .arch-diagram {
+                padding: 32px;
+            }
+
+            .arch-layer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .layer-icon {
+                margin: 16px auto 0;
+            }
+
+            .process-step::before {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="seguridad.html">Seguridad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Motor de Investigación IA<br>+ Supervisión Experta</h1>
+            <p>Descubre cómo combinamos inteligencia artificial avanzada con supervisión humana para generar investigación de nivel consultor en 48 horas garantizadas.</p>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2>Arquitectura del Sistema</h2>
+                <p>Cuatro capas integradas que transforman tu briefing en investigación enterprise-grade</p>
+            </div>
+            
+            <div class="arch-diagram">
+                <div class="arch-layers">
+                    <div class="arch-layer layer-input">
+                        <div class="layer-info">
+                            <div class="layer-title">1. Capa de Input</div>
+                            <div class="layer-description">Procesamiento inteligente de tu briefing y contexto empresarial</div>
+                            <div class="layer-features">
+                                <span class="layer-feature">NLP Avanzado</span>
+                                <span class="layer-feature">Context Mapping</span>
+                                <span class="layer-feature">Requirement Analysis</span>
+                            </div>
+                        </div>
+                        <div class="layer-icon">📥</div>
+                    </div>
+
+                    <div class="arch-layer layer-ai">
+                        <div class="layer-info">
+                            <div class="layer-title">2. Motor de Investigación IA</div>
+                            <div class="layer-description">Análisis multi-fuente con modelos especializados por sector</div>
+                            <div class="layer-features">
+                                <span class="layer-feature">Multi-LLM Ensemble</span>
+                                <span class="layer-feature">Industry Specialization</span>
+                                <span class="layer-feature">Real-time Data</span>
+                            </div>
+                        </div>
+                        <div class="layer-icon">🤖</div>
+                    </div>
+
+                    <div class="arch-layer layer-human">
+                        <div class="layer-info">
+                            <div class="layer-title">3. Supervisión Experta</div>
+                            <div class="layer-description">Validación y enrichment por especialistas sectoriales</div>
+                            <div class="layer-features">
+                                <span class="layer-feature">Expert Review</span>
+                                <span class="layer-feature">Fact Checking</span>
+                                <span class="layer-feature">Strategic Insights</span>
+                            </div>
+                        </div>
+                        <div class="layer-icon">👨‍💼</div>
+                    </div>
+
+                    <div class="arch-layer layer-output">
+                        <div class="layer-info">
+                            <div class="layer-title">4. Entrega Profesional</div>
+                            <div class="layer-description">Formato ejecutivo con insights accionables y recomendaciones</div>
+                            <div class="layer-features">
+                                <span class="layer-feature">Executive Summary</span>
+                                <span class="layer-feature">Data Visualization</span>
+                                <span class="layer-feature">Action Plan</span>
+                            </div>
+                        </div>
+                        <div class="layer-icon">📊</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proceso en 48 Horas</h2>
+                <p>De briefing a entrega: workflow optimizado para máxima eficiencia</p>
+            </div>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-time">0-2h</div>
+                    <h3>Briefing & Setup</h3>
+                    <p>Sesión de briefing detallada. Definición de scope, objetivos y deliverables. Setup de accesos seguros y configuración del proyecto.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-time">2-24h</div>
+                    <h3>Investigación IA</h3>
+                    <p>Motor IA analiza miles de fuentes relevantes. Processing multi-modal, extracción de insights y generación de análisis preliminar.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-time">24-40h</div>
+                    <h3>Review Experto</h3>
+                    <p>Especialista sectorial valida resultados, añade context crítico y enriquece con experiencia práctica del sector.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-time">40-48h</div>
+                    <h3>Entrega Final</h3>
+                    <p>Formato ejecutivo, presentación client-ready y sesión de Q&A para aclarar dudas y profundizar insights clave.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Assurance -->
+    <section class="quality">
+        <div class="container">
+            <div class="section-header">
+                <h2>Garantías de Calidad</h2>
+                <p>Múltiples capas de control para asegurar precisión y relevancia</p>
+            </div>
+            
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">🎯</div>
+                    <h3>95% Precisión Garantizada</h3>
+                    <p>Triple verificación: IA cross-validation + expert review + fact-checking automatizado. Metodología probada con miles de proyectos.</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">⚡</div>
+                    <h3>48h Delivery SLA</h3>
+                    <p>Compromiso contractual de entrega en 48 horas. Monitoreo en tiempo real del progreso con alertas automáticas.</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">🔒</div>
+                    <h3>Confidencialidad Total</h3>
+                    <p>Encriptación end-to-end, segregación de datos y purga automática post-entrega. Compliance GDPR y secreto profesional.</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">🔄</div>
+                    <h3>Revisiones Ilimitadas</h3>
+                    <p>Ajustes y profundizaciones sin costo adicional durante 30 días. Tu satisfacción es nuestra prioridad absoluta.</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">📞</div>
+                    <h3>Soporte Directo</h3>
+                    <p>Acceso directo al especialista asignado. No chatbots, no tickets: comunicación humana cuando la necesites.</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">📈</div>
+                    <h3>Insights Accionables</h3>
+                    <p>Más que datos: recomendaciones estratégicas implementables. Cada insight viene con next steps claros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stack Tecnológico</h2>
+                <p>Tecnologías enterprise-grade para resultados institucionales</p>
+            </div>
+            
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>🧠 Modelos IA</h3>
+                    <ul class="tech-items">
+                        <li>
+                            <span class="tech-name">GPT-4 Turbo</span>
+                            <span class="tech-purpose">Análisis complejo</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Claude 3</span>
+                            <span class="tech-purpose">Research profundo</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Gemini Ultra</span>
+                            <span class="tech-purpose">Multi-modal analysis</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Custom Fine-tunes</span>
+                            <span class="tech-purpose">Industry specialization</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tech-category">
+                    <h3>📚 Fuentes de Datos</h3>
+                    <ul class="tech-items">
+                        <li>
+                            <span class="tech-name">Bloomberg Terminal</span>
+                            <span class="tech-purpose">Financial data</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">LexisNexis</span>
+                            <span class="tech-purpose">Legal database</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Refinitiv</span>
+                            <span class="tech-purpose">Market intelligence</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Industry Reports</span>
+                            <span class="tech-purpose">Sectoral analysis</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tech-category">
+                    <h3>🔒 Seguridad</h3>
+                    <ul class="tech-items">
+                        <li>
+                            <span class="tech-name">AES-256 Encryption</span>
+                            <span class="tech-purpose">Data protection</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">European Data Centers</span>
+                            <span class="tech-purpose">GDPR compliance</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Zero Trust Architecture</span>
+                            <span class="tech-purpose">Access control</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">SOC 2 Type II</span>
+                            <span class="tech-purpose">Audit compliance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tech-category">
+                    <h3>⚙️ Infraestructura</h3>
+                    <ul class="tech-items">
+                        <li>
+                            <span class="tech-name">AWS Enterprise</span>
+                            <span class="tech-purpose">Cloud platform</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Kubernetes</span>
+                            <span class="tech-purpose">Container orchestration</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">Redis Cluster</span>
+                            <span class="tech-purpose">High-speed caching</span>
+                        </li>
+                        <li>
+                            <span class="tech-name">PostgreSQL</span>
+                            <span class="tech-purpose">Enterprise database</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para Ver la Plataforma en Acción?</h2>
+            <p>Demo personalizada con tu caso de uso específico en 15 minutos</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn" style="background: white; color: #4f46e5;">Agendar Demo Técnica</a>
+                <a href="seguridad.html" class="btn" style="background: transparent; border: 2px solid white;">Ver Compliance & Seguridad</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

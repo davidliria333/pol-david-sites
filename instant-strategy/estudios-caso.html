@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudios de Caso | AnalitikAI - Escenarios Reales de Implementación</title>
+    <meta name="description" content="Escenarios reales de implementación AnalitikAI en servicios profesionales enterprise. Casos típicos, desafíos comunes y resultados esperables en Legal, Consulting, Audit y Finance.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            padding: 80px 0 0;
+            background: var(--bg-secondary);
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 60px;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: white;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            padding: 0 0 100px;
+            background: var(--bg-secondary);
+        }
+
+        .cases-grid {
+            display: grid;
+            gap: 60px;
+        }
+
+        .case-study {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 500px;
+        }
+
+        .case-info {
+            padding: 60px 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .case-title {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .case-subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .metric-number {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .case-content {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-section {
+            margin-bottom: 40px;
+        }
+
+        .case-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .challenge-list,
+        .solution-list,
+        .result-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .challenge-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 24px;
+            color: #dc2626;
+        }
+
+        .challenge-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .solution-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 24px;
+            color: var(--accent);
+        }
+
+        .solution-list li::before {
+            content: "🔧";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .result-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 24px;
+            color: var(--success);
+        }
+
+        .result-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+        }
+
+        /* Industry Colors */
+        .case-study.legal .case-info {
+            background: linear-gradient(135deg, #1e293b, #475569);
+        }
+
+        .case-study.consulting .case-info {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+
+        .case-study.audit .case-info {
+            background: linear-gradient(135deg, #059669, #10b981);
+        }
+
+        .case-study.finance .case-info {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .case-study {
+                grid-template-columns: 1fr;
+            }
+
+            .case-info,
+            .case-content {
+                padding: 40px 32px;
+            }
+
+            .case-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .tabs-nav {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .case-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="seguridad.html">Seguridad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Escenarios Reales de<br>Implementación</h1>
+            <p>Casos típicos donde AnalitikAI transforma workflows de servicios profesionales enterprise. Situaciones reales, desafíos comunes, resultados esperables.</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="filter-tabs">
+        <div class="container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="showCategory('all')">Todos</button>
+                <button class="tab-btn" onclick="showCategory('legal')">Legal</button>
+                <button class="tab-btn" onclick="showCategory('consulting')">Consultoría</button>
+                <button class="tab-btn" onclick="showCategory('audit')">Auditoría</button>
+                <button class="tab-btn" onclick="showCategory('finance')">Finanzas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies">
+        <div class="container">
+            <div class="cases-grid">
+                <!-- Legal Case Study -->
+                <div class="case-study legal" data-category="legal">
+                    <div class="case-info">
+                        <div class="case-category">Servicios Legales</div>
+                        <h2 class="case-title">Due Diligence Cross-Border en 48h</h2>
+                        <p class="case-subtitle">Private Equity Fund - Acquisition Tech Company €500M</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-number">75%</span>
+                                <span class="metric-label">Time Reduction</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">€120K</span>
+                                <span class="metric-label">Cost Savings</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h3 class="section-title">🎯 Situación Típica</h3>
+                            <div class="section-content">
+                                PE fund en auction process para tech company con operaciones en 6 jurisdicciones europeas. Timeline competitivo: 3 semanas desde LOI hasta final bid. Equity story complejo con regulatory challenges en multiple markets.
+                            </div>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">⚠️ Challenges Comunes</h3>
+                            <ul class="challenge-list">
+                                <li>Research multi-jurisdiccional inconsistente entre teams</li>
+                                <li>Regulatory complexity en 6 países diferentes</li>
+                                <li>Timeline pressure vs thoroughness requirements</li>
+                                <li>Cost escalation con multiple law firms</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">🔧 Solución AnalitikAI</h3>
+                            <ul class="solution-list">
+                                <li>Unified research approach 6 jurisdicciones simultáneas</li>
+                                <li>Regulatory mapping automatizado con change tracking</li>
+                                <li>Risk matrix consolidado con prioritization</li>
+                                <li>Client-ready deliverables en 48h guaranteed</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">✅ Resultados Típicos</h3>
+                            <ul class="result-list">
+                                <li>Due diligence completado en timeline target</li>
+                                <li>Competitive advantage en auction process</li>
+                                <li>Hidden risks identificados temprano</li>
+                                <li>Integration planning accelerated</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consulting Case Study -->
+                <div class="case-study consulting" data-category="consulting">
+                    <div class="case-info">
+                        <div class="case-category">Consultoría Estratégica</div>
+                        <h2 class="case-title">Market Entry Strategy en Tiempo Record</h2>
+                        <p class="case-subtitle">Fortune 500 Company - European Expansion €200M Investment</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-number">5x</span>
+                                <span class="metric-label">Faster Delivery</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">€85K</span>
+                                <span class="metric-label">Budget Savings</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h3 class="section-title">🎯 Situación Típica</h3>
+                            <div class="section-content">
+                                US technology company evaluando expansion europea. Board meeting en 4 semanas para aprobar €200M investment. CEO necesita comprehensive strategy con clear ROI projections y risk mitigation plan.
+                            </div>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">⚠️ Challenges Comunes</h3>
+                            <ul class="challenge-list">
+                                <li>Market sizing complejo 27 países EU</li>
+                                <li>Competitive landscape fragmented</li>
+                                <li>Regulatory differences entre jurisdictions</li>
+                                <li>Go-to-market strategy optimization</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">🔧 Solución AnalitikAI</h3>
+                            <ul class="solution-list">
+                                <li>TAM/SAM/SOM analysis automatizado</li>
+                                <li>Competitive intelligence en tiempo real</li>
+                                <li>Regulatory requirements mapping</li>
+                                <li>Investment scenarios con ROI modeling</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">✅ Resultados Típicos</h3>
+                            <ul class="result-list">
+                                <li>Board approval unánime para investment</li>
+                                <li>Market entry strategy optimizada</li>
+                                <li>Risk mitigation plan robusto</li>
+                                <li>Implementation roadmap acelerado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audit Case Study -->
+                <div class="case-study audit" data-category="audit">
+                    <div class="case-info">
+                        <div class="case-category">Auditoría & Aseguramiento</div>
+                        <h2 class="case-title">ESG Compliance Assessment Pre-IPO</h2>
+                        <p class="case-subtitle">Tech Unicorn - IPO Readiness €2B Valuation</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-number">80%</span>
+                                <span class="metric-label">Process Acceleration</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">€150K</span>
+                                <span class="metric-label">Efficiency Gains</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h3 class="section-title">🎯 Situación Típica</h3>
+                            <div class="section-content">
+                                Tech unicorn preparando IPO necesita comprehensive ESG assessment para compliance con EU taxonomy y investor requirements. Investment bankers exigen documentation completa en 6 semanas.
+                            </div>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">⚠️ Challenges Comunes</h3>
+                            <ul class="challenge-list">
+                                <li>ESG frameworks complexity (GRI, SASB, TCFD)</li>
+                                <li>Limited ESG expertise in audit team</li>
+                                <li>Data collection across multiple subsidiaries</li>
+                                <li>Materiality assessment subjectivity</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">🔧 Solución AnalitikAI</h3>
+                            <ul class="solution-list">
+                                <li>ESG framework mapping automatizado</li>
+                                <li>Industry benchmarking comprehensive</li>
+                                <li>Materiality matrix data-driven</li>
+                                <li>Audit trail documentation completa</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">✅ Resultados Típicos</h3>
+                            <ul class="result-list">
+                                <li>IPO timeline mantenido sin delays</li>
+                                <li>Investor confidence en ESG readiness</li>
+                                <li>Compliance documentation robusta</li>
+                                <li>Post-IPO ESG framework establecido</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Case Study -->
+                <div class="case-study finance" data-category="finance">
+                    <div class="case-info">
+                        <div class="case-category">Finanzas & Inversión</div>
+                        <h2 class="case-title">Crisis Response Portfolio Rebalancing</h2>
+                        <p class="case-subtitle">$15B Pension Fund - Geopolitical Event Response</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-number">15x</span>
+                                <span class="metric-label">Analysis Speed</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-number">3.2%</span>
+                                <span class="metric-label">Value Preserved</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-section">
+                            <h3 class="section-title">🎯 Situación Típica</h3>
+                            <div class="section-content">
+                                Major geopolitical event impacts global markets. $15B pension fund trustees demand comprehensive risk assessment y rebalancing recommendations en 72 horas para emergency board meeting.
+                            </div>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">⚠️ Challenges Comunes</h3>
+                            <ul class="challenge-list">
+                                <li>Real-time analysis requirements</li>
+                                <li>Multi-asset class impact assessment</li>
+                                <li>Scenario planning complexity</li>
+                                <li>Liquidity constraints consideration</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">🔧 Solución AnalitikAI</h3>
+                            <ul class="solution-list">
+                                <li>Crisis impact analysis multi-asset</li>
+                                <li>Scenario modeling probabilístico</li>
+                                <li>Optimal rebalancing recommendations</li>
+                                <li>Liquidity analysis y constraints</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-section">
+                            <h3 class="section-title">✅ Resultados Típicos</h3>
+                            <ul class="result-list">
+                                <li>Proactive positioning vs reactive peers</li>
+                                <li>Value preservation durante crisis</li>
+                                <li>Trustee confidence mantenida</li>
+                                <li>Recovery positioning optimizada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <h2 style="font-size: 40px; font-weight: 800; margin-bottom: 16px;">Patrones de Implementación</h2>
+            <p style="font-size: 18px; color: #94a3b8;">Métricas agregadas de scenarios similares implementados</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">75%</span>
+                    <span class="stat-label">Avg Time Reduction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">€95K</span>
+                    <span class="stat-label">Avg Cost Savings</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">48h</span>
+                    <span class="stat-label">Typical Delivery</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 style="font-size: 40px; font-weight: 800; margin-bottom: 16px; color: var(--text-primary);">¿Reconoces tu Situación?</h2>
+            <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 32px;">Discutamos cómo AnalitikAI puede transformar tu workflow específico</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn">Agendar Sesión Estratégica</a>
+                <a href="index.html" class="btn-secondary">Explorar Soluciones</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showCategory(category) {
+            const cases = document.querySelectorAll('.case-study');
+            const tabs = document.querySelectorAll('.tab-btn');
+
+            // Update active tab
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/hide cases
+            cases.forEach(caseEl => {
+                if (category === 'all' || caseEl.dataset.category === category) {
+                    caseEl.style.display = 'grid';
+                } else {
+                    caseEl.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
