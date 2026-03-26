@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalitikAI para Servicios Legales | Research Jurídico IA en 48h</title>
+    <meta name="description" content="Investigación jurídica nivel Big Law en 48 horas. Due diligence, análisis regulatorio, research de precedentes para despachos de abogados internacionales.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.3);
+            border-radius: 50px;
+            color: #a5b4fc;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .pain-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid #ef4444;
+        }
+
+        .pain-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .pain-stat {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ef4444;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            padding: 100px 0;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .use-case-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .use-case-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .use-case-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin: 0 auto 16px;
+        }
+
+        .use-case-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .use-case-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .use-case-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .use-case-list li {
+            padding: 4px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .use-case-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Scenarios */
+        .scenarios {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .scenario-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .scenario-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .scenario-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .scenario-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .scenario-problem {
+            padding: 24px;
+            background: #fef2f2;
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .scenario-solution {
+            padding: 24px;
+            background: #f0fdf4;
+            border-radius: 12px;
+            border-left: 4px solid var(--success);
+        }
+
+        .scenario-problem h4 {
+            color: #dc2626;
+            margin-bottom: 12px;
+        }
+
+        .scenario-solution h4 {
+            color: #059669;
+            margin-bottom: 12px;
+        }
+
+        /* ROI Calculator */
+        .roi-calculator {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .roi-metric {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .roi-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .roi-label {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .scenario-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="seguridad.html">Seguridad</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Servicios Legales • Big Law Quality</div>
+            <h1>Research Jurídico IA<br>en 48 Horas</h1>
+            <p>Due diligence, análisis regulatorio e investigación de precedentes con calidad de despacho tier-1. Deja que la IA acelere tu research mientras tú te enfocas en strategy.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn">Agendar Demo Legal</a>
+                <a href="#use-cases" class="btn-secondary">Ver Casos de Uso</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <div class="container">
+            <div class="section-header">
+                <h2>La Investigación Jurídica Está Matando Tu Momentum</h2>
+                <p>Los despachos internacionales pierden millones en research lento y costoso</p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <span class="pain-stat">3-4 semanas</span>
+                    <h3>Due Diligence Lento</h3>
+                    <p>Tus associates junior facturan €200/hora investigando durante semanas lo que la IA puede hacer en horas. Los clientes esperan, los deals se enfrían.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <span class="pain-stat">€50K+</span>
+                    <h3>Costos de Research</h3>
+                    <p>Un solo proyecto M&A puede costar €50k+ solo en horas de research. Partners senior revisando trabajo de juniors que la IA haría mejor.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <span class="pain-stat">40%</span>
+                    <h3>Research Inconsistente</h3>
+                    <p>La calidad varía según el associate asignado. Algunos brillantes, otros básicos. Tu marca se resiente por inconsistencia en deliverables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <h2>Casos de Uso Legal Enterprise</h2>
+                <p>Soluciones IA específicas para cada área de práctica legal</p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">🏢</div>
+                    <h3>Due Diligence M&A</h3>
+                    <p>Investigación completa de target companies, análisis de riesgos y due diligence comercial</p>
+                    <ul class="use-case-list">
+                        <li>Financial due diligence</li>
+                        <li>Legal & regulatory analysis</li>
+                        <li>Industry & competitive landscape</li>
+                        <li>Management team background</li>
+                        <li>Risk assessment matrix</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">📋</div>
+                    <h3>Investigación Regulatoria</h3>
+                    <p>Análisis de compliance, cambios regulatorios y impacto en operaciones cliente</p>
+                    <ul class="use-case-list">
+                        <li>Regulatory change analysis</li>
+                        <li>Compliance requirements mapping</li>
+                        <li>Industry-specific regulations</li>
+                        <li>Cross-jurisdiction analysis</li>
+                        <li>Implementation timelines</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">⚖️</div>
+                    <h3>Research de Precedentes</h3>
+                    <p>Búsqueda y análisis de jurisprudencia relevante, casos similares y estrategias legales</p>
+                    <ul class="use-case-list">
+                        <li>Case law research</li>
+                        <li>Jurisdictional precedents</li>
+                        <li>Legal strategy analysis</li>
+                        <li>Judge history & tendencies</li>
+                        <li>Settlement patterns</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔍</div>
+                    <h3>Investigación de Contraparte</h3>
+                    <p>Background completo de contrapartes, stakeholders y decision makers</p>
+                    <ul class="use-case-list">
+                        <li>Executive background checks</li>
+                        <li>Corporate structure mapping</li>
+                        <li>Financial health analysis</li>
+                        <li>Litigation history</li>
+                        <li>Reputation & media analysis</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🌐</div>
+                    <h3>Cross-Border Legal</h3>
+                    <p>Análisis multi-jurisdiccional, diferencias regulatorias y estructura legal óptima</p>
+                    <ul class="use-case-list">
+                        <li>Multi-jurisdiction analysis</li>
+                        <li>Tax optimization structures</li>
+                        <li>Regulatory arbitrage</li>
+                        <li>Local law requirements</li>
+                        <li>Cultural & business practices</li>
+                    </ul>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">⚡</div>
+                    <h3>Litigation Support</h3>
+                    <p>Research para litigation, análisis de damages y investigación de expert witnesses</p>
+                    <ul class="use-case-list">
+                        <li>Damages calculation research</li>
+                        <li>Expert witness vetting</li>
+                        <li>Industry standard analysis</li>
+                        <li>Comparable case outcomes</li>
+                        <li>Economic impact assessment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios -->
+    <section class="scenarios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Escenarios Reales de Implementación</h2>
+                <p>Situaciones típicas donde AnalitikAI transforma el workflow legal</p>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">🏛️</div>
+                    <div class="scenario-title">M&A Cross-Border para Private Equity</div>
+                </div>
+                <div class="scenario-content">
+                    <div class="scenario-problem">
+                        <h4>❌ Situación Tradicional</h4>
+                        <p><strong>Contexto:</strong> PE fund quiere adquirir tech company europea con operaciones en 5 países.</p>
+                        <p><strong>Problema:</strong> 4 semanas de due diligence, €80k en horas de associates, research inconsistente entre jurisdicciones.</p>
+                        <p><strong>Impacto:</strong> Deal timeline extendido, competidores pueden ganar, client frustrado con costos.</p>
+                    </div>
+                    <div class="scenario-solution">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Proceso:</strong> 48h para due diligence completo multi-jurisdiccional con análisis unificado.</p>
+                        <p><strong>Resultado:</strong> €25k total cost, research consistente, insights únicos sobre sinergias ocultas.</p>
+                        <p><strong>Beneficio:</strong> Deal cerrado 3 semanas antes, ventaja competitiva, client satisfaction alta.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">📊</div>
+                    <div class="scenario-title">Compliance Regulatorio para FinTech</div>
+                </div>
+                <div class="scenario-content">
+                    <div class="scenario-problem">
+                        <h4>❌ Situación Tradicional</h4>
+                        <p><strong>Contexto:</strong> FinTech necesita compliance analysis para expansion europea urgente.</p>
+                        <p><strong>Problema:</strong> 2 semanas research regulatorio, diferentes associates por país, inconsistencias críticas.</p>
+                        <p><strong>Impacto:</strong> Launch delay de 6 semanas, competitive advantage perdido, regulatory risk.</p>
+                    </div>
+                    <div class="scenario-solution">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Proceso:</strong> Análisis regulatorio unificado 27 jurisdicciones EU en 48h con matriz de compliance.</p>
+                        <p><strong>Resultado:</strong> Timeline compression 75%, regulatory roadmap claro, risk mitigation plan.</p>
+                        <p><strong>Beneficio:</strong> Launch on-time, first-mover advantage preservado, regulatory confidence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="scenario-icon">⚖️</div>
+                    <div class="scenario-title">Litigation Strategy para IP Dispute</div>
+                </div>
+                <div class="scenario-content">
+                    <div class="scenario-problem">
+                        <h4>❌ Situación Tradicional</h4>
+                        <p><strong>Contexto:</strong> IP litigation high-stakes, necesitas precedent analysis y damages calculation.</p>
+                        <p><strong>Problema:</strong> 3 semanas research, €60k costs, análisis superficial por presión de tiempo.</p>
+                        <p><strong>Impacto:</strong> Strategy subóptima, settlement pressure, weak negotiation position.</p>
+                    </div>
+                    <div class="scenario-solution">
+                        <h4>✅ Con AnalitikAI</h4>
+                        <p><strong>Proceso:</strong> Precedent analysis completo + damages modeling + judge tendencies en 48h.</p>
+                        <p><strong>Resultado:</strong> Strategy data-driven, negotiation position fuerte, cost-effective approach.</p>
+                        <p><strong>Beneficio:</strong> Settlement 40% superior, client wins, reputation enhanced.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2>ROI Real para Despachos Legales</h2>
+                <p>Métricas reales de implementación AnalitikAI en servicios legales enterprise</p>
+            </div>
+            <div class="roi-grid">
+                <div class="roi-metric">
+                    <span class="roi-number">75%</span>
+                    <span class="roi-label">Reducción Tiempo Research</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-number">60%</span>
+                    <span class="roi-label">Reducción Costos Operacionales</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-number">3x</span>
+                    <span class="roi-label">Faster Deal Turnaround</span>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-number">95%</span>
+                    <span class="roi-label">Client Satisfaction Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Listo para Transformar tu Research Jurídico?</h2>
+                <p>Únete a despachos internacionales que ya están ganando con IA</p>
+            </div>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn">Agendar Demo Legal Especializado</a>
+                <a href="seguridad.html" class="btn-secondary">Ver Compliance & Seguridad</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

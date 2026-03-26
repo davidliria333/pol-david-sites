@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnalitikAI - Goodbye Research Teams | The First AI-as-a-Consultant Platform</title>
-    <meta name="description" content="Stop outsourcing research for weeks. Get consultant-grade analysis in 48 hours. The anti-research team platform for law firms, consultancies, audit companies, and agencies.">
+    <title>AnalitikAI - La Primera Plataforma de IA como Consultor | Investigación Enterprise</title>
+    <meta name="description" content="Plataforma de inteligencia estratégica para servicios profesionales. Análisis de nivel consultor en 48 horas para despachos legales, consultorías, auditorías y servicios financieros.">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
@@ -28,6 +28,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #4f46e5;
+            --accent-light: #6366f1;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -41,8 +67,8 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #0f172a;
-            background-color: #ffffff;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
             -webkit-font-smoothing: antialiased;
         }
 
@@ -52,7 +78,7 @@
             padding: 0 24px;
         }
 
-        /* Header */
+        /* Header & Navigation */
         .header {
             position: fixed;
             top: 0;
@@ -60,39 +86,152 @@
             right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e2e8f0;
-            z-index: 100;
-            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0;
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 16px 24px;
         }
 
         .logo {
             font-size: 24px;
             font-weight: 800;
-            color: #4f46e5;
+            color: var(--accent);
             text-decoration: none;
+        }
+
+        .nav-main {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         .nav-links {
             display: flex;
             gap: 32px;
             list-style: none;
+            align-items: center;
         }
 
-        .nav-links a {
-            color: #475569;
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: #4f46e5;
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link.has-dropdown::after {
+            content: "▼";
+            font-size: 10px;
+            transition: transform 0.2s;
+        }
+
+        .nav-item:hover .nav-link.has-dropdown::after {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menus */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            padding: 16px 0;
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-section {
+            padding: 0 20px;
+            margin-bottom: 16px;
+        }
+
+        .dropdown-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .dropdown-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .dropdown-link:hover {
+            color: var(--accent);
+        }
+
+        .dropdown-description {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 20px;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
         }
 
         .btn {
@@ -108,30 +247,30 @@
         }
 
         .btn-primary {
-            background: #4f46e5;
+            background: var(--accent);
             color: white;
         }
 
         .btn-primary:hover {
-            background: #4338ca;
+            background: var(--accent-light);
             transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #4f46e5;
-            border: 2px solid #4f46e5;
+            color: var(--accent);
+            border: 2px solid var(--accent);
         }
 
         .btn-secondary:hover {
-            background: #4f46e5;
+            background: var(--accent);
             color: white;
         }
 
         /* Hero Section */
         .hero {
             padding: 150px 0 100px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             text-align: center;
         }
@@ -159,7 +298,7 @@
             font-size: 20px;
             color: #94a3b8;
             margin-bottom: 40px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -186,7 +325,7 @@
         .stat-number {
             font-size: 32px;
             font-weight: 800;
-            color: #4f46e5;
+            color: var(--accent);
             display: block;
         }
 
@@ -196,9 +335,10 @@
             margin-top: 4px;
         }
 
-        /* Problem Section */
-        .section {
+        /* Industries Section */
+        .industries {
             padding: 100px 0;
+            background: var(--bg-secondary);
         }
 
         .section-header {
@@ -209,70 +349,110 @@
         .section-header h2 {
             font-size: 48px;
             font-weight: 800;
-            color: #0f172a;
+            color: var(--text-primary);
             margin-bottom: 16px;
         }
 
         .section-header p {
             font-size: 20px;
-            color: #64748b;
+            color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .problem-grid {
+        .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            margin-bottom: 80px;
-        }
-
-        .problem-card {
-            padding: 32px;
-            background: #f8fafc;
-            border-radius: 16px;
-            border-left: 4px solid #ef4444;
-        }
-
-        .problem-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 16px;
-        }
-
-        .problem-card p {
-            color: #64748b;
-            line-height: 1.7;
-        }
-
-        /* Solution Section */
-        .solution {
-            background: #f8fafc;
-        }
-
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
         }
 
-        .solution-card {
-            padding: 40px;
+        .industry-card {
             background: white;
+            padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #10b981;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .solution-card h3 {
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .industry-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 24px;
+        }
+
+        .industry-card h3 {
             font-size: 24px;
             font-weight: 700;
-            color: #0f172a;
+            color: var(--text-primary);
             margin-bottom: 16px;
         }
 
-        .solution-badge {
+        .industry-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .use-cases-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .use-cases-list li {
+            padding: 4px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .use-cases-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border-left: 4px solid var(--success);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .feature-badge {
             display: inline-block;
             padding: 4px 12px;
             background: #dcfce7;
@@ -283,120 +463,107 @@
             margin-bottom: 16px;
         }
 
-        /* Process Section */
-        .process-steps {
+        /* Security Section */
+        .security {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .security-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
 
-        .step {
+        .security-card {
+            padding: 32px;
+            background: var(--primary-light);
+            border-radius: 16px;
             text-align: center;
-            position: relative;
         }
 
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: #4f46e5;
-            color: white;
+        .security-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-weight: 800;
-            margin: 0 auto 24px;
-        }
-
-        .step h3 {
             font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #0f172a;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background: #0f172a;
-            color: white;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-        }
-
-        .pricing-card {
-            padding: 40px;
-            background: #1e293b;
-            border-radius: 16px;
-            text-align: center;
-            position: relative;
-            border: 2px solid transparent;
-        }
-
-        .pricing-card.recommended {
-            border-color: #4f46e5;
-            transform: scale(1.05);
-        }
-
-        .recommended-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #4f46e5;
-            color: white;
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .price {
-            font-size: 48px;
-            font-weight: 900;
-            color: #4f46e5;
-            margin: 16px 0;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin: 32px 0;
-        }
-
-        .pricing-features li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .pricing-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: 600;
+            margin: 0 auto 16px;
         }
 
         /* CTA Section */
         .cta {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
             color: white;
             text-align: center;
         }
 
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--primary-light);
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
-            }
-
-            .nav-links {
-                display: none;
             }
 
             .hero h1 {
@@ -416,8 +583,8 @@
                 font-size: 36px;
             }
 
-            .pricing-card.recommended {
-                transform: none;
+            .nav {
+                padding: 12px 20px;
             }
         }
     </style>
@@ -425,198 +592,366 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav container">
+        <div class="nav">
             <a href="#" class="logo">AnalitikAI</a>
-            <ul class="nav-links">
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-            </ul>
-            <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_call')">Book Demo</a>
-        </nav>
+            
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <!-- Platform Dropdown -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-dropdown">Plataforma</a>
+                        <div class="dropdown">
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Descripción General</div>
+                                <a href="#how-it-works" class="dropdown-link">
+                                    Cómo Funciona
+                                    <div class="dropdown-description">Motor de investigación IA + supervisión humana</div>
+                                </a>
+                                <a href="#platform-components" class="dropdown-link">
+                                    Componentes
+                                    <div class="dropdown-description">Flujos de trabajo e inteligencia sectorial</div>
+                                </a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Capacidades</div>
+                                <a href="#research-workflows" class="dropdown-link">
+                                    Flujos de Investigación
+                                    <div class="dropdown-description">Metodologías personalizadas por sector</div>
+                                </a>
+                                <a href="#ai-specialists" class="dropdown-link">
+                                    Especialistas IA
+                                    <div class="dropdown-description">Agentes expertos por industria</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Use Cases Dropdown -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-dropdown">Casos de Uso</a>
+                        <div class="dropdown">
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Por Industria</div>
+                                <a href="#legal" class="dropdown-link">
+                                    Servicios Legales
+                                    <div class="dropdown-description">Due diligence, investigación regulatoria</div>
+                                </a>
+                                <a href="#consulting" class="dropdown-link">
+                                    Consultoría
+                                    <div class="dropdown-description">Análisis de mercado, inteligencia competitiva</div>
+                                </a>
+                                <a href="#audit" class="dropdown-link">
+                                    Auditoría & Aseguramiento
+                                    <div class="dropdown-description">Investigación de compliance, análisis sectorial</div>
+                                </a>
+                                <a href="#finance" class="dropdown-link">
+                                    Finanzas & Inversión
+                                    <div class="dropdown-description">Investigación financiera, due diligence</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link has-dropdown">Recursos</a>
+                        <div class="dropdown">
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Aprender</div>
+                                <a href="#blog" class="dropdown-link">
+                                    Blog
+                                    <div class="dropdown-description">Insights y tendencias sectoriales</div>
+                                </a>
+                                <a href="#case-studies" class="dropdown-link">
+                                    Estudios de Caso
+                                    <div class="dropdown-description">Escenarios reales de implementación</div>
+                                </a>
+                                <a href="#methodologies" class="dropdown-link">
+                                    Metodologías
+                                    <div class="dropdown-description">Cómo garantizamos la precisión</div>
+                                </a>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="dropdown-title">Soporte</div>
+                                <a href="#help-center" class="dropdown-link">
+                                    Centro de Ayuda
+                                    <div class="dropdown-description">FAQs y guías</div>
+                                </a>
+                                <a href="#security" class="dropdown-link">
+                                    Seguridad & Privacidad
+                                    <div class="dropdown-description">GDPR, ISO, protección de datos</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">Agendar Demo</a>
+            </div>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div style="margin-bottom: 20px;">
+                <strong>Plataforma</strong>
+                <div style="margin-left: 16px; margin-top: 8px;">
+                    <a href="#how-it-works" style="display: block; padding: 4px 0; color: #475569;">Cómo Funciona</a>
+                    <a href="#platform-components" style="display: block; padding: 4px 0; color: #475569;">Componentes</a>
+                    <a href="#research-workflows" style="display: block; padding: 4px 0; color: #475569;">Flujos de Investigación</a>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <strong>Casos de Uso</strong>
+                <div style="margin-left: 16px; margin-top: 8px;">
+                    <a href="#legal" style="display: block; padding: 4px 0; color: #475569;">Servicios Legales</a>
+                    <a href="#consulting" style="display: block; padding: 4px 0; color: #475569;">Consultoría</a>
+                    <a href="#audit" style="display: block; padding: 4px 0; color: #475569;">Auditoría</a>
+                    <a href="#finance" style="display: block; padding: 4px 0; color: #475569;">Finanzas</a>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <strong>Recursos</strong>
+                <div style="margin-left: 16px; margin-top: 8px;">
+                    <a href="#blog" style="display: block; padding: 4px 0; color: #475569;">Blog</a>
+                    <a href="#case-studies" style="display: block; padding: 4px 0; color: #475569;">Estudios de Caso</a>
+                    <a href="#security" style="display: block; padding: 4px 0; color: #475569;">Seguridad</a>
+                </div>
+            </div>
+            
+            <a href="#" class="btn btn-primary" style="width: 100%; margin-top: 16px;">Agendar Demo</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">The Anti-Research Team Platform</div>
+            <div class="hero-badge">La Primera Plataforma Anti-Equipos de Investigación</div>
             <h1>
-                Goodbye Research Teams.<br>
-                The First AI-as-a-Consultant Platform
+                Adiós Equipos de Investigación.<br>
+                La Primera Plataforma de IA como Consultor
             </h1>
             <p class="subtitle">
-                Stop outsourcing research for weeks. Get consultant-grade analysis in 48 hours for law firms, consultancies, audit companies, and agencies.
+                Deja de subcontratar investigación durante semanas. Obtén análisis de nivel consultor en 48 horas para despachos legales, consultorías, auditorías y servicios financieros.
             </p>
             <div class="hero-cta">
-                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'hero', 'book_demo')">Book 15-min Demo</a>
-                <a href="#solution" class="btn btn-secondary">Learn More</a>
+                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'hero', 'book_demo')">Agendar Demo 15 min</a>
+                <a href="#industries" class="btn btn-secondary">Conocer Más</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number">150+</span>
-                    <span class="stat-label">Research Projects</span>
+                    <span class="stat-label">Proyectos de Investigación</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">48h</span>
-                    <span class="stat-label">Average Delivery</span>
+                    <span class="stat-label">Entrega Promedio</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">95%</span>
-                    <span class="stat-label">Client Satisfaction</span>
+                    <span class="stat-label">Satisfacción Cliente</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">85%</span>
-                    <span class="stat-label">Cost Reduction</span>
+                    <span class="stat-label">Reducción de Costos</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="section" id="problem">
+    <!-- Industries Section -->
+    <section class="industries" id="industries">
         <div class="container">
             <div class="section-header">
-                <h2>Your Research Is Killing Your Momentum</h2>
-                <p>Every professional service knows this pain. Research bottlenecks are destroying your client delivery speed.</p>
+                <h2>Especialización Sectorial Enterprise</h2>
+                <p>Inteligencia estratégica personalizada para cada vertical de servicios profesionales</p>
             </div>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>Weeks of Waiting</h3>
-                    <p>Your team spends 2-4 weeks on research that should take days. Clients are waiting. Deals are cooling. Momentum is dead.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Expensive Research Teams</h3>
-                    <p>Junior associates billing €200/hour for basic research. Senior partners reviewing obvious findings. Your margins are disappearing.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Inconsistent Quality</h3>
-                    <p>Different researchers, different standards. Some reports are brilliant, others are basic. Your brand quality is unpredictable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="section solution" id="solution">
-        <div class="container">
-            <div class="section-header">
-                <h2>The AI-as-a-Consultant Revolution</h2>
-                <p>Replace weeks of research with 48-hour consultant-grade analysis. One platform, consistent quality, transparent pricing.</p>
-            </div>
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="solution-badge">48h Guarantee</div>
-                    <h3>Speed That Wins</h3>
-                    <p>Get comprehensive analysis in 48 hours, not weeks. Your clients get answers while competitors are still researching.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-badge">Transparent</div>
-                    <h3>Predictable Costs</h3>
-                    <p>No more €20k research surprises. Custom pricing based on scope, transparent delivery. Budget with confidence.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-badge">Consultant-Grade</div>
-                    <h3>Premium Quality</h3>
-                    <p>McKinsey-level analysis powered by AI. Every report includes strategic recommendations, not just data dumps.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="section" id="process">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ready for Your Client Meeting</h2>
-                <p>Three simple steps. 48-hour delivery. Game-changing results.</p>
-            </div>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Brief Us (30 min)</h3>
-                    <p>Tell us what you need. Market analysis, competitive research, due diligence, regulatory review. We handle the rest.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>AI Analysis (48h)</h3>
-                    <p>Our AI consultant analyzes thousands of sources, generates insights, creates strategic recommendations you can present immediately.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Client-Ready Report</h3>
-                    <p>Professional presentation, executive summary, detailed analysis, actionable recommendations. Ready for your client meeting.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="section pricing" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Move at the Speed of AI</h2>
-                <p>Custom pricing based on your firm's size, complexity, and integration needs. No surprises.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Research Sprint</h3>
-                    <div class="price">Custom</div>
-                    <p>Perfect for quick market research, competitor analysis, or regulatory overviews.</p>
-                    <ul class="pricing-features">
-                        <li>48-hour delivery</li>
-                        <li>Tailored scope</li>
-                        <li>Executive summary</li>
-                        <li>Revisions included</li>
-                        <li>Client-ready format</li>
+            <div class="industries-grid">
+                <div class="industry-card" id="legal">
+                    <div class="industry-icon">⚖️</div>
+                    <h3>Servicios Legales</h3>
+                    <p>Investigación jurídica de nivel Big Law en 48 horas. Due diligence, análisis regulatorio y investigación de precedentes con precisión de despacho tier-1.</p>
+                    <ul class="use-cases-list">
+                        <li>Due diligence para M&A y financiaciones</li>
+                        <li>Investigación regulatoria y compliance</li>
+                        <li>Análisis de precedentes y jurisprudencia</li>
+                        <li>Investigación de contraparte y stakeholders</li>
+                        <li>Intelligence sectorial para litigios</li>
                     </ul>
-                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'pricing', 'research_sprint')">Get Quote</a>
+                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'legal')">Ver Casos Legales</a>
                 </div>
-                <div class="pricing-card recommended">
-                    <div class="recommended-badge">Most Popular</div>
-                    <h3>Deep Analysis</h3>
-                    <div class="price">Custom</div>
-                    <p>Comprehensive research with strategic recommendations and implementation roadmap.</p>
-                    <ul class="pricing-features">
-                        <li>48-hour delivery</li>
-                        <li>Custom depth & scope</li>
-                        <li>Strategic recommendations</li>
-                        <li>Implementation roadmap</li>
-                        <li>Multiple revisions</li>
-                        <li>Presentation included</li>
+
+                <div class="industry-card" id="consulting">
+                    <div class="industry-icon">💼</div>
+                    <h3>Consultoría Estratégica</h3>
+                    <p>Análisis de mercado y inteligencia competitiva con estándares McKinsey. Research que acelera tus propuestas y potencia tus recomendaciones estratégicas.</p>
+                    <ul class="use-cases-list">
+                        <li>Análisis de mercado y sizing</li>
+                        <li>Inteligencia competitiva y benchmarking</li>
+                        <li>Due diligence comercial y estratégico</li>
+                        <li>Investigación de tendencias sectoriales</li>
+                        <li>Análisis de modelos de negocio</li>
                     </ul>
-                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'pricing', 'deep_analysis')">Get Quote</a>
+                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'consulting')">Ver Casos Consultoría</a>
                 </div>
-                <div class="pricing-card">
-                    <h3>Partnership</h3>
-                    <div class="price">Custom</div>
-                    <p>Ongoing research partnership tailored to your firm's specific needs and volume.</p>
-                    <ul class="pricing-features">
-                        <li>Volume discounts</li>
-                        <li>48-hour delivery</li>
-                        <li>Dedicated analyst</li>
-                        <li>Priority support</li>
-                        <li>Regular strategy calls</li>
-                        <li>Custom templates</li>
+
+                <div class="industry-card" id="audit">
+                    <div class="industry-icon">🔍</div>
+                    <h3>Auditoría & Aseguramiento</h3>
+                    <p>Investigación de compliance y análisis sectorial para Big 4. Risk assessment, investigación regulatoria y análisis de industria con trazabilidad completa.</p>
+                    <ul class="use-cases-list">
+                        <li>Investigación de compliance y regulación</li>
+                        <li>Análisis sectorial y benchmarking</li>
+                        <li>Risk assessment y due diligence</li>
+                        <li>Investigación de background corporativo</li>
+                        <li>Análisis de estándares y frameworks</li>
                     </ul>
-                    <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'pricing', 'partnership')">Discuss Partnership</a>
+                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'audit')">Ver Casos Auditoría</a>
+                </div>
+
+                <div class="industry-card" id="finance">
+                    <div class="industry-icon">📊</div>
+                    <h3>Finanzas & Inversión</h3>
+                    <p>Research financiero institucional en 48 horas. Análisis de inversión, due diligence financiero e intelligence de mercado para decisiones de inversión críticas.</p>
+                    <ul class="use-cases-list">
+                        <li>Due diligence financiero y de inversión</li>
+                        <li>Análisis de empresas y valoraciones</li>
+                        <li>Intelligence de mercados financieros</li>
+                        <li>Investigación regulatoria financiera</li>
+                        <li>Análisis de riesgo y compliance</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'finance')">Ver Casos Finanzas</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="section cta">
+    <!-- Features Section -->
+    <section class="features" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>Ready to Move at the Speed of AI?</h2>
-                <p>Join 150+ professional services that chose speed over status quo.</p>
+                <h2>La Revolución IA como Consultor</h2>
+                <p>Reemplaza semanas de investigación con análisis de nivel consultor en 48 horas. Una plataforma, calidad consistente, pricing transparente.</p>
             </div>
-            <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'final', 'book_demo')" style="background: white; color: #4f46e5; font-size: 18px; padding: 16px 32px;">Book Your 15-Minute Demo</a>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-badge">Garantía 48h</div>
+                    <h3>Velocidad que Gana</h3>
+                    <p>Obtén análisis completo en 48 horas, no semanas. Tus clientes reciben respuestas mientras la competencia sigue investigando. Momentum preservado, deals cerrados.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-badge">Pricing Transparente</div>
+                    <h3>Costos Predecibles</h3>
+                    <p>Se acabaron las sorpresas de €20k en investigación. Pricing personalizado según scope, revisiones incluidas, entrega transparente. Presupuesta con confianza.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-badge">Nivel Consultor</div>
+                    <h3>Calidad Premium</h3>
+                    <p>Análisis nivel McKinsey potenciado por IA. Cada informe incluye recomendaciones estratégicas, no solo volcado de datos. Presentable directamente al cliente.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seguridad Enterprise & Compliance</h2>
+                <p>Estándares de seguridad y privacidad diseñados para servicios profesionales regulados</p>
+            </div>
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-icon">🔒</div>
+                    <h3>Seguridad de Datos</h3>
+                    <p>Encriptación end-to-end, centros de datos europeos, segregación de datos cliente. Cumplimiento SOC 2 Type II en proceso.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">🛡️</div>
+                    <h3>GDPR & Privacidad</h3>
+                    <p>Cumplimiento GDPR completo, DPO designado, políticas de retención transparentes. Derecho al olvido garantizado en 30 días.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">📋</div>
+                    <h3>Trazabilidad Total</h3>
+                    <p>Audit trail completo, documentación de fuentes, metodología transparente. Cada insight es verificable y defendible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Listo para Moverse a la Velocidad de la IA?</h2>
+                <p>Únete a 150+ servicios profesionales que eligieron velocidad sobre status quo</p>
+            </div>
+            <a href="#" class="btn" onclick="trackEvent('cta_click', 'final', 'book_demo')" style="background: white; color: #4f46e5; font-size: 18px; padding: 16px 32px; margin-right: 16px;">Agendar Demo 15 Minutos</a>
+            <a href="#security" class="btn btn-secondary" style="border-color: white; color: white;">Ver Seguridad & Compliance</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Plataforma</h4>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works">Cómo Funciona</a></li>
+                        <li><a href="#platform-components">Componentes</a></li>
+                        <li><a href="#research-workflows">Flujos de Investigación</a></li>
+                        <li><a href="#ai-specialists">Especialistas IA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Industrias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#legal">Servicios Legales</a></li>
+                        <li><a href="#consulting">Consultoría Estratégica</a></li>
+                        <li><a href="#audit">Auditoría & Aseguramiento</a></li>
+                        <li><a href="#finance">Finanzas & Inversión</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#case-studies">Estudios de Caso</a></li>
+                        <li><a href="#methodologies">Metodologías</a></li>
+                        <li><a href="#help-center">Centro de Ayuda</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Acerca de AnalitikAI</a></li>
+                        <li><a href="#security">Seguridad & Privacidad</a></li>
+                        <li><a href="#gdpr">Cumplimiento GDPR</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AnalitikAI. Todos los derechos reservados. | <a href="#privacy" style="color: #94a3b8;">Política de Privacidad</a> | <a href="#terms" style="color: #94a3b8;">Términos de Servicio</a></p>
+            </div>
+        </div>
+    </footer>
 
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -629,6 +964,16 @@
                     });
                 }
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+            }
         });
     </script>
 </body>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad & Privacidad | AnalitikAI - Compliance Enterprise para Servicios Profesionales</title>
+    <meta name="description" content="Estándares de seguridad y privacidad enterprise. GDPR, SOC 2, ISO 27001. Diseñado para servicios profesionales regulados con máximos estándares de confidencialidad.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ANALITIKAI2024');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Compliance Section */
+        .compliance {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .compliance-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .compliance-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .compliance-badge.in-progress {
+            background: var(--warning);
+        }
+
+        .compliance-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 24px;
+        }
+
+        .compliance-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .compliance-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 24px;
+        }
+
+        .compliance-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        .compliance-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Technical Security */
+        .technical {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .technical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .technical-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .technical-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .technical-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Data Handling */
+        .data-handling {
+            padding: 100px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .step h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 32px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav container">
+            <a href="index.html" class="logo">AnalitikAI</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#gdpr">GDPR</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn">Agendar Demo</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Seguridad & Privacidad Enterprise</h1>
+            <p>Estándares de seguridad y compliance diseñados para servicios profesionales regulados. Tu confidencialidad, nuestra prioridad.</p>
+        </div>
+    </section>
+
+    <!-- Compliance Standards -->
+    <section class="compliance">
+        <div class="container">
+            <div class="section-header">
+                <h2>Estándares de Compliance</h2>
+                <p>Certificaciones y frameworks de seguridad para servicios profesionales enterprise</p>
+            </div>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-badge">GDPR Compliant</div>
+                    <div class="compliance-icon">🛡️</div>
+                    <h3>GDPR & Privacidad</h3>
+                    <p>Cumplimiento completo del Reglamento General de Protección de Datos. DPO designado y auditorías regulares.</p>
+                    <ul class="compliance-features">
+                        <li>Data Protection Officer (DPO) designado</li>
+                        <li>Consentimiento explícito y documentado</li>
+                        <li>Derecho al olvido en 30 días máximo</li>
+                        <li>Portabilidad de datos garantizada</li>
+                        <li>Auditorías de privacidad trimestrales</li>
+                        <li>Representante UE designado</li>
+                    </ul>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-badge in-progress">En Proceso</div>
+                    <div class="compliance-icon">🔒</div>
+                    <h3>SOC 2 Type II</h3>
+                    <p>Certificación SOC 2 Type II en proceso de obtención. Auditoría independiente de controles de seguridad operacional.</p>
+                    <ul class="compliance-features">
+                        <li>Controles de seguridad operacional</li>
+                        <li>Auditoría independiente de 12 meses</li>
+                        <li>Disponibilidad y integridad de datos</li>
+                        <li>Confidencialidad y privacidad</li>
+                        <li>Monitoreo continuo de controles</li>
+                        <li>Reporte transparente de resultados</li>
+                    </ul>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-badge in-progress">Planificado</div>
+                    <div class="compliance-icon">📋</div>
+                    <h3>ISO 27001</h3>
+                    <p>Implementación de Sistema de Gestión de Seguridad de la Información (SGSI) según estándar ISO 27001.</p>
+                    <ul class="compliance-features">
+                        <li>Sistema de gestión de seguridad</li>
+                        <li>Evaluación continua de riesgos</li>
+                        <li>Controles de seguridad documentados</li>
+                        <li>Auditorías internas regulares</li>
+                        <li>Mejora continua de procesos</li>
+                        <li>Certificación externa planificada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Security -->
+    <section class="technical">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seguridad Técnica</h2>
+                <p>Arquitectura de seguridad diseñada para la máxima protección de datos sensibles</p>
+            </div>
+            <div class="technical-grid">
+                <div class="technical-card">
+                    <h4>🔐 Encriptación End-to-End</h4>
+                    <p>AES-256 encryption para datos en tránsito y reposo. TLS 1.3 para todas las comunicaciones. Claves gestionadas con HSM.</p>
+                </div>
+                
+                <div class="technical-card">
+                    <h4>🏰 Centros de Datos Europeos</h4>
+                    <p>Infraestructura exclusivamente en centros de datos europeos certificados. Sin transferencias internacionales de datos.</p>
+                </div>
+                
+                <div class="technical-card">
+                    <h4>🔬 Segregación de Datos</h4>
+                    <p>Aislamiento completo entre clientes. Arquitectura multi-tenant con segregación a nivel de base de datos y aplicación.</p>
+                </div>
+                
+                <div class="technical-card">
+                    <h4>👤 Control de Acceso</h4>
+                    <p>Autenticación multifactor obligatoria. Principio de menor privilegio. Logs de acceso detallados y auditorías regulares.</p>
+                </div>
+                
+                <div class="technical-card">
+                    <h4>🛡️ Monitoreo 24/7</h4>
+                    <p>Sistema de detección de intrusiones. Monitoreo continuo de vulnerabilidades. Respuesta automática a incidentes de seguridad.</p>
+                </div>
+                
+                <div class="technical-card">
+                    <h4>🗂️ Backup & Recovery</h4>
+                    <p>Backups automatizados con encriptación. RPO de 1 hora, RTO de 4 horas. Pruebas de recuperación mensuales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Handling -->
+    <section class="data-handling">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tratamiento de Datos Cliente</h2>
+                <p>Proceso transparente y seguro para el manejo de información confidencial</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Recepción Segura</h4>
+                    <p>Transferencia encriptada vía portal seguro. Validación de integridad automática. Confirmación de recepción al cliente.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Procesamiento Aislado</h4>
+                    <p>Datos procesados en entorno aislado. Acceso limitado a analistas autorizados. Pseudonimización automática.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Entrega & Purga</h4>
+                    <p>Entrega de resultados vía canal seguro. Purga automática de datos origen. Certificado de eliminación proporcionado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Compliance -->
+    <section class="compliance">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compliance Sectorial</h2>
+                <p>Estándares específicos para servicios profesionales regulados</p>
+            </div>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-icon">⚖️</div>
+                    <h3>Legal & Despachos</h3>
+                    <p>Cumplimiento con estándares de confidencialidad legal. Secreto profesional garantizado.</p>
+                    <ul class="compliance-features">
+                        <li>Privilegio abogado-cliente respetado</li>
+                        <li>Compartimentalización por casos</li>
+                        <li>Audit trail para discovery</li>
+                        <li>Retención según normativa legal</li>
+                    </ul>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-icon">🏦</div>
+                    <h3>Servicios Financieros</h3>
+                    <p>Compliance con regulaciones financieras. Protección de información privilegiada.</p>
+                    <ul class="compliance-features">
+                        <li>Muros chinos digitales</li>
+                        <li>Protección información privilegiada</li>
+                        <li>Trazabilidad regulatoria</li>
+                        <li>Reportes de compliance</li>
+                    </ul>
+                </div>
+
+                <div class="compliance-card">
+                    <div class="compliance-icon">📊</div>
+                    <h3>Auditoría & Consultoría</h3>
+                    <p>Estándares de independencia y confidencialidad para servicios profesionales.</p>
+                    <ul class="compliance-features">
+                        <li>Independencia de auditoría</li>
+                        <li>Confidencialidad cliente</li>
+                        <li>Working papers seguros</li>
+                        <li>Retención documental</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Preguntas sobre Seguridad?</h2>
+            <p>Nuestro equipo de seguridad está disponible para resolver cualquier duda sobre compliance y protección de datos.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#" class="btn" style="background: white; color: #4f46e5;">Contactar Equipo Seguridad</a>
+                <a href="index.html" class="btn" style="background: transparent; border: 2px solid white;">Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
