@@ -1122,6 +1122,19 @@
             }
         });
 
+        // Close mobile menu when clicking navigation links
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.mobile-link')) {
+                // Close mobile menu immediately when clicking any navigation link
+                const menu = document.getElementById('mobileMenu');
+                if (menu) {
+                    menu.classList.remove('active');
+                    const btnIcon = document.querySelector('.mobile-menu-btn i');
+                    if (btnIcon) btnIcon.className = 'fas fa-bars';
+                }
+            }
+        });
+
         // Close dropdowns when clicking navigation links
         document.addEventListener('click', function(e) {
             // Check if clicked element is a dropdown link that navigates to another page
