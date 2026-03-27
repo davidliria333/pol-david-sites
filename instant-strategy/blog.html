@@ -748,17 +748,45 @@
             }
         });
 
-        // Close mobile menu when clicking navigation links
+        // Close mobile menu when clicking navigation links - ENHANCED
         document.addEventListener('click', function(e) {
-            if (e.target.matches('.mobile-link')) {
-                // Close mobile menu immediately when clicking any navigation link
+            // Check if clicked element is a mobile navigation link or its child element
+            if (e.target.matches('.mobile-link') || e.target.closest('.mobile-link')) {
+                // Force close mobile menu with multiple approaches
                 const menu = document.getElementById('mobileMenu');
+                const btn = document.querySelector('.mobile-menu-btn i');
+                
                 if (menu) {
                     menu.classList.remove('active');
-                    const btnIcon = document.querySelector('.mobile-menu-btn i');
-                    if (btnIcon) btnIcon.className = 'fas fa-bars';
+                    menu.style.display = 'none'; // Force hide
+                    
+                    // Reset after a brief delay to ensure it works
+                    setTimeout(() => {
+                        menu.style.display = '';
+                    }, 100);
+                }
+                
+                if (btn) {
+                    btn.className = 'fas fa-bars';
                 }
             }
+        });
+        
+        // Also close on any link click that navigates away
+        document.querySelectorAll('a[href*=".html"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const menu = document.getElementById('mobileMenu');
+                const btn = document.querySelector('.mobile-menu-btn i');
+                
+                if (menu && menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                }
+                
+                if (btn) {
+                    btn.className = 'fas fa-bars';
+                }
+            });
         });
     </script>
 </body>
