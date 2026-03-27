@@ -1142,7 +1142,27 @@
             }
         });
 
-        // Navigation handled by CSS hover - no JavaScript interference needed
+        // Close dropdowns when clicking navigation links
+        document.addEventListener('click', function(e) {
+            // Check if clicked element is a dropdown link that navigates to another page
+            if (e.target.matches('.dropdown-link') && e.target.getAttribute('href') && !e.target.getAttribute('href').startsWith('#')) {
+                // Immediately close all dropdowns before navigation
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    dropdown.style.opacity = '0';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.transform = 'translateY(-10px)';
+                });
+            }
+        });
+
+        // Force close all dropdowns on any page load/navigation
+        window.addEventListener('pageshow', function() {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+            });
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

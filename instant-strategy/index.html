@@ -1244,12 +1244,26 @@
             }
         });
 
-        // Only add navigation listener for actual page navigation (no dropdown interference)
+        // Close dropdowns when clicking navigation links
         document.addEventListener('click', function(e) {
-            // Only handle navigation links that go to other pages
+            // Check if clicked element is a dropdown link that navigates to another page
             if (e.target.matches('.dropdown-link') && e.target.getAttribute('href') && !e.target.getAttribute('href').startsWith('#')) {
-                // Just let the navigation happen naturally - no dropdown manipulation
+                // Immediately close all dropdowns before navigation
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    dropdown.style.opacity = '0';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.transform = 'translateY(-10px)';
+                });
             }
+        });
+
+        // Force close all dropdowns on any page load/navigation
+        window.addEventListener('pageshow', function() {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+            });
         });
     </script>
     <!-- Force redeploy 2026-03-27 09:21 UTC - Fix navigation links -->
