@@ -3,668 +3,551 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnalitikAI - La Primera Plataforma de IA como Consultor | Investigación Enterprise</title>
-    <meta name="description" content="Plataforma de inteligencia estratégica para servicios profesionales. Análisis de nivel consultor en 48 horas para despachos legales, consultorías, auditorías y servicios financieros.">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALITIKAI2024"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-ANALITIKAI2024');
-
-        function trackEvent(action, category, label) {
-            gtag('event', action, {
-                event_category: category,
-                event_label: label
-            });
-        }
-    </script>
-
-    <!-- Fonts -->
+    <title>AnalitikAI - AI-as-a-Consultant | Consultoría Inteligente para Servicios Profesionales</title>
+    <meta name="description" content="AnalitikAI entrega investigación y análisis impulsados por IA para bufetes de abogados, consultoras, auditorías, agencias de marketing y asesores financieros en 48 horas, no semanas.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            /* Modern Color Palette */
-            --primary: #0a0a0a;
-            --primary-light: #1a1a1a;
-            --primary-medium: #2a2a2a;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-dark: #4f46e5;
-            --success: #10b981;
-            --warning: #f59e0b;
-            
-            /* Text Colors */
-            --text-primary: #0a0a0a;
-            --text-secondary: #6b7280;
-            --text-muted: #9ca3af;
-            --text-light: #d1d5db;
-            
-            /* Background Colors */
-            --bg-primary: #ffffff;
-            --bg-secondary: #f9fafb;
-            --bg-tertiary: #f3f4f6;
-            --bg-dark: var(--primary);
-            
-            /* Border & Effects */
-            --border: #e5e7eb;
-            --border-light: #f3f4f6;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            --shadow-xl: 0 50px 100px -20px rgb(50 50 93 / 0.25), 0 30px 60px -30px rgb(0 0 0 / 0.3);
-            
-            /* Modern Gradients */
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-medium) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            --bg-primary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-light: #6b7280;
+            --accent-blue: #6366f1;
+            --accent-blue-dark: #4f46e5;
+            --accent-blue-light: #818cf8;
+            --accent-gold: #f59e0b;
+            --accent-gold-light: #fbbf24;
+            --border-light: #e5e7eb;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
             background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-weight: 400;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            font-feature-settings: 'cv11', 'ss01';
         }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header & Navigation */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-            position: relative;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-main {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s ease;
-            border-radius: 8px;
-        }
-
-        .nav-link:hover {
-            color: var(--accent);
-            background: var(--bg-secondary);
-        }
-
-        .nav-link.has-dropdown::after {
-            content: "";
-            width: 16px;
-            height: 16px;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 14px;
-            transition: transform 0.2s ease;
-            opacity: 0.6;
-        }
-
-        .nav-item:hover .nav-link.has-dropdown::after {
-            transform: rotate(180deg);
-        }
-
-        /* Dropdown Menus */
-        .dropdown {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: var(--shadow-xl);
-            padding: 24px 0;
-            min-width: 320px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-section {
-            padding: 0 24px;
-            margin-bottom: 20px;
-        }
-
-        .dropdown-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .dropdown-title {
-            font-size: 11px;
+        
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.25;
             font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
         }
 
-        .dropdown-link {
-            display: block;
-            padding: 10px 0;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            line-height: 1.4;
-        }
-
-        .dropdown-link:hover {
-            color: var(--accent);
-        }
-
-        .dropdown-description {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 2px;
-            line-height: 1.3;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .mobile-menu-btn:hover {
-            background: var(--bg-secondary);
-            color: var(--accent);
-        }
-
-        .mobile-menu {
-            display: none;
+        /* Setup AI Style Sidebar Navigation */
+        .sidebar {
             position: fixed;
-            top: 73px;
             left: 0;
-            right: 0;
-            background: white;
-            border-bottom: 1px solid var(--border);
-            padding: 32px 24px;
-            max-height: calc(100vh - 73px);
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--white);
+            border-right: 1px solid #f0f0f0;
+            z-index: 1000;
+            padding: 32px 0;
             overflow-y: auto;
-            box-shadow: var(--shadow-lg);
+            transform: translateX(0);
+            transition: transform 0.3s ease;
         }
-
-        .mobile-menu.active {
-            display: block;
+        
+        .sidebar-content {
+            padding: 0 24px;
         }
-
-        .mobile-section {
+        
+        .sidebar-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 24px;
+            padding-left: 16px;
+        }
+        
+        .sidebar-nav ul {
+            list-style: none;
             margin-bottom: 32px;
         }
-
-        .mobile-section-title {
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 16px;
-            color: var(--text-primary);
+        
+        .sidebar-nav li {
+            margin-bottom: 2px;
         }
-
-        .mobile-links {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .mobile-link {
+        
+        .sidebar-nav a {
             display: block;
             padding: 12px 16px;
-            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 15px;
-            border-radius: 8px;
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
             transition: all 0.2s ease;
         }
-
-        .mobile-link:hover {
-            background: var(--bg-secondary);
-            color: var(--accent);
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: #f8f9fa;
+            color: var(--accent-blue);
         }
-
-        .btn {
-            padding: 12px 24px;
-            border-radius: 10px;
+        
+        .sidebar-separator {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 24px 16px;
+        }
+        
+        .sidebar-secondary ul {
+            list-style: none;
+        }
+        
+        .sidebar-secondary li {
+            margin-bottom: 2px;
+        }
+        
+        .sidebar-secondary a {
+            display: block;
+            padding: 12px 16px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
+            color: #999;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
             transition: all 0.2s ease;
-            cursor: pointer;
+        }
+        
+        .sidebar-secondary a:hover {
+            background: #f8f9fa;
+            color: var(--accent-blue);
+        }
+        
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            z-index: 1001;
+            background: var(--accent-blue);
+            color: white;
             border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.2s ease;
         }
-
-        .btn-primary {
-            background: var(--gradient-accent);
-            color: white;
-            box-shadow: var(--shadow-sm);
+        
+        .sidebar-toggle:hover {
+            background: var(--accent-blue-dark);
         }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+        
+        /* Main Content with No Margin */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
         }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent);
-            border: 1.5px solid var(--accent);
+        
+        /* Full-width sections */
+        .section {
+            width: 100%;
+            padding: 100px 0;
         }
-
-        .btn-secondary:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-1px);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 140px 0 100px;
-            background: var(--gradient-primary);
+        
+        .section-hero {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
             color: white;
             text-align: center;
+            padding: 140px 0;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            margin-left: 0;
         }
-
-        .hero::before {
-            content: "";
+        
+        .section-hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            background: radial-gradient(circle at 30% 20%, rgba(43, 108, 176, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(214, 158, 46, 0.2) 0%, transparent 50%);
         }
-
+        
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
-
+        
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 13px;
-            margin-bottom: 32px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            font-size: 15px;
             font-weight: 500;
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .hero h1 {
-            font-size: clamp(40px, 5vw, 72px);
-            font-weight: 900;
+        
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 32px;
             line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
-
-        .hero .subtitle {
-            font-size: clamp(18px, 2.5vw, 22px);
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 48px;
+        
+        .hero-subtitle {
+            font-size: 26px;
+            margin-bottom: 56px;
+            color: rgba(255, 255, 255, 0.85);
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.5;
+            font-weight: 300;
         }
-
-        .hero-cta {
+        
+        .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             justify-content: center;
-            align-items: center;
-            margin-bottom: 80px;
             flex-wrap: wrap;
         }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat {
-            padding: 24px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--accent-light);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-        }
-
-        /* Industries Section */
-        .industries {
-            padding: 120px 0;
-            background: var(--bg-secondary);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-            font-size: clamp(36px, 4vw, 52px);
-            font-weight: 900;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-header p {
-            font-size: 20px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .industry-card {
-            background: var(--gradient-surface);
-            padding: 48px 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            text-align: center;
+        
+        .btn-primary {
+            background: white;
+            color: var(--gray-900);
+            padding: 18px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 36px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Floating Tools Section - Setup AI Style - Repositioned */
+        .floating-tools {
             position: relative;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #fafbfd 0%, #f8fafc 100%);
             overflow: hidden;
         }
-
-        .industry-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-accent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .industry-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .industry-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .industry-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-accent);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            margin: 0 auto 32px;
+        
+        .floating-tools-content {
+            text-align: center;
             position: relative;
+            z-index: 10;
         }
-
-        .industry-card h3 {
-            font-size: 24px;
+        
+        .floating-tools-title {
+            font-size: 40px;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .industry-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
             margin-bottom: 24px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+        
+        .floating-tools-subtitle {
+            font-size: 22px;
+            color: var(--text-secondary);
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Repositioned Tools - Static cluster in dedicated white space */
+        .tools-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .tool-badge {
+            padding: 10px 18px;
+            border-radius: 22px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #64748B;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tool-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 1);
+            color: #475569;
+        }
+        
+        /* Setup AI Style Professional Colors */
+        .analytics-tool {
+            background: rgba(241, 245, 249, 0.9);
+            color: #64748B;
+            border: 1px solid rgba(203, 213, 225, 0.6);
+        }
+        
+        .research-tool {
+            background: rgba(248, 250, 252, 0.9);
+            color: #64748B;
+            border: 1px solid rgba(226, 232, 240, 0.6);
+        }
+        
+        .business-tool {
+            background: rgba(239, 246, 255, 0.9);
+            color: #64748B;
+            border: 1px solid rgba(219, 234, 254, 0.6);
+        }
+        
+        .legal-tool {
+            background: rgba(250, 250, 250, 0.9);
+            color: #64748B;
+            border: 1px solid rgba(229, 229, 229, 0.6);
+        }
+        
+        .data-tool {
+            background: rgba(249, 250, 251, 0.9);
+            color: #64748B;
+            border: 1px solid rgba(229, 231, 235, 0.6);
         }
 
-        .use-cases-list {
-            list-style: none;
-            text-align: left;
+        /* ROI Calculator Section */
+        .roi-calculator {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            border: 1px solid var(--border-light);
+        }
+
+        .calculator-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            padding: 60px;
+            border: 1px solid var(--border-light);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .calculator-inputs {
+            padding-right: 20px;
+        }
+
+        .calculator-outputs {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            position: sticky;
+            top: 120px;
+        }
+
+        .input-group {
             margin-bottom: 32px;
         }
 
-        .use-cases-list li {
-            padding: 6px 0;
-            color: var(--text-muted);
-            font-size: 14px;
-            position: relative;
-            padding-left: 20px;
-            line-height: 1.4;
-        }
-
-        .use-cases-list li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 12px;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 120px 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            padding: 48px 40px;
-            background: white;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: var(--gradient-accent);
-            border-radius: 0 24px 24px 0;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .feature-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-            border-radius: 50px;
-            font-size: 12px;
+        .input-label {
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 16px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: block;
         }
 
-        .feature-badge::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background: var(--success);
+        .input-slider-container {
+            position: relative;
+        }
+
+        .input-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--gray-100);
+            outline: none;
+            appearance: none;
+            margin: 20px 0;
+        }
+
+        .input-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
+            background: var(--accent-blue);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
         }
 
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .input-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(43, 108, 176, 0.3);
         }
 
-        .cta::before {
-            content: "";
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .slider-value {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-blue);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 2;
+        .input-slider:hover + .slider-value,
+        .input-slider:focus + .slider-value {
+            opacity: 1;
         }
 
-        .cta h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 900;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
+        .dropdown-select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 16px;
+            background: var(--white);
+            color: var(--text-primary);
+            transition: border-color 0.3s ease;
         }
 
-        .cta p {
-            font-size: 18px;
+        .dropdown-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .output-metric {
+            margin-bottom: 28px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .output-label {
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .output-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .output-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .calculator-cta {
+            margin-top: 40px;
+            text-align: center;
         }
 
         .cta-buttons {
@@ -672,577 +555,1457 @@
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .cta-primary {
+            background: var(--accent-blue);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(43, 108, 176, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: var(--accent-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(43, 108, 176, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--accent-blue);
+            padding: 16px 32px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-proof {
+            text-align: center;
+            margin-top: 40px;
+            padding: 24px;
+            background: var(--gray-50);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        .social-proof-stat {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .social-proof-text {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 80px;
+            font-weight: 300;
+        }
+        
+        /* Problem Section */
+        .section-problem {
+            text-align: center;
+            background: var(--white);
+        }
+        
+        .problem-statement {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Process Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 40px 32px;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .process-step:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .process-icon {
+            width: 88px;
+            height: 88px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            font-size: 36px;
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .process-title {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        .process-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Enhanced Cards - Setup AI Style */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-blue);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+        }
+        
+        /* Methodology Grid */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        
+        .methodology-item {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px 28px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .methodology-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .methodology-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .methodology-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .methodology-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 8px;
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 28px 0;
+            font-size: 19px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--accent-blue);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding-bottom: 28px;
+            color: var(--text-secondary);
+            display: none;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .faq-answer.active {
+            display: block;
         }
 
         /* Footer */
         .footer {
-            background: var(--primary);
+            background: var(--gray-900);
             color: white;
             padding: 80px 0 40px;
         }
-
-        .footer-grid {
+        
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
-
-        .footer-section h4 {
-            font-size: 16px;
-            font-weight: 700;
+        
+        .footer-brand h3 {
+            font-size: 24px;
             margin-bottom: 20px;
-            color: white;
+            font-weight: 700;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-light);
-        }
-
-        .footer-bottom {
-            padding-top: 32px;
-            border-top: 1px solid var(--primary-light);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
+        /* Mobile Responsive */
         @media (max-width: 1024px) {
-            .nav-links {
-                display: none;
+            .sidebar {
+                transform: translateX(-100%);
             }
-
-            .mobile-menu-btn {
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .sidebar-toggle {
                 display: block;
             }
-
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .container {
+                padding: 0 24px;
             }
         }
-
+        
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
+            .hero-title {
+                font-size: 56px;
             }
-
-            .nav {
-                padding: 12px 0;
+            
+            .hero-subtitle {
+                font-size: 22px;
             }
-
-            .hero {
-                padding: 120px 0 80px;
+            
+            .section-title {
+                font-size: 42px;
             }
-
-            .hero-cta {
+            
+            .section-subtitle {
+                font-size: 20px;
+            }
+            
+            .floating-tools-title {
+                font-size: 36px;
+            }
+            
+            .hero-buttons {
                 flex-direction: column;
+                align-items: center;
             }
-
-            .hero-stats {
+            
+            .footer-content {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 40px;
             }
-
-            .industries-grid,
-            .features-grid {
+            
+            .services-grid,
+            .methodology-grid,
+            .process-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
-
-            .industry-card,
-            .feature-card {
-                padding: 32px 24px;
+            
+            .calculator-container {
+                padding: 40px 24px;
             }
-
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .calculator-outputs {
+                position: static;
+                order: -1;
+                margin-bottom: 20px;
+            }
+            
+            .tools-cluster {
+                gap: 12px;
+                padding: 0 10px;
+            }
+            
+            .tool-badge {
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
+            
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
         }
 
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: transparent;
-            z-index: 1001;
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .scroll-progress-bar {
-            height: 100%;
-            background: var(--gradient-accent);
-            width: 0%;
-            transition: width 0.1s ease;
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered animation delays */
+        .fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .fade-in:nth-child(3) { transition-delay: 0.3s; }
+        .fade-in:nth-child(4) { transition-delay: 0.4s; }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
+
 <body>
-    <!-- Scroll Progress -->
-    <div class="scroll-progress">
-        <div class="scroll-progress-bar"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="nav container">
-            <a href="#" class="logo">AnalitikAI</a>
+    <!-- Setup AI Style Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-label">GLOSSARY</div>
             
-            <div class="nav-main">
-                <ul class="nav-links">
-                    <!-- Platform Dropdown -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link has-dropdown">Plataforma</a>
-                        <div class="dropdown">
-                            <div class="dropdown-section">
-                                <div class="dropdown-title">Descripción General</div>
-                                <a href="como-funciona.html" class="dropdown-link">
-                                    Cómo Funciona
-                                    <div class="dropdown-description">Motor de investigación IA + supervisión humana</div>
-                                </a>
-                                <a href="como-funciona.html#architecture" class="dropdown-link">
-                                    Arquitectura del Sistema
-                                    <div class="dropdown-description">4 capas integradas de procesamiento</div>
-                                </a>
-                            </div>
-                            <div class="dropdown-section">
-                                <div class="dropdown-title">Capacidades</div>
-                                <a href="metodologias.html" class="dropdown-link">
-                                    Metodologías de Research
-                                    <div class="dropdown-description">Frameworks propietarios de calidad</div>
-                                </a>
-                                <a href="como-funciona.html#tech-stack" class="dropdown-link">
-                                    Stack Tecnológico
-                                    <div class="dropdown-description">IA enterprise y fuentes premium</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Use Cases Dropdown -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link has-dropdown">Casos de Uso</a>
-                        <div class="dropdown">
-                            <div class="dropdown-section">
-                                <div class="dropdown-title">Por Industria</div>
-                                <a href="legal.html" class="dropdown-link">
-                                    Servicios Legales
-                                    <div class="dropdown-description">Due diligence, investigación regulatoria</div>
-                                </a>
-                                <a href="consultoria.html" class="dropdown-link">
-                                    Consultoría Estratégica
-                                    <div class="dropdown-description">Análisis de mercado, inteligencia competitiva</div>
-                                </a>
-                                <a href="auditoria.html" class="dropdown-link">
-                                    Auditoría & Aseguramiento
-                                    <div class="dropdown-description">Compliance research, análisis sectorial</div>
-                                </a>
-                                <a href="finanzas.html" class="dropdown-link">
-                                    Finanzas & Inversión
-                                    <div class="dropdown-description">Investment research, due diligence financiero</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Resources Dropdown -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link has-dropdown">Recursos</a>
-                        <div class="dropdown">
-                            <div class="dropdown-section">
-                                <div class="dropdown-title">Aprender</div>
-                                <a href="blog.html" class="dropdown-link">
-                                    Blog
-                                    <div class="dropdown-description">Insights y tendencias sectoriales</div>
-                                </a>
-                                <a href="estudios-caso.html" class="dropdown-link">
-                                    Estudios de Caso
-                                    <div class="dropdown-description">Escenarios reales de implementación</div>
-                                </a>
-                                <a href="metodologias.html" class="dropdown-link">
-                                    Metodologías
-                                    <div class="dropdown-description">Cómo garantizamos precisión</div>
-                                </a>
-                            </div>
-                            <div class="dropdown-section">
-                                <div class="dropdown-title">Soporte</div>
-                                <a href="como-funciona.html" class="dropdown-link">
-                                    Centro de Ayuda
-                                    <div class="dropdown-description">Cómo funciona y soporte técnico</div>
-                                </a>
-                                <a href="seguridad.html" class="dropdown-link">
-                                    Seguridad & Privacidad
-                                    <div class="dropdown-description">GDPR, compliance y protección de datos</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
+            <div class="sidebar-nav">
+                <ul>
+                    <li><a href="#problema" class="nav-link">EL PROBLEMA</a></li>
+                    <li><a href="#solucion">NUESTRA SOLUCIÓN</a></li>
+                    <li><a href="#proceso">CÓMO FUNCIONA</a></li>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#roi-calculator">CALCULADORA ROI</a></li>
+                    <li><a href="#precios">PRECIOS</a></li>
+                    <li><a href="#preguntas">FAQ</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
                 </ul>
+            </div>
+            
+            <div class="sidebar-separator"></div>
+            
+            <div class="sidebar-secondary">
+                <ul>
+                    <li><a href="#metodologia">METODOLOGÍA</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="inicio" class="section-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge fade-in">
+                        <span style="width: 8px; height: 8px; background: #48BB78; border-radius: 50%; display: inline-block;"></span>
+                        Excelencia en Investigación Profesional
+                    </div>
+                    
+                    <h1 class="hero-title fade-in">
+                        Vas por buen camino,<br>pero ¿podrías ir más rápido?
+                    </h1>
+                    
+                    <p class="hero-subtitle fade-in">
+                        <strong>AnalitikAI</strong> entrega investigación y análisis de nivel consultora en <strong>48 horas</strong> vs 2-4 semanas. 
+                        Para servicios profesionales que valoran la excelencia y la velocidad.
+                    </p>
+                    
+                    <div class="hero-buttons fade-in">
+                        <a href="https://cal.com/analitikai/demo" target="_blank" class="btn-primary">
+                            <span>Empezar Ahora</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#metodologia" class="btn-secondary">
+                            Nuestra Metodología
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Problem Section -->
+        <section id="problema" class="section section-problem">
+            <div class="container">
+                <h2 class="section-title fade-in">El Desafío</h2>
+                <div class="problem-statement fade-in">
+                    "Prometiste el informe para el viernes. El cliente llama el lunes. Tu equipo está desbordado investigando lo que un algoritmo podría hacer en horas."
+                </div>
                 
-                <a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">
-                    <i class="fas fa-calendar-alt"></i>
-                    Agendar Demo
-                </a>
-            </div>
-
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-section">
-                <div class="mobile-section-title">Plataforma</div>
-                <div class="mobile-links">
-                    <a href="como-funciona.html" class="mobile-link">Cómo Funciona</a>
-                    <a href="metodologias.html" class="mobile-link">Metodologías</a>
-                    <a href="como-funciona.html#tech-stack" class="mobile-link">Stack Tecnológico</a>
-                </div>
-            </div>
-            
-            <div class="mobile-section">
-                <div class="mobile-section-title">Industrias</div>
-                <div class="mobile-links">
-                    <a href="legal.html" class="mobile-link">Servicios Legales</a>
-                    <a href="consultoria.html" class="mobile-link">Consultoría</a>
-                    <a href="auditoria.html" class="mobile-link">Auditoría</a>
-                    <a href="finanzas.html" class="mobile-link">Finanzas</a>
-                </div>
-            </div>
-            
-            <div class="mobile-section">
-                <div class="mobile-section-title">Recursos</div>
-                <div class="mobile-links">
-                    <a href="blog.html" class="mobile-link">Blog</a>
-                    <a href="estudios-caso.html" class="mobile-link">Estudios de Caso</a>
-                    <a href="seguridad.html" class="mobile-link">Seguridad</a>
-                </div>
-            </div>
-            
-            <div style="margin-top: 32px;">
-                <a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="trackEvent('cta_click', 'mobile', 'book_demo')">
-                    <i class="fas fa-calendar-alt"></i>
-                    Agendar Demo
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-sparkles"></i>
-                    La Primera Plataforma Anti-Equipos de Investigación
-                </div>
-                <h1>
-                    Adiós Equipos de Investigación.<br>
-                    La Primera Plataforma de IA como Consultor
-                </h1>
-                <p class="subtitle">
-                    Deja de subcontratar investigación durante semanas. Obtén análisis de nivel consultor en 48 horas para despachos legales, consultorías, auditorías y servicios financieros.
+                <p class="section-subtitle fade-in" style="margin-top: 48px;">
+                    Mientras tus competidores entregan en días, tu despacho invierte semanas en investigación. 
+                    Tus clientes pagan tarifas premium pero esperan como si fuera 1995.
                 </p>
-                <div class="hero-cta">
-                    <a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" class="btn btn-primary" onclick="trackEvent('cta_click', 'hero', 'book_demo')">
-                        <i class="fas fa-video"></i>
-                        Agendar Demo 15 min
-                    </a>
-                    <a href="#industries" class="btn btn-secondary">
-                        <i class="fas fa-arrow-down"></i>
-                        Conocer Más
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label">Proyectos Completados</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">48h</span>
-                        <span class="stat-label">Tiempo de Entrega</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">90%</span>
-                        <span class="stat-label">Satisfacción Cliente</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">70%</span>
-                        <span class="stat-label">Reducción de Tiempo</span>
+            </div>
+        </section>
+        
+        <!-- Floating Tools Section - Repositioned -->
+        <section class="floating-tools">
+            <div class="container">
+                <div class="floating-tools-content">
+                    <h2 class="floating-tools-title fade-in">Mil opciones. Millones de tutoriales.<br>Y ni uno solo empieza por tu situación.</h2>
+                    <p class="floating-tools-subtitle fade-in">
+                        AnalitikAI conecta y utiliza todas estas herramientas de forma inteligente, 
+                        creando flujos de trabajo automatizados que se adaptan a tu contexto específico.
+                    </p>
+                    
+                    <!-- Tools clustered in dedicated white space -->
+                    <div class="tools-cluster fade-in">
+                        <!-- Analytics Tools -->
+                        <div class="tool-badge analytics-tool">Excel</div>
+                        <div class="tool-badge analytics-tool">Power BI</div>
+                        <div class="tool-badge analytics-tool">Tableau</div>
+                        <div class="tool-badge analytics-tool">SPSS</div>
+                        <div class="tool-badge analytics-tool">SQL Server</div>
+                        <div class="tool-badge analytics-tool">MongoDB</div>
+                        
+                        <!-- Research Tools -->
+                        <div class="tool-badge research-tool">Perplexity</div>
+                        <div class="tool-badge research-tool">ChatGPT</div>
+                        <div class="tool-badge research-tool">Claude</div>
+                        <div class="tool-badge research-tool">Google Scholar</div>
+                        <div class="tool-badge research-tool">PubMed</div>
+                        <div class="tool-badge research-tool">JSTOR</div>
+                        
+                        <!-- Business Tools -->
+                        <div class="tool-badge business-tool">Salesforce</div>
+                        <div class="tool-badge business-tool">HubSpot</div>
+                        <div class="tool-badge business-tool">Microsoft 365</div>
+                        <div class="tool-badge business-tool">Google Workspace</div>
+                        
+                        <!-- Legal Tools -->
+                        <div class="tool-badge legal-tool">Westlaw</div>
+                        <div class="tool-badge legal-tool">LexisNexis</div>
+                        <div class="tool-badge legal-tool">Thomson Reuters</div>
+                        
+                        <!-- Data Sources -->
+                        <div class="tool-badge data-tool">Bloomberg</div>
+                        <div class="tool-badge data-tool">Reuters</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section class="industries" id="industries">
-        <div class="container">
-            <div class="section-header">
-                <h2>Especialización Sectorial Enterprise</h2>
-                <p>Inteligencia estratégica personalizada para cada vertical de servicios profesionales</p>
-            </div>
-            <div class="industries-grid">
-                <div class="industry-card" id="legal">
-                    <div class="industry-icon">
-                        <i class="fas fa-balance-scale"></i>
+        </section>
+        
+        <!-- Solution Section -->
+        <section id="solucion" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Tu Nuevo Socio Estratégico</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    AnalitikAI es tu consultor senior 24/7: entiende tu negocio, domina tu sector, 
+                    y entrega informes ejecutivos listos para facturar en tiempo récord.
+                </p>
+                
+                <div class="process-grid">
+                    <div class="process-step fade-in">
+                        <div class="process-icon">
+                            <i class="fas fa-ear-listen"></i>
+                        </div>
+                        <h3 class="process-title">Comprensión Profunda</h3>
+                        <p class="process-description">
+                            Analizamos exactamente qué necesitas: precedentes legales, análisis de mercado, 
+                            inteligencia competitiva. Sin jerga técnica, solo resultados accionables.
+                        </p>
                     </div>
-                    <h3>Servicios Legales</h3>
-                    <p>Investigación jurídica de nivel despacho internacional en 48 horas. Due diligence, análisis regulatorio y investigación de precedentes con precisión profesional.</p>
-                    <ul class="use-cases-list">
-                        <li>Due diligence para M&A y financiaciones</li>
-                        <li>Investigación regulatoria y compliance</li>
-                        <li>Análisis de precedentes y jurisprudencia</li>
-                        <li>Investigación de contraparte</li>
-                        <li>Intelligence sectorial para litigios</li>
-                    </ul>
-                    <a href="legal.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'legal')">
-                        <i class="fas fa-arrow-right"></i>
-                        Ver Casos Legales
-                    </a>
-                </div>
-
-                <div class="industry-card" id="consulting">
-                    <div class="industry-icon">
-                        <i class="fas fa-chart-line"></i>
+                    
+                    <div class="process-step fade-in">
+                        <div class="process-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="process-title">Análisis Experto</h3>
+                        <p class="process-description">
+                            Nuestra IA procesa miles de documentos, identifica patrones críticos y extrae insights 
+                            con la precisión de un equipo de analistas senior.
+                        </p>
                     </div>
-                    <h3>Consultoría Estratégica</h3>
-                    <p>Análisis de mercado y inteligencia competitiva con estándares de consultoría internacional. Research que acelera tus propuestas y potencia recomendaciones estratégicas.</p>
-                    <ul class="use-cases-list">
-                        <li>Análisis de mercado y market sizing</li>
-                        <li>Inteligencia competitiva y benchmarking</li>
-                        <li>Due diligence comercial y estratégico</li>
-                        <li>Investigación de tendencias sectoriales</li>
-                        <li>Análisis de modelos de negocio</li>
-                    </ul>
-                    <a href="consultoria.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'consulting')">
-                        <i class="fas fa-arrow-right"></i>
-                        Ver Casos Consultoría
-                    </a>
-                </div>
-
-                <div class="industry-card" id="audit">
-                    <div class="industry-icon">
-                        <i class="fas fa-search"></i>
+                    
+                    <div class="process-step fade-in">
+                        <div class="process-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="process-title">Entrega Premium</h3>
+                        <p class="process-description">
+                            Informes ejecutivos listos para presentar a clientes, con datos accionables 
+                            y recomendaciones estratégicas. En 48 horas garantizadas.
+                        </p>
                     </div>
-                    <h3>Auditoría & Aseguramiento</h3>
-                    <p>Investigación de compliance y análisis sectorial para auditorías empresariales. Risk assessment, investigación regulatoria con trazabilidad completa.</p>
-                    <ul class="use-cases-list">
-                        <li>Investigación de compliance y regulación</li>
-                        <li>Análisis sectorial y benchmarking</li>
-                        <li>Risk assessment y due diligence</li>
-                        <li>Investigación de background corporativo</li>
-                        <li>Análisis de estándares y frameworks</li>
-                    </ul>
-                    <a href="auditoria.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'audit')">
-                        <i class="fas fa-arrow-right"></i>
-                        Ver Casos Auditoría
-                    </a>
                 </div>
-
-                <div class="industry-card" id="finance">
-                    <div class="industry-icon">
-                        <i class="fas fa-chart-bar"></i>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="servicios" class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Servicios Especializados</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Soluciones específicas para cada sector profesional, adaptadas a tus necesidades exactas 
+                    y estándares de calidad institucional.
+                </p>
+                
+                <div class="services-grid">
+                    <!-- Law Firms -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 28px;">
+                            <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #2B6CB0, #3182CE); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="fas fa-balance-scale" style="color: white; font-size: 22px;"></i>
+                            </div>
+                            <h3 style="font-size: 22px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Bufetes de Abogados</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 16px; line-height: 1.7;">
+                            Investigación de precedentes legales, análisis de jurisprudencia y intelligence competitiva para casos complejos y estrategias legales avanzadas.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent-blue); margin-right: 12px;"></i>Precedentes legales relevantes</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent-blue); margin-right: 12px;"></i>Análisis de jurisprudencia</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--accent-blue); margin-right: 12px;"></i>Intelligence competitiva</li>
+                        </ul>
                     </div>
-                    <h3>Finanzas & Inversión</h3>
-                    <p>Research financiero institucional en 48 horas. Análisis de inversión, due diligence financiero e intelligence de mercado para decisiones de inversión.</p>
-                    <ul class="use-cases-list">
-                        <li>Due diligence financiero y de inversión</li>
-                        <li>Análisis de empresas y valoraciones</li>
-                        <li>Intelligence de mercados financieros</li>
-                        <li>Investigación regulatoria financiera</li>
-                        <li>Análisis de riesgo y compliance</li>
-                    </ul>
-                    <a href="finanzas.html" class="btn btn-secondary" onclick="trackEvent('cta_click', 'industry', 'finance')">
-                        <i class="fas fa-arrow-right"></i>
-                        Ver Casos Finanzas
-                    </a>
+                    
+                    <!-- Consulting Firms -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 28px;">
+                            <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #38A169, #48BB78); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="fas fa-chart-line" style="color: white; font-size: 22px;"></i>
+                            </div>
+                            <h3 style="font-size: 22px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Consultoras</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 16px; line-height: 1.7;">
+                            Investigación de mercado profunda, benchmarking competitivo y planificación estratégica para clientes corporativos de alto nivel.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #38A169; margin-right: 12px;"></i>Investigación de mercado profunda</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #38A169; margin-right: 12px;"></i>Benchmarking competitivo</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #38A169; margin-right: 12px;"></i>Planificación estratégica</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Auditing Firms -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 28px;">
+                            <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #805AD5, #9F7AEA); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="fas fa-shield-alt" style="color: white; font-size: 22px;"></i>
+                            </div>
+                            <h3 style="font-size: 22px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Auditorías</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 16px; line-height: 1.7;">
+                            Investigación regulatoria exhaustiva, análisis de cumplimiento y evaluación de riesgos para auditorías institucionales.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #805AD5; margin-right: 12px;"></i>Investigación regulatoria</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #805AD5; margin-right: 12px;"></i>Análisis de cumplimiento</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #805AD5; margin-right: 12px;"></i>Evaluación de riesgos</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Marketing Agencies -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 28px;">
+                            <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #DD6B20, #ED8936); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="fas fa-bullhorn" style="color: white; font-size: 22px;"></i>
+                            </div>
+                            <h3 style="font-size: 22px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Agencias de Marketing</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 16px; line-height: 1.7;">
+                            Análisis competitivo avanzado, tendencias sectoriales y desarrollo de buyer personas para estrategias de marketing efectivas.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #DD6B20; margin-right: 12px;"></i>Análisis competitivo avanzado</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #DD6B20; margin-right: 12px;"></i>Tendencias sectoriales</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #DD6B20; margin-right: 12px;"></i>Buyer personas detalladas</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Financial Advisors -->
+                    <div class="card fade-in">
+                        <div style="display: flex; align-items: center; margin-bottom: 28px;">
+                            <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #319795, #4FD1C7); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="fas fa-coins" style="color: white; font-size: 22px;"></i>
+                            </div>
+                            <h3 style="font-size: 22px; font-weight: 600; color: var(--text-primary); font-family: 'Inter', sans-serif;">Asesores Financieros</h3>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 16px; line-height: 1.7;">
+                            Investigación de inversiones especializada, análisis de mercados financieros y tendencias económicas para estrategias sólidas.
+                        </p>
+                        <ul style="list-style: none; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #319795; margin-right: 12px;"></i>Investigación de inversiones</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #319795; margin-right: 12px;"></i>Análisis de mercados</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #319795; margin-right: 12px;"></i>Tendencias económicas</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Speed Advantage -->
+                    <div class="card fade-in" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); color: white;">
+                        <div style="display: flex; align-items: center; margin-bottom: 28px;">
+                            <div style="width: 52px; height: 52px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                                <i class="fas fa-rocket" style="color: white; font-size: 22px;"></i>
+                            </div>
+                            <h3 style="font-size: 22px; font-weight: 600; font-family: 'Inter', sans-serif;">Ventaja de Velocidad</h3>
+                        </div>
+                        <p style="margin-bottom: 28px; opacity: 0.9; font-size: 16px; line-height: 1.7;">
+                            Lo que los consultores tradicionales entregan en semanas, nosotros lo hacemos en horas. 
+                            Misma calidad profesional, velocidad incomparable.
+                        </p>
+                        <div style="text-align: center; padding: 24px 0;">
+                            <div style="font-size: 52px; font-weight: 700; margin-bottom: 12px;">48h</div>
+                            <div style="opacity: 0.8; font-size: 18px;">vs 2-4 semanas tradicionales</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- ROI Calculator Section -->
+        <section id="roi-calculator" class="section roi-calculator">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Calculadora de ROI</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Descubre exactamente cuánto puedes ahorrar en tiempo y costes con AnalitikAI. 
+                    Resultados personalizados para tu tipo de empresa y volumen de trabajo.
+                </p>
+                
+                <div class="calculator-container fade-in">
+                    <div class="calculator-grid">
+                        <!-- Input Controls -->
+                        <div class="calculator-inputs">
+                            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px; color: var(--text-primary);">
+                                <i class="fas fa-sliders-h" style="color: var(--accent-blue); margin-right: 12px;"></i>
+                                Configuración de tu Empresa
+                            </h3>
+                            
+                            <!-- Company Type -->
+                            <div class="input-group">
+                                <label class="input-label">Tipo de Empresa</label>
+                                <select id="companyType" class="dropdown-select">
+                                    <option value="legal">Bufete Legal</option>
+                                    <option value="consulting">Consultoría</option>
+                                    <option value="audit">Auditoría</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="financial">Financiera</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Projects per month -->
+                            <div class="input-group">
+                                <label class="input-label">Proyectos por mes</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="projectsPerMonth" class="input-slider" min="1" max="50" value="10">
+                                    <div class="slider-value" id="projectsValue">10</div>
+                                    <div class="slider-labels">
+                                        <span>1</span>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Hours per project -->
+                            <div class="input-group">
+                                <label class="input-label">Horas promedio por proyecto tradicional</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="hoursPerProject" class="input-slider" min="10" max="200" value="40">
+                                    <div class="slider-value" id="hoursValue">40h</div>
+                                    <div class="slider-labels">
+                                        <span>10h</span>
+                                        <span>200h</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Internal hourly cost -->
+                            <div class="input-group">
+                                <label class="input-label">Coste interno por hora</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="internalCost" class="input-slider" min="50" max="500" value="150">
+                                    <div class="slider-value" id="internalValue">€150</div>
+                                    <div class="slider-labels">
+                                        <span>€50</span>
+                                        <span>€500</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Delivery time -->
+                            <div class="input-group">
+                                <label class="input-label">Tiempo de entrega tradicional (semanas)</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="deliveryTime" class="input-slider" min="1" max="12" value="3">
+                                    <div class="slider-value" id="deliveryValue">3 semanas</div>
+                                    <div class="slider-labels">
+                                        <span>1 sem</span>
+                                        <span>12 sem</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- External projects percentage -->
+                            <div class="input-group">
+                                <label class="input-label">% de proyectos externalizados</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="externalPercentage" class="input-slider" min="0" max="100" value="30">
+                                    <div class="slider-value" id="externalPercentValue">30%</div>
+                                    <div class="slider-labels">
+                                        <span>0%</span>
+                                        <span>100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- External consultant cost -->
+                            <div class="input-group">
+                                <label class="input-label">Coste consultor externo por hora</label>
+                                <div class="input-slider-container">
+                                    <input type="range" id="consultantCost" class="input-slider" min="200" max="800" value="400">
+                                    <div class="slider-value" id="consultantValue">€400</div>
+                                    <div class="slider-labels">
+                                        <span>€200</span>
+                                        <span>€800</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Real-time Outputs -->
+                        <div class="calculator-outputs">
+                            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 32px;">
+                                <i class="fas fa-chart-line" style="margin-right: 12px;"></i>
+                                Tus Ahorros con AnalitikAI
+                            </h3>
+                            
+                            <div class="output-metric roi-highlight">
+                                <div class="output-label">Ahorro Mensual Total</div>
+                                <div class="output-value" id="monthlySavings">€15,600</div>
+                                <div class="output-subtitle">vs métodos tradicionales</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">Tiempo Ahorrado</div>
+                                <div class="output-value" id="timeSaved">280h</div>
+                                <div class="output-subtitle">por mes</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">Proyectos Adicionales Posibles</div>
+                                <div class="output-value" id="additionalProjects">+7</div>
+                                <div class="output-subtitle">por mes con el mismo equipo</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">ROI</div>
+                                <div class="output-value" id="roiPercentage">520%</div>
+                                <div class="output-subtitle">retorno de inversión anual</div>
+                            </div>
+                            
+                            <div class="output-metric">
+                                <div class="output-label">Periodo de Recuperación</div>
+                                <div class="output-value" id="paybackPeriod">0.7</div>
+                                <div class="output-subtitle">meses</div>
+                            </div>
+                            
+                            <div class="calculator-cta">
+                                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 20px; font-size: 16px;">
+                                    ¿Quieres un análisis personalizado de estos ahorros?
+                                </p>
+                                <div class="cta-buttons">
+                                    <a href="https://cal.com/analitikai/demo" target="_blank" class="cta-primary">
+                                        <span>Reservar Demo</span>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </a>
+                                    <a href="#contacto" class="cta-secondary" style="background: transparent; color: white; border-color: rgba(255,255,255,0.4);" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                                        <span>Informe Detallado</span>
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Proof -->
+                    <div class="social-proof fade-in">
+                        <div class="social-proof-stat">45% de ahorro promedio</div>
+                        <div class="social-proof-text">
+                            Nuestros clientes reducen sus costes operativos en un 45% promedio mientras 
+                            aumentan su capacidad de entrega en un 60%. Resultados medidos en los primeros 90 días.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section id="precios" class="section" style="background: var(--gray-50);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Precios Transparentes</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Tarifas claras y competitivas para investigación de nivel consultora premium.
+                </p>
+                
+                <div style="max-width: 900px; margin: 80px auto 0; text-align: center;">
+                    <div style="background: white; padding: 60px 40px; border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-soft);">
+                        <div style="width: 88px; height: 88px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px;">
+                            <i class="fas fa-handshake" style="color: white; font-size: 36px;"></i>
+                        </div>
+                        <h3 style="font-size: 28px; margin-bottom: 24px; color: var(--text-primary);">Consulta Gratuita</h3>
+                        <p style="color: var(--text-secondary); font-size: 18px; line-height: 1.7; margin-bottom: 32px;">
+                            Cada proyecto es único. Reserva una consulta de 15 minutos para revisar tu caso específico 
+                            y recibir una propuesta personalizada sin compromiso.
+                        </p>
+                        <div style="margin-bottom: 32px;">
+                            <div style="font-size: 16px; color: var(--text-light); margin-bottom: 8px;">Precios típicos:</div>
+                            <div style="font-size: 24px; color: var(--text-primary); font-weight: 600;">€2,500 - €8,500 por proyecto</div>
+                            <div style="font-size: 14px; color: var(--text-light); margin-top: 8px;">Según complejidad y alcance</div>
+                        </div>
+                        <a href="https://cal.com/analitikai/demo" target="_blank" style="background: var(--accent-blue); color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s ease;">
+                            <span>Reservar Consulta</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Methodology & Excellence Section -->
+        <section id="metodologia" class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Metodología & Excelencia</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Nuestra metodología combina la experiencia de consultoras tradicionales con la innovación 
+                    de la inteligencia artificial para entregar resultados excepcionales.
+                </p>
+                
+                <div class="methodology-grid">
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="methodology-title">Rigor Analítico</h3>
+                        <p class="methodology-description">
+                            Aplicamos metodologías probadas de las mejores consultoras globales, 
+                            garantizando que cada análisis cumpla con los más altos estándares profesionales.
+                        </p>
+                    </div>
+                    
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="methodology-title">Innovación Tecnológica</h3>
+                        <p class="methodology-description">
+                            Nuestros modelos de IA están especialmente entrenados en documentos y metodologías 
+                            de servicios profesionales, superando a herramientas genéricas.
+                        </p>
+                    </div>
+                    
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="methodology-title">Estándares de Calidad</h3>
+                        <p class="methodology-description">
+                            Cada entregable pasa por múltiples capas de validación y revisión, 
+                            asegurando precisión, relevancia y presentación profesional.
+                        </p>
+                    </div>
+                    
+                    <div class="methodology-item fade-in">
+                        <div class="methodology-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="methodology-title">Enfoque Especializado</h3>
+                        <p class="methodology-description">
+                            Nos especializamos exclusivamente en servicios profesionales, 
+                            desarrollando expertise profundo en cada sector que servimos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
-    <!-- Features Section -->
-    <section class="features" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>La Revolución IA como Consultor</h2>
-                <p>Reemplaza semanas de investigación con análisis de nivel consultor en 48 horas. Una plataforma, calidad consistente, pricing transparente.</p>
+        
+        <!-- FAQ Section -->
+        <section id="preguntas" class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title fade-in" style="text-align: center;">Preguntas Frecuentes</h2>
+                <p class="section-subtitle fade-in" style="text-align: center;">
+                    Todo lo que necesitas saber sobre AnalitikAI y cómo puede transformar tu práctica profesional.
+                </p>
+                
+                <div style="max-width: 900px; margin: 80px auto 0;">
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Cómo garantizan la calidad del análisis en solo 48 horas?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Nuestra IA está entrenada específicamente en documentos y metodologías de servicios profesionales. 
+                            Combina velocidad de procesamiento con validación de múltiples fuentes y revisión por especialistas humanos 
+                            para garantizar precisión y relevancia profesional. Cada entregable pasa por múltiples capas de control de calidad.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Qué tipo de fuentes y documentos analizan?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Accedemos a bases de datos legales especializadas, estudios de mercado institucionales, informes sectoriales, 
+                            documentos regulatorios oficiales, investigaciones académicas y fuentes públicas de alta calidad. También procesamos 
+                            documentos internos que nos proporciones, manteniendo siempre la confidencialidad absoluta con protocolos de seguridad robustos.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Cómo manejan la confidencialidad de nuestros proyectos?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            La confidencialidad es nuestra prioridad absoluta. Todos los proyectos se procesan con máxima seguridad mediante 
+                            protocolos de cifrado avanzado. Firmamos NDAs estrictos antes de cualquier proyecto, implementamos protocolos 
+                            de confidencialidad de nivel bancario, y nunca almacenamos datos de clientes después de completar el proyecto.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Pueden adaptarse a terminología específica de nuestro sector?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Absolutamente. Nuestros modelos están especializados por sector y pueden adaptarse completamente a tu terminología 
+                            específica, metodologías internas y formatos de entrega preferidos. Cada proyecto se personaliza según tus estándares 
+                            profesionales, incluyendo estilo de redacción, estructura de informes y nivel de detalle técnico.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Qué sucede si necesitamos revisiones o información adicional?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Incluimos una ronda completa de revisiones sin costo adicional en todos los proyectos. Si necesitas análisis adicional, 
+                            cambios de enfoque, o profundización en áreas específicas, podemos ajustar el alcance de forma transparente. 
+                            Nuestro objetivo es que tengas exactamente lo que necesitas para tus clientes.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">
+                            ¿Ofrecen garantías de calidad y tiempos de entrega?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Sí, ofrecemos garantía de entrega en 48 horas y compromiso total con la calidad. Si nuestro trabajo no cumple 
+                            con los estándares acordados, trabajaremos hasta resolver cualquier problema sin costo adicional. 
+                            En casos excepcionales, consideraremos reembolsos según las circunstancias específicas del proyecto.
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-badge">Garantía 48h</div>
-                    <h3>Velocidad que Gana</h3>
-                    <p>Obtén análisis completo en 48 horas, no semanas. Tus clientes reciben respuestas mientras la competencia sigue investigando. Momentum preservado, proyectos avanzados.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-badge">Pricing Transparente</div>
-                    <h3>Costos Predecibles</h3>
-                    <p>Se acabaron las sorpresas presupuestarias en investigación. Pricing personalizado según scope, revisiones incluidas, entrega transparente. Presupuesta con confianza.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-badge">Nivel Consultor</div>
-                    <h3>Calidad Profesional</h3>
-                    <p>Análisis nivel consultoría internacional potenciado por IA. Cada informe incluye recomendaciones estratégicas, no solo datos. Presentable directamente al cliente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>¿Listo para Moverse a la Velocidad de la IA?</h2>
-                <p>Únete a servicios profesionales que eligieron velocidad sobre status quo</p>
-                <div class="cta-buttons">
-                    <a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" class="btn" onclick="trackEvent('cta_click', 'final', 'book_demo')" style="background: white; color: var(--accent); font-size: 16px; padding: 16px 32px;">
-                        <i class="fas fa-calendar-alt"></i>
-                        Agendar Demo 15 Minutos
-                    </a>
-                    <a href="seguridad.html" class="btn" style="background: transparent; border: 2px solid white; color: white; font-size: 16px; padding: 16px 32px;">
-                        <i class="fas fa-shield-alt"></i>
-                        Ver Seguridad & Compliance
-                    </a>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contacto" class="section" style="background: var(--gray-900); color: white;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 80px;">
+                    <h2 class="section-title fade-in" style="color: white;">
+                        ¿Listo para Acelerar tu Práctica Profesional?
+                    </h2>
+                    <p class="section-subtitle fade-in" style="color: rgba(255, 255, 255, 0.85);">
+                        Hablemos de cómo AnalitikAI puede transformar la velocidad y calidad de tus servicios profesionales.
+                    </p>
+                    
+                    <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;" class="fade-in">
+                        <a href="https://cal.com/analitikai/demo" target="_blank" style="background: white; color: var(--gray-900); padding: 18px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s ease; box-shadow: var(--shadow-soft);">
+                            <span>Reservar Demo Gratuita</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </a>
+                        <a href="mailto:hola@analitikai.com" style="background: transparent; color: white; padding: 18px 36px; border: 2px solid rgba(255, 255, 255, 0.4); border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 12px;">
+                            <span>Contactar por Email</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 56px; color: rgba(255, 255, 255, 0.7);" class="fade-in">
+                        <p style="margin-bottom: 12px; font-size: 16px;">📅 Primera consulta gratuita de 15 minutos</p>
+                        <p style="margin-bottom: 12px; font-size: 16px;">⚡ Respuesta garantizada en menos de 2 horas</p>
+                        <p style="font-size: 16px;">🌍 Basados en Barcelona, alcance global</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Plataforma</h4>
-                    <ul class="footer-links">
-                        <li><a href="como-funciona.html">Cómo Funciona</a></li>
-                        <li><a href="metodologias.html">Metodologías</a></li>
-                        <li><a href="como-funciona.html#tech-stack">Stack Tecnológico</a></li>
-                        <li><a href="como-funciona.html#quality">Quality Assurance</a></li>
-                    </ul>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>📊 AnalitikAI</h3>
+                        <p>
+                            Investigación y análisis de nivel consultora entregados en 48 horas vs 2-4 semanas. 
+                            Para servicios profesionales que necesitan resultados excepcionales, no promesas.
+                        </p>
+                        <div style="display: flex; gap: 20px;">
+                            <a href="https://linkedin.com/company/analitikai" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease; font-size: 20px;">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/analitikai" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease; font-size: 20px;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="mailto:hola@analitikai.com" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s ease; font-size: 20px;">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#servicios">Investigación Legal</a></li>
+                            <li><a href="#servicios">Análisis de Mercado</a></li>
+                            <li><a href="#servicios">Intelligence Competitiva</a></li>
+                            <li><a href="#servicios">Investigación Regulatoria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Sectores</h4>
+                        <ul>
+                            <li><a href="#servicios">Bufetes de Abogados</a></li>
+                            <li><a href="#servicios">Consultoras</a></li>
+                            <li><a href="#servicios">Auditorías</a></li>
+                            <li><a href="#servicios">Agencias</a></li>
+                            <li><a href="#servicios">Asesores Financieros</a></li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Industrias</h4>
-                    <ul class="footer-links">
-                        <li><a href="legal.html">Servicios Legales</a></li>
-                        <li><a href="consultoria.html">Consultoría Estratégica</a></li>
-                        <li><a href="auditoria.html">Auditoría & Aseguramiento</a></li>
-                        <li><a href="finanzas.html">Finanzas & Inversión</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Recursos</h4>
-                    <ul class="footer-links">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="estudios-caso.html">Estudios de Caso</a></li>
-                        <li><a href="metodologias.html">Metodologías</a></li>
-                        <li><a href="como-funciona.html">Centro de Ayuda</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Empresa</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">Acerca de AnalitikAI</a></li>
-                        <li><a href="seguridad.html">Seguridad & Privacidad</a></li>
-                        <li><a href="seguridad.html#gdpr">Cumplimiento GDPR</a></li>
-                        <li><a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" onclick="trackEvent('contact', 'footer', 'demo')">Contacto</a></li>
-                    </ul>
+                <div class="footer-bottom">
+                    <p>© 2024 AnalitikAI. Todos los derechos reservados. | Barcelona, España</p>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 AnalitikAI. Todos los derechos reservados. | <a href="seguridad.html" style="color: rgba(255, 255, 255, 0.6);">Política de Privacidad</a> | <a href="seguridad.html" style="color: rgba(255, 255, 255, 0.6);">Términos de Servicio</a></p>
-            </div>
-        </div>
-    </footer>
-
+        </footer>
+    </main>
+    
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.querySelector('.mobile-menu-btn i');
-            
-            menu.classList.toggle('active');
-            
-            if (menu.classList.contains('active')) {
-                btn.className = 'fas fa-times';
-            } else {
-                btn.className = 'fas fa-bars';
-            }
-        }
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
             }
         });
-
-        // Scroll Progress Bar
-        window.addEventListener('scroll', function() {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.querySelector('.scroll-progress-bar').style.width = scrolled + '%';
-        });
-
-        // Smooth scrolling for anchor links
+        
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                
                 e.preventDefault();
-                const target = document.querySelector(href);
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
+                    
+                    // Close sidebar on mobile after clicking link
+                    if (window.innerWidth <= 1024) {
+                        sidebar.classList.remove('open');
+                    }
                 }
             });
         });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.querySelector('.mobile-menu-btn');
+        
+        // Update active navigation link
+        const updateActiveNav = () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar-nav a, .sidebar-secondary a');
             
-            if (!menu.contains(e.target) && !btn.contains(e.target)) {
-                menu.classList.remove('active');
-                document.querySelector('.mobile-menu-btn i').className = 'fas fa-bars';
+            let current = '';
+            const scrollPos = window.scrollY + 120;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        };
+        
+        // Throttled scroll listener
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateActiveNav();
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question i').forEach(icon => {
+                    icon.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    answer.classList.add('active');
+                    button.querySelector('i').style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        
+        // ROI Calculator functionality
+        function initializeROICalculator() {
+            const elements = {
+                companyType: document.getElementById('companyType'),
+                projectsPerMonth: document.getElementById('projectsPerMonth'),
+                hoursPerProject: document.getElementById('hoursPerProject'),
+                internalCost: document.getElementById('internalCost'),
+                deliveryTime: document.getElementById('deliveryTime'),
+                externalPercentage: document.getElementById('externalPercentage'),
+                consultantCost: document.getElementById('consultantCost'),
+                
+                // Value displays
+                projectsValue: document.getElementById('projectsValue'),
+                hoursValue: document.getElementById('hoursValue'),
+                internalValue: document.getElementById('internalValue'),
+                deliveryValue: document.getElementById('deliveryValue'),
+                externalPercentValue: document.getElementById('externalPercentValue'),
+                consultantValue: document.getElementById('consultantValue'),
+                
+                // Outputs
+                monthlySavings: document.getElementById('monthlySavings'),
+                timeSaved: document.getElementById('timeSaved'),
+                additionalProjects: document.getElementById('additionalProjects'),
+                roiPercentage: document.getElementById('roiPercentage'),
+                paybackPeriod: document.getElementById('paybackPeriod')
+            };
+            
+            // Update slider value displays
+            function updateSliderValues() {
+                elements.projectsValue.textContent = elements.projectsPerMonth.value;
+                elements.hoursValue.textContent = elements.hoursPerProject.value + 'h';
+                elements.internalValue.textContent = '€' + elements.internalCost.value;
+                elements.deliveryValue.textContent = elements.deliveryTime.value + (elements.deliveryTime.value == 1 ? ' semana' : ' semanas');
+                elements.externalPercentValue.textContent = elements.externalPercentage.value + '%';
+                elements.consultantValue.textContent = '€' + elements.consultantCost.value;
+            }
+            
+            // Calculate ROI metrics
+            function calculateROI() {
+                const projects = parseInt(elements.projectsPerMonth.value);
+                const hours = parseInt(elements.hoursPerProject.value);
+                const internalRate = parseInt(elements.internalCost.value);
+                const deliveryWeeks = parseInt(elements.deliveryTime.value);
+                const externalPercent = parseInt(elements.externalPercentage.value) / 100;
+                const consultantRate = parseInt(elements.consultantCost.value);
+                
+                // AnalitikAI assumptions
+                const analitikAIHours = 8; // 1 day of work vs weeks
+                const analitikAIDelivery = 0.29; // 2 days = 0.29 weeks
+                const analitikAIServiceFee = 5000; // Average project cost
+                
+                // Current costs calculation
+                const internalProjects = projects * (1 - externalPercent);
+                const externalProjects = projects * externalPercent;
+                
+                const currentInternalCost = internalProjects * hours * internalRate;
+                const currentExternalCost = externalProjects * hours * consultantRate;
+                const currentTotalCost = currentInternalCost + currentExternalCost;
+                
+                // AnalitikAI costs
+                const analitikAICost = projects * analitikAIServiceFee;
+                
+                // Time savings
+                const currentTotalHours = projects * hours;
+                const analitikAITotalHours = projects * analitikAIHours;
+                const hoursSaved = currentTotalHours - analitikAITotalHours;
+                
+                // Cost savings
+                const monthlySavings = currentTotalCost - analitikAICost;
+                
+                // Additional projects capacity
+                const additionalProjectCapacity = Math.floor(hoursSaved / hours);
+                
+                // ROI calculation (annual)
+                const annualSavings = monthlySavings * 12;
+                const annualInvestment = analitikAICost * 12;
+                const roi = (annualSavings / annualInvestment) * 100;
+                
+                // Payback period
+                const payback = annualInvestment / annualSavings * 12; // in months
+                
+                // Update displays
+                elements.monthlySavings.textContent = '€' + monthlySavings.toLocaleString();
+                elements.timeSaved.textContent = hoursSaved.toFixed(0) + 'h';
+                elements.additionalProjects.textContent = '+' + additionalProjectCapacity;
+                elements.roiPercentage.textContent = roi.toFixed(0) + '%';
+                elements.paybackPeriod.textContent = payback.toFixed(1);
+            }
+            
+            // Position slider value tooltips
+            function positionSliderValue(slider, valueEl) {
+                const rect = slider.getBoundingClientRect();
+                const value = (slider.value - slider.min) / (slider.max - slider.min);
+                const position = value * (rect.width - 24) + 12; // 24px is thumb width
+                valueEl.style.left = position + 'px';
+            }
+            
+            // Event listeners for all inputs
+            Object.keys(elements).forEach(key => {
+                if (elements[key] && elements[key].addEventListener) {
+                    if (elements[key].type === 'range') {
+                        elements[key].addEventListener('input', () => {
+                            updateSliderValues();
+                            calculateROI();
+                            
+                            // Position the value tooltip
+                            const valueEl = document.getElementById(key.replace(/([A-Z])/g, '$1').toLowerCase().replace(/per|cost|time|percentage/, '') + 'Value') ||
+                                           document.getElementById(key + 'Value') ||
+                                           document.getElementById(key.replace('PerMonth', 'Value').replace('PerProject', 'Value').replace('Cost', 'Value').replace('Time', 'Value').replace('Percentage', 'PercentValue'));
+                            if (valueEl) {
+                                positionSliderValue(elements[key], valueEl);
+                            }
+                        });
+                        
+                        // Show tooltip on hover/focus
+                        elements[key].addEventListener('mouseenter', () => {
+                            const valueKey = key.replace('projectsPerMonth', 'projectsValue')
+                                               .replace('hoursPerProject', 'hoursValue')
+                                               .replace('internalCost', 'internalValue')
+                                               .replace('deliveryTime', 'deliveryValue')
+                                               .replace('externalPercentage', 'externalPercentValue')
+                                               .replace('consultantCost', 'consultantValue');
+                            if (elements[valueKey]) {
+                                elements[valueKey].style.opacity = '1';
+                            }
+                        });
+                        
+                        elements[key].addEventListener('mouseleave', () => {
+                            const valueKey = key.replace('projectsPerMonth', 'projectsValue')
+                                               .replace('hoursPerProject', 'hoursValue')
+                                               .replace('internalCost', 'internalValue')
+                                               .replace('deliveryTime', 'deliveryValue')
+                                               .replace('externalPercentage', 'externalPercentValue')
+                                               .replace('consultantCost', 'consultantValue');
+                            if (elements[valueKey]) {
+                                elements[valueKey].style.opacity = '0';
+                            }
+                        });
+                    }
+                    
+                    if (elements[key].tagName === 'SELECT') {
+                        elements[key].addEventListener('change', () => {
+                            calculateROI();
+                        });
+                    }
+                }
+            });
+            
+            // Initial calculation
+            updateSliderValues();
+            calculateROI();
+            
+            // Position initial tooltips
+            setTimeout(() => {
+                Object.keys(elements).forEach(key => {
+                    if (elements[key] && elements[key].type === 'range') {
+                        const valueKey = key.replace('projectsPerMonth', 'projectsValue')
+                                           .replace('hoursPerProject', 'hoursValue')
+                                           .replace('internalCost', 'internalValue')
+                                           .replace('deliveryTime', 'deliveryValue')
+                                           .replace('externalPercentage', 'externalPercentValue')
+                                           .replace('consultantCost', 'consultantValue');
+                        if (elements[valueKey]) {
+                            positionSliderValue(elements[key], elements[valueKey]);
+                        }
+                    }
+                });
+            }, 100);
+        }
+        
+        // Initialize calculator when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeROICalculator);
+        
+        // Initialize
+        updateActiveNav();
     </script>
 </body>
 </html>
