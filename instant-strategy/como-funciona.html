@@ -1029,22 +1029,7 @@
             }
         });
 
-        // Close dropdowns only when navigating to other pages
-        document.querySelectorAll('.dropdown-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Only close if it's actually a navigation link (not a # anchor)
-                if (this.getAttribute('href') && !this.getAttribute('href').startsWith('#')) {
-                    // Let the navigation happen naturally
-                    setTimeout(function() {
-                        document.querySelectorAll('.dropdown').forEach(dropdown => {
-                            dropdown.style.opacity = '0';
-                            dropdown.style.visibility = 'hidden';
-                            dropdown.style.transform = 'translateY(-10px)';
-                        });
-                    }, 50);
-                }
-            });
-        });
+        // Navigation handled by CSS hover - no JavaScript interference needed
     </script>
 </body>
 </html>
