@@ -276,11 +276,6 @@
         .mobile-menu.active {
             display: block;
         }
-        
-        /* FORCE HIDE mobile menu on navigation pages */
-        body:not(.homepage) .mobile-menu {
-            display: none !important;
-        }
 
         .mobile-section {
             margin-bottom: 32px;
@@ -336,9 +331,8 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
@@ -350,9 +344,7 @@
         .btn-secondary:hover {
             background: var(--accent);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent-dark);
+            transform: translateY(-1px);
         }
 
         /* Hero Section */
@@ -926,28 +918,28 @@
             <div class="mobile-section">
                 <div class="mobile-section-title">Plataforma</div>
                 <div class="mobile-links">
-                    <a href="como-funciona.html" class="mobile-link" onclick="closeMobileMenu()">Cómo Funciona</a>
-                    <a href="metodologias.html" class="mobile-link" onclick="closeMobileMenu()">Metodologías</a>
-                    <a href="como-funciona.html#tech-stack" class="mobile-link" onclick="closeMobileMenu()">Stack Tecnológico</a>
+                    <a href="como-funciona.html" class="mobile-link">Cómo Funciona</a>
+                    <a href="metodologias.html" class="mobile-link">Metodologías</a>
+                    <a href="como-funciona.html#tech-stack" class="mobile-link">Stack Tecnológico</a>
                 </div>
             </div>
             
             <div class="mobile-section">
                 <div class="mobile-section-title">Industrias</div>
                 <div class="mobile-links">
-                    <a href="legal.html" class="mobile-link" onclick="closeMobileMenu()">Servicios Legales</a>
-                    <a href="consultoria.html" class="mobile-link" onclick="closeMobileMenu()">Consultoría</a>
-                    <a href="auditoria.html" class="mobile-link" onclick="closeMobileMenu()">Auditoría</a>
-                    <a href="finanzas.html" class="mobile-link" onclick="closeMobileMenu()">Finanzas</a>
+                    <a href="legal.html" class="mobile-link">Servicios Legales</a>
+                    <a href="consultoria.html" class="mobile-link">Consultoría</a>
+                    <a href="auditoria.html" class="mobile-link">Auditoría</a>
+                    <a href="finanzas.html" class="mobile-link">Finanzas</a>
                 </div>
             </div>
             
             <div class="mobile-section">
                 <div class="mobile-section-title">Recursos</div>
                 <div class="mobile-links">
-                    <a href="blog.html" class="mobile-link" onclick="closeMobileMenu()">Blog</a>
-                    <a href="estudios-caso.html" class="mobile-link" onclick="closeMobileMenu()">Estudios de Caso</a>
-                    <a href="seguridad.html" class="mobile-link" onclick="closeMobileMenu()">Seguridad</a>
+                    <a href="blog.html" class="mobile-link">Blog</a>
+                    <a href="estudios-caso.html" class="mobile-link">Estudios de Caso</a>
+                    <a href="seguridad.html" class="mobile-link">Seguridad</a>
                 </div>
             </div>
             
@@ -1178,7 +1170,7 @@
                 <div class="footer-section">
                     <h4>Empresa</h4>
                     <ul class="footer-links">
-                        <li><a href="como-funciona.html#about">Acerca de AnalitikAI</a></li>
+                        <li><a href="#about">Acerca de AnalitikAI</a></li>
                         <li><a href="seguridad.html">Seguridad & Privacidad</a></li>
                         <li><a href="seguridad.html#gdpr">Cumplimiento GDPR</a></li>
                         <li><a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" onclick="trackEvent('contact', 'footer', 'demo')">Contacto</a></li>
@@ -1203,24 +1195,6 @@
             if (menu.classList.contains('active')) {
                 btn.className = 'fas fa-times';
             } else {
-                btn.className = 'fas fa-bars';
-            }
-        }
-
-        // FORCE CLOSE Mobile Menu - Direct approach
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.querySelector('.mobile-menu-btn i');
-            
-            if (menu) {
-                menu.classList.remove('active');
-                menu.style.display = 'none';
-                setTimeout(() => {
-                    menu.style.display = '';
-                }, 500);
-            }
-            
-            if (btn) {
                 btn.className = 'fas fa-bars';
             }
         }
@@ -1269,70 +1243,6 @@
                 document.querySelector('.mobile-menu-btn i').className = 'fas fa-bars';
             }
         });
-
-        // Close mobile menu when clicking navigation links - ENHANCED
-        document.addEventListener('click', function(e) {
-            // Check if clicked element is a mobile navigation link or its child element
-            if (e.target.matches('.mobile-link') || e.target.closest('.mobile-link')) {
-                // Force close mobile menu with multiple approaches
-                const menu = document.getElementById('mobileMenu');
-                const btn = document.querySelector('.mobile-menu-btn i');
-                
-                if (menu) {
-                    menu.classList.remove('active');
-                    menu.style.display = 'none'; // Force hide
-                    
-                    // Reset after a brief delay to ensure it works
-                    setTimeout(() => {
-                        menu.style.display = '';
-                    }, 100);
-                }
-                
-                if (btn) {
-                    btn.className = 'fas fa-bars';
-                }
-            }
-        });
-        
-        // Also close on any link click that navigates away
-        document.querySelectorAll('a[href*=".html"]').forEach(link => {
-            link.addEventListener('click', function() {
-                const menu = document.getElementById('mobileMenu');
-                const btn = document.querySelector('.mobile-menu-btn i');
-                
-                if (menu && menu.classList.contains('active')) {
-                    menu.classList.remove('active');
-                    menu.style.display = 'none';
-                }
-                
-                if (btn) {
-                    btn.className = 'fas fa-bars';
-                }
-            });
-        });
-
-        // Close dropdowns when clicking navigation links
-        document.addEventListener('click', function(e) {
-            // Check if clicked element is a dropdown link that navigates to another page
-            if (e.target.matches('.dropdown-link') && e.target.getAttribute('href') && !e.target.getAttribute('href').startsWith('#')) {
-                // Immediately close all dropdowns before navigation
-                document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.style.opacity = '0';
-                    dropdown.style.visibility = 'hidden';
-                    dropdown.style.transform = 'translateY(-10px)';
-                });
-            }
-        });
-
-        // Force close all dropdowns on any page load/navigation
-        window.addEventListener('pageshow', function() {
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.style.opacity = '0';
-                dropdown.style.visibility = 'hidden';
-                dropdown.style.transform = 'translateY(-10px)';
-            });
-        });
     </script>
-    <!-- Force redeploy 2026-03-27 09:21 UTC - Fix navigation links -->
 </body>
 </html>

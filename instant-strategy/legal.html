@@ -22,16 +22,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* FORCE HIDE mobile menu on subpages */
-        body.subpage .mobile-menu {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
-        
-        body.subpage .mobile-menu.active {
-            display: none !important;
-        }
         :root {
             /* Modern Color Palette */
             --primary: #0a0a0a;
@@ -265,17 +255,6 @@
         }
 
         .mobile-menu.active {
-        
-        /* FORCE HIDE mobile menu on subpages */
-        body.subpage .mobile-menu {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
-        
-        body.subpage .mobile-menu.active {
-            display: none !important;
-        }
             display: block;
         }
 
@@ -775,7 +754,7 @@
         }
     </style>
 </head>
-<body class="subpage">
+<body>
     <!-- Header -->
     <header class="header">
         <div class="nav container">
@@ -872,7 +851,7 @@
                     </li>
                 </ul>
                 
-                <a href="https://cal.com/analitikai/demo" target="_blank" rel="noopener" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">
+                <a href="#" class="btn btn-primary" onclick="trackEvent('cta_click', 'header', 'book_demo')">
                     <i class="fas fa-calendar-alt"></i>
                     Agendar Demo
                 </a>
@@ -888,27 +867,27 @@
             <div class="mobile-section">
                 <div class="mobile-section-title">Plataforma</div>
                 <div class="mobile-links">
-                    <a href="como-funciona.html" class="mobile-link" onclick="closeMobileMenu()">Cómo Funciona</a>
-                    <a href="metodologias.html" class="mobile-link" onclick="closeMobileMenu()">Metodologías</a>
+                    <a href="como-funciona.html" class="mobile-link">Cómo Funciona</a>
+                    <a href="metodologias.html" class="mobile-link">Metodologías</a>
                 </div>
             </div>
             
             <div class="mobile-section">
                 <div class="mobile-section-title">Industrias</div>
                 <div class="mobile-links">
-                    <a href="legal.html" class="mobile-link" onclick="closeMobileMenu()">Servicios Legales</a>
-                    <a href="consultoria.html" class="mobile-link" onclick="closeMobileMenu()">Consultoría</a>
-                    <a href="auditoria.html" class="mobile-link" onclick="closeMobileMenu()">Auditoría</a>
-                    <a href="finanzas.html" class="mobile-link" onclick="closeMobileMenu()">Finanzas</a>
+                    <a href="legal.html" class="mobile-link">Servicios Legales</a>
+                    <a href="consultoria.html" class="mobile-link">Consultoría</a>
+                    <a href="auditoria.html" class="mobile-link">Auditoría</a>
+                    <a href="finanzas.html" class="mobile-link">Finanzas</a>
                 </div>
             </div>
             
             <div class="mobile-section">
                 <div class="mobile-section-title">Recursos</div>
                 <div class="mobile-links">
-                    <a href="blog.html" class="mobile-link" onclick="closeMobileMenu()">Blog</a>
-                    <a href="estudios-caso.html" class="mobile-link" onclick="closeMobileMenu()">Estudios de Caso</a>
-                    <a href="seguridad.html" class="mobile-link" onclick="closeMobileMenu()">Seguridad</a>
+                    <a href="blog.html" class="mobile-link">Blog</a>
+                    <a href="estudios-caso.html" class="mobile-link">Estudios de Caso</a>
+                    <a href="seguridad.html" class="mobile-link">Seguridad</a>
                 </div>
             </div>
             
@@ -1140,55 +1119,6 @@
     <script>
         // Mobile Menu Toggle
         function toggleMobileMenu() {
-
-        // FORCE CLOSE Mobile Menu - Direct approach
-
-        // AGGRESSIVE MOBILE MENU CLOSER - Execute immediately and continuously
-        (function() {
-            function forceCloseMobileMenu() {
-                const menu = document.getElementById('mobileMenu');
-                const btn = document.querySelector('.mobile-menu-btn i');
-                
-                if (menu) {
-                    menu.classList.remove('active');
-                    menu.style.display = 'none';
-                    menu.style.visibility = 'hidden';
-                    menu.style.opacity = '0';
-                }
-                
-                if (btn) {
-                    btn.className = 'fas fa-bars';
-                }
-            }
-            
-            // Execute immediately
-            forceCloseMobileMenu();
-            
-            // Execute on DOM ready
-            document.addEventListener('DOMContentLoaded', forceCloseMobileMenu);
-            
-            // Execute on window load
-            window.addEventListener('load', forceCloseMobileMenu);
-            
-            // Execute every 100ms to ensure menu stays closed
-            setInterval(forceCloseMobileMenu, 100);
-        })();
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.querySelector('.mobile-menu-btn i');
-            
-            if (menu) {
-                menu.classList.remove('active');
-                menu.style.display = 'none';
-                setTimeout(() => {
-                    menu.style.display = '';
-                }, 500);
-            }
-            
-            if (btn) {
-                btn.className = 'fas fa-bars';
-            }
-        }
             const menu = document.getElementById('mobileMenu');
             const btn = document.querySelector('.mobile-menu-btn i');
             
@@ -1201,28 +1131,6 @@
             }
         }
 
-        // FORCE CLOSE MOBILE MENU ON LINK CLICKS
-        document.addEventListener('DOMContentLoaded', function() {
-            // Close mobile menu when clicking any navigation link
-            document.querySelectorAll('.mobile-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const menu = document.getElementById('mobileMenu');
-                    const btn = document.querySelector('.mobile-menu-btn i');
-                    
-                    // Force close immediately
-                    if (menu) {
-                        menu.classList.remove('active');
-                        menu.style.display = 'none';
-                        setTimeout(() => { menu.style.display = ''; }, 200);
-                    }
-                    
-                    if (btn) {
-                        btn.className = 'fas fa-bars';
-                    }
-                });
-            });
-        });
-
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
             const menu = document.getElementById('mobileMenu');
@@ -1232,69 +1140,6 @@
                 menu.classList.remove('active');
                 document.querySelector('.mobile-menu-btn i').className = 'fas fa-bars';
             }
-        });
-
-        // Close mobile menu when clicking navigation links - ENHANCED
-        document.addEventListener('click', function(e) {
-            // Check if clicked element is a mobile navigation link or its child element
-            if (e.target.matches('.mobile-link') || e.target.closest('.mobile-link')) {
-                // Force close mobile menu with multiple approaches
-                const menu = document.getElementById('mobileMenu');
-                const btn = document.querySelector('.mobile-menu-btn i');
-                
-                if (menu) {
-                    menu.classList.remove('active');
-                    menu.style.display = 'none'; // Force hide
-                    
-                    // Reset after a brief delay to ensure it works
-                    setTimeout(() => {
-                        menu.style.display = '';
-                    }, 100);
-                }
-                
-                if (btn) {
-                    btn.className = 'fas fa-bars';
-                }
-            }
-        });
-        
-        // Also close on any link click that navigates away
-        document.querySelectorAll('a[href*=".html"]').forEach(link => {
-            link.addEventListener('click', function() {
-                const menu = document.getElementById('mobileMenu');
-                const btn = document.querySelector('.mobile-menu-btn i');
-                
-                if (menu && menu.classList.contains('active')) {
-                    menu.classList.remove('active');
-                    menu.style.display = 'none';
-                }
-                
-                if (btn) {
-                    btn.className = 'fas fa-bars';
-                }
-            });
-        });
-
-        // Close dropdowns when clicking navigation links
-        document.addEventListener('click', function(e) {
-            // Check if clicked element is a dropdown link that navigates to another page
-            if (e.target.matches('.dropdown-link') && e.target.getAttribute('href') && !e.target.getAttribute('href').startsWith('#')) {
-                // Immediately close all dropdowns before navigation
-                document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.style.opacity = '0';
-                    dropdown.style.visibility = 'hidden';
-                    dropdown.style.transform = 'translateY(-10px)';
-                });
-            }
-        });
-
-        // Force close all dropdowns on any page load/navigation
-        window.addEventListener('pageshow', function() {
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.style.opacity = '0';
-                dropdown.style.visibility = 'hidden';
-                dropdown.style.transform = 'translateY(-10px)';
-            });
         });
 
         // Smooth scrolling for anchor links
