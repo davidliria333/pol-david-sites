@@ -385,7 +385,7 @@
         }
     </style>
 </head>
-<body>
+<body class="subpage">
     <!-- Header -->
         <!-- Header -->
     <header class="header" id="header">
@@ -744,6 +744,37 @@
         function toggleMobileMenu() {
 
         // FORCE CLOSE Mobile Menu - Direct approach
+
+        // AGGRESSIVE MOBILE MENU CLOSER - Execute immediately and continuously
+        (function() {
+            function forceCloseMobileMenu() {
+                const menu = document.getElementById('mobileMenu');
+                const btn = document.querySelector('.mobile-menu-btn i');
+                
+                if (menu) {
+                    menu.classList.remove('active');
+                    menu.style.display = 'none';
+                    menu.style.visibility = 'hidden';
+                    menu.style.opacity = '0';
+                }
+                
+                if (btn) {
+                    btn.className = 'fas fa-bars';
+                }
+            }
+            
+            // Execute immediately
+            forceCloseMobileMenu();
+            
+            // Execute on DOM ready
+            document.addEventListener('DOMContentLoaded', forceCloseMobileMenu);
+            
+            // Execute on window load
+            window.addEventListener('load', forceCloseMobileMenu);
+            
+            // Execute every 100ms to ensure menu stays closed
+            setInterval(forceCloseMobileMenu, 100);
+        })();
         function closeMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             const btn = document.querySelector('.mobile-menu-btn i');

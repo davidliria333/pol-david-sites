@@ -276,6 +276,11 @@
         .mobile-menu.active {
             display: block;
         }
+        
+        /* FORCE HIDE mobile menu on navigation pages */
+        body:not(.homepage) .mobile-menu {
+            display: none !important;
+        }
 
         .mobile-section {
             margin-bottom: 32px;
