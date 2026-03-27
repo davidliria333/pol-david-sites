@@ -22,6 +22,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        /* FORCE HIDE mobile menu on subpages */
+        body.subpage .mobile-menu {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+        
+        body.subpage .mobile-menu.active {
+            display: none !important;
+        }
         
         :root {
             /* Modern Color Palette */

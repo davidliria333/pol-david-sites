@@ -22,6 +22,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
+        /* FORCE HIDE mobile menu on subpages */
+        body.subpage .mobile-menu {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+        
+        body.subpage .mobile-menu.active {
+            display: none !important;
+        }
         :root {
             /* Modern Color Palette */
             --primary: #0a0a0a;
