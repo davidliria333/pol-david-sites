@@ -633,27 +633,27 @@
             <div class="mobile-section">
                 <div class="mobile-section-title">Plataforma</div>
                 <div class="mobile-links">
-                    <a href="como-funciona.html" class="mobile-link">Cómo Funciona</a>
-                    <a href="metodologias.html" class="mobile-link">Metodologías</a>
+                    <a href="como-funciona.html" class="mobile-link" onclick="closeMobileMenu()">Cómo Funciona</a>
+                    <a href="metodologias.html" class="mobile-link" onclick="closeMobileMenu()">Metodologías</a>
                 </div>
             </div>
             
             <div class="mobile-section">
                 <div class="mobile-section-title">Industrias</div>
                 <div class="mobile-links">
-                    <a href="legal.html" class="mobile-link">Servicios Legales</a>
-                    <a href="consultoria.html" class="mobile-link">Consultoría</a>
-                    <a href="auditoria.html" class="mobile-link">Auditoría</a>
-                    <a href="finanzas.html" class="mobile-link">Finanzas</a>
+                    <a href="legal.html" class="mobile-link" onclick="closeMobileMenu()">Servicios Legales</a>
+                    <a href="consultoria.html" class="mobile-link" onclick="closeMobileMenu()">Consultoría</a>
+                    <a href="auditoria.html" class="mobile-link" onclick="closeMobileMenu()">Auditoría</a>
+                    <a href="finanzas.html" class="mobile-link" onclick="closeMobileMenu()">Finanzas</a>
                 </div>
             </div>
             
             <div class="mobile-section">
                 <div class="mobile-section-title">Recursos</div>
                 <div class="mobile-links">
-                    <a href="blog.html" class="mobile-link">Blog</a>
-                    <a href="estudios-caso.html" class="mobile-link">Estudios de Caso</a>
-                    <a href="seguridad.html" class="mobile-link">Seguridad</a>
+                    <a href="blog.html" class="mobile-link" onclick="closeMobileMenu()">Blog</a>
+                    <a href="estudios-caso.html" class="mobile-link" onclick="closeMobileMenu()">Estudios de Caso</a>
+                    <a href="seguridad.html" class="mobile-link" onclick="closeMobileMenu()">Seguridad</a>
                 </div>
             </div>
             
@@ -986,6 +986,24 @@
     <script>
         // Mobile Menu Toggle
         function toggleMobileMenu() {
+
+        // FORCE CLOSE Mobile Menu - Direct approach
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn i');
+            
+            if (menu) {
+                menu.classList.remove('active');
+                menu.style.display = 'none';
+                setTimeout(() => {
+                    menu.style.display = '';
+                }, 500);
+            }
+            
+            if (btn) {
+                btn.className = 'fas fa-bars';
+            }
+        }
             const menu = document.getElementById('mobileMenu');
             const btn = document.querySelector('.mobile-menu-btn i');
             
