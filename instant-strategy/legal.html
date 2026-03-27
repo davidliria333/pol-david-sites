@@ -1142,24 +1142,20 @@
             }
         });
 
-        // Close all dropdowns function
-        function closeAllDropdowns() {
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.style.opacity = '0';
-                dropdown.style.visibility = 'hidden';
-                dropdown.style.transform = 'translateY(-10px)';
-            });
-        }
-
-        // Force close dropdowns on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            closeAllDropdowns();
-        });
-
-        // Close dropdowns when clicking dropdown links (navigation)
+        // Close dropdowns only when navigating to other pages
         document.querySelectorAll('.dropdown-link').forEach(link => {
-            link.addEventListener('click', function() {
-                closeAllDropdowns();
+            link.addEventListener('click', function(e) {
+                // Only close if it's actually a navigation link (not a # anchor)
+                if (this.getAttribute('href') && !this.getAttribute('href').startsWith('#')) {
+                    // Let the navigation happen naturally
+                    setTimeout(function() {
+                        document.querySelectorAll('.dropdown').forEach(dropdown => {
+                            dropdown.style.opacity = '0';
+                            dropdown.style.visibility = 'hidden';
+                            dropdown.style.transform = 'translateY(-10px)';
+                        });
+                    }, 50);
+                }
             });
         });
 
