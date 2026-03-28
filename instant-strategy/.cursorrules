@@ -1,0 +1,26 @@
+# AnalitikAI Website
+
+## About the Business
+AnalitikAI is a premium AI consulting service for professional services firms (law firms, consulting firms, accounting/audit firms, marketing agencies, financial services). Based in Spain, targeting Spanish-speaking B2B clients.
+
+**What we do:** We deliver research, analysis and reports that normally take consultants 2-4 weeks — in 48 hours. Using AI tools intelligently combined with human expertise. Think of us as an outsourced research department powered by AI.
+
+**Target clients:** Partners and directors at law firms, Big 4-style consultancies, boutique advisory firms, marketing agencies. People who bill €200-500/hour and waste time on research.
+
+**Tone:** Premium, trustworthy, confident but not arrogant. Like McKinsey meets a modern tech startup. Professional Spanish (Spain, not LATAM).
+
+**Key differentiator:** We're not selling software. We're selling a service. You send us a brief, we deliver a finished report. No learning curve, no onboarding, no dashboards.
+
+## Design Principles
+- This must look like a $100K custom-built website
+- DO NOT make it look AI-generated (no generic gradients, no stock-photo feel)
+- Think: Linear.app, Stripe.com, Vercel.com level of design craft
+- Clean, spacious, typographically excellent
+- Subtle animations (fade-in on scroll, smooth transitions)
+- Dark mode or sophisticated color palette (not generic blue/white)
+- Custom-feeling (not template-looking)
+- Mobile-first, responsive perfection
+- Fast loading (single HTML, embedded CSS, minimal JS)
+
+## CTA
+Main booking link: https://cal.com/analitikai/demo
