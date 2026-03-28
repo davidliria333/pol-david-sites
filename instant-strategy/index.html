@@ -1,443 +1,705 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnalitikAI — Investigación y análisis con IA para firmas profesionales</title>
-    <meta name="description" content="Investigación y análisis potenciado por IA para despachos de abogados, consultoras, firmas de contabilidad y agencias de marketing.">
+    <title>Analitikai — Private AI Implementation for Professional Services</title>
+    <meta name="description" content="Get your own private AI system implemented across all departments in 1 week. Custom automation for law firms, consultancies, audit firms, and advisory practices.">
+    <meta name="keywords" content="AI implementation, private AI, professional services, law firm AI, consulting AI, audit automation, advisory AI">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://analitik.ai/">
+    <meta property="og:title" content="Analitikai — Private AI Implementation for Professional Services">
+    <meta property="og:description" content="Get your own private AI system implemented across all departments in 1 week.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://analitik.ai/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Analitikai — Private AI Implementation for Professional Services">
+    <meta name="twitter:description" content="Get your own private AI system implemented across all departments in 1 week.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"Analitikai","url":"https://analitik.ai","description":"AI implementation consultancy for professional services firms.","contactPoint":{"@type":"ContactPoint","email":"pol.ruiz@retenpro.com","contactType":"sales"}}
+    </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1a1a1a;
-            background: #fff;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --text: #0f172a;
+            --text-s: #475569;
+            --text-m: #94a3b8;
+            --primary: #0f172a;
+            --primary-h: #1e293b;
+            --accent: #0f766e;
+            --radius: 12px;
+            --shadow-s: 0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+            --shadow-m: 0 4px 6px -1px rgba(0,0,0,0.07),0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-l: 0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -4px rgba(0,0,0,0.04);
         }
-        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-        a { color: inherit; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+        ul{list-style:none}
+        img{max-width:100%;display:block}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-        /* Nav */
-        nav {
-            padding: 24px 0;
-            border-bottom: 1px solid #eee;
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-        .nav-cta {
-            font-size: 0.9rem;
-            color: #555;
-            text-decoration: none;
-        }
-        .nav-cta:hover { color: #1a1a1a; }
+        .scroll-bar{position:fixed;top:0;left:0;height:2px;background:var(--primary);z-index:9999;width:0;transition:width .1s linear}
 
-        /* Sections */
-        section { padding: 80px 0; }
-        
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 24px;
-        }
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1.25;
-            letter-spacing: -0.8px;
-            margin-bottom: 20px;
-        }
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        p {
-            font-size: 1.05rem;
-            color: #444;
-            margin-bottom: 16px;
-        }
-        .subtitle {
-            font-size: 1.15rem;
-            color: #666;
-            max-width: 540px;
-        }
+        /* HEADER */
+        .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .3s}
+        .hdr.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+        .hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+        .logo{font-weight:800;font-size:1.2rem;letter-spacing:-.5px;color:var(--text)}
+        .nav-l{display:flex;align-items:center;gap:28px}
+        .nav-l a{font-size:.875rem;font-weight:450;color:var(--text-s);transition:color .2s;position:relative}
+        .nav-l a:hover{color:var(--text)}
+        .nav-l a.active{color:var(--text)}
+        .nav-l a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--primary);border-radius:1px}
+        .nav-r{display:flex;align-items:center;gap:12px;flex-shrink:0}
+        .lang-t{display:flex;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+        .lang-t button{background:none;border:none;font-size:.78rem;font-weight:600;padding:5px 11px;cursor:pointer;color:var(--text-m);font-family:inherit;transition:all .2s}
+        .lang-t button.active{background:var(--primary);color:#fff}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.875rem;font-family:inherit;border:none;cursor:pointer;transition:all .2s;text-decoration:none;white-space:nowrap}
+        .btn:active{transform:scale(.97)}
+        .btn-p{background:var(--primary);color:#fff}
+        .btn-p:hover{background:var(--primary-h);box-shadow:var(--shadow-m)}
+        .btn-s{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+        .btn-s:hover{border-color:var(--border-hover);background:var(--bg-alt)}
+        .btn-lg{padding:14px 28px;font-size:.95rem;border-radius:12px}
+        .btn-txt{background:none;color:var(--text-s);font-weight:500;padding:10px 4px}
+        .btn-txt:hover{color:var(--text)}
+        .btn-txt svg{transition:transform .2s}
+        .btn-txt:hover svg{transform:translateX(3px)}
+        .menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:8px}
+        .mob-nav{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);z-index:999;padding:24px;flex-direction:column;gap:4px}
+        .mob-nav.open{display:flex}
+        .mob-nav a{font-size:1.05rem;font-weight:500;color:var(--text-s);padding:14px 0;border-bottom:1px solid var(--border)}
+        .mob-nav a:hover{color:var(--text)}
 
-        /* Hero */
-        .hero { padding: 120px 0 80px; }
-        .hero h1 { max-width: 600px; }
+        /* HERO */
+        .hero{padding:140px 0 100px;text-align:center;position:relative;background:var(--bg)}
+        .hero .container{position:relative;z-index:1}
+        .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:100px;padding:5px 16px 5px 7px;font-size:.78rem;font-weight:500;color:var(--text-s);margin-bottom:28px;background:var(--bg)}
+        .badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:blink 2s ease-in-out infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .hero h1{font-size:clamp(2.4rem,5.5vw,3.75rem);font-weight:800;line-height:1.08;letter-spacing:-2.5px;margin-bottom:20px;max-width:780px;margin-left:auto;margin-right:auto;color:var(--text)}
+        .hero-sub{font-size:1.15rem;color:var(--text-s);max-width:540px;margin:0 auto 36px;line-height:1.7}
+        .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+        .hero-proof{display:flex;align-items:center;justify-content:center;gap:40px;margin-top:56px;flex-wrap:wrap}
+        .proof-i{text-align:center}
+        .proof-val{font-size:1.5rem;font-weight:700;letter-spacing:-.5px;color:var(--text)}
+        .proof-lbl{font-size:.78rem;color:var(--text-m);margin-top:2px}
 
-        /* Problem */
-        .problem { border-top: 1px solid #eee; }
-        .problem p { max-width: 580px; }
+        /* SECTIONS */
+        section{padding:100px 0;position:relative}
+        .bg-alt{background:var(--bg-alt)}
+        .s-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:12px}
+        .s-title{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-1.5px;line-height:1.15;margin-bottom:12px}
+        .s-desc{font-size:1.05rem;color:var(--text-s);max-width:520px;line-height:1.7}
+        .s-header{text-align:center;margin-bottom:56px}
+        .s-header .s-desc{margin-left:auto;margin-right:auto}
 
-        /* Steps */
-        .steps { border-top: 1px solid #eee; }
-        .step {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 48px;
-            align-items: flex-start;
-        }
-        .step:last-child { margin-bottom: 0; }
-        .step-number {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            background: #1a1a1a;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-top: 2px;
-        }
-        .step-content h3 { margin-bottom: 6px; }
-        .step-content p { margin-bottom: 0; color: #555; }
+        /* USE CASES */
+        .uc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+        .uc-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s;display:flex;flex-direction:column}
+        .uc-card:hover{border-color:var(--border-hover);box-shadow:var(--shadow-m);transform:translateY(-3px)}
+        .uc-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:var(--bg-alt)}
+        .uc-icon svg{width:22px;height:22px;color:var(--text)}
+        .uc-card h3{font-size:1.15rem;font-weight:600;letter-spacing:-.3px;margin-bottom:6px}
+        .uc-card>p{font-size:.9rem;color:var(--text-s);margin-bottom:18px;line-height:1.6;flex:1}
+        .uc-feats li{font-size:.85rem;color:var(--text-s);display:flex;align-items:center;gap:8px;padding:3px 0}
+        .uc-feats li::before{content:'';width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
+        .uc-card .uc-link{display:inline-flex;align-items:center;gap:4px;font-size:.85rem;font-weight:500;color:var(--text);margin-top:16px;transition:gap .2s}
+        .uc-card:hover .uc-link{gap:8px}
 
-        /* Pricing */
-        .pricing { border-top: 1px solid #eee; }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-top: 40px;
-        }
-        .pricing-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 36px;
-            position: relative;
-            transition: border-color 0.2s;
-        }
-        .pricing-card:hover { border-color: #999; }
-        .pricing-card.recommended {
-            border: 2px solid #1a1a1a;
-        }
-        .badge {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
-        .pricing-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 4px;
-        }
-        .pricing-card .desc {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-        .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 4px;
-        }
-        .price-note {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 24px;
-        }
-        .features {
-            list-style: none;
-            margin-bottom: 28px;
-        }
-        .features li {
-            padding: 6px 0;
-            font-size: 0.95rem;
-            color: #444;
-        }
-        .features li::before {
-            content: "✓ ";
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-        .guarantee {
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
-            margin-bottom: 24px;
-        }
-        .btn {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background 0.2s;
-        }
-        .btn:hover { background: #333; }
-        .btn-outline {
-            background: transparent;
-            color: #1a1a1a;
-            border: 1px solid #ccc;
-        }
-        .btn-outline:hover { background: #f5f5f5; }
+        /* HOW IT WORKS */
+        .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .step{text-align:center;position:relative}
+        .step-n{width:56px;height:56px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.15rem;font-weight:700;color:var(--text);transition:all .3s;background:var(--bg)}
+        .step:hover .step-n{border-color:var(--primary);background:var(--primary);color:#fff}
+        .step-tag{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:8px;display:block}
+        .step h3{font-size:1.05rem;font-weight:600;margin-bottom:8px;letter-spacing:-.2px}
+        .step p{font-size:.88rem;color:var(--text-s);line-height:1.6}
+        .steps-cta{text-align:center;margin-top:48px}
 
-        /* About */
-        .about { border-top: 1px solid #eee; }
-        .about p { max-width: 580px; }
+        /* TESTIMONIALS */
+        .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .test-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s}
+        .test-card:hover{box-shadow:var(--shadow-m);transform:translateY(-2px)}
+        .test-quote{font-size:.95rem;color:var(--text-s);line-height:1.7;margin-bottom:20px;position:relative;padding-top:24px}
+        .test-quote::before{content:'\201C';position:absolute;top:-4px;left:0;font-size:2.5rem;color:var(--border);font-family:Georgia,serif;line-height:1}
+        .test-name{font-size:.9rem;font-weight:600;color:var(--text)}
+        .test-role{font-size:.8rem;color:var(--text-m);margin-top:2px}
+        .test-metric{display:inline-flex;align-items:center;gap:6px;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--accent);margin-top:12px}
+
+        /* PRICING */
+        .pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+        .pr-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px 28px;transition:all .3s}
+        .pr-card:hover{box-shadow:var(--shadow-m)}
+        .pr-card.feat{border:2px solid var(--primary);position:relative}
+        .pr-badge{display:inline-block;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#fff;background:var(--primary);padding:4px 10px;border-radius:6px;margin-bottom:16px}
+        .pr-card h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;letter-spacing:-.3px}
+        .pr-card .pr-desc{font-size:.88rem;color:var(--text-s);margin-bottom:20px}
+        .pr-price{font-size:2.5rem;font-weight:800;letter-spacing:-2px;margin-bottom:2px}
+        .pr-price span{font-size:.9rem;font-weight:400;color:var(--text-m);letter-spacing:0}
+        .pr-note{font-size:.8rem;color:var(--text-m);margin-bottom:24px}
+        .pr-feats{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+        .pr-feats li{font-size:.88rem;color:var(--text-s);display:flex;align-items:flex-start;gap:8px}
+        .pr-feats li svg{flex-shrink:0;margin-top:3px;color:var(--accent)}
+        .pr-guar{font-size:.8rem;color:var(--text-m);font-style:italic;margin-bottom:20px}
+        .pr-card .btn{width:100%}
+
+        /* TEAM */
+        .team-lay{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+        .team-txt .s-label,.team-txt .s-title,.team-txt .s-desc{text-align:left}
+        .team-txt .s-desc{max-width:none;margin-bottom:28px}
+        .team-creds{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .team-cred{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;transition:all .3s}
+        .team-cred:hover{border-color:var(--border-hover);box-shadow:var(--shadow-s)}
+        .team-cred h4{font-size:.88rem;font-weight:600;margin-bottom:3px}
+        .team-cred p{font-size:.8rem;color:var(--text-m);line-height:1.5}
+        .team-locs{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+        .team-loc{font-size:.8rem;color:var(--text-s);background:var(--bg-alt);border:1px solid var(--border);border-radius:100px;padding:5px 12px}
+        .team-vis{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .team-stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;transition:all .3s}
+        .team-stat:hover{box-shadow:var(--shadow-s);transform:translateY(-2px)}
+        .team-stat:first-child{grid-column:span 2}
+        .team-stat-v{font-size:1.7rem;font-weight:800;letter-spacing:-1px;color:var(--text);margin-bottom:4px}
+        .team-stat-l{font-size:.82rem;color:var(--text-m)}
 
         /* FAQ */
-        .faq { border-top: 1px solid #eee; }
-        .faq-item {
-            border-bottom: 1px solid #eee;
-            padding: 24px 0;
-        }
-        .faq-item summary {
-            font-weight: 600;
-            font-size: 1.05rem;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-item summary::after {
-            content: "+";
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: #888;
-            transition: transform 0.2s;
-        }
-        .faq-item[open] summary::after {
-            content: "−";
-        }
-        .faq-item p {
-            margin-top: 12px;
-            font-size: 0.95rem;
-            color: #555;
-        }
+        .faq-list{max-width:680px;margin:0 auto}
+        .faq-i{border-bottom:1px solid var(--border)}
+        .faq-q{width:100%;background:none;border:none;text-align:left;font-size:1rem;font-weight:500;color:var(--text);padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:16px;transition:color .2s}
+        .faq-q:hover{color:var(--accent)}
+        .faq-q .faq-icon{width:20px;height:20px;flex-shrink:0;transition:transform .3s;color:var(--text-m)}
+        .faq-i.open .faq-q .faq-icon{transform:rotate(45deg)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .faq-a-inner{padding-bottom:20px;font-size:.92rem;color:var(--text-s);line-height:1.7;max-width:600px}
 
-        /* Footer CTA */
-        .footer-cta {
-            border-top: 1px solid #eee;
-            text-align: center;
-            padding: 100px 0;
-        }
-        .footer-cta h2 { margin-bottom: 16px; }
-        .footer-cta p { margin-bottom: 32px; color: #666; }
+        /* FINAL CTA */
+        .f-cta{text-align:center;padding:100px 0}
+        .f-cta .s-desc{margin:0 auto 36px}
+        .f-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-        /* Footer */
-        footer {
-            border-top: 1px solid #eee;
-            padding: 32px 0;
-            text-align: center;
-            color: #999;
-            font-size: 0.85rem;
-        }
+        /* FOOTER */
+        .footer{background:var(--primary);color:#fff;padding:56px 0 28px}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .ft-brand .logo{color:#fff;margin-bottom:10px;display:block}
+        .ft-brand p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:260px;line-height:1.6}
+        .ft-col h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-bottom:14px}
+        .ft-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.65);padding:4px 0;transition:color .2s}
+        .ft-col a:hover{color:#fff}
+        .ft-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center}
+        .ft-bottom p{font-size:.8rem;color:rgba(255,255,255,.35)}
+        .ft-bottom .lang-t{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+        .ft-bottom .lang-t button{color:rgba(255,255,255,.4)}
+        .ft-bottom .lang-t button.active{background:rgba(255,255,255,.15);color:#fff}
 
-        /* Responsive */
-        @media (min-width: 768px) {
-            .pricing-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            h1 { font-size: 3.2rem; }
+        /* ANIMATIONS */
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .reveal.vis{opacity:1;transform:translateY(0)}
+        .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
+
+        /* CHECK ICON */
+        .ck{width:16px;height:16px}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .nav-l{display:none}.menu-btn{display:block}
+            .uc-grid{grid-template-columns:1fr 1fr}
+            .steps{grid-template-columns:1fr 1fr;gap:28px}
+            .pr-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+            .team-lay{grid-template-columns:1fr;gap:40px}
+            .test-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+            .ft-grid{grid-template-columns:1fr 1fr;gap:28px}
         }
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.4rem; }
-            section { padding: 60px 0; }
-            .hero { padding: 80px 0 60px; }
-            .pricing-card { padding: 28px; }
+        @media(max-width:640px){
+            section{padding:72px 0}
+            .hero{padding:110px 0 72px}
+            .uc-grid{grid-template-columns:1fr}
+            .steps{grid-template-columns:1fr}
+            .team-creds{grid-template-columns:1fr}
+            .team-vis{grid-template-columns:1fr}
+            .team-stat:first-child{grid-column:span 1}
+            .hero-proof{gap:20px}
+            .hero-ctas{flex-direction:column;align-items:center}
+            .f-cta-btns{flex-direction:column;align-items:center}
+            .ft-grid{grid-template-columns:1fr;gap:20px}
+            .ft-bottom{flex-direction:column;gap:12px;text-align:center}
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="container">
-        <a href="/" class="logo">AnalitikAI</a>
-        <a href="https://cal.com/analitikai/demo" class="nav-cta">Reserva una llamada →</a>
-    </div>
-</nav>
+<div class="scroll-bar" id="scrollBar"></div>
 
+<header class="hdr" id="hdr">
+    <div class="hdr-inner">
+        <a href="#" class="logo">Analitikai</a>
+        <nav class="nav-l" id="navLinks">
+            <a href="#use-cases" data-i18n="nav.uc">Use Cases</a>
+            <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+            <a href="#pricing" data-i18n="nav.pr">Pricing</a>
+            <a href="#team" data-i18n="nav.team">Team</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-r">
+            <div class="lang-t"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+    </div>
+</header>
+
+<div class="mob-nav" id="mobNav">
+    <a href="#use-cases" data-i18n="nav.uc">Use Cases</a>
+    <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+    <a href="#pricing" data-i18n="nav.pr">Pricing</a>
+    <a href="#team" data-i18n="nav.team">Team</a>
+    <a href="#faq">FAQ</a>
+    <div class="lang-t" style="margin-top:12px;align-self:flex-start"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
+    <a href="https://cal.com/analitikai/demo" class="btn btn-p" style="margin-top:8px;text-align:center" data-i18n="nav.cta">Book a Call</a>
+</div>
+
+<main>
+
+<!-- HERO -->
 <section class="hero">
     <div class="container">
-        <h1>Tu equipo pierde horas investigando. Nosotros lo hacemos en minutos.</h1>
-        <p class="subtitle">Investigación y análisis con IA para despachos de abogados, consultoras, firmas de contabilidad y agencias de marketing.</p>
-    </div>
-</section>
-
-<section class="problem">
-    <div class="container">
-        <h2>Todos te venden IA.<br>Nadie entiende cómo trabajas realmente.</h2>
-        <p>Mil herramientas. Mil promesas. Y ninguna empieza por entender tu día a día: los informes que preparas, las fuentes que consultas, los plazos que cumples.</p>
-        <p>No necesitas otra suscripción a un software genérico. Necesitas a alguien que se siente contigo, entienda tu flujo de trabajo, y monte algo que de verdad funcione.</p>
-    </div>
-</section>
-
-<section class="steps">
-    <div class="container">
-        <h2>Cómo funciona</h2>
-        <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <h3>Escuchamos</h3>
-                <p>30 minutos. Nos cuentas qué investigas, qué analizas, y dónde se va el tiempo. Nosotros te decimos exactamente qué podemos automatizar.</p>
-            </div>
+        <div class="badge reveal"><div class="badge-dot"></div><span data-i18n="hero.badge">Full implementation in 1 week</span></div>
+        <h1 class="reveal reveal-d1" data-i18n="hero.h1">The implementation partner your firm has been looking for.</h1>
+        <p class="hero-sub reveal reveal-d2" data-i18n="hero.sub">We install private AI systems across all your departments. Automate repetitive work, save hours daily, and scale without hiring.</p>
+        <div class="hero-ctas reveal reveal-d3">
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg" data-i18n="hero.cta3">Watch Demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
-        <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <h3>Construimos</h3>
-                <p>Diseñamos agentes de IA a medida para tu firma: research automatizado, análisis de documentos, monitorización de fuentes, informes generados. Todo adaptado a tu sector.</p>
-            </div>
-        </div>
-        <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <h3>Entregamos</h3>
-                <p>Tu equipo empieza a usarlo. Nosotros nos quedamos 30 días para ajustar, optimizar y asegurar que funciona. Después, seguimos a una llamada de distancia.</p>
-            </div>
+        <div class="hero-proof reveal reveal-d4">
+            <div class="proof-i"><div class="proof-val" data-i18n="hero.p1v">1 Week</div><div class="proof-lbl" data-i18n="hero.p1l">Setup to impact</div></div>
+            <div class="proof-i"><div class="proof-val" data-i18n="hero.p2v">Private</div><div class="proof-lbl" data-i18n="hero.p2l">Data never leaves your systems</div></div>
+            <div class="proof-i"><div class="proof-val" data-i18n="hero.p3v">All Depts</div><div class="proof-lbl" data-i18n="hero.p3l">End-to-end coverage</div></div>
         </div>
     </div>
 </section>
 
-<section class="pricing">
+<!-- USE CASES -->
+<section id="use-cases" class="bg-alt">
     <div class="container">
-        <h2>Precios</h2>
-        <p>Sin letra pequeña. Si no estás satisfecho, te devolvemos el dinero.</p>
-        <div class="pricing-grid">
-
-            <div class="pricing-card">
-                <h3>Piloto</h3>
-                <p class="desc">Un caso de uso, resultados reales</p>
-                <div class="price">1.500 €</div>
-                <p class="price-note">pago único</p>
-                <ul class="features">
-                    <li>Auditoría de tu flujo de trabajo actual</li>
-                    <li>1 agente de IA configurado a medida</li>
-                    <li>Integración con tus herramientas existentes</li>
-                    <li>Formación para tu equipo</li>
-                    <li>14 días de soporte y ajustes</li>
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="uc.label">Industries</p>
+            <h2 class="s-title" data-i18n="uc.title">Built for professional services</h2>
+            <p class="s-desc" data-i18n="uc.desc">Every system is custom-built for your workflows. We specialize in firms where time is money.</p>
+        </div>
+        <div class="uc-grid">
+            <a href="bufetes.html" class="uc-card reveal">
+                <div class="uc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3L1 9l11 6 9-4.91V17M5 13.18v4L12 21l7-3.82v-4"/></svg></div>
+                <h3 data-i18n="uc.law.t">Law Firms</h3>
+                <p data-i18n="uc.law.d">Document automation, case research, precedent analysis, and client communication workflows.</p>
+                <ul class="uc-feats">
+                    <li data-i18n="uc.law.f1">Automated document drafting</li>
+                    <li data-i18n="uc.law.f2">Case research &amp; precedents</li>
+                    <li data-i18n="uc.law.f3">Contract review &amp; due diligence</li>
                 </ul>
-                <p class="guarantee">Garantía: si no ves resultados, te devolvemos el dinero.</p>
-                <a href="https://cal.com/analitikai/demo" class="btn btn-outline">Reserva una llamada</a>
-            </div>
-
-            <div class="pricing-card recommended">
-                <span class="badge">Recomendado</span>
-                <h3>Implementación</h3>
-                <p class="desc">Tu departamento de research, potenciado</p>
-                <div class="price">3.500 €</div>
-                <p class="price-note">pago único</p>
-                <ul class="features">
-                    <li>Todo lo del Piloto, más:</li>
-                    <li>Hasta 3 agentes de IA especializados</li>
-                    <li>Automatización de informes y reporting</li>
-                    <li>Monitorización continua de fuentes</li>
-                    <li>Dashboard personalizado</li>
-                    <li>30 días de soporte prioritario</li>
+                <span class="uc-link" data-i18n="uc.more">Learn more &rarr;</span>
+            </a>
+            <a href="consultoras.html" class="uc-card reveal reveal-d1">
+                <div class="uc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+                <h3 data-i18n="uc.strat.t">Strategy Consultancies</h3>
+                <p data-i18n="uc.strat.d">Research automation, market analysis, proposal generation, and data synthesis for faster client delivery.</p>
+                <ul class="uc-feats">
+                    <li data-i18n="uc.strat.f1">Market research automation</li>
+                    <li data-i18n="uc.strat.f2">Proposal &amp; report generation</li>
+                    <li data-i18n="uc.strat.f3">Competitor analysis</li>
                 </ul>
-                <p class="guarantee">Garantía: si no ves resultados, te devolvemos el dinero.</p>
-                <a href="https://cal.com/analitikai/demo" class="btn">Reserva una llamada</a>
-            </div>
-
-            <div class="pricing-card">
-                <h3>Continuo</h3>
-                <p class="desc">Nos encargamos de todo, siempre</p>
-                <div class="price">800 €<span style="font-size:1rem;font-weight:400;color:#888">/mes</span></div>
-                <p class="price-note">incluye implementación inicial</p>
-                <ul class="features">
-                    <li>Implementación completa incluida</li>
-                    <li>Canal de Slack/WhatsApp dedicado</li>
-                    <li>Nuevos agentes según necesites</li>
-                    <li>Actualizaciones cuando salen mejores modelos</li>
-                    <li>Tu sistema evoluciona con tu negocio</li>
-                    <li>No vuelves a pensar en ello</li>
+                <span class="uc-link" data-i18n="uc.more">Learn more &rarr;</span>
+            </a>
+            <a href="auditorias.html" class="uc-card reveal reveal-d2">
+                <div class="uc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+                <h3 data-i18n="uc.audit.t">Audit Firms</h3>
+                <p data-i18n="uc.audit.d">Compliance checking, risk analysis, automated report generation, and regulatory change tracking.</p>
+                <ul class="uc-feats">
+                    <li data-i18n="uc.audit.f1">Compliance monitoring</li>
+                    <li data-i18n="uc.audit.f2">Automated report generation</li>
+                    <li data-i18n="uc.audit.f3">Risk assessment</li>
                 </ul>
-                <p class="guarantee">Sin permanencia. Cancela cuando quieras.</p>
-                <a href="https://cal.com/analitikai/demo" class="btn btn-outline">Reserva una llamada</a>
-            </div>
-
+                <span class="uc-link" data-i18n="uc.more">Learn more &rarr;</span>
+            </a>
+            <a href="advisory.html" class="uc-card reveal reveal-d3">
+                <div class="uc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><path d="M9 21h6"/><path d="M10 17v4"/><path d="M14 17v4"/></svg></div>
+                <h3 data-i18n="uc.adv.t">Advisory Practices</h3>
+                <p data-i18n="uc.adv.d">Client onboarding automation, analysis workflows, reporting dashboards, and knowledge management.</p>
+                <ul class="uc-feats">
+                    <li data-i18n="uc.adv.f1">Client onboarding automation</li>
+                    <li data-i18n="uc.adv.f2">Analysis &amp; modeling</li>
+                    <li data-i18n="uc.adv.f3">Automated dashboards</li>
+                </ul>
+                <span class="uc-link" data-i18n="uc.more">Learn more &rarr;</span>
+            </a>
         </div>
     </div>
 </section>
 
-<section class="about">
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
     <div class="container">
-        <h2>¿Quién está detrás?</h2>
-        <p>Somos un equipo pequeño especializado en IA aplicada a servicios profesionales. No vendemos software genérico: nos sentamos con cada cliente, entendemos su negocio, y construimos soluciones que funcionan desde el primer día.</p>
-        <p>Hemos trabajado con despachos de abogados, consultoras estratégicas y agencias de marketing. Sabemos que cada firma es diferente — por eso cada proyecto empieza con una conversación, no con un formulario.</p>
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="how.label">Process</p>
+            <h2 class="s-title" data-i18n="how.title">From zero to AI-powered in 1 week</h2>
+            <p class="s-desc" data-i18n="how.desc">A proven process that gets your team running fast — without disrupting operations.</p>
+        </div>
+        <div class="steps">
+            <div class="step reveal">
+                <div class="step-n">1</div>
+                <span class="step-tag" data-i18n="how.s1tag">Day 1</span>
+                <h3 data-i18n="how.s1t">Analysis</h3>
+                <p data-i18n="how.s1d">We audit your workflows and identify every automation opportunity across all departments.</p>
+            </div>
+            <div class="step reveal reveal-d1">
+                <div class="step-n">2</div>
+                <span class="step-tag" data-i18n="how.s2tag">Day 2-3</span>
+                <h3 data-i18n="how.s2t">Setup</h3>
+                <p data-i18n="how.s2d">We install your private AI system and connect it to all your existing tools.</p>
+            </div>
+            <div class="step reveal reveal-d2">
+                <div class="step-n">3</div>
+                <span class="step-tag" data-i18n="how.s3tag">Day 4-5</span>
+                <h3 data-i18n="how.s3t">Implementation</h3>
+                <p data-i18n="how.s3d">Custom workflows built for each department. Your team starts using them immediately.</p>
+            </div>
+            <div class="step reveal reveal-d3">
+                <div class="step-n">4</div>
+                <span class="step-tag" data-i18n="how.s4tag">Ongoing</span>
+                <h3 data-i18n="how.s4t">Support</h3>
+                <p data-i18n="how.s4d">Your system is yours. We provide ongoing support and updates as your business evolves.</p>
+            </div>
+        </div>
+        <div class="steps-cta reveal">
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="how.cta">Start Your Implementation</a>
+        </div>
     </div>
 </section>
 
-<section class="faq">
+<!-- TESTIMONIALS -->
+<section class="bg-alt">
     <div class="container">
-        <h2>Preguntas frecuentes</h2>
-
-        <details class="faq-item">
-            <summary>¿Para quién es esto?</summary>
-            <p>Para firmas de servicios profesionales — despachos de abogados, consultoras, firmas de contabilidad, agencias de marketing — que pierden horas en investigación, análisis y reporting que podría automatizarse. Si tu equipo dedica tiempo a buscar información, cruzar datos o preparar informes, podemos ayudar.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Necesito saber de tecnología o IA?</summary>
-            <p>No. Ese es el punto. Nosotros nos encargamos de la parte técnica. Tú solo nos cuentas qué tareas te quitan tiempo y nosotros diseñamos la solución. La mayoría de nuestros clientes nunca han configurado una herramienta de IA.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Cuánto tiempo tarda en estar listo?</summary>
-            <p>Un piloto suele estar operativo en 1-2 semanas. Una implementación completa, 3-4 semanas. Depende de la complejidad, pero siempre empezamos a entregar valor desde la primera semana.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Mis datos están seguros?</summary>
-            <p>Absolutamente. Trabajamos con información confidencial de despachos y consultoras — la seguridad no es negociable. Cada herramienta solo tiene acceso a lo estrictamente necesario, los datos no se comparten con terceros, y te entregamos una auditoría de seguridad completa.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Qué pasa si no funciona?</summary>
-            <p>Te devolvemos el dinero. Así de simple. Preferimos un cliente honesto a uno insatisfecho. Si no ves resultados claros, no te cobramos.</p>
-        </details>
-
-        <details class="faq-item">
-            <summary>¿Puedo empezar con un solo caso de uso?</summary>
-            <p>Es lo que recomendamos. El plan Piloto está diseñado exactamente para eso: un caso de uso concreto, resultados medibles, y a partir de ahí decides si quieres escalar.</p>
-        </details>
-
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="test.label">Results</p>
+            <h2 class="s-title" data-i18n="test.title">What our clients say</h2>
+            <p class="s-desc" data-i18n="test.desc">Real results from professional services firms that implemented our systems.</p>
+        </div>
+        <div class="test-grid">
+            <div class="test-card reveal">
+                <p class="test-quote" data-i18n="test.q1">We were skeptical about AI in our firm. Within the first week, our associates were saving 3-4 hours daily on document review. The system paid for itself in the first month.</p>
+                <p class="test-name" data-i18n="test.n1">Alejandro Ruiz</p>
+                <p class="test-role" data-i18n="test.r1">Managing Partner, Ruiz &amp; Asociados</p>
+                <div class="test-metric" data-i18n="test.m1">&#9650; 3-4h saved daily per associate</div>
+            </div>
+            <div class="test-card reveal reveal-d1">
+                <p class="test-quote" data-i18n="test.q2">Proposal preparation that used to take 2 weeks now takes 3 days. And the quality is consistently higher. Best investment we made last year.</p>
+                <p class="test-name" data-i18n="test.n2">Laura Méndez</p>
+                <p class="test-role" data-i18n="test.r2">Director, Altius Consulting</p>
+                <div class="test-metric" data-i18n="test.m2">&#9650; 78% faster proposals</div>
+            </div>
+            <div class="test-card reveal reveal-d2">
+                <p class="test-quote" data-i18n="test.q3">The compliance system caught issues our team had been missing. We improved accuracy by 40% while cutting review time in half.</p>
+                <p class="test-name" data-i18n="test.n3">Miguel Herrera</p>
+                <p class="test-role" data-i18n="test.r3">Partner, Herrera Audit Group</p>
+                <div class="test-metric" data-i18n="test.m3">&#9650; 40% improved accuracy</div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="footer-cta">
+<!-- PRICING -->
+<section id="pricing">
     <div class="container">
-        <h2>¿Listo para dejar de perder tiempo?</h2>
-        <p>30 minutos. Sin compromiso. Te contamos exactamente qué podemos hacer por tu firma.</p>
-        <a href="https://cal.com/analitikai/demo" class="btn">Reserva una llamada de 30 min</a>
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="pr.label">Pricing</p>
+            <h2 class="s-title" data-i18n="pr.title">Simple, transparent pricing</h2>
+            <p class="s-desc" data-i18n="pr.desc">No hidden fees. Money-back guarantee if you don't see results.</p>
+        </div>
+        <div class="pr-grid">
+            <div class="pr-card reveal">
+                <h3 data-i18n="pr.t1.name">Pilot</h3>
+                <p class="pr-desc" data-i18n="pr.t1.desc">One use case, real results</p>
+                <div class="pr-price">1.500 &euro;</div>
+                <p class="pr-note" data-i18n="pr.t1.note">one-time payment</p>
+                <ul class="pr-feats">
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t1.f1">Full workflow audit</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t1.f2">1 custom AI agent</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t1.f3">Integration with existing tools</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t1.f4">Team training</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t1.f5">14 days support</span></li>
+                </ul>
+                <p class="pr-guar" data-i18n="pr.guar">Money-back guarantee if you don't see results.</p>
+                <a href="https://cal.com/analitikai/demo" class="btn btn-s" data-i18n="pr.cta">Book a Call</a>
+            </div>
+            <div class="pr-card feat reveal reveal-d1">
+                <span class="pr-badge" data-i18n="pr.t2.badge">Recommended</span>
+                <h3 data-i18n="pr.t2.name">Full Implementation</h3>
+                <p class="pr-desc" data-i18n="pr.t2.desc">Your entire team, AI-powered</p>
+                <div class="pr-price">3.500 &euro;</div>
+                <p class="pr-note" data-i18n="pr.t2.note">one-time payment</p>
+                <ul class="pr-feats">
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t2.f1">Everything in Pilot, plus:</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t2.f2">Up to 3 specialized AI agents</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t2.f3">Automated reports &amp; dashboards</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t2.f4">Source monitoring</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t2.f5">Custom dashboard</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t2.f6">30 days priority support</span></li>
+                </ul>
+                <p class="pr-guar" data-i18n="pr.guar">Money-back guarantee if you don't see results.</p>
+                <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="pr.cta">Book a Call</a>
+            </div>
+            <div class="pr-card reveal reveal-d2">
+                <h3 data-i18n="pr.t3.name">Ongoing</h3>
+                <p class="pr-desc" data-i18n="pr.t3.desc">We handle everything, always</p>
+                <div class="pr-price">800 &euro; <span data-i18n="pr.t3.per">/mo</span></div>
+                <p class="pr-note" data-i18n="pr.t3.note">initial setup included</p>
+                <ul class="pr-feats">
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t3.f1">Full implementation included</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t3.f2">Dedicated Slack/WhatsApp</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t3.f3">New agents as needed</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t3.f4">Updates with latest models</span></li>
+                    <li><svg class="ck" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pr.t3.f5">Evolves with your business</span></li>
+                </ul>
+                <p class="pr-guar" data-i18n="pr.nolock">No lock-in. Cancel anytime.</p>
+                <a href="https://cal.com/analitikai/demo" class="btn btn-s" data-i18n="pr.cta">Book a Call</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<footer>
+<!-- TEAM -->
+<section id="team" class="bg-alt">
     <div class="container">
-        <p>© 2025 AnalitikAI. Todos los derechos reservados.</p>
+        <div class="team-lay">
+            <div class="team-txt reveal">
+                <p class="s-label" data-i18n="tm.label">Our Team</p>
+                <h2 class="s-title" data-i18n="tm.title">Built by people who've done it before</h2>
+                <p class="s-desc" data-i18n="tm.desc">We're AI specialists, engineers, and operators who've built and scaled technology at the highest level. We don't just advise — we implement.</p>
+                <div class="team-creds">
+                    <div class="team-cred"><h4 data-i18n="tm.c1t">Ex-Startup Founders</h4><p data-i18n="tm.c1d">Founded &amp; exited. We know building from zero.</p></div>
+                    <div class="team-cred"><h4 data-i18n="tm.c2t">Ex-Amazon</h4><p data-i18n="tm.c2d">Enterprise systems at massive scale.</p></div>
+                    <div class="team-cred"><h4 data-i18n="tm.c3t">Ex-KPMG Consulting</h4><p data-i18n="tm.c3d">Deep professional services expertise.</p></div>
+                    <div class="team-cred"><h4 data-i18n="tm.c4t">AI Engineers</h4><p data-i18n="tm.c4d">Specialized in LLMs and applied AI.</p></div>
+                </div>
+                <div class="team-locs">
+                    <span class="team-loc" data-i18n="tm.l1">Silicon Valley</span>
+                    <span class="team-loc" data-i18n="tm.l2">Barcelona</span>
+                    <span class="team-loc" data-i18n="tm.l3">&amp; more</span>
+                </div>
+            </div>
+            <div class="team-vis reveal reveal-d2">
+                <div class="team-stat"><div class="team-stat-v" data-i18n="tm.sv1">End-to-End</div><div class="team-stat-l" data-i18n="tm.sl1">We build &amp; deliver, not just consult</div></div>
+                <div class="team-stat"><div class="team-stat-v" data-i18n="tm.sv2">1 Week</div><div class="team-stat-l" data-i18n="tm.sl2">Full implementation, not months</div></div>
+                <div class="team-stat"><div class="team-stat-v" data-i18n="tm.sv3">Private</div><div class="team-stat-l" data-i18n="tm.sl3">Your data never leaves your systems</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <div class="s-header reveal">
+            <p class="s-label">FAQ</p>
+            <h2 class="s-title" data-i18n="faq.title">Frequently asked questions</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q1">Who is this for? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a1">Professional services firms — law firms, consultancies, audit firms, advisory practices — that waste hours on repetitive tasks. If your team spends time searching for information, cross-referencing data, or preparing reports, we can help.</p></div></div>
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q2">Do I need technical knowledge? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a2">Not at all. We handle everything technical. You tell us which tasks consume your team's time, and we design the solution. Most of our clients have never set up an AI tool before.</p></div></div>
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q3">How long until it's ready? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a3">A pilot is typically running within 1 week. A full implementation takes 1-2 weeks depending on complexity. We start delivering value from day one.</p></div></div>
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q4">Is my data secure? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a4">Absolutely. Your AI system is private, your data stays in-house, and nothing is shared with third parties. We provide a full security audit.</p></div></div>
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q5">What if it doesn't work? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a5">Money-back guarantee. If you don't see clear results, you don't pay. Simple as that.</p></div></div>
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q6">Can I start with one use case? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a6">That's what we recommend. The Pilot plan is designed for exactly that: one use case, measurable results, and then you decide whether to scale.</p></div></div>
+            <div class="faq-i reveal"><button class="faq-q" data-i18n="faq.q7">How is this different from other solutions? <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg></button><div class="faq-a"><p class="faq-a-inner" data-i18n="faq.a7">Most providers sell generic software or just consulting advice. We do end-to-end implementation: analyze, build, and deliver a complete private AI system in 1 week. Everything is customized to your processes.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="f-cta bg-alt">
+    <div class="container">
+        <p class="s-label reveal" data-i18n="cta.label">Ready?</p>
+        <h2 class="s-title reveal" data-i18n="cta.title">Stop losing time. Start automating.</h2>
+        <p class="s-desc reveal" data-i18n="cta.desc">30 minutes. No commitment. We'll tell you exactly what we can automate for your firm.</p>
+        <div class="f-cta-btns reveal">
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="cta.b1">Book a Demo</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="cta.b2">Get a Free Audit</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg" data-i18n="cta.b3">Watch Demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <a href="#" class="logo">Analitikai</a>
+                <p data-i18n="ft.brand">Private AI systems for professional services. Implemented in 1 week.</p>
+            </div>
+            <div class="ft-col">
+                <h4 data-i18n="ft.product">Product</h4>
+                <a href="#use-cases" data-i18n="nav.uc">Use Cases</a>
+                <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+                <a href="#pricing" data-i18n="nav.pr">Pricing</a>
+            </div>
+            <div class="ft-col">
+                <h4 data-i18n="ft.company">Company</h4>
+                <a href="#team" data-i18n="nav.team">Team</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="ft-col">
+                <h4 data-i18n="ft.contact">Contact</h4>
+                <a href="https://cal.com/analitikai/demo" data-i18n="nav.cta">Book a Call</a>
+                <a href="mailto:pol.ruiz@retenpro.com">pol.ruiz@retenpro.com</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <p>&copy; 2026 Analitikai. <span data-i18n="ft.rights">All rights reserved.</span></p>
+            <div class="lang-t"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
+        </div>
     </div>
 </footer>
 
+<script>
+const T={en:{
+"nav.uc":"Use Cases","nav.how":"How It Works","nav.pr":"Pricing","nav.team":"Team","nav.cta":"Book a Call",
+"hero.badge":"Full implementation in 1 week","hero.h1":"The implementation partner your firm has been looking for.",
+"hero.sub":"We install private AI systems across all your departments. Automate repetitive work, save hours daily, and scale without hiring.",
+"hero.cta1":"Book a Demo","hero.cta2":"Get a Free Audit","hero.cta3":"Watch Demo ",
+"hero.p1v":"1 Week","hero.p1l":"Setup to impact","hero.p2v":"Private","hero.p2l":"Data never leaves your systems","hero.p3v":"All Depts","hero.p3l":"End-to-end coverage",
+"uc.label":"Industries","uc.title":"Built for professional services","uc.desc":"Every system is custom-built for your workflows. We specialize in firms where time is money.",
+"uc.law.t":"Law Firms","uc.law.d":"Document automation, case research, precedent analysis, and client communication workflows.",
+"uc.law.f1":"Automated document drafting","uc.law.f2":"Case research & precedents","uc.law.f3":"Contract review & due diligence",
+"uc.strat.t":"Strategy Consultancies","uc.strat.d":"Research automation, market analysis, proposal generation, and data synthesis for faster client delivery.",
+"uc.strat.f1":"Market research automation","uc.strat.f2":"Proposal & report generation","uc.strat.f3":"Competitor analysis",
+"uc.audit.t":"Audit Firms","uc.audit.d":"Compliance checking, risk analysis, automated report generation, and regulatory change tracking.",
+"uc.audit.f1":"Compliance monitoring","uc.audit.f2":"Automated report generation","uc.audit.f3":"Risk assessment",
+"uc.adv.t":"Advisory Practices","uc.adv.d":"Client onboarding automation, analysis workflows, reporting dashboards, and knowledge management.",
+"uc.adv.f1":"Client onboarding automation","uc.adv.f2":"Analysis & modeling","uc.adv.f3":"Automated dashboards",
+"uc.more":"Learn more \u2192",
+"how.label":"Process","how.title":"From zero to AI-powered in 1 week","how.desc":"A proven process that gets your team running fast \u2014 without disrupting operations.",
+"how.s1tag":"Day 1","how.s1t":"Analysis","how.s1d":"We audit your workflows and identify every automation opportunity across all departments.",
+"how.s2tag":"Day 2-3","how.s2t":"Setup","how.s2d":"We install your private AI system and connect it to all your existing tools.",
+"how.s3tag":"Day 4-5","how.s3t":"Implementation","how.s3d":"Custom workflows built for each department. Your team starts using them immediately.",
+"how.s4tag":"Ongoing","how.s4t":"Support","how.s4d":"Your system is yours. We provide ongoing support and updates as your business evolves.",
+"how.cta":"Start Your Implementation",
+"test.label":"Results","test.title":"What our clients say","test.desc":"Real results from professional services firms that implemented our systems.",
+"test.q1":"We were skeptical about AI in our firm. Within the first week, our associates were saving 3-4 hours daily on document review. The system paid for itself in the first month.",
+"test.n1":"Alejandro Ruiz","test.r1":"Managing Partner, Ruiz & Asociados","test.m1":"\u25B2 3-4h saved daily per associate",
+"test.q2":"Proposal preparation that used to take 2 weeks now takes 3 days. And the quality is consistently higher. Best investment we made last year.",
+"test.n2":"Laura M\u00e9ndez","test.r2":"Director, Altius Consulting","test.m2":"\u25B2 78% faster proposals",
+"test.q3":"The compliance system caught issues our team had been missing. We improved accuracy by 40% while cutting review time in half.",
+"test.n3":"Miguel Herrera","test.r3":"Partner, Herrera Audit Group","test.m3":"\u25B2 40% improved accuracy",
+"pr.label":"Pricing","pr.title":"Simple, transparent pricing","pr.desc":"No hidden fees. Money-back guarantee if you don't see results.",
+"pr.t1.name":"Pilot","pr.t1.desc":"One use case, real results","pr.t1.note":"one-time payment",
+"pr.t1.f1":"Full workflow audit","pr.t1.f2":"1 custom AI agent","pr.t1.f3":"Integration with existing tools","pr.t1.f4":"Team training","pr.t1.f5":"14 days support",
+"pr.guar":"Money-back guarantee if you don't see results.","pr.nolock":"No lock-in. Cancel anytime.","pr.cta":"Book a Call",
+"pr.t2.badge":"Recommended","pr.t2.name":"Full Implementation","pr.t2.desc":"Your entire team, AI-powered","pr.t2.note":"one-time payment",
+"pr.t2.f1":"Everything in Pilot, plus:","pr.t2.f2":"Up to 3 specialized AI agents","pr.t2.f3":"Automated reports & dashboards","pr.t2.f4":"Source monitoring","pr.t2.f5":"Custom dashboard","pr.t2.f6":"30 days priority support",
+"pr.t3.name":"Ongoing","pr.t3.desc":"We handle everything, always","pr.t3.per":"/mo","pr.t3.note":"initial setup included",
+"pr.t3.f1":"Full implementation included","pr.t3.f2":"Dedicated Slack/WhatsApp","pr.t3.f3":"New agents as needed","pr.t3.f4":"Updates with latest models","pr.t3.f5":"Evolves with your business",
+"tm.label":"Our Team","tm.title":"Built by people who\u2019ve done it before","tm.desc":"We\u2019re AI specialists, engineers, and operators who\u2019ve built and scaled technology at the highest level. We don\u2019t just advise \u2014 we implement.",
+"tm.c1t":"Ex-Startup Founders","tm.c1d":"Founded & exited. We know building from zero.","tm.c2t":"Ex-Amazon","tm.c2d":"Enterprise systems at massive scale.",
+"tm.c3t":"Ex-KPMG Consulting","tm.c3d":"Deep professional services expertise.","tm.c4t":"AI Engineers","tm.c4d":"Specialized in LLMs and applied AI.",
+"tm.l1":"Silicon Valley","tm.l2":"Barcelona","tm.l3":"& more",
+"tm.sv1":"End-to-End","tm.sl1":"We build & deliver, not just consult","tm.sv2":"1 Week","tm.sl2":"Full implementation, not months","tm.sv3":"Private","tm.sl3":"Your data never leaves your systems",
+"faq.title":"Frequently asked questions",
+"faq.q1":"Who is this for? ","faq.a1":"Professional services firms \u2014 law firms, consultancies, audit firms, advisory practices \u2014 that waste hours on repetitive tasks. If your team spends time searching for information, cross-referencing data, or preparing reports, we can help.",
+"faq.q2":"Do I need technical knowledge? ","faq.a2":"Not at all. We handle everything technical. You tell us which tasks consume your team\u2019s time, and we design the solution. Most of our clients have never set up an AI tool before.",
+"faq.q3":"How long until it\u2019s ready? ","faq.a3":"A pilot is typically running within 1 week. A full implementation takes 1-2 weeks depending on complexity. We start delivering value from day one.",
+"faq.q4":"Is my data secure? ","faq.a4":"Absolutely. Your AI system is private, your data stays in-house, and nothing is shared with third parties. We provide a full security audit.",
+"faq.q5":"What if it doesn\u2019t work? ","faq.a5":"Money-back guarantee. If you don\u2019t see clear results, you don\u2019t pay. Simple as that.",
+"faq.q6":"Can I start with one use case? ","faq.a6":"That\u2019s what we recommend. The Pilot plan is designed for exactly that: one use case, measurable results, and then you decide whether to scale.",
+"faq.q7":"How is this different from other solutions? ","faq.a7":"Most providers sell generic software or just consulting advice. We do end-to-end implementation: analyze, build, and deliver a complete private AI system in 1 week. Everything is customized to your processes.",
+"cta.label":"Ready?","cta.title":"Stop losing time. Start automating.","cta.desc":"30 minutes. No commitment. We\u2019ll tell you exactly what we can automate for your firm.",
+"cta.b1":"Book a Demo","cta.b2":"Get a Free Audit","cta.b3":"Watch Demo ",
+"ft.brand":"Private AI systems for professional services. Implemented in 1 week.","ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved."
+},es:{
+"nav.uc":"Casos de Uso","nav.how":"C\u00f3mo Funciona","nav.pr":"Precios","nav.team":"Equipo","nav.cta":"Reserva una Llamada",
+"hero.badge":"Implementaci\u00f3n completa en 1 semana","hero.h1":"El socio de implementaci\u00f3n que tu firma necesitaba.",
+"hero.sub":"Instalamos sistemas de IA privados en todos tus departamentos. Automatiza tareas repetitivas, ahorra horas al d\u00eda y escala sin contratar.",
+"hero.cta1":"Reserva una Demo","hero.cta2":"Auditor\u00eda Gratuita","hero.cta3":"Ver Demo ",
+"hero.p1v":"1 Semana","hero.p1l":"De an\u00e1lisis a impacto","hero.p2v":"Privado","hero.p2l":"Tus datos se quedan contigo","hero.p3v":"Todos los Dptos","hero.p3l":"Automatizaci\u00f3n integral",
+"uc.label":"Sectores","uc.title":"Hecho para servicios profesionales","uc.desc":"Cada sistema se construye a medida para tus flujos de trabajo. Nos especializamos en firmas donde el tiempo es dinero.",
+"uc.law.t":"Despachos de Abogados","uc.law.d":"Automatizaci\u00f3n documental, investigaci\u00f3n de casos, an\u00e1lisis de precedentes y flujos de comunicaci\u00f3n con clientes.",
+"uc.law.f1":"Redacci\u00f3n autom\u00e1tica de documentos","uc.law.f2":"Investigaci\u00f3n de casos y precedentes","uc.law.f3":"Revisi\u00f3n de contratos y due diligence",
+"uc.strat.t":"Consultoras Estrat\u00e9gicas","uc.strat.d":"Automatizaci\u00f3n de research, an\u00e1lisis de mercado, generaci\u00f3n de propuestas y s\u00edntesis de datos.",
+"uc.strat.f1":"Automatizaci\u00f3n de research","uc.strat.f2":"Generaci\u00f3n de propuestas e informes","uc.strat.f3":"An\u00e1lisis de competidores",
+"uc.audit.t":"Firmas de Auditor\u00eda","uc.audit.d":"Verificaci\u00f3n de cumplimiento, an\u00e1lisis de riesgos, generaci\u00f3n autom\u00e1tica de informes y seguimiento regulatorio.",
+"uc.audit.f1":"Monitorizaci\u00f3n de cumplimiento","uc.audit.f2":"Generaci\u00f3n autom\u00e1tica de informes","uc.audit.f3":"Evaluaci\u00f3n de riesgos",
+"uc.adv.t":"Firmas de Asesor\u00eda","uc.adv.d":"Automatizaci\u00f3n de onboarding, flujos de an\u00e1lisis, dashboards de reporting y gesti\u00f3n del conocimiento.",
+"uc.adv.f1":"Automatizaci\u00f3n de onboarding","uc.adv.f2":"An\u00e1lisis y modelizaci\u00f3n","uc.adv.f3":"Dashboards automatizados",
+"uc.more":"Saber m\u00e1s \u2192",
+"how.label":"Proceso","how.title":"De cero a IA operativa en 1 semana","how.desc":"Un proceso probado que pone a tu equipo en marcha r\u00e1pido \u2014 sin interrumpir operaciones.",
+"how.s1tag":"D\u00eda 1","how.s1t":"An\u00e1lisis","how.s1d":"Auditamos tus flujos de trabajo e identificamos cada oportunidad de automatizaci\u00f3n.",
+"how.s2tag":"D\u00eda 2-3","how.s2t":"Configuraci\u00f3n","how.s2d":"Instalamos tu sistema de IA privado y lo conectamos con todas tus herramientas.",
+"how.s3tag":"D\u00eda 4-5","how.s3t":"Implementaci\u00f3n","how.s3d":"Flujos de trabajo a medida para cada departamento. Tu equipo empieza a usarlos de inmediato.",
+"how.s4tag":"Continuo","how.s4t":"Soporte","how.s4d":"Tu sistema es tuyo. Proporcionamos soporte continuo y actualizaciones.",
+"how.cta":"Empieza Tu Implementaci\u00f3n",
+"test.label":"Resultados","test.title":"Lo que dicen nuestros clientes","test.desc":"Resultados reales de firmas de servicios profesionales que implementaron nuestros sistemas.",
+"test.q1":"Er\u00e1mos esc\u00e9pticos con la IA en nuestro despacho. En la primera semana, nuestros asociados ahorraban 3-4 horas diarias en revisi\u00f3n de documentos. El sistema se pag\u00f3 solo en el primer mes.",
+"test.n1":"Alejandro Ruiz","test.r1":"Socio Director, Ruiz & Asociados","test.m1":"\u25B2 3-4h ahorradas al d\u00eda por asociado",
+"test.q2":"La preparaci\u00f3n de propuestas que tardaba 2 semanas ahora tarda 3 d\u00edas. Y la calidad es consistentemente superior. La mejor inversi\u00f3n del a\u00f1o pasado.",
+"test.n2":"Laura M\u00e9ndez","test.r2":"Directora, Altius Consulting","test.m2":"\u25B2 78% m\u00e1s r\u00e1pido en propuestas",
+"test.q3":"El sistema de cumplimiento detect\u00f3 problemas que nuestro equipo pasaba por alto. Mejoramos la precisi\u00f3n un 40% reduciendo el tiempo de revisi\u00f3n a la mitad.",
+"test.n3":"Miguel Herrera","test.r3":"Socio, Herrera Audit Group","test.m3":"\u25B2 40% mejor precisi\u00f3n",
+"pr.label":"Precios","pr.title":"Precios simples y transparentes","pr.desc":"Sin letra peque\u00f1a. Garant\u00eda de devoluci\u00f3n si no ves resultados.",
+"pr.t1.name":"Piloto","pr.t1.desc":"Un caso de uso, resultados reales","pr.t1.note":"pago \u00fanico",
+"pr.t1.f1":"Auditor\u00eda completa de flujos","pr.t1.f2":"1 agente de IA a medida","pr.t1.f3":"Integraci\u00f3n con herramientas existentes","pr.t1.f4":"Formaci\u00f3n del equipo","pr.t1.f5":"14 d\u00edas de soporte",
+"pr.guar":"Garant\u00eda de devoluci\u00f3n si no ves resultados.","pr.nolock":"Sin permanencia. Cancela cuando quieras.","pr.cta":"Reserva una Llamada",
+"pr.t2.badge":"Recomendado","pr.t2.name":"Implementaci\u00f3n Completa","pr.t2.desc":"Todo tu equipo, potenciado con IA","pr.t2.note":"pago \u00fanico",
+"pr.t2.f1":"Todo lo del Piloto, m\u00e1s:","pr.t2.f2":"Hasta 3 agentes especializados","pr.t2.f3":"Informes y dashboards autom\u00e1ticos","pr.t2.f4":"Monitorizaci\u00f3n de fuentes","pr.t2.f5":"Dashboard personalizado","pr.t2.f6":"30 d\u00edas soporte prioritario",
+"pr.t3.name":"Continuo","pr.t3.desc":"Nos encargamos de todo, siempre","pr.t3.per":"/mes","pr.t3.note":"implementaci\u00f3n incluida",
+"pr.t3.f1":"Implementaci\u00f3n completa incluida","pr.t3.f2":"Canal dedicado Slack/WhatsApp","pr.t3.f3":"Nuevos agentes seg\u00fan necesites","pr.t3.f4":"Actualizaciones con \u00faltimos modelos","pr.t3.f5":"Evoluciona con tu negocio",
+"tm.label":"Nuestro Equipo","tm.title":"Construido por gente que ya lo ha hecho","tm.desc":"Somos especialistas en IA, ingenieros y operadores que han construido y escalado tecnolog\u00eda al m\u00e1s alto nivel. No solo asesoramos \u2014 implementamos.",
+"tm.c1t":"Ex-Fundadores de Startups","tm.c1d":"Fundamos y salimos. Sabemos construir desde cero.","tm.c2t":"Ex-Amazon","tm.c2d":"Sistemas enterprise a escala masiva.",
+"tm.c3t":"Ex-Consultor\u00eda KPMG","tm.c3d":"Experiencia profunda en servicios profesionales.","tm.c4t":"Ingenieros de IA","tm.c4d":"Especializados en LLMs e IA aplicada.",
+"tm.l1":"Silicon Valley","tm.l2":"Barcelona","tm.l3":"y m\u00e1s",
+"tm.sv1":"De Principio a Fin","tm.sl1":"Construimos y entregamos, no solo asesoramos","tm.sv2":"1 Semana","tm.sl2":"Implementaci\u00f3n completa, no meses","tm.sv3":"Privado","tm.sl3":"Tus datos nunca salen de tus sistemas",
+"faq.title":"Preguntas frecuentes",
+"faq.q1":"\u00bfPara qui\u00e9n es esto? ","faq.a1":"Firmas de servicios profesionales \u2014 despachos, consultoras, auditoras, asesor\u00edas \u2014 que pierden horas en tareas repetitivas. Si tu equipo dedica tiempo a buscar informaci\u00f3n, cruzar datos o preparar informes, podemos ayudar.",
+"faq.q2":"\u00bfNecesito conocimientos t\u00e9cnicos? ","faq.a2":"Para nada. Nos encargamos de todo lo t\u00e9cnico. T\u00fa solo nos cuentas qu\u00e9 tareas consumen el tiempo de tu equipo y nosotros dise\u00f1amos la soluci\u00f3n.",
+"faq.q3":"\u00bfCu\u00e1nto tarda en estar listo? ","faq.a3":"Un piloto suele estar operativo en 1 semana. Una implementaci\u00f3n completa, 1-2 semanas. Empezamos a entregar valor desde el primer d\u00eda.",
+"faq.q4":"\u00bfMis datos est\u00e1n seguros? ","faq.a4":"Absolutamente. Tu sistema de IA es privado, tus datos se quedan contigo y nada se comparte con terceros. Proporcionamos una auditor\u00eda de seguridad completa.",
+"faq.q5":"\u00bfQu\u00e9 pasa si no funciona? ","faq.a5":"Garant\u00eda de devoluci\u00f3n. Si no ves resultados claros, no pagas. As\u00ed de simple.",
+"faq.q6":"\u00bfPuedo empezar con un solo caso de uso? ","faq.a6":"Es lo que recomendamos. El plan Piloto est\u00e1 dise\u00f1ado para eso: un caso de uso concreto, resultados medibles, y decides si escalar.",
+"faq.q7":"\u00bfEn qu\u00e9 se diferencia de otras soluciones? ","faq.a7":"La mayor\u00eda vende software gen\u00e9rico o solo consultor\u00eda. Nosotros hacemos implementaci\u00f3n de principio a fin: analizamos, construimos y entregamos un sistema completo en 1 semana. Todo personalizado.",
+"cta.label":"\u00bfListo?","cta.title":"Deja de perder tiempo. Empieza a automatizar.","cta.desc":"30 minutos. Sin compromiso. Te contamos exactamente qu\u00e9 podemos automatizar para tu firma.",
+"cta.b1":"Reserva una Demo","cta.b2":"Auditor\u00eda Gratuita","cta.b3":"Ver Demo ",
+"ft.brand":"Sistemas de IA privados para servicios profesionales. Implementados en 1 semana.","ft.product":"Producto","ft.company":"Empresa","ft.contact":"Contacto","ft.rights":"Todos los derechos reservados."
+}};
+let lang='en';
+function setLang(l){lang=l;document.documentElement.lang=l;const t=T[l];document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k]){const svg=el.querySelector('svg');if(svg){el.textContent=t[k];el.appendChild(svg)}else{el.textContent=t[k]}}});document.querySelectorAll('.lang-t button').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l))}
+document.querySelectorAll('.lang-t button').forEach(b=>b.addEventListener('click',()=>setLang(b.getAttribute('data-lang'))));
+
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>20);const h=document.documentElement;const bar=document.getElementById('scrollBar');bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+
+const menuBtn=document.getElementById('menuBtn'),mobNav=document.getElementById('mobNav');
+menuBtn.addEventListener('click',()=>{const o=mobNav.classList.toggle('open');menuBtn.innerHTML=o?'<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>':'<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>'});
+mobNav.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{mobNav.classList.remove('open');menuBtn.innerHTML='<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>'}));
+
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const ans=item.querySelector('.faq-a');const inner=ans.querySelector('.faq-a-inner');if(item.classList.contains('open')){ans.style.maxHeight='0';item.classList.remove('open')}else{document.querySelectorAll('.faq-i.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0'});ans.style.maxHeight=inner.scrollHeight+'px';item.classList.add('open')}})});
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const sections=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nav-l a[href^="#"]');
+const navObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navAs.forEach(a=>a.classList.remove('active'));const id=e.target.getAttribute('id');const active=document.querySelector('.nav-l a[href="#'+id+'"]');if(active)active.classList.add('active')}})},{threshold:.3,rootMargin:'-80px 0px -50% 0px'});
+sections.forEach(s=>navObs.observe(s));
+</script>
 </body>
 </html>

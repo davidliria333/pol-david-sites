@@ -1,763 +1,523 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socio de Bufete | AnalitikAI - Transformación Diaria con IA</title>
-    <meta name="description" content="Descubre cómo AnalitikAI transforma el día de un socio de bufete desde la investigación lenta hasta precedentes instantáneos y estrategias validadas.">
-    
-    <!-- Google Fonts -->
+    <title>Law Firms — Analitikai | Private AI Implementation</title>
+    <meta name="description" id="metaDesc" content="Private AI implementation for law firms: automate document review, case research, and client communication. Book a demo with Analitikai.">
+    <meta name="keywords" content="law firm AI, legal tech, document automation, case research AI, Analitikai">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://analitik.ai/bufetes.html">
+    <meta property="og:title" id="ogTitle" content="Law Firms — Analitikai | Private AI Implementation">
+    <meta property="og:description" id="ogDesc" content="Private AI implementation for law firms: automate document review, case research, and client communication.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://analitik.ai/bufetes.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twTitle" content="Law Firms — Analitikai | Private AI Implementation">
+    <meta name="twitter:description" id="twDesc" content="Private AI implementation for law firms: automate document review, case research, and client communication.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"Law Firms — Analitikai","url":"https://analitik.ai/bufetes.html","description":"AI implementation for law firms from Analitikai.","isPartOf":{"@type":"WebSite","name":"Analitikai","url":"https://analitik.ai"}}
+    </script>
     <style>
         :root {
-            --bg-primary: #f9fafb;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --text-light: #6b7280;
-            --accent-blue: #6366f1;
-            --accent-blue-dark: #4f46e5;
-            --accent-blue-light: #818cf8;
-            --accent-gold: #f59e0b;
-            --accent-gold-light: #fbbf24;
-            --border-light: #e5e7eb;
-            --white: #ffffff;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.06);
-            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --legal-color: #2B6CB0;
-            --legal-light: #3182CE;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --text: #0f172a;
+            --text-s: #475569;
+            --text-m: #94a3b8;
+            --primary: #0f172a;
+            --primary-h: #1e293b;
+            --accent: #0f766e;
+            --radius: 12px;
+            --shadow-s: 0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+            --shadow-m: 0 4px 6px -1px rgba(0,0,0,0.07),0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-l: 0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -4px rgba(0,0,0,0.04);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+        ul{list-style:none}
+        img{max-width:100%;display:block}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        .scroll-bar{position:fixed;top:0;left:0;height:2px;background:var(--primary);z-index:9999;width:0;transition:width .1s linear}
+
+        .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .3s}
+        .hdr.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+        .hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+        .logo{font-weight:800;font-size:1.2rem;letter-spacing:-.5px;color:var(--text);flex-shrink:0}
+        .nav-l{display:flex;align-items:center;gap:28px;flex:1;justify-content:center}
+        .nav-l a{font-size:.875rem;font-weight:500;color:var(--text-s);transition:color .2s}
+        .nav-l a:hover{color:var(--text)}
+        .nav-r{display:flex;align-items:center;gap:12px;flex-shrink:0}
+        .lang-t{display:flex;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+        .lang-t button{background:none;border:none;font-size:.78rem;font-weight:600;padding:5px 11px;cursor:pointer;color:var(--text-m);font-family:inherit;transition:all .2s}
+        .lang-t button.active{background:var(--primary);color:#fff}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.875rem;font-family:inherit;border:none;cursor:pointer;transition:all .2s;text-decoration:none;white-space:nowrap}
+        .btn:active{transform:scale(.97)}
+        .btn-p{background:var(--primary);color:#fff}
+        .btn-p:hover{background:var(--primary-h);box-shadow:var(--shadow-m)}
+        .btn-s{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+        .btn-s:hover{border-color:var(--border-hover);background:var(--bg-alt)}
+        .btn-lg{padding:14px 28px;font-size:.95rem;border-radius:12px}
+        .btn-txt{background:none;color:var(--text-s);font-weight:500;padding:10px 4px}
+        .btn-txt:hover{color:var(--text)}
+        .btn-txt svg{transition:transform .2s}
+        .btn-txt:hover svg{transform:translateX(3px)}
+        .menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:8px;flex-shrink:0}
+        .mob-nav{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);z-index:999;padding:24px;flex-direction:column;gap:4px}
+        .mob-nav.open{display:flex}
+        .mob-nav a{font-size:1.05rem;font-weight:500;color:var(--text-s);padding:14px 0;border-bottom:1px solid var(--border)}
+        .mob-nav a:hover{color:var(--text)}
+
+        .hero{padding:140px 0 100px;text-align:center;position:relative;background:var(--bg)}
+        .hero .container{position:relative;z-index:1}
+        .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:100px;padding:5px 16px 5px 7px;font-size:.78rem;font-weight:500;color:var(--text-s);margin-bottom:28px;background:var(--bg)}
+        .badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:blink 2s ease-in-out infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .hero h1{font-size:clamp(2.2rem,5vw,3.35rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:20px;max-width:820px;margin-left:auto;margin-right:auto;color:var(--text)}
+        .hero-sub{font-size:1.1rem;color:var(--text-s);max-width:560px;margin:0 auto 36px;line-height:1.7}
+        .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+
+        section{padding:100px 0;position:relative}
+        .bg-alt{background:var(--bg-alt)}
+        .s-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:12px}
+        .s-title{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-1.5px;line-height:1.15;margin-bottom:12px}
+        .s-desc{font-size:1.05rem;color:var(--text-s);max-width:560px;line-height:1.7}
+        .s-header{text-align:center;margin-bottom:56px}
+        .s-header .s-desc{margin-left:auto;margin-right:auto}
+
+        .chal-grid{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+        .chal-item{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:all .3s}
+        .chal-item:hover{border-color:var(--border-hover);box-shadow:var(--shadow-s)}
+        .chal-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;margin-top:8px;flex-shrink:0;opacity:.85}
+        .chal-item p{font-size:.95rem;color:var(--text-s);line-height:1.65}
+
+        .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .sol-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .3s}
+        .sol-card:hover{border-color:var(--border-hover);box-shadow:var(--shadow-m);transform:translateY(-3px)}
+        .sol-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:var(--bg-alt)}
+        .sol-icon svg{width:22px;height:22px;color:var(--text)}
+        .sol-card h3{font-size:1.05rem;font-weight:600;letter-spacing:-.3px;margin-bottom:8px}
+        .sol-card p{font-size:.88rem;color:var(--text-s);line-height:1.6}
+
+        .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .test-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s}
+        .test-card:hover{box-shadow:var(--shadow-m);transform:translateY(-2px)}
+        .test-quote{font-size:.95rem;color:var(--text-s);line-height:1.7;margin-bottom:20px;position:relative;padding-top:24px}
+        .test-quote::before{content:'\201C';position:absolute;top:-4px;left:0;font-size:2.5rem;color:var(--border);font-family:Georgia,serif;line-height:1}
+        .test-name{font-size:.9rem;font-weight:600;color:var(--text)}
+        .test-role{font-size:.8rem;color:var(--text-m);margin-top:2px}
+        .test-metric{display:inline-flex;align-items:center;gap:6px;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:600;color:var(--accent);margin-top:12px}
+
+        .ba-wrap{max-width:640px;margin:0 auto}
+        .ba-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+        .ba-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--border);font-size:.9rem}
+        .ba-row:last-child{border-bottom:none}
+        .ba-head{background:var(--bg-alt);font-weight:600;color:var(--text);font-size:.72rem;text-transform:uppercase;letter-spacing:1.2px}
+        .ba-cell{padding:16px 18px;color:var(--text-s)}
+        .ba-head .ba-cell{color:var(--text)}
+        .ba-mid{text-align:center;color:var(--text-m);font-weight:500;font-size:.75rem}
+        .ba-old{color:var(--text-m);text-decoration:line-through;text-decoration-color:var(--border)}
+        .ba-new{color:var(--accent);font-weight:600}
+
+        .f-cta{text-align:center;padding:100px 0}
+        .f-cta .s-desc{margin:0 auto 36px}
+        .f-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+        .footer{background:var(--primary);color:#fff;padding:56px 0 28px}
+        .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .ft-brand .logo{color:#fff;margin-bottom:10px;display:block}
+        .ft-brand p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:260px;line-height:1.6}
+        .ft-col h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-bottom:14px}
+        .ft-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.65);padding:4px 0;transition:color .2s}
+        .ft-col a:hover{color:#fff}
+        .ft-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+        .ft-bottom p{font-size:.8rem;color:rgba(255,255,255,.35)}
+        .ft-bottom .lang-t{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+        .ft-bottom .lang-t button{color:rgba(255,255,255,.4)}
+        .ft-bottom .lang-t button.active{background:rgba(255,255,255,.15);color:#fff}
+
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .reveal.vis{opacity:1;transform:translateY(0)}
+        .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}.reveal-d5{transition-delay:.4s}
+
+        @media(max-width:1024px){
+            .nav-l{display:none}
+            .menu-btn{display:block}
+            .sol-grid{grid-template-columns:1fr 1fr}
+            .test-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+            .ft-grid{grid-template-columns:1fr 1fr;gap:28px}
+            .ba-row{grid-template-columns:1fr 44px 1fr;font-size:.85rem}
         }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.65;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        
-        /* Header */
-        .header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border-light);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-        
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--legal-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--legal-color) 0%, var(--legal-light) 100%);
-            color: white;
-            padding: 80px 0 60px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-        
-        .hero .subtitle {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
-        
-        .persona-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 32px;
-        }
-        
-        /* Timeline Container */
-        .timeline-section {
-            padding: 80px 0;
-        }
-        
-        .timeline-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .timeline-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-        
-        .timeline-header p {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Timeline */
-        .timeline {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--border-light);
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-item.active {
-            transform: scale(1.02);
-        }
-        
-        .timeline-time {
-            width: 80px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--legal-color);
-        }
-        
-        .timeline-marker {
-            width: 24px;
-            height: 24px;
-            background: var(--legal-color);
-            border-radius: 50%;
-            margin: 0 20px;
-            position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-marker i {
-            color: white;
-            font-size: 10px;
-        }
-        
-        .timeline-content {
-            flex: 1;
-            background: var(--white);
-            padding: 32px;
-            border-radius: 16px;
-            box-shadow: var(--shadow-soft);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .timeline-item:hover .timeline-content {
-            border-color: var(--legal-color);
-            box-shadow: var(--shadow-medium);
-            transform: translateY(-4px);
-        }
-        
-        .timeline-item.active .timeline-content {
-            border-color: var(--legal-color);
-            background: linear-gradient(135deg, #fff 0%, #eff6ff 100%);
-        }
-        
-        .timeline-item.active .timeline-marker {
-            background: var(--legal-color);
-            transform: scale(1.3);
-            box-shadow: 0 0 0 8px rgba(43, 108, 176, 0.1);
-        }
-        
-        .before-after {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        
-        .before, .after {
-            padding: 20px;
-            border-radius: 12px;
-        }
-        
-        .before {
-            background: #fef2f2;
-            border-left: 4px solid #dc2626;
-        }
-        
-        .after {
-            background: #f0fdf4;
-            border-left: 4px solid #16a34a;
-        }
-        
-        .before h4, .after h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .before h4 {
-            color: #dc2626;
-        }
-        
-        .after h4 {
-            color: #16a34a;
-        }
-        
-        .before p, .after p {
-            font-size: 14px;
-            line-height: 1.5;
-            color: var(--text-secondary);
-        }
-        
-        .solution-highlight {
-            background: var(--gray-100);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border-left: 4px solid var(--legal-color);
-        }
-        
-        .solution-highlight h5 {
-            color: var(--legal-color);
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        
-        .solution-highlight p {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-        
-        /* ROI Calculator */
-        .roi-section {
-            background: var(--white);
-            padding: 60px 0;
-            border-top: 1px solid var(--border-light);
-        }
-        
-        .roi-calculator {
-            max-width: 800px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #eff6ff 0%, #fff 100%);
-            padding: 40px;
-            border-radius: 16px;
-            border: 2px solid var(--legal-color);
-        }
-        
-        .roi-inputs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-        
-        .roi-input {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .roi-input label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-        
-        .roi-input input {
-            padding: 12px;
-            border: 2px solid var(--border-light);
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.2s ease;
-        }
-        
-        .roi-input input:focus {
-            outline: none;
-            border-color: var(--legal-color);
-        }
-        
-        .roi-results {
-            background: var(--white);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .roi-metric {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .roi-metric:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        
-        .roi-label {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .roi-value {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--legal-color);
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--legal-color) 0%, var(--legal-light) 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        
-        .cta-section p {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--white);
-            color: var(--legal-color);
-            padding: 20px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-strong);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero .subtitle {
-                font-size: 18px;
-            }
-            
-            .timeline::before {
-                left: 40px;
-            }
-            
-            .timeline-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .timeline-time {
-                margin-bottom: 8px;
-            }
-            
-            .before-after {
-                grid-template-columns: 1fr;
-            }
-            
-            .roi-inputs {
-                grid-template-columns: 1fr;
-            }
+        @media(max-width:640px){
+            section{padding:72px 0}
+            .hero{padding:110px 0 72px}
+            .sol-grid{grid-template-columns:1fr}
+            .hero-ctas,.f-cta-btns{flex-direction:column;align-items:center}
+            .ft-grid{grid-template-columns:1fr}
+            .ft-bottom{flex-direction:column;text-align:center;justify-content:center}
+            .ba-cell{padding:12px 10px}
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">AnalitikAI</a>
-                <nav>
-                    <a href="index.html" class="nav-link">← Volver al Inicio</a>
-                </nav>
+
+<div class="scroll-bar" id="scrollBar"></div>
+
+<header class="hdr" id="hdr">
+    <div class="hdr-inner">
+        <a href="index.html" class="logo">Analitikai</a>
+        <nav class="nav-l">
+            <a href="index.html" data-i18n="nav.home">&larr; Back to home</a>
+        </nav>
+        <div class="nav-r">
+            <div class="lang-t"><button class="active" type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button></div>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
+        </div>
+        <button class="menu-btn" type="button" id="menuBtn" aria-label="Menu">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+    </div>
+</header>
+
+<div class="mob-nav" id="mobNav">
+    <a href="index.html" data-i18n="nav.home">&larr; Back to home</a>
+    <div class="lang-t" style="margin-top:12px;align-self:flex-start"><button class="active" type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button></div>
+    <a href="https://cal.com/analitikai/demo" class="btn btn-p" style="margin-top:8px;text-align:center" data-i18n="nav.cta">Book a Call</a>
+</div>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+        <div class="badge reveal"><div class="badge-dot"></div><span data-i18n="hero.badge">For Law Firms</span></div>
+        <h1 class="reveal reveal-d1" data-i18n="hero.h1">AI that lets your team focus on winning cases</h1>
+        <p class="hero-sub reveal reveal-d2" data-i18n="hero.sub">We implement private AI that automates document review, accelerates case research, and streamlines client communication—so your lawyers spend time on strategy, not busywork.</p>
+        <div class="hero-ctas reveal reveal-d3">
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo </span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<section id="challenge" class="bg-alt">
+    <div class="container">
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="chal.label">The challenge</p>
+            <h2 class="s-title" data-i18n="chal.title">Your firm is losing hours to work that does not require a law degree</h2>
+            <p class="s-desc" data-i18n="chal.desc">High-stakes legal work gets squeezed when teams are underwater on repeatable tasks. These are the patterns we see most often.</p>
+        </div>
+        <div class="chal-grid">
+            <div class="chal-item reveal"><div class="chal-dot"></div><p data-i18n="chal.p1">Manual document review consumes associate time on pagination, duplication checks, and first-pass summaries—before anyone reads for substance.</p></div>
+            <div class="chal-item reveal reveal-d1"><div class="chal-dot"></div><p data-i18n="chal.p2">Case research and precedent search stretch across databases and folders, slowing motions and memos when speed matters.</p></div>
+            <div class="chal-item reveal reveal-d2"><div class="chal-dot"></div><p data-i18n="chal.p3">Client updates, intake follow-ups, and status emails repeat the same patterns—yet they still pull lawyers and staff off billable work.</p></div>
+            <div class="chal-item reveal reveal-d3"><div class="chal-dot"></div><p data-i18n="chal.p4">Contract and clause review cycles run for days because redlines, playbooks, and comparisons are done by hand.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="solution">
+    <div class="container">
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="sol.label">What we implement</p>
+            <h2 class="s-title" data-i18n="sol.title">Private AI built for legal workflows</h2>
+            <p class="s-desc" data-i18n="sol.desc">Everything is tailored to your practice areas, templates, and tools. No generic chatbot bolted onto email.</p>
+        </div>
+        <div class="sol-grid">
+            <div class="sol-card reveal">
+                <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+                <h3 data-i18n="sol.f1t">Document automation</h3>
+                <p data-i18n="sol.f1d">Drafting assistance, first-pass review, and structured extraction aligned with your house style and matter types.</p>
+            </div>
+            <div class="sol-card reveal reveal-d1">
+                <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+                <h3 data-i18n="sol.f2t">Case research</h3>
+                <p data-i18n="sol.f2d">Faster synthesis across internal knowledge, filings, and research materials—with traceable sources.</p>
+            </div>
+            <div class="sol-card reveal reveal-d2">
+                <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+                <h3 data-i18n="sol.f3t">Precedent analysis</h3>
+                <p data-i18n="sol.f3d">Compare fact patterns and language across decisions and your own prior work product.</p>
+            </div>
+            <div class="sol-card reveal reveal-d3">
+                <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+                <h3 data-i18n="sol.f4t">Contract review</h3>
+                <p data-i18n="sol.f4d">Playbook-driven redlines, deviation checks, and clause banks that match how your partners actually review.</p>
+            </div>
+            <div class="sol-card reveal reveal-d4">
+                <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                <h3 data-i18n="sol.f5t">Client communication</h3>
+                <p data-i18n="sol.f5d">Workflows for updates, intake, and FAQs that stay on-brand and auditable—without copying the same paragraphs forever.</p>
+            </div>
+            <div class="sol-card reveal reveal-d5">
+                <div class="sol-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3 data-i18n="sol.f6t">Compliance monitoring</h3>
+                <p data-i18n="sol.f6d">Track regulatory changes and internal policy against your obligations—with alerts your team can act on.</p>
             </div>
         </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="persona-badge">
-                <i class="fas fa-balance-scale"></i> Socio de Bufete Legal
-            </div>
-            <h1>De Investigación Lenta a Precedentes Instantáneos</h1>
-            <p class="subtitle">Descubre cómo AnalitikAI transforma tu día desde la búsqueda manual hasta estrategias legales respaldadas por datos</p>
+    </div>
+</section>
+
+<section class="bg-alt">
+    <div class="container">
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="test.label">Results</p>
+            <h2 class="s-title" data-i18n="test.title">What firms see after implementation</h2>
+            <p class="s-desc" data-i18n="test.desc">Illustrative outcomes from teams that replaced manual loops with private, firm-specific AI.</p>
         </div>
-    </section>
-    
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="container">
-            <div class="timeline-header">
-                <h2>Tu Día Transformado Hora por Hora</h2>
-                <p>Haz clic en cada hora para ver la transformación completa de tu rutina diaria</p>
+        <div class="test-grid">
+            <div class="test-card reveal">
+                <p class="test-quote" data-i18n="test.q1">We reduced document review time by 73%. What used to take our associates 6 hours now takes 90 minutes. The system paid for itself in 2 weeks.</p>
+                <p class="test-name" data-i18n="test.n1">María García</p>
+                <p class="test-role" data-i18n="test.r1">Managing Partner, García &amp; Asociados</p>
+                <div class="test-metric" data-i18n="test.m1">73% time saved on document review</div>
             </div>
-            
-            <div class="timeline">
-                <!-- 8:00 AM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">8:00</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Llamada urgente de cliente. Caso complejo que requiere investigación inmediata de precedentes. Pánico porque necesitas una estrategia sólida para la reunión de mañana pero no sabes por dónde empezar.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>Misma llamada urgente, pero activas AnalitikAI. En 30 minutos tienes un briefing preliminar con 15 precedentes relevantes, análisis de probabilidades y estrategias sugeridas.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-search"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Búsqueda inteligente de precedentes con análisis de probabilidades de éxito y estrategias legales automatizadas en minutos.</p>
-                        </div>
-                    </div>
+            <div class="test-card reveal reveal-d1">
+                <p class="test-quote" data-i18n="test.q2">The ROI was immediate. We saved over €15,000/month in billable hours that were being lost to manual research.</p>
+                <p class="test-name" data-i18n="test.n2">Carlos Martín</p>
+                <p class="test-role" data-i18n="test.r2">Senior Partner, Martín Legal</p>
+                <div class="test-metric" data-i18n="test.m2">€15,000/month saved</div>
+            </div>
+            <div class="test-card reveal reveal-d2">
+                <p class="test-quote" data-i18n="test.q3">Our associates now handle 40% more cases without feeling overwhelmed. The quality of research has actually improved.</p>
+                <p class="test-name" data-i18n="test.n3">Isabel Navarro</p>
+                <p class="test-role" data-i18n="test.r3">Director of Operations, Navarro &amp; Prieto</p>
+                <div class="test-metric" data-i18n="test.m3">40% more cases per associate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="before-after">
+    <div class="container">
+        <div class="s-header reveal">
+            <p class="s-label" data-i18n="ba.label">Before / after</p>
+            <h2 class="s-title" data-i18n="ba.title">Typical time on core tasks</h2>
+            <p class="s-desc" data-i18n="ba.desc">Examples from engagements—your mileage depends on matter mix and systems, which we map in the free audit.</p>
+        </div>
+        <div class="ba-wrap reveal">
+            <div class="ba-card">
+                <div class="ba-row ba-head">
+                    <div class="ba-cell" data-i18n="ba.before">Before</div>
+                    <div class="ba-cell ba-mid" data-i18n="ba.arrow">→</div>
+                    <div class="ba-cell" data-i18n="ba.after">After</div>
                 </div>
-                
-                <!-- 10:00 AM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">10:00</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Tres associates sumergidos en bases de datos, imprimiendo casos, haciendo fotocopias. Han encontrado 40 casos pero necesitan leer cada uno manualmente. Costo: €540/hora del equipo.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>AnalitikAI ya procesó los 40 casos, extrajo los argumentos clave, identificó patrones y generó un resumen ejecutivo con ranking de relevancia y aplicabilidad.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-brain"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Procesamiento automatizado de jurisprudencia con extracción de argumentos clave y ranking de relevancia.</p>
-                        </div>
-                    </div>
+                <div class="ba-row">
+                    <div class="ba-cell"><span data-i18n="ba.r1l">Document review</span><br><span class="ba-old" data-i18n="ba.r1b">6 hours</span></div>
+                    <div class="ba-cell ba-mid"></div>
+                    <div class="ba-cell"><span class="ba-new" data-i18n="ba.r1a">90 minutes</span></div>
                 </div>
-                
-                <!-- 12:00 PM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">12:00</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Reunión con socio senior sobre estrategia de caso. Presentas investigación parcial porque aún no has terminado. Discusión basada en intuición legal sin datos sólidos de precedentes similares.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>Presentas análisis completo con casos similares, probabilidades de éxito por argumento, costos estimados y timeline realista. Decisión estratégica informada en 30 minutos.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-chart-line"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Análisis predictivo de casos con probabilidades de éxito y estimación de costos basada en precedentes históricos.</p>
-                        </div>
-                    </div>
+                <div class="ba-row">
+                    <div class="ba-cell"><span data-i18n="ba.r2l">Case research</span><br><span class="ba-old" data-i18n="ba.r2b">2 days</span></div>
+                    <div class="ba-cell ba-mid"></div>
+                    <div class="ba-cell"><span class="ba-new" data-i18n="ba.r2a">4 hours</span></div>
                 </div>
-                
-                <!-- 2:00 PM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">14:00</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Redacción de escritos desde cero. Buscas precedentes manualmente para cada argumento. El associates gasta 4 horas buscando citas y precedentes específicos para cada párrafo.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>AnalitikAI sugiere estructura del escrito, precedentes por argumento y párrafos modelo. Reduces tiempo de redacción en 70% manteniendo calidad superior.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-edit"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Asistente de redacción legal con sugerencias de estructura, precedentes contextualizados y párrafos modelo.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 4:00 PM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">16:00</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Preparación para vista oral. Anticipas argumentos del contrario basándote en experiencia. Nervios porque no sabes qué precedentes citarán o qué argumentos inesperados presentarán.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>AnalitikAI modeló posibles argumentos del contrario, preparó contra-argumentos con precedentes de apoyo y simuló preguntas del tribunal. Vas con total confianza.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-chess"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Simulación de argumentos contrarios con preparación de contra-argumentos y precedentes de respaldo automatizada.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 5:30 PM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">17:30</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-euro-sign"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Facturación de horas. Intentas reconstruir el tiempo gastado en investigación. El cliente cuestiona 12 horas de "research" sin resultados visibles claros.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>Facturas 3 horas de "análisis legal estratégico" con entregables claros: briefing ejecutivo, análisis de probabilidades y estrategia recomendada. Cliente satisfecho.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-receipt"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Documentación automática del trabajo realizado con entregables claros y valor demostrable para el cliente.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 7:00 PM -->
-                <div class="timeline-item" onclick="toggleTimeline(this)">
-                    <div class="timeline-time">19:00</div>
-                    <div class="timeline-marker">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="before-after">
-                            <div class="before">
-                                <h4><i class="fas fa-times-circle"></i> ANTES</h4>
-                                <p>Te vas preocupado por casos pendientes. El equipo se queda hasta las 10 PM terminando investigación. Estrés familiar por horarios impredecibles.</p>
-                            </div>
-                            <div class="after">
-                                <h4><i class="fas fa-check-circle"></i> DESPUÉS</h4>
-                                <p>Día terminado en horario normal. Casos avanzados, clientes satisfechos, equipo motivado. Disfrutas la cena familiar sabiendo que mañana empezarás con ventaja.</p>
-                            </div>
-                        </div>
-                        <div class="solution-highlight">
-                            <h5><i class="fas fa-balance-scale"></i> SOLUCIÓN ANALITIKAI</h5>
-                            <p>Work-life balance mejorado con eficiencia superior y resultados de mayor calidad en menos tiempo.</p>
-                        </div>
-                    </div>
+                <div class="ba-row">
+                    <div class="ba-cell"><span data-i18n="ba.r3l">Contract review</span><br><span class="ba-old" data-i18n="ba.r3b">8 hours</span></div>
+                    <div class="ba-cell ba-mid"></div>
+                    <div class="ba-cell"><span class="ba-new" data-i18n="ba.r3a">2 hours</span></div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- ROI Calculator -->
-    <section class="roi-section">
-        <div class="container">
-            <div class="roi-calculator">
-                <h3 style="text-align: center; margin-bottom: 32px; color: var(--legal-color); font-size: 28px; font-weight: 700;">
-                    <i class="fas fa-calculator"></i> Calculadora ROI - Bufete Legal
-                </h3>
-                
-                <div class="roi-inputs">
-                    <div class="roi-input">
-                        <label for="hourlyRate">Coste por hora (socio + associates)</label>
-                        <input type="number" id="hourlyRate" value="180" oninput="calculateROI()">
-                    </div>
-                    <div class="roi-input">
-                        <label for="hoursWeek">Horas semanales en research</label>
-                        <input type="number" id="hoursWeek" value="25" oninput="calculateROI()">
-                    </div>
-                    <div class="roi-input">
-                        <label for="cases">Casos mensuales</label>
-                        <input type="number" id="cases" value="12" oninput="calculateROI()">
-                    </div>
-                    <div class="roi-input">
-                        <label for="avgValue">Valor promedio caso</label>
-                        <input type="number" id="avgValue" value="15000" oninput="calculateROI()">
-                    </div>
-                </div>
-                
-                <div class="roi-results" id="roiResults">
-                    <!-- Results will be populated by JavaScript -->
-                </div>
+    </div>
+</section>
+
+<section class="f-cta bg-alt">
+    <div class="container">
+        <p class="s-label reveal" data-i18n="fcta.label">Next step</p>
+        <h2 class="s-title reveal" data-i18n="fcta.title">Ready to transform your firm?</h2>
+        <p class="s-desc reveal" data-i18n="fcta.desc">Book a short call. We will walk through your workflows and show exactly what we would implement first.</p>
+        <div class="f-cta-btns reveal">
+            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="fcta.b1">Book a Demo</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="fcta.b2">Get a Free Audit</a>
+            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="fcta.b3">Watch Demo </span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="ft-grid">
+            <div class="ft-brand">
+                <a href="index.html" class="logo">Analitikai</a>
+                <p data-i18n="ft.brand">Private AI systems for professional services. Implemented in 1 week.</p>
+            </div>
+            <div class="ft-col">
+                <h4 data-i18n="ft.product">Product</h4>
+                <a href="index.html#use-cases" data-i18n="ft.uc">Use Cases</a>
+                <a href="index.html#how-it-works" data-i18n="ft.how">How It Works</a>
+                <a href="index.html#pricing" data-i18n="ft.pr">Pricing</a>
+            </div>
+            <div class="ft-col">
+                <h4 data-i18n="ft.company">Company</h4>
+                <a href="index.html#team" data-i18n="ft.team">Team</a>
+                <a href="index.html#faq" data-i18n="ft.faq">FAQ</a>
+            </div>
+            <div class="ft-col">
+                <h4 data-i18n="ft.contact">Contact</h4>
+                <a href="https://cal.com/analitikai/demo" data-i18n="nav.cta">Book a Call</a>
+                <a href="mailto:pol.ruiz@retenpro.com">pol.ruiz@retenpro.com</a>
             </div>
         </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>¿Listo para Casos Más Efectivos?</h2>
-            <p>Únete a bufetes que ya optimizaron su investigación legal con AnalitikAI. Precedentes inteligentes que realmente marcan la diferencia.</p>
-            <a href="https://cal.eu/polruiz/15min" target="_blank" class="cta-button">
-                <i class="fas fa-calendar"></i> Agendar Demo Gratuita
-            </a>
+        <div class="ft-bottom">
+            <p>&copy; 2026 Analitikai. <span data-i18n="ft.rights">All rights reserved.</span></p>
+            <div class="lang-t"><button class="active" type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button></div>
         </div>
-    </section>
-    
-    <script>
-        function toggleTimeline(element) {
-            // Remove active class from all timeline items
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Add active class to clicked item
-            element.classList.add('active');
-        }
-        
-        function calculateROI() {
-            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
-            const hoursWeek = parseFloat(document.getElementById('hoursWeek').value) || 0;
-            const cases = parseFloat(document.getElementById('cases').value) || 0;
-            const avgValue = parseFloat(document.getElementById('avgValue').value) || 0;
-            
-            // Calculations
-            const monthlyResearchCost = hourlyRate * hoursWeek * 4.33;
-            const analitikaiCost = 750; // Base plan
-            const monthlySavings = monthlyResearchCost - analitikaiCost;
-            const annualSavings = monthlySavings * 12;
-            
-            // Performance improvements
-            const monthlyCaseValue = cases * avgValue;
-            const improvedWinRate = monthlyCaseValue * 0.12; // 12% improvement in outcomes
-            const totalMonthlyBenefit = monthlySavings + improvedWinRate;
-            const roi = ((totalMonthlyBenefit * 12) / (analitikaiCost * 12)) * 100;
-            
-            // Update results
-            document.getElementById('roiResults').innerHTML = `
-                <div class="roi-metric">
-                    <span class="roi-label">Coste mensual actual (research)</span>
-                    <span class="roi-value">€${monthlyResearchCost.toLocaleString()}</span>
-                </div>
-                <div class="roi-metric">
-                    <span class="roi-label">Ahorro mensual directo</span>
-                    <span class="roi-value">€${monthlySavings.toLocaleString()}</span>
-                </div>
-                <div class="roi-metric">
-                    <span class="roi-label">Mejora resultados casos (12%)</span>
-                    <span class="roi-value">€${improvedWinRate.toLocaleString()}</span>
-                </div>
-                <div class="roi-metric">
-                    <span class="roi-label"><strong>Beneficio total mensual</strong></span>
-                    <span class="roi-value"><strong>€${totalMonthlyBenefit.toLocaleString()}</strong></span>
-                </div>
-                <div class="roi-metric">
-                    <span class="roi-label"><strong>ROI anual</strong></span>
-                    <span class="roi-value"><strong>${roi.toFixed(0)}%</strong></span>
-                </div>
-            `;
-        }
-        
-        // Initialize calculator
-        calculateROI();
-        
-        // Set first timeline item as active by default
-        document.querySelector('.timeline-item').classList.add('active');
-    </script>
+    </div>
+</footer>
+
+<script>
+(function(){
+const T={en:{
+"nav.home":"\u2190 Back to home","nav.cta":"Book a Call",
+"page.docTitle":"Law Firms \u2014 Analitikai | Private AI Implementation",
+"page.metaDesc":"Private AI implementation for law firms: automate document review, case research, and client communication. Book a demo with Analitikai.",
+"hero.badge":"For Law Firms","hero.h1":"AI that lets your team focus on winning cases",
+"hero.sub":"We implement private AI that automates document review, accelerates case research, and streamlines client communication\u2014so your lawyers spend time on strategy, not busywork.",
+"hero.cta1":"Book a Demo","hero.cta2":"Get a Free Audit","hero.cta3":"Watch Demo ",
+"chal.label":"The challenge","chal.title":"Your firm is losing hours to work that does not require a law degree",
+"chal.desc":"High-stakes legal work gets squeezed when teams are underwater on repeatable tasks. These are the patterns we see most often.",
+"chal.p1":"Manual document review consumes associate time on pagination, duplication checks, and first-pass summaries\u2014before anyone reads for substance.",
+"chal.p2":"Case research and precedent search stretch across databases and folders, slowing motions and memos when speed matters.",
+"chal.p3":"Client updates, intake follow-ups, and status emails repeat the same patterns\u2014yet they still pull lawyers and staff off billable work.",
+"chal.p4":"Contract and clause review cycles run for days because redlines, playbooks, and comparisons are done by hand.",
+"sol.label":"What we implement","sol.title":"Private AI built for legal workflows",
+"sol.desc":"Everything is tailored to your practice areas, templates, and tools. No generic chatbot bolted onto email.",
+"sol.f1t":"Document automation","sol.f1d":"Drafting assistance, first-pass review, and structured extraction aligned with your house style and matter types.",
+"sol.f2t":"Case research","sol.f2d":"Faster synthesis across internal knowledge, filings, and research materials\u2014with traceable sources.",
+"sol.f3t":"Precedent analysis","sol.f3d":"Compare fact patterns and language across decisions and your own prior work product.",
+"sol.f4t":"Contract review","sol.f4d":"Playbook-driven redlines, deviation checks, and clause banks that match how your partners actually review.",
+"sol.f5t":"Client communication","sol.f5d":"Workflows for updates, intake, and FAQs that stay on-brand and auditable\u2014without copying the same paragraphs forever.",
+"sol.f6t":"Compliance monitoring","sol.f6d":"Track regulatory changes and internal policy against your obligations\u2014with alerts your team can act on.",
+"test.label":"Results","test.title":"What firms see after implementation",
+"test.desc":"Illustrative outcomes from teams that replaced manual loops with private, firm-specific AI.",
+"test.q1":"We reduced document review time by 73%. What used to take our associates 6 hours now takes 90 minutes. The system paid for itself in 2 weeks.",
+"test.n1":"Mar\u00eda Garc\u00eda","test.r1":"Managing Partner, Garc\u00eda & Asociados","test.m1":"73% time saved on document review",
+"test.q2":"The ROI was immediate. We saved over \u20ac15,000/month in billable hours that were being lost to manual research.",
+"test.n2":"Carlos Mart\u00edn","test.r2":"Senior Partner, Mart\u00edn Legal","test.m2":"\u20ac15,000/month saved",
+"test.q3":"Our associates now handle 40% more cases without feeling overwhelmed. The quality of research has actually improved.",
+"test.n3":"Isabel Navarro","test.r3":"Director of Operations, Navarro & Prieto","test.m3":"40% more cases per associate",
+"ba.label":"Before / after","ba.title":"Typical time on core tasks",
+"ba.desc":"Examples from engagements\u2014your mileage depends on matter mix and systems, which we map in the free audit.",
+"ba.before":"Before","ba.after":"After","ba.arrow":"\u2192",
+"ba.r1l":"Document review","ba.r1b":"6 hours","ba.r1a":"90 minutes",
+"ba.r2l":"Case research","ba.r2b":"2 days","ba.r2a":"4 hours",
+"ba.r3l":"Contract review","ba.r3b":"8 hours","ba.r3a":"2 hours",
+"fcta.label":"Next step","fcta.title":"Ready to transform your firm?",
+"fcta.desc":"Book a short call. We will walk through your workflows and show exactly what we would implement first.",
+"fcta.b1":"Book a Demo","fcta.b2":"Get a Free Audit","fcta.b3":"Watch Demo ",
+"ft.brand":"Private AI systems for professional services. Implemented in 1 week.","ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved.",
+"ft.uc":"Use Cases","ft.how":"How It Works","ft.pr":"Pricing","ft.team":"Team","ft.faq":"FAQ"
+},es:{
+"nav.home":"\u2190 Volver al inicio","nav.cta":"Reserva una llamada",
+"page.docTitle":"Despachos de abogados \u2014 Analitikai | Implementaci\u00f3n de IA privada",
+"page.metaDesc":"Implementaci\u00f3n de IA privada para despachos: automatiza revisi\u00f3n documental, investigaci\u00f3n de casos y comunicaci\u00f3n con clientes. Reserva una demo con Analitikai.",
+"hero.badge":"Para despachos","hero.h1":"IA para que tu equipo se centre en ganar casos",
+"hero.sub":"Implementamos IA privada que automatiza la revisi\u00f3n documental, acelera la investigaci\u00f3n de casos y ordena la comunicaci\u00f3n con clientes\u2014para que el tiempo vaya a la estrategia, no al trabajo repetitivo.",
+"hero.cta1":"Reservar demo","hero.cta2":"Auditor\u00eda gratuita","hero.cta3":"Ver demo ",
+"chal.label":"El reto","chal.title":"Tu despacho pierde horas en tareas que no exigen un t\u00edtulo de abogado",
+"chal.desc":"El trabajo jur\u00eddico de alto valor queda en segundo plano cuando el equipo ahoga con tareas repetibles. Esto es lo que vemos con m\u00e1s frecuencia.",
+"chal.p1":"La revisi\u00f3n manual de documentos consume tiempo de asociados en paginaci\u00f3n, comprobaci\u00f3n de duplicados y primeros res\u00famenes\u2014antes de leer en profundidad.",
+"chal.p2":"La investigaci\u00f3n de casos y la b\u00fasqueda de precedentes se reparten entre bases de datos y carpetas, retrasando escritos cuando la velocidad importa.",
+"chal.p3":"Actualizaciones a clientes, seguimiento de altas y correos de estado repiten los mismos patrones\u2014y a\u00fan as\u00ed apartan a abogados y staff del trabajo facturable.",
+"chal.p4":"Los ciclos de revisi\u00f3n contractual se alargan d\u00edas porque marcas, playbooks y comparativas se hacen a mano.",
+"sol.label":"Qu\u00e9 implementamos","sol.title":"IA privada dise\u00f1ada para flujos legales",
+"sol.desc":"Todo se adapta a tus \u00e1reas, plantillas y herramientas. Nada de chatbots gen\u00e9ricos pegados al correo.",
+"sol.f1t":"Automatizaci\u00f3n documental","sol.f1d":"Apoyo a la redacci\u00f3n, primera revisi\u00f3n y extracci\u00f3n estructurada alineada con tu estilo y tipos de asunto.",
+"sol.f2t":"Investigaci\u00f3n de casos","sol.f2d":"S\u00edntesis m\u00e1s r\u00e1pida sobre conocimiento interno, autos y materiales de investigaci\u00f3n\u2014con fuentes trazables.",
+"sol.f3t":"An\u00e1lisis de precedentes","sol.f3d":"Compara hechos y redacci\u00f3n entre resoluciones y tu propia producci\u00f3n anterior.",
+"sol.f4t":"Revisi\u00f3n de contratos","sol.f4d":"Marcas guiadas por playbook, desviaciones y bancos de cl\u00e1usulas como revisan tus socios en la pr\u00e1ctica.",
+"sol.f5t":"Comunicaci\u00f3n con clientes","sol.f5d":"Flujos para actualizaciones, altas y FAQs coherentes con la marca y auditables\u2014sin copiar los mismos p\u00e1rrafos una y otra vez.",
+"sol.f6t":"Monitorizaci\u00f3n de cumplimiento","sol.f6d":"Seguimiento de cambios normativos y pol\u00edtica interna frente a obligaciones\u2014con alertas accionables.",
+"test.label":"Resultados","test.title":"Lo que ven los despachos tras la implementaci\u00f3n",
+"test.desc":"Resultados ilustrativos de equipos que sustituyeron bucles manuales por IA privada y espec\u00edfica del despacho.",
+"test.q1":"Redujimos el tiempo de revisi\u00f3n documental un 73%. Lo que a nuestros asociados les llevaba 6 horas ahora son 90 minutos. El sistema se pag\u00f3 solo en 2 semanas.",
+"test.n1":"Mar\u00eda Garc\u00eda","test.r1":"Socia directora, Garc\u00eda & Asociados","test.m1":"73% menos tiempo en revisi\u00f3n documental",
+"test.q2":"El ROI fue inmediato. Ahorramos m\u00e1s de 15.000 \u20ac/mes en horas facturables perdidas en investigaci\u00f3n manual.",
+"test.n2":"Carlos Mart\u00edn","test.r2":"Socio senior, Mart\u00edn Legal","test.m2":"15.000 \u20ac/mes ahorrados",
+"test.q3":"Nuestros asociados llevan un 40% m\u00e1s de asuntos sin sentirse desbordados. La calidad de la investigaci\u00f3n, de hecho, ha mejorado.",
+"test.n3":"Isabel Navarro","test.r3":"Directora de operaciones, Navarro & Prieto","test.m3":"40% m\u00e1s asuntos por asociado",
+"ba.label":"Antes / despu\u00e9s","ba.title":"Tiempo habitual en tareas clave",
+"ba.desc":"Ejemplos de proyectos reales\u2014el resultado depende del tipo de asuntos y sistemas, que revisamos en la auditor\u00eda gratuita.",
+"ba.before":"Antes","ba.after":"Despu\u00e9s","ba.arrow":"\u2192",
+"ba.r1l":"Revisi\u00f3n documental","ba.r1b":"6 horas","ba.r1a":"90 minutos",
+"ba.r2l":"Investigaci\u00f3n de casos","ba.r2b":"2 d\u00edas","ba.r2a":"4 horas",
+"ba.r3l":"Revisi\u00f3n contractual","ba.r3b":"8 horas","ba.r3a":"2 horas",
+"fcta.label":"Siguiente paso","fcta.title":"\u00bfListo para transformar tu despacho?",
+"fcta.desc":"Reserva una llamada breve. Repasamos tus flujos y te mostramos qu\u00e9 implementar\u00edamos primero.",
+"fcta.b1":"Reservar demo","fcta.b2":"Auditor\u00eda gratuita","fcta.b3":"Ver demo ",
+"ft.brand":"Sistemas de IA privados para servicios profesionales. Implementados en 1 semana.","ft.product":"Producto","ft.company":"Empresa","ft.contact":"Contacto","ft.rights":"Todos los derechos reservados.",
+"ft.uc":"Casos de uso","ft.how":"C\u00f3mo funciona","ft.pr":"Precios","ft.team":"Equipo","ft.faq":"FAQ"
+}};
+
+let lang='en';
+
+function applyMeta(t){
+    document.title=t['page.docTitle'];
+    const d=document.getElementById('metaDesc');if(d)d.setAttribute('content',t['page.metaDesc']);
+    const og=document.getElementById('ogTitle');if(og)og.setAttribute('content',t['page.docTitle']);
+    const ogd=document.getElementById('ogDesc');if(ogd)ogd.setAttribute('content',t['page.metaDesc']);
+    const tw=document.getElementById('twTitle');if(tw)tw.setAttribute('content',t['page.docTitle']);
+    const twd=document.getElementById('twDesc');if(twd)twd.setAttribute('content',t['page.metaDesc']);
+}
+
+function setLang(l){
+    lang=l;
+    document.documentElement.lang=l;
+    const t=T[l];
+    applyMeta(t);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(!t[k])return;
+        var svg=el.querySelector('svg');
+        if(svg){el.textContent=t[k];el.appendChild(svg);}
+        else{el.textContent=t[k];}
+    });
+    document.querySelectorAll('.lang-t button').forEach(function(b){
+        b.classList.toggle('active',b.getAttribute('data-lang')===l);
+    });
+}
+
+document.querySelectorAll('.lang-t button').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
+});
+
+var hdr=document.getElementById('hdr');
+window.addEventListener('scroll',function(){
+    hdr.classList.toggle('scrolled',window.scrollY>20);
+    var h=document.documentElement;
+    var bar=document.getElementById('scrollBar');
+    var pct=h.scrollHeight-h.clientHeight;
+    bar.style.width=pct>0?(h.scrollTop/pct)*100+'%':'0%';
+});
+
+var menuBtn=document.getElementById('menuBtn'),mobNav=document.getElementById('mobNav');
+var openSvg='<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+var closedSvg='<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
+menuBtn.addEventListener('click',function(){
+    var o=mobNav.classList.toggle('open');
+    menuBtn.innerHTML=o?openSvg:closedSvg;
+});
+mobNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){mobNav.classList.remove('open');menuBtn.innerHTML=closedSvg;});
+});
+
+var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+})();
+</script>
 </body>
 </html>
