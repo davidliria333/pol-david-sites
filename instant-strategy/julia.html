@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Per a tu ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#2d2d2d;background:#faf9f7;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',serif}
+
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4)),url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1920&q=80') center/cover;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;position:relative}
+.hero .small{font-size:1rem;letter-spacing:6px;text-transform:uppercase;opacity:.8;font-weight:300}
+.hero h1{font-size:4.5rem;margin:.8rem 0;font-weight:900;line-height:1.1}
+.hero .heart{font-size:3rem;margin-top:1.5rem;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.hint{position:absolute;bottom:30px;color:#fff;font-size:.85rem;opacity:.5;animation:b 2s infinite}
+@keyframes b{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+section{padding:70px 20px;max-width:800px;margin:0 auto}
+.center{text-align:center}
+.st{font-size:2.6rem;margin-bottom:.5rem;color:#1a1a1a}
+.ss{font-weight:300;color:#777;font-size:1.1rem;margin-bottom:2.5rem;line-height:1.6}
+
+.regalo-box{background:#fff;border-radius:16px;padding:3rem;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.08);margin:2rem 0}
+.regalo-box .icon{font-size:3rem;margin-bottom:1rem}
+.regalo-box h2{font-size:2rem;margin-bottom:.8rem}
+.regalo-box p{color:#555;font-weight:300;line-height:1.7;font-size:1.05rem}
+.regalo-box .tag{display:inline-block;background:#e8c547;color:#1a1a1a;padding:6px 18px;border-radius:25px;font-size:.85rem;font-weight:600;margin-top:1.2rem;letter-spacing:1px}
+.regalo-box .note{margin-top:1.5rem;padding:1rem 1.5rem;background:#fdf8ee;border-radius:10px;font-size:.95rem;color:#666;line-height:1.6;font-weight:300}
+
+.dest{margin-bottom:3rem}
+.dest-header{position:relative;border-radius:16px;overflow:hidden;margin-bottom:1.5rem;height:350px}
+.dest-header img{width:100%;height:100%;object-fit:cover}
+.dest-header .overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff}
+.dest-header .overlay h2{font-size:2.2rem;margin-bottom:.3rem}
+.dest-header .overlay p{font-weight:300;opacity:.9;font-size:1rem}
+
+.highlights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.5rem 0}
+.highlights .item{background:#fff;border-radius:12px;padding:1.2rem;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.highlights .item .emoji{font-size:1.5rem;margin-bottom:.5rem}
+.highlights .item h4{font-size:.95rem;margin-bottom:.3rem;font-family:'Playfair Display',serif}
+.highlights .item p{font-size:.85rem;color:#666;font-weight:300;line-height:1.5}
+
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.5rem 0}
+.photos img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+
+.cv-section{background:linear-gradient(135deg,#0a3d5c,#1a7a8a);color:#fff;padding:70px 20px;text-align:center}
+.cv-section .emoji{font-size:3.5rem;margin-bottom:.8rem}
+.cv-section h2{font-size:2.5rem;margin-bottom:1rem;font-family:'Playfair Display',serif}
+.cv-section p{max-width:600px;margin:0 auto;font-weight:300;line-height:1.8;font-size:1.05rem;opacity:.9}
+
+.option-card{background:#fff;border-radius:16px;overflow:hidden;margin:1.5rem auto;max-width:800px;box-shadow:0 6px 30px rgba(0,0,0,.08)}
+.option-card img{width:100%;height:250px;object-fit:cover}
+.option-card .ct{padding:2rem}
+.option-card h3{font-size:1.4rem;margin-bottom:.6rem;font-family:'Playfair Display',serif}
+.option-card p{color:#555;font-weight:300;line-height:1.7}
+.option-card .hl{background:#f0f7f0;padding:10px 14px;border-radius:8px;margin-top:1rem;font-size:.9rem;border-left:3px solid #4a9}
+
+.sri-section{background:linear-gradient(135deg,#1a3a2a,#2d6b4a);color:#fff;padding:70px 20px;text-align:center}
+.sri-section .emoji{font-size:3.5rem;margin-bottom:.8rem}
+.sri-section h2{font-size:2.5rem;margin-bottom:1rem;font-family:'Playfair Display',serif}
+.sri-section p{max-width:600px;margin:0 auto;font-weight:300;line-height:1.8;font-size:1.05rem;opacity:.9}
+
+.fin{background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&q=80') center/cover;min-height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:40px 20px}
+.fin h2{font-size:3rem;margin-bottom:1rem;font-family:'Playfair Display',serif}
+.fin p{font-size:1.15rem;font-weight:300;max-width:500px;opacity:.9;line-height:1.7}
+.fin .bigheart{font-size:3.5rem;margin-top:1.5rem;animation:pulse 1.5s infinite}
+
+@media(max-width:768px){
+.hero h1{font-size:2.8rem}
+.highlights{grid-template-columns:1fr}
+.photos{grid-template-columns:1fr}
+.st{font-size:2rem}
+.sri-section h2,.cv-section h2,.fin h2{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="small">Moltes felicitats</div>
+<h1>Julia 🎂</h1>
+<div class="heart">❤️</div>
+<div class="hint">↓ El teu regal ↓</div>
+</div>
+
+<section>
+<div class="regalo-box">
+<div class="icon">🎁</div>
+<h2>El teu regal d'aniversari</h2>
+<p>No és una cosa que es pugui embolicar amb paper de regal.<br>Són <strong>vols + hotel</strong> per anar junts a descobrir un lloc increïble.</p>
+<p style="margin-top:1rem">De fet... en tenim <strong>DOS</strong> preparats. Un per aquest estiu i un per l'any que ve.</p>
+<div class="tag">✈️ Vols + Hotel pagats</div>
+<div class="note">📝 Encara no ho he reservat! Vull que em confirmis que les dates d'agost et van bé (sé que tens vacances llavors), i sobretot que t'agrada el destí. Si prefereixes un altre lloc, ho canviem sense problema — el regal ets tu qui l'escull. 😊</div>
+</div>
+</section>
+
+<div class="cv-section">
+<div class="emoji">🐢</div>
+<h2>Estiu 2026 — Cap Verd</h2>
+<p>Una illa volcànica al mig de l'Atlàntic on les tortugues marines venen a pondre els seus ous a la llum de la lluna.</p>
+</div>
+
+<section>
+<div class="dest">
+<div class="dest-header">
+<img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80" alt="Cape Verde beach">
+<div class="overlay">
+<h2>Illa de Sal, Cap Verd 🇨🇻</h2>
+<p>5 dies · Agost 2026 · 5h de vol directe</p>
+</div>
+</div>
+
+<div class="highlights">
+<div class="item">
+<div class="emoji">🐢</div>
+<h4>Nedar amb tortugues</h4>
+<p>Snorkel amb tortugues marines gegants que neden al teu costat, tranquil·les i precioses.</p>
+</div>
+<div class="item">
+<div class="emoji">🌙</div>
+<h4>Tortugues de nit</h4>
+<p>A l'agost, les tortugues surten del mar per pondre ous a la platja. Les veurem a 2 metres, a les fosques.</p>
+</div>
+<div class="item">
+<div class="emoji">💎</div>
+<h4>Blue Eye</h4>
+<p>Una cova on el sol crea un ull blau brillant a l'aigua. Màgia pura a Buracona.</p>
+</div>
+<div class="item">
+<div class="emoji">🏜️</div>
+<h4>Cràter volcànic</h4>
+<p>Pedra de Lume: flota en un cràter ple d'aigua salada, com el Mar Mort, dins un volcà.</p>
+</div>
+<div class="item">
+<div class="emoji">🐬</div>
+<h4>Dofins</h4>
+<p>Excursió en vaixell per la costa buscant dofins. Barbacoa de peix fresc al mar.</p>
+</div>
+<div class="item">
+<div class="emoji">☀️</div>
+<h4>8km de platja</h4>
+<p>Santa Maria: sorra blanca infinita, aigües turquesa, chiringuitos amb els peus a la sorra.</p>
+</div>
+</div>
+
+<div class="photos">
+<img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=600&q=80" alt="Sea turtle">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Beach">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="Nature">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Tropical">
+</div>
+</div>
+</section>
+
+<section>
+<div class="center" style="margin-bottom:2rem">
+<p class="ss">O si prefereixes alguna cosa diferent...</p>
+</div>
+
+<div class="option-card">
+<img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1200&q=80" alt="Madeira">
+<div class="ct">
+<h3>🇵🇹 Alternativa: Madeira</h3>
+<p>L'illa jardí de l'Atlàntic. Muntanyes verdes que cauen al mar, levadas per fer senderisme entre llorer i bosc tropical, piscines naturals de roca volcànica, vi de Madeira, i Funchal amb tot el seu encant.</p>
+<div class="hl">🌿 Platja + naturalesa + senderisme + gastronomia. Vol directe, 3.5h.</div>
+</div>
+</div>
+
+<div class="center" style="margin-top:2rem">
+<p style="color:#888;font-weight:300;font-size:1rem;line-height:1.7">Si cap dels dos et convenç del tot i prefereixes un altre destí, dim-ho! El regal és el viatge — tu tries on. 😊</p>
+</div>
+</section>
+
+<div class="sri-section">
+<div class="emoji">🐘</div>
+<h2>2027 — Sri Lanka</h2>
+<p>I l'any que ve, quan ja estiguem instal·lats vivint junts, el gran viatge: Sri Lanka. Elefants salvatges, el tren més bonic del món, plantacions de te, i platjes de l'oceà Índic. Amb escala a Abu Dhabi.</p>
+</div>
+
+<section>
+<div class="dest">
+<div class="dest-header">
+<img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=1200&q=80" alt="Sri Lanka elephants">
+<div class="overlay">
+<h2>Sri Lanka 🇱🇰</h2>
+<p>8 dies · Estiu 2027 · Abu Dhabi + Sri Lanka</p>
+</div>
+</div>
+
+<div class="highlights">
+<div class="item">
+<div class="emoji">🐘</div>
+<h4>Elefants!</h4>
+<p>Donar-los menjar amb la mà, banyar-los al riu, i veure'n 100+ en llibertat al safari d'Udawalawe.</p>
+</div>
+<div class="item">
+<div class="emoji">🚂</div>
+<h4>Tren panoràmic</h4>
+<p>6 hores pel paisatge més bonic del món: plantacions de te, ponts, valls, bosc tropical.</p>
+</div>
+<div class="item">
+<div class="emoji">🕌</div>
+<h4>Escala a Abu Dhabi</h4>
+<p>2 dies a Abu Dhabi: la mesquita més impressionant del món, Louvre, platja de desert.</p>
+</div>
+<div class="item">
+<div class="emoji">🏖️</div>
+<h4>Arugam Bay</h4>
+<p>Platja perfecta a la costa est. Sol garantit, surf, peix grillat, posta de sol.</p>
+</div>
+</div>
+
+<div class="photos">
+<img src="https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sri Lanka train">
+<img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=600&q=80" alt="Abu Dhabi mosque">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Nine Arches">
+<img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=80" alt="Beach">
+</div>
+</div>
+</section>
+
+<div class="fin">
+<h2>T'estimo 🌍</h2>
+<p>Gràcies per fer que cada dia sigui una aventura. Ara toca viure'n unes quantes més junts.</p>
+<div class="bigheart">❤️</div>
+</div>
+
+</body>
+</html>
