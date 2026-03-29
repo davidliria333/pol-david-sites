@@ -19,9 +19,21 @@
     {"source":"/","has":[{"type":"host","value":"analitikai.com"}],"destination":"/instant-strategy/index.html"},
     {"source":"/(.*)","has":[{"type":"host","value":"analitikai.com"}],"destination":"/instant-strategy/$1"},
     {"source":"/","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/index.html"},
-    {"source":"/(.*)","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/$1"}
+    {"source":"/(.*)","has":[{"type":"host","value":"www.analitikai.com"}],"destination":"/instant-strategy/$1"},
+    {"source":"/","has":[{"type":"host","value":"getaibases.com"}],"destination":"/getai/index.html"},
+    {"source":"/(.*)","has":[{"type":"host","value":"getaibases.com"}],"destination":"/getai/$1"},
+    {"source":"/","has":[{"type":"host","value":"www.getaibases.com"}],"destination":"/getai/index.html"},
+    {"source":"/(.*)","has":[{"type":"host","value":"www.getaibases.com"}],"destination":"/getai/$1"}
   ],
   "headers": [
+    {
+      "source": "/getai/(.*)",
+      "headers": [
+        {"key": "Cache-Control", "value": "no-cache, no-store, must-revalidate"},
+        {"key": "Pragma", "value": "no-cache"},
+        {"key": "Expires", "value": "0"}
+      ]
+    },
     {
       "source": "/instant-strategy/(.*)",
       "headers": [
