@@ -6,7 +6,7 @@
     <title>Advisory Practices — Private AI Implementation | Analitikai</title>
     <meta name="description" content="Automate client onboarding, analysis, and reporting for advisory practices. Private AI implementation in 1 week — onboard faster, report smarter, scale without hiring.">
     <meta name="keywords" content="advisory AI, financial advisory automation, client onboarding automation, advisory reporting, private AI, professional services">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="canonical" href="https://analitik.ai/advisory.html">
     <link rel="alternate" hreflang="en" href="https://analitik.ai/advisory.html">
     <link rel="alternate" hreflang="es" href="https://analitik.ai/advisory.html">
@@ -53,9 +53,7 @@
         .hdr.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
         .hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
         .hdr-left{display:flex;align-items:center;gap:20px;min-width:0}
-        .logo{font-weight:800;font-size:1.2rem;letter-spacing:-.5px;color:var(--text);flex-shrink:0}
-        .back-link{font-size:.8125rem;font-weight:500;color:var(--text-s);white-space:nowrap;transition:color .2s}
-        .back-link:hover{color:var(--text)}
+        .logo-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}.logo-wrap img{height:26px;width:auto}.logo-txt{font-weight:700;font-size:1.05rem;letter-spacing:-.3px;color:var(--text)}.logo-icp{font-weight:600;font-size:1.05rem;letter-spacing:-.3px;color:var(--accent)}.back-arrow{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);color:var(--text-s);transition:all .2s;flex-shrink:0}.back-arrow:hover{border-color:var(--border-hover);color:var(--text);background:var(--bg-alt)}
         .nav-r{display:flex;align-items:center;gap:12px;flex-shrink:0}
         .lang-t{display:flex;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;overflow:hidden}
         .lang-t button{background:none;border:none;font-size:.78rem;font-weight:600;padding:5px 11px;cursor:pointer;color:var(--text-m);font-family:inherit;transition:all .2s}
@@ -133,7 +131,7 @@
 
         .footer{background:var(--primary);color:#fff;padding:56px 0 28px}
         .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-        .ft-brand .logo{color:#fff;margin-bottom:10px;display:block}
+        .ft-brand .logo-wrap{margin-bottom:10px}.ft-brand .logo-txt{color:#fff}
         .ft-brand p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:260px;line-height:1.6}
         .ft-col h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-bottom:14px}
         .ft-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.65);padding:4px 0;transition:color .2s}
@@ -149,7 +147,6 @@
         .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
 
         @media(max-width:1024px){
-            .back-link{display:none}
             .menu-btn{display:block}
             .feat-grid{grid-template-columns:1fr 1fr}
             .test-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
@@ -173,12 +170,12 @@
 <header class="hdr" id="hdr">
     <div class="hdr-inner">
         <div class="hdr-left">
-            <a href="index.html" class="logo">Analitikai</a>
-            <a href="index.html" class="back-link" data-i18n="nav.home">&larr; Back to home</a>
+            <a href="index.html" class="back-arrow" aria-label="Back to home"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4l-4 4 4 4"/></svg></a>
+            <a href="index.html" class="logo-wrap"><img src="logo.png" alt="AnalitikAI"><span class="logo-txt">AnalitikAI</span><span class="logo-icp" data-i18n="nav.icp">Advisory</span></a>
         </div>
         <div class="nav-r">
             <div class="lang-t"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
         </div>
         <button class="menu-btn" id="menuBtn" aria-label="Menu">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
@@ -189,7 +186,7 @@
 <div class="mob-nav" id="mobNav">
     <a href="index.html" data-i18n="nav.homeFull">Back to home</a>
     <div class="lang-t" style="margin-top:8px;align-self:flex-start"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
-    <a href="https://cal.com/analitikai/demo" class="btn btn-p" style="margin-top:12px;text-align:center" data-i18n="nav.cta">Book a Call</a>
+    <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p" style="margin-top:12px;text-align:center" data-i18n="nav.cta">Book a Call</a>
 </div>
 
 <main>
@@ -200,9 +197,9 @@
         <h1 class="reveal reveal-d1" data-i18n="hero.h1">Advise smarter. Deliver faster.</h1>
         <p class="hero-sub reveal reveal-d2" data-i18n="hero.sub">Automate client onboarding, analysis, and reporting so your team spends time on judgment — not spreadsheets. Private workflows built for how advisory firms actually work.</p>
         <div class="hero-ctas reveal reveal-d3">
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
     </div>
 </section>
@@ -278,6 +275,7 @@
                 <p data-i18n="sol.f6d">Draft updates, meeting notes, and follow-ups grounded in your engagement context and tone guidelines.</p>
             </div>
         </div>
+        <div class="reveal" style="margin-top:48px"><img src="hero (1).webp" alt="AI integrations on mobile" style="max-width:800px;width:100%;height:auto;display:block;margin:0 auto"></div>
     </div>
 </section>
 
@@ -291,20 +289,20 @@
         <div class="test-grid">
             <div class="test-card reveal">
                 <p class="test-quote" data-i18n="test.q1">Client onboarding went from 2 weeks to 2 days. Our clients noticed the difference immediately — they were impressed.</p>
-                <p class="test-name" data-i18n="test.n1">Patricia Mora</p>
-                <p class="test-role" data-i18n="test.r1">CEO, Mora Advisory</p>
+                <p class="test-name" data-i18n="test.n1">CEO</p>
+                <p class="test-role" data-i18n="test.r1">Advisory practice, 30 employees</p>
                 <div class="test-metric" data-i18n="test.m1">85% faster onboarding</div>
             </div>
             <div class="test-card reveal reveal-d1">
                 <p class="test-quote" data-i18n="test.q2">We tripled our reporting output without adding headcount. The AI handles the data processing, we handle the strategy.</p>
-                <p class="test-name" data-i18n="test.n2">David Torres</p>
-                <p class="test-role" data-i18n="test.r2">Founder, Torres Financial Advisory</p>
+                <p class="test-name" data-i18n="test.n2">Founder</p>
+                <p class="test-role" data-i18n="test.r2">Financial advisory, 50 employees</p>
                 <div class="test-metric" data-i18n="test.m2">3x reporting output</div>
             </div>
             <div class="test-card reveal reveal-d2">
                 <p class="test-quote" data-i18n="test.q3">Our analysts spend 70% less time on data gathering and 70% more time on actual advisory work. That's the game changer.</p>
-                <p class="test-name" data-i18n="test.n3">Andrea L&oacute;pez</p>
-                <p class="test-role" data-i18n="test.r3">Director, Summit Advisory Group</p>
+                <p class="test-name" data-i18n="test.n3">Director</p>
+                <p class="test-role" data-i18n="test.r3">Advisory firm, 90 employees</p>
                 <div class="test-metric" data-i18n="test.m3">70% more advisory time</div>
             </div>
         </div>
@@ -341,10 +339,11 @@
         <h2 class="s-title reveal" data-i18n="cta.title">See what we can automate for your practice</h2>
         <p class="s-desc reveal" data-i18n="cta.desc">Book a short demo or request a free workflow audit. No obligation — just a clear picture of time saved.</p>
         <div class="f-cta-btns reveal">
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="cta.b1">Book a Demo</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="cta.b2">Get a Free Audit</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="cta.b3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="cta.b1">Book a Demo</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-s btn-lg" data-i18n="cta.b2">Get a Free Audit</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-txt btn-lg"><span data-i18n="cta.b3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
+        <div class="reveal" style="margin-top:48px"><img src="agents-ios-app.webp" alt="AI assistant on mobile" style="max-width:720px;width:100%;height:auto;display:block;margin:0 auto"></div>
     </div>
 </section>
 
@@ -354,7 +353,7 @@
     <div class="container">
         <div class="ft-grid">
             <div class="ft-brand">
-                <a href="index.html" class="logo">Analitikai</a>
+                <a href="index.html" class="logo-wrap" style="display:inline-flex"><img src="logo.png" alt="AnalitikAI" style="height:22px;width:auto"><span class="logo-txt">AnalitikAI</span></a>
                 <p data-i18n="ft.brand">Private AI systems for professional services. Implemented in 1 week.</p>
             </div>
             <div class="ft-col">
@@ -370,7 +369,7 @@
             </div>
             <div class="ft-col">
                 <h4 data-i18n="ft.contact">Contact</h4>
-                <a href="https://cal.com/analitikai/demo" data-i18n="nav.cta">Book a Call</a>
+                <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" data-i18n="nav.cta">Book a Call</a>
                 <a href="mailto:pol.ruiz@retenpro.com">pol.ruiz@retenpro.com</a>
             </div>
         </div>
@@ -383,7 +382,7 @@
 
 <script>
 const T={en:{
-"nav.home":"\u2190 Back to home","nav.homeFull":"Back to home","nav.cta":"Book a Call",
+"nav.home":"\u2190 Back to home","nav.icp":"Advisory","nav.homeFull":"Back to home","nav.cta":"Book a Call",
 "hero.badge":"For Advisory Practices","hero.h1":"Advise smarter. Deliver faster.",
 "hero.sub":"Automate client onboarding, analysis, and reporting so your team spends time on judgment \u2014 not spreadsheets. Private workflows built for how advisory firms actually work.",
 "hero.cta1":"Book a Demo","hero.cta2":"Get a Free Audit","hero.cta3":"Watch Demo",
@@ -402,11 +401,11 @@ const T={en:{
 "sol.f6t":"Client communication","sol.f6d":"Draft updates, meeting notes, and follow-ups grounded in your engagement context and tone guidelines.",
 "test.label":"Results","test.title":"What advisory leaders say","test.desc":"Outcomes from practices that automated the work around the advice.",
 "test.q1":"Client onboarding went from 2 weeks to 2 days. Our clients noticed the difference immediately \u2014 they were impressed.",
-"test.n1":"Patricia Mora","test.r1":"CEO, Mora Advisory","test.m1":"85% faster onboarding",
+"test.n1":"CEO","test.r1":"Advisory practice, 30 employees","test.m1":"85% faster onboarding",
 "test.q2":"We tripled our reporting output without adding headcount. The AI handles the data processing, we handle the strategy.",
-"test.n2":"David Torres","test.r2":"Founder, Torres Financial Advisory","test.m2":"3x reporting output",
+"test.n2":"Founder","test.r2":"Financial advisory, 50 employees","test.m2":"3x reporting output",
 "test.q3":"Our analysts spend 70% less time on data gathering and 70% more time on actual advisory work. That's the game changer.",
-"test.n3":"Andrea L\u00f3pez","test.r3":"Director, Summit Advisory Group","test.m3":"70% more advisory time",
+"test.n3":"Director","test.r3":"Advisory firm, 90 employees","test.m3":"70% more advisory time",
 "ba.label":"Before / After","ba.title":"Typical timelines we compress","ba.desc":"Illustrative benchmarks from engagements with similar scope. Your firm gets a tailored audit on the first call.",
 "ba.c1l":"Client onboarding","ba.c1a":"2 weeks","ba.c1b":"2 days","ba.c2l":"Monthly reporting","ba.c2a":"5 days","ba.c2b":"1 day","ba.c3l":"Data analysis","ba.c3a":"3 days","ba.c3b":"4 hours",
 "cta.label":"Next step","cta.title":"See what we can automate for your practice","cta.desc":"Book a short demo or request a free workflow audit. No obligation \u2014 just a clear picture of time saved.",
@@ -414,7 +413,7 @@ const T={en:{
 "ft.brand":"Private AI systems for professional services. Implemented in 1 week.","ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved.",
 "ft.uc":"Use Cases","ft.how":"How It Works","ft.pr":"Pricing","ft.team":"Team","ft.faq":"FAQ"
 },es:{
-"nav.home":"\u2190 Volver al inicio","nav.homeFull":"Volver al inicio","nav.cta":"Reserva una Llamada",
+"nav.home":"\u2190 Volver al inicio","nav.icp":"Asesor\u00eda","nav.homeFull":"Volver al inicio","nav.cta":"Reserva una Llamada",
 "hero.badge":"Para Firmas de Asesor\u00eda","hero.h1":"Asesora mejor. Entrega m\u00e1s r\u00e1pido.",
 "hero.sub":"Automatiza el onboarding de clientes, el an\u00e1lisis y el reporting para que tu equipo invierta tiempo en el juicio profesional \u2014 no en hojas de c\u00e1lculo. Flujos privados adaptados a c\u00f3mo trabajan las firmas de asesor\u00eda.",
 "hero.cta1":"Reserva una Demo","hero.cta2":"Auditor\u00eda Gratuita","hero.cta3":"Ver Demo",
@@ -433,11 +432,11 @@ const T={en:{
 "sol.f6t":"Comunicaci\u00f3n con clientes","sol.f6d":"Borradores de actualizaciones, actas y seguimientos basados en el contexto del encargo y tu tono corporativo.",
 "test.label":"Resultados","test.title":"Lo que dicen l\u00edderes de asesor\u00eda","test.desc":"Resultados de firmas que automatizaron el trabajo alrededor del consejo.",
 "test.q1":"El onboarding pas\u00f3 de 2 semanas a 2 d\u00edas. Los clientes notaron la diferencia al instante \u2014 quedaron impresionados.",
-"test.n1":"Patricia Mora","test.r1":"CEO, Mora Advisory","test.m1":"85% m\u00e1s r\u00e1pido en onboarding",
+"test.n1":"CEO","test.r1":"Asesor\u00eda, 30 empleados","test.m1":"85% m\u00e1s r\u00e1pido en onboarding",
 "test.q2":"Triplicamos la producci\u00f3n de informes sin aumentar plantilla. La IA procesa los datos; nosotros, la estrategia.",
-"test.n2":"David Torres","test.r2":"Fundador, Torres Financial Advisory","test.m2":"3x m\u00e1s output de reporting",
+"test.n2":"Fundador","test.r2":"Asesor\u00eda financiera, 50 empleados","test.m2":"3x m\u00e1s output de reporting",
 "test.q3":"Nuestros analistas dedican un 70% menos a recopilar datos y un 70% m\u00e1s al asesoramiento real. Eso lo cambia todo.",
-"test.n3":"Andrea L\u00f3pez","test.r3":"Directora, Summit Advisory Group","test.m3":"70% m\u00e1s tiempo de asesor\u00eda",
+"test.n3":"Directora","test.r3":"Firma de asesor\u00eda, 90 empleados","test.m3":"70% m\u00e1s tiempo de asesor\u00eda",
 "ba.label":"Antes / Despu\u00e9s","ba.title":"Plazos t\u00edpicos que acortamos","ba.desc":"Referencias ilustrativas de proyectos de alcance similar. En la primera llamada hacemos una auditor\u00eda a tu medida.",
 "ba.c1l":"Onboarding de cliente","ba.c1a":"2 semanas","ba.c1b":"2 d\u00edas","ba.c2l":"Reporting mensual","ba.c2a":"5 d\u00edas","ba.c2b":"1 d\u00eda","ba.c3l":"An\u00e1lisis de datos","ba.c3a":"3 d\u00edas","ba.c3b":"4 horas",
 "cta.label":"Siguiente paso","cta.title":"Descubre qu\u00e9 podemos automatizar en tu firma","cta.desc":"Reserva una demo breve o solicita una auditor\u00eda gratuita de flujos. Sin compromiso: una visi\u00f3n clara del tiempo ahorrado.",

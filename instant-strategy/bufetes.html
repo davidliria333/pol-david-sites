@@ -6,7 +6,7 @@
     <title>Law Firms — Analitikai | Private AI Implementation</title>
     <meta name="description" id="metaDesc" content="Private AI implementation for law firms: automate document review, case research, and client communication. Book a demo with Analitikai.">
     <meta name="keywords" content="law firm AI, legal tech, document automation, case research AI, Analitikai">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="canonical" href="https://analitik.ai/bufetes.html">
     <meta property="og:title" id="ogTitle" content="Law Firms — Analitikai | Private AI Implementation">
     <meta property="og:description" id="ogDesc" content="Private AI implementation for law firms: automate document review, case research, and client communication.">
@@ -52,7 +52,7 @@
         .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .3s}
         .hdr.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
         .hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-        .logo{font-weight:800;font-size:1.2rem;letter-spacing:-.5px;color:var(--text);flex-shrink:0}
+        .logo-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}.logo-wrap img{height:26px;width:auto}.logo-txt{font-weight:700;font-size:1.05rem;letter-spacing:-.3px;color:var(--text)}.logo-icp{font-weight:600;font-size:1.05rem;letter-spacing:-.3px;color:var(--accent)}.back-arrow{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);color:var(--text-s);transition:all .2s;flex-shrink:0}.back-arrow:hover{border-color:var(--border-hover);color:var(--text);background:var(--bg-alt)}
         .nav-l{display:flex;align-items:center;gap:28px;flex:1;justify-content:center}
         .nav-l a{font-size:.875rem;font-weight:500;color:var(--text-s);transition:color .2s}
         .nav-l a:hover{color:var(--text)}
@@ -134,7 +134,8 @@
 
         .footer{background:var(--primary);color:#fff;padding:56px 0 28px}
         .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-        .ft-brand .logo{color:#fff;margin-bottom:10px;display:block}
+        .ft-brand .logo-wrap{margin-bottom:10px}
+        .ft-brand .logo-wrap .logo-txt{color:#fff}
         .ft-brand p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:260px;line-height:1.6}
         .ft-col h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-bottom:14px}
         .ft-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.65);padding:4px 0;transition:color .2s}
@@ -174,13 +175,13 @@
 
 <header class="hdr" id="hdr">
     <div class="hdr-inner">
-        <a href="index.html" class="logo">Analitikai</a>
+        <a href="index.html" class="back-arrow" aria-label="Back to home"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4l-4 4 4 4"/></svg></a>
+        <a href="index.html" class="logo-wrap"><img src="logo.png" alt="AnalitikAI"><span class="logo-txt">AnalitikAI</span><span class="logo-icp" data-i18n="nav.icp">Law</span></a>
         <nav class="nav-l">
-            <a href="index.html" data-i18n="nav.home">&larr; Back to home</a>
         </nav>
         <div class="nav-r">
             <div class="lang-t"><button class="active" type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button></div>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
         </div>
         <button class="menu-btn" type="button" id="menuBtn" aria-label="Menu">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
@@ -191,7 +192,7 @@
 <div class="mob-nav" id="mobNav">
     <a href="index.html" data-i18n="nav.home">&larr; Back to home</a>
     <div class="lang-t" style="margin-top:12px;align-self:flex-start"><button class="active" type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button></div>
-    <a href="https://cal.com/analitikai/demo" class="btn btn-p" style="margin-top:8px;text-align:center" data-i18n="nav.cta">Book a Call</a>
+    <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p" style="margin-top:8px;text-align:center" data-i18n="nav.cta">Book a Call</a>
 </div>
 
 <main>
@@ -202,9 +203,9 @@
         <h1 class="reveal reveal-d1" data-i18n="hero.h1">AI that lets your team focus on winning cases</h1>
         <p class="hero-sub reveal reveal-d2" data-i18n="hero.sub">We implement private AI that automates document review, accelerates case research, and streamlines client communication—so your lawyers spend time on strategy, not busywork.</p>
         <div class="hero-ctas reveal reveal-d3">
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo </span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo </span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
     </div>
 </section>
@@ -264,6 +265,7 @@
                 <p data-i18n="sol.f6d">Track regulatory changes and internal policy against your obligations—with alerts your team can act on.</p>
             </div>
         </div>
+        <div class="reveal" style="margin-top:48px"><img src="hero (1).webp" alt="AI integrations on mobile" style="max-width:800px;width:100%;height:auto;display:block;margin:0 auto"></div>
     </div>
 </section>
 
@@ -277,20 +279,20 @@
         <div class="test-grid">
             <div class="test-card reveal">
                 <p class="test-quote" data-i18n="test.q1">We reduced document review time by 73%. What used to take our associates 6 hours now takes 90 minutes. The system paid for itself in 2 weeks.</p>
-                <p class="test-name" data-i18n="test.n1">María García</p>
-                <p class="test-role" data-i18n="test.r1">Managing Partner, García &amp; Asociados</p>
+                <p class="test-name" data-i18n="test.n1">Managing Partner</p>
+                <p class="test-role" data-i18n="test.r1">Law firm, 45 employees</p>
                 <div class="test-metric" data-i18n="test.m1">73% time saved on document review</div>
             </div>
             <div class="test-card reveal reveal-d1">
                 <p class="test-quote" data-i18n="test.q2">The ROI was immediate. We saved over €15,000/month in billable hours that were being lost to manual research.</p>
-                <p class="test-name" data-i18n="test.n2">Carlos Martín</p>
-                <p class="test-role" data-i18n="test.r2">Senior Partner, Martín Legal</p>
+                <p class="test-name" data-i18n="test.n2">Senior Partner</p>
+                <p class="test-role" data-i18n="test.r2">Law firm, 90 employees</p>
                 <div class="test-metric" data-i18n="test.m2">€15,000/month saved</div>
             </div>
             <div class="test-card reveal reveal-d2">
                 <p class="test-quote" data-i18n="test.q3">Our associates now handle 40% more cases without feeling overwhelmed. The quality of research has actually improved.</p>
-                <p class="test-name" data-i18n="test.n3">Isabel Navarro</p>
-                <p class="test-role" data-i18n="test.r3">Director of Operations, Navarro &amp; Prieto</p>
+                <p class="test-name" data-i18n="test.n3">Director of Operations</p>
+                <p class="test-role" data-i18n="test.r3">Law firm, 65 employees</p>
                 <div class="test-metric" data-i18n="test.m3">40% more cases per associate</div>
             </div>
         </div>
@@ -337,10 +339,11 @@
         <h2 class="s-title reveal" data-i18n="fcta.title">Ready to transform your firm?</h2>
         <p class="s-desc reveal" data-i18n="fcta.desc">Book a short call. We will walk through your workflows and show exactly what we would implement first.</p>
         <div class="f-cta-btns reveal">
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="fcta.b1">Book a Demo</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="fcta.b2">Get a Free Audit</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="fcta.b3">Watch Demo </span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="fcta.b1">Book a Demo</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-s btn-lg" data-i18n="fcta.b2">Get a Free Audit</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-txt btn-lg"><span data-i18n="fcta.b3">Watch Demo </span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
+        <div class="reveal" style="margin-top:48px"><img src="agents-ios-app.webp" alt="AI assistant on mobile" style="max-width:720px;width:100%;height:auto;display:block;margin:0 auto"></div>
     </div>
 </section>
 
@@ -350,7 +353,7 @@
     <div class="container">
         <div class="ft-grid">
             <div class="ft-brand">
-                <a href="index.html" class="logo">Analitikai</a>
+                <a href="index.html" class="logo-wrap" style="display:inline-flex"><img src="logo.png" alt="AnalitikAI" style="height:22px;width:auto"><span class="logo-txt">AnalitikAI</span></a>
                 <p data-i18n="ft.brand">Private AI systems for professional services. Implemented in 1 week.</p>
             </div>
             <div class="ft-col">
@@ -366,7 +369,7 @@
             </div>
             <div class="ft-col">
                 <h4 data-i18n="ft.contact">Contact</h4>
-                <a href="https://cal.com/analitikai/demo" data-i18n="nav.cta">Book a Call</a>
+                <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" data-i18n="nav.cta">Book a Call</a>
                 <a href="mailto:pol.ruiz@retenpro.com">pol.ruiz@retenpro.com</a>
             </div>
         </div>
@@ -380,7 +383,7 @@
 <script>
 (function(){
 const T={en:{
-"nav.home":"\u2190 Back to home","nav.cta":"Book a Call",
+"nav.home":"\u2190 Back to home","nav.icp":"Law","nav.cta":"Book a Call",
 "page.docTitle":"Law Firms \u2014 Analitikai | Private AI Implementation",
 "page.metaDesc":"Private AI implementation for law firms: automate document review, case research, and client communication. Book a demo with Analitikai.",
 "hero.badge":"For Law Firms","hero.h1":"AI that lets your team focus on winning cases",
@@ -403,11 +406,11 @@ const T={en:{
 "test.label":"Results","test.title":"What firms see after implementation",
 "test.desc":"Illustrative outcomes from teams that replaced manual loops with private, firm-specific AI.",
 "test.q1":"We reduced document review time by 73%. What used to take our associates 6 hours now takes 90 minutes. The system paid for itself in 2 weeks.",
-"test.n1":"Mar\u00eda Garc\u00eda","test.r1":"Managing Partner, Garc\u00eda & Asociados","test.m1":"73% time saved on document review",
+"test.n1":"Managing Partner","test.r1":"Law firm, 45 employees","test.m1":"73% time saved on document review",
 "test.q2":"The ROI was immediate. We saved over \u20ac15,000/month in billable hours that were being lost to manual research.",
-"test.n2":"Carlos Mart\u00edn","test.r2":"Senior Partner, Mart\u00edn Legal","test.m2":"\u20ac15,000/month saved",
+"test.n2":"Senior Partner","test.r2":"Law firm, 90 employees","test.m2":"\u20ac15,000/month saved",
 "test.q3":"Our associates now handle 40% more cases without feeling overwhelmed. The quality of research has actually improved.",
-"test.n3":"Isabel Navarro","test.r3":"Director of Operations, Navarro & Prieto","test.m3":"40% more cases per associate",
+"test.n3":"Director of Operations","test.r3":"Law firm, 65 employees","test.m3":"40% more cases per associate",
 "ba.label":"Before / after","ba.title":"Typical time on core tasks",
 "ba.desc":"Examples from engagements\u2014your mileage depends on matter mix and systems, which we map in the free audit.",
 "ba.before":"Before","ba.after":"After","ba.arrow":"\u2192",
@@ -420,7 +423,7 @@ const T={en:{
 "ft.brand":"Private AI systems for professional services. Implemented in 1 week.","ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved.",
 "ft.uc":"Use Cases","ft.how":"How It Works","ft.pr":"Pricing","ft.team":"Team","ft.faq":"FAQ"
 },es:{
-"nav.home":"\u2190 Volver al inicio","nav.cta":"Reserva una llamada",
+"nav.home":"\u2190 Volver al inicio","nav.icp":"Legal","nav.cta":"Reserva una llamada",
 "page.docTitle":"Despachos de abogados \u2014 Analitikai | Implementaci\u00f3n de IA privada",
 "page.metaDesc":"Implementaci\u00f3n de IA privada para despachos: automatiza revisi\u00f3n documental, investigaci\u00f3n de casos y comunicaci\u00f3n con clientes. Reserva una demo con Analitikai.",
 "hero.badge":"Para despachos","hero.h1":"IA para que tu equipo se centre en ganar casos",
@@ -443,11 +446,11 @@ const T={en:{
 "test.label":"Resultados","test.title":"Lo que ven los despachos tras la implementaci\u00f3n",
 "test.desc":"Resultados ilustrativos de equipos que sustituyeron bucles manuales por IA privada y espec\u00edfica del despacho.",
 "test.q1":"Redujimos el tiempo de revisi\u00f3n documental un 73%. Lo que a nuestros asociados les llevaba 6 horas ahora son 90 minutos. El sistema se pag\u00f3 solo en 2 semanas.",
-"test.n1":"Mar\u00eda Garc\u00eda","test.r1":"Socia directora, Garc\u00eda & Asociados","test.m1":"73% menos tiempo en revisi\u00f3n documental",
+"test.n1":"Socia directora","test.r1":"Despacho legal, 45 empleados","test.m1":"73% menos tiempo en revisi\u00f3n documental",
 "test.q2":"El ROI fue inmediato. Ahorramos m\u00e1s de 15.000 \u20ac/mes en horas facturables perdidas en investigaci\u00f3n manual.",
-"test.n2":"Carlos Mart\u00edn","test.r2":"Socio senior, Mart\u00edn Legal","test.m2":"15.000 \u20ac/mes ahorrados",
+"test.n2":"Socio senior","test.r2":"Despacho legal, 90 empleados","test.m2":"15.000 \u20ac/mes ahorrados",
 "test.q3":"Nuestros asociados llevan un 40% m\u00e1s de asuntos sin sentirse desbordados. La calidad de la investigaci\u00f3n, de hecho, ha mejorado.",
-"test.n3":"Isabel Navarro","test.r3":"Directora de operaciones, Navarro & Prieto","test.m3":"40% m\u00e1s asuntos por asociado",
+"test.n3":"Directora de operaciones","test.r3":"Despacho legal, 65 empleados","test.m3":"40% m\u00e1s asuntos por asociado",
 "ba.label":"Antes / despu\u00e9s","ba.title":"Tiempo habitual en tareas clave",
 "ba.desc":"Ejemplos de proyectos reales\u2014el resultado depende del tipo de asuntos y sistemas, que revisamos en la auditor\u00eda gratuita.",
 "ba.before":"Antes","ba.after":"Despu\u00e9s","ba.arrow":"\u2192",

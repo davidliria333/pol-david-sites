@@ -6,7 +6,7 @@
     <title>Analitikai for Audit Firms — Compliance, Risk &amp; Reporting Automation</title>
     <meta name="description" content="Private AI implementation for audit firms: automate compliance checks, risk analysis, regulatory tracking, and report generation. Catch what others miss in half the time.">
     <meta name="keywords" content="audit firm AI, compliance automation, audit technology, risk analysis AI, regulatory tracking, audit reporting">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="canonical" href="https://analitik.ai/auditorias.html">
     <meta property="og:title" content="Analitikai for Audit Firms — Compliance &amp; Risk Automation">
     <meta property="og:description" content="Automate compliance checking, risk analysis, and report generation. Private AI for audit firms.">
@@ -50,9 +50,7 @@
         .hdr.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
         .hdr-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px;flex-wrap:wrap}
         .hdr-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-        .logo{font-weight:800;font-size:1.2rem;letter-spacing:-.5px;color:var(--text)}
-        .back-home{font-size:.875rem;font-weight:500;color:var(--text-s);transition:color .2s;white-space:nowrap}
-        .back-home:hover{color:var(--text)}
+        .logo-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}.logo-wrap img{height:26px;width:auto}.logo-txt{font-weight:700;font-size:1.05rem;letter-spacing:-.3px;color:var(--text)}.logo-icp{font-weight:600;font-size:1.05rem;letter-spacing:-.3px;color:var(--accent)}.back-arrow{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);color:var(--text-s);transition:all .2s;flex-shrink:0}.back-arrow:hover{border-color:var(--border-hover);color:var(--text);background:var(--bg-alt)}
         .nav-r{display:flex;align-items:center;gap:12px;flex-shrink:0;margin-left:auto}
         .lang-t{display:flex;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;overflow:hidden}
         .lang-t button{background:none;border:none;font-size:.78rem;font-weight:600;padding:5px 11px;cursor:pointer;color:var(--text-m);font-family:inherit;transition:all .2s}
@@ -122,7 +120,7 @@
 
         .footer{background:var(--primary);color:#fff;padding:56px 0 28px}
         .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-        .ft-brand .logo{color:#fff;margin-bottom:10px;display:block}
+        .ft-brand .logo-wrap{margin-bottom:10px}
         .ft-brand p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:260px;line-height:1.6}
         .ft-col h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-bottom:14px}
         .ft-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.65);padding:4px 0;transition:color .2s}
@@ -157,7 +155,6 @@
             .ba-after{text-align:center}
             .ft-grid{grid-template-columns:1fr}
             .ft-bottom{flex-direction:column;text-align:center;justify-content:center}
-            .back-home{display:none}
         }
     </style>
 </head>
@@ -168,12 +165,12 @@
 <header class="hdr" id="hdr">
     <div class="hdr-inner">
         <div class="hdr-left">
-            <a href="index.html" class="logo">Analitikai</a>
-            <a href="index.html" class="back-home" data-i18n="nav.home">Back to home</a>
+            <a href="index.html" class="back-arrow" aria-label="Back to home"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 4l-4 4 4 4"/></svg></a>
+            <a href="index.html" class="logo-wrap"><img src="logo.png" alt="AnalitikAI"><span class="logo-txt">AnalitikAI</span><span class="logo-icp" data-i18n="nav.icp">Audit</span></a>
         </div>
         <div class="nav-r">
             <div class="lang-t"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
         </div>
         <button class="menu-btn" id="menuBtn" aria-label="Menu">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
@@ -184,7 +181,7 @@
 <div class="mob-nav" id="mobNav">
     <a href="index.html" data-i18n="nav.home">Back to home</a>
     <div class="lang-t"><button class="active" data-lang="en">EN</button><button data-lang="es">ES</button></div>
-    <a href="https://cal.com/analitikai/demo" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
+    <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p" data-i18n="nav.cta">Book a Call</a>
 </div>
 
 <main>
@@ -195,9 +192,9 @@
         <h1 class="reveal reveal-d1" data-i18n="hero.h1">Catch what others miss. In half the time.</h1>
         <p class="hero-sub reveal reveal-d2" data-i18n="hero.sub">We implement private AI that automates compliance checking, risk analysis, and report generation—so your team focuses on judgment, not spreadsheets.</p>
         <div class="hero-ctas reveal reveal-d3">
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-s btn-lg" data-i18n="hero.cta2">Get a Free Audit</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-txt btn-lg"><span data-i18n="hero.cta3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
     </div>
 </section>
@@ -267,6 +264,7 @@
                 <p data-i18n="sol.f6d">Surface outliers and patterns teams can miss during manual review.</p>
             </div>
         </div>
+        <div class="reveal" style="margin-top:48px"><img src="hero (1).webp" alt="AI integrations on mobile" style="max-width:800px;width:100%;height:auto;display:block;margin:0 auto"></div>
     </div>
 </section>
 
@@ -280,20 +278,20 @@
         <div class="test-grid">
             <div class="test-card reveal">
                 <p class="test-quote" data-i18n="test.q1">Compliance checks that took our team 3 full days now take 4 hours. And we're not missing anything anymore.</p>
-                <p class="test-name" data-i18n="test.n1">Ana Fernández</p>
-                <p class="test-role" data-i18n="test.r1">Audit Director, Fernández &amp; Partners</p>
+                <p class="test-name" data-i18n="test.n1">Audit Director</p>
+                <p class="test-role" data-i18n="test.r1">Audit firm, 120 employees</p>
                 <div class="test-metric" data-i18n="test.m1">85% faster compliance checks</div>
             </div>
             <div class="test-card reveal reveal-d1">
                 <p class="test-quote" data-i18n="test.q2">We detected 23% more compliance issues in our first month. The AI catches patterns humans miss.</p>
-                <p class="test-name" data-i18n="test.n2">Roberto Sánchez</p>
-                <p class="test-role" data-i18n="test.r2">Partner, Iberia Audit Group</p>
+                <p class="test-name" data-i18n="test.n2">Partner</p>
+                <p class="test-role" data-i18n="test.r2">Audit firm, 80 employees</p>
                 <div class="test-metric" data-i18n="test.m2">23% more issues detected</div>
             </div>
             <div class="test-card reveal reveal-d2">
                 <p class="test-quote" data-i18n="test.q3">Our team went from dreading busy season to actually enjoying the work. We focus on analysis, not data entry.</p>
-                <p class="test-name" data-i18n="test.n3">Carmen Vidal</p>
-                <p class="test-role" data-i18n="test.r3">Senior Manager, Vidal Auditores</p>
+                <p class="test-name" data-i18n="test.n3">Senior Manager</p>
+                <p class="test-role" data-i18n="test.r3">Audit firm, 50 employees</p>
                 <div class="test-metric" data-i18n="test.m3">60% less manual work</div>
             </div>
         </div>
@@ -333,10 +331,11 @@
         <h2 class="s-title reveal" data-i18n="cta.title">See it on your own engagements</h2>
         <p class="s-desc reveal" data-i18n="cta.desc">Book a short demo. We’ll map one compliance or reporting workflow and show what a private implementation looks like for your firm.</p>
         <div class="f-cta-btns reveal">
-            <a href="https://cal.com/analitikai/demo" class="btn btn-p btn-lg" data-i18n="cta.b1">Book a Demo</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-s btn-lg" data-i18n="cta.b2">Get a Free Audit</a>
-            <a href="https://cal.com/analitikai/demo" class="btn btn-txt btn-lg"><span data-i18n="cta.b3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="cta.b1">Book a Demo</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-s btn-lg" data-i18n="cta.b2">Get a Free Audit</a>
+            <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-txt btn-lg"><span data-i18n="cta.b3">Watch Demo</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
+        <div class="reveal" style="margin-top:48px"><img src="agents-ios-app.webp" alt="AI assistant on mobile" style="max-width:720px;width:100%;height:auto;display:block;margin:0 auto"></div>
     </div>
 </section>
 
@@ -346,7 +345,7 @@
     <div class="container">
         <div class="ft-grid">
             <div class="ft-brand">
-                <a href="index.html" class="logo">Analitikai</a>
+                <a href="index.html" class="logo-wrap" style="display:inline-flex"><img src="logo.png" alt="AnalitikAI" style="height:22px;width:auto"><span class="logo-txt">AnalitikAI</span></a>
                 <p data-i18n="ft.brand">Private AI systems for professional services. Implemented in 1 week.</p>
             </div>
             <div class="ft-col">
@@ -362,7 +361,7 @@
             </div>
             <div class="ft-col">
                 <h4 data-i18n="ft.contact">Contact</h4>
-                <a href="https://cal.com/analitikai/demo" data-i18n="nav.cta">Book a Call</a>
+                <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" data-i18n="nav.cta">Book a Call</a>
                 <a href="mailto:pol.ruiz@retenpro.com">pol.ruiz@retenpro.com</a>
             </div>
         </div>
@@ -375,7 +374,7 @@
 
 <script>
 const T={en:{
-"nav.home":"Back to home","nav.cta":"Book a Call",
+"nav.home":"Back to home","nav.icp":"Audit","nav.cta":"Book a Call",
 "hero.badge":"For Audit Firms","hero.h1":"Catch what others miss. In half the time.",
 "hero.sub":"We implement private AI that automates compliance checking, risk analysis, and report generation—so your team focuses on judgment, not spreadsheets.",
 "hero.cta1":"Book a Demo","hero.cta2":"Get a Free Audit","hero.cta3":"Watch Demo",
@@ -397,12 +396,12 @@ const T={en:{
 "test.label":"Results","test.title":"What audit leaders report",
 "test.desc":"Illustrative outcomes from firms that adopted structured automation with Analitikai.",
 "test.q1":"Compliance checks that took our team 3 full days now take 4 hours. And we\u2019re not missing anything anymore.",
-"test.n1":"Ana Fern\u00e1ndez","test.r1":"Audit Director, Fern\u00e1ndez & Partners",
+"test.n1":"Audit Director","test.r1":"Audit firm, 120 employees",
 "test.m1":"85% faster compliance checks",
 "test.q2":"We detected 23% more compliance issues in our first month. The AI catches patterns humans miss.",
-"test.n2":"Roberto S\u00e1nchez","test.r2":"Partner, Iberia Audit Group","test.m2":"23% more issues detected",
+"test.n2":"Partner","test.r2":"Audit firm, 80 employees","test.m2":"23% more issues detected",
 "test.q3":"Our team went from dreading busy season to actually enjoying the work. We focus on analysis, not data entry.",
-"test.n3":"Carmen Vidal","test.r3":"Senior Manager, Vidal Auditores","test.m3":"60% less manual work",
+"test.n3":"Senior Manager","test.r3":"Audit firm, 50 employees","test.m3":"60% less manual work",
 "ba.label":"Before / after","ba.title":"Typical time savings",
 "ba.desc":"Representative benchmarks from engagements; your mileage depends on data access and scope.",
 "ba.r1b":"Compliance check: 3 days","ba.r1a":"4 hours",
@@ -415,7 +414,7 @@ const T={en:{
 "ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved.",
 "ft.uc":"Use Cases","ft.how":"How It Works","ft.pr":"Pricing","ft.team":"Team"
 },es:{
-"nav.home":"Volver al inicio","nav.cta":"Reserva una Llamada",
+"nav.home":"Volver al inicio","nav.icp":"Auditor\u00eda","nav.cta":"Reserva una Llamada",
 "hero.badge":"Para firmas de auditor\u00eda","hero.h1":"Atrapa lo que otros pasan por alto. En la mitad del tiempo.",
 "hero.sub":"Implementamos IA privada que automatiza el control de cumplimiento, el an\u00e1lisis de riesgos y la generaci\u00f3n de informes, para que tu equipo se centre en el juicio profesional, no en las hojas de c\u00e1lculo.",
 "hero.cta1":"Reservar una demo","hero.cta2":"Auditor\u00eda gratuita","hero.cta3":"Ver demo",
@@ -437,12 +436,12 @@ const T={en:{
 "test.label":"Resultados","test.title":"Lo que cuentan los l\u00edderes de auditor\u00eda",
 "test.desc":"Resultados ilustrativos de firmas que adoptaron automatizaci\u00f3n estructurada con Analitikai.",
 "test.q1":"Los controles de cumplimiento que a nuestro equipo le llevaban 3 d\u00edas completos ahora llevan 4 horas. Y ya no se nos escapa nada.",
-"test.n1":"Ana Fern\u00e1ndez","test.r1":"Directora de auditor\u00eda, Fern\u00e1ndez & Partners",
+"test.n1":"Directora de auditor\u00eda","test.r1":"Firma de auditor\u00eda, 120 empleados",
 "test.m1":"85% m\u00e1s r\u00e1pido en controles de cumplimiento",
 "test.q2":"Detectamos un 23% m\u00e1s de incidencias de cumplimiento en el primer mes. La IA detecta patrones que se nos escapan.",
-"test.n2":"Roberto S\u00e1nchez","test.r2":"Socio, Iberia Audit Group","test.m2":"23% m\u00e1s incidencias detectadas",
+"test.n2":"Socio","test.r2":"Firma de auditor\u00eda, 80 empleados","test.m2":"23% m\u00e1s incidencias detectadas",
 "test.q3":"El equipo pas\u00f3 de temer la temporada alta a disfrutar el trabajo. Nos centramos en el an\u00e1lisis, no en meter datos.",
-"test.n3":"Carmen Vidal","test.r3":"Senior Manager, Vidal Auditores","test.m3":"60% menos trabajo manual",
+"test.n3":"Senior Manager","test.r3":"Firma de auditor\u00eda, 50 empleados","test.m3":"60% menos trabajo manual",
 "ba.label":"Antes / despu\u00e9s","ba.title":"Ahorros de tiempo t\u00edpicos",
 "ba.desc":"Referencias orientativas seg\u00fan encargos; el resultado depende del acceso a datos y del alcance.",
 "ba.r1b":"Control de cumplimiento: 3 d\u00edas","ba.r1a":"4 horas",
