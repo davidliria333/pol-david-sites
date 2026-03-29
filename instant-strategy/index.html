@@ -70,7 +70,7 @@
 .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--bdr);border-radius:100px;padding:5px 16px 5px 7px;font-size:.78rem;font-weight:500;color:var(--tx-s);margin-bottom:28px;background:var(--bg)}
 .badge-dot{width:7px;height:7px;background:var(--acc);border-radius:50%;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.12;letter-spacing:-1.5px;margin-bottom:20px;max-width:780px;margin-left:auto;margin-right:auto}
+.hero h1{font-size:clamp(2rem,4.5vw,3.1rem);font-weight:800;line-height:1.12;letter-spacing:-1.5px;margin-bottom:20px;max-width:780px;margin-left:auto;margin-right:auto}
 .hero h1 em{font-style:italic;font-weight:400}
 .hero-sub{font-size:.95rem;color:var(--tx-s);max-width:540px;margin:0 auto 32px;line-height:1.65}
 .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -246,6 +246,9 @@ section{padding:100px 0;position:relative}
 /* RESPONSIVE */
 @media(max-width:1024px){
 .nav-l{display:none}.menu-btn{display:block}
+.nav-r .lang-t{display:none}
+.nav-r{margin-left:auto;gap:8px}
+.menu-btn{margin-right:0}
 .uc-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;gap:28px}
 .sec-lay{grid-template-columns:1fr}.part-lay{grid-template-columns:1fr;gap:24px}
 .team-lay{grid-template-columns:1fr;gap:40px}.ft-grid{grid-template-columns:1fr 1fr;gap:28px}
@@ -264,7 +267,7 @@ section{padding:72px 0}.hero{padding:100px 0 60px}
 .ft-grid{grid-template-columns:1fr;gap:20px}.ft-bottom{flex-direction:column;gap:12px;text-align:center}
 .img-card{flex:0 0 280px;min-height:340px;padding:20px 16px}
 .testi-track{gap:12px}
-.roi-stat{min-width:100%;border-right:none;border-bottom:1px solid var(--bdr)}.roi-stat:last-child{border-bottom:none}
+.roi-stat{min-width:200px;flex-shrink:0;border-right:1px solid var(--bdr);border-bottom:none}.roi-stat:last-child{border-right:none}
 .part-services{grid-template-columns:1fr}
 .pr-includes{grid-template-columns:1fr}.sec-lay{grid-template-columns:1fr}
 }
@@ -326,7 +329,7 @@ section{padding:72px 0}.hero{padding:100px 0 60px}
 <section class="hero">
     <div class="container">
         <div class="badge reveal"><div class="badge-dot"></div><span data-i18n="hero.badge">Full implementation in 1 week</span></div>
-        <h1 class="reveal reveal-d1" data-i18n="hero.h1"><em>Superpower</em> your entire<br>company with <em>AI</em></h1>
+        <h1 class="reveal reveal-d1" data-i18n="hero.h1"><em>Superpower</em> &nbsp;your entire<br>company with <em>AI</em></h1>
         <p class="hero-sub reveal reveal-d2" data-i18n="hero.sub">We install private AI systems across all your departments. Automate repetitive work, save hours daily, and scale without hiring.</p>
         <div class="hero-ctas reveal reveal-d3">
             <a href="https://www.cal.eu/polruiz/15min" target="_blank" rel="noopener" class="btn btn-p btn-lg" data-i18n="hero.cta1">Book a Demo</a>
@@ -624,7 +627,7 @@ section{padding:72px 0}.hero{padding:100px 0 60px}
         <div class="ft-grid">
             <div class="ft-brand">
                 <div class="logo-wrap"><img src="logo.png" alt="AnalitikAI" style="height:36px"><span class="logo-txt">AnalitikAI</span></div>
-                <p data-i18n="ft.brand">Private AI systems for professional services. Implemented in 1 week.</p>
+                <p data-i18n="ft.brand">Private AI systems for companies. Implemented in 1 week.</p>
             </div>
             <div class="ft-col"><h4 data-i18n="ft.product">Product</h4><a href="#use-cases" data-i18n="nav.uc">Use Cases</a><a href="#how-it-works" data-i18n="nav.how">How It Works</a><a href="#pricing" data-i18n="nav.pr">Pricing</a></div>
             <div class="ft-col"><h4 data-i18n="ft.company">Company</h4><a href="#team" data-i18n="nav.team">Team</a><a href="#faq">FAQ</a></div>
@@ -641,7 +644,7 @@ section{padding:72px 0}.hero{padding:100px 0 60px}
 const T={en:{
 "nav.uc":"Use Cases","nav.how":"How It Works","nav.pr":"Pricing","nav.team":"Team","nav.cta":"Book a Call",
 "dd.strat":"Consulting Firms","dd.strat.d":"Research, proposals, analysis","dd.law":"Law Firms","dd.law.d":"Documents, case research, contracts","dd.audit":"Audit & Accounting","dd.audit.d":"Compliance, reports, risk analysis","dd.adv":"Advisory Practices","dd.adv.d":"Onboarding, analysis, dashboards",
-"hero.badge":"Full implementation in 1 week","hero.h1":"<em>Superpower</em> your entire<br>company with <em>AI</em>","hero.sub":"We install private AI systems across all your departments. Automate repetitive work, save hours daily, and scale without hiring.","hero.cta1":"Book a Demo","hero.cta2":"Get a Free AI Audit","hero.cta3":"Watch Demo ","hero.imgalt":"Add your hero image here",
+"hero.badge":"Full implementation in 1 week","hero.h1":"<em>Superpower</em> &nbsp;your entire<br>company with <em>AI</em>","hero.sub":"We install private AI systems across all your departments. Automate repetitive work, save hours daily, and scale without hiring.","hero.cta1":"Book a Demo","hero.cta2":"Get a Free AI Audit","hero.cta3":"Watch Demo ","hero.imgalt":"Add your hero image here",
 "m.c1":"Fintech scale-up","m.l1":"saved per week, per employee","m.c2":"Global law firm","m.l2":"prep time saved","m.c3":"Leading manufacturer","m.l3":"faster product answers","m.c4":"Mining manufacturer","m.l4":"time saved in R&D","m.c5":"Renewable energy company","m.l5":"time saved in R&D","m.c6":"Industrial leader","m.l6":"more customer service issues resolved",
 "t.q1":"\u201CWe reduced document review time by 73%. What used to take 6 hours now takes 90 minutes. The system paid for itself in 2 weeks.\u201D","t.n1":"Law firm, 45 employees","t.r1":"Managing Partner",
 "t.q2":"\u201CProposal preparation went from 2 weeks to 3 days. The quality is consistently higher. Best investment we made last year.\u201D","t.n2":"Consulting firm, 80 employees","t.r2":"Partner",
@@ -687,7 +690,7 @@ const T={en:{
 "faq.q5":"What if it doesn\u2019t work? ","faq.a5":"Money-back guarantee. If you don\u2019t see clear results, you don\u2019t pay.",
 "faq.q6":"Which AI models do you use? ","faq.a6":"We\u2019re model agnostic \u2014 you choose the AI models that work best for your needs. We support all leading models and can switch between them.",
 "cta.label":"Ready?","cta.title":"Stop losing time. Start automating.","cta.desc":"30 minutes. No commitment. We\u2019ll tell you exactly what we can automate for your firm.","cta.b1":"Book a Demo","cta.b2":"Get a Free AI Audit",
-"ft.brand":"Private AI systems for professional services. Implemented in 1 week.","ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved."
+"ft.brand":"Private AI systems for companies. Implemented in 1 week.","ft.product":"Product","ft.company":"Company","ft.contact":"Contact","ft.rights":"All rights reserved."
 },es:{
 "nav.uc":"Casos de Uso","nav.how":"C\u00f3mo Funciona","nav.pr":"Precios","nav.team":"Equipo","nav.cta":"Reserva una Llamada",
 "dd.strat":"Firmas de Consultor\u00eda","dd.strat.d":"Research, propuestas, an\u00e1lisis","dd.law":"Despachos de Abogados","dd.law.d":"Documentos, investigaci\u00f3n, contratos","dd.audit":"Auditor\u00eda y Contabilidad","dd.audit.d":"Cumplimiento, informes, riesgos","dd.adv":"Firmas de Asesor\u00eda","dd.adv.d":"Onboarding, an\u00e1lisis, dashboards",
@@ -737,7 +740,7 @@ const T={en:{
 "faq.q5":"\u00bfQu\u00e9 pasa si no funciona? ","faq.a5":"Garant\u00eda de devoluci\u00f3n. Si no ves resultados, no pagas.",
 "faq.q6":"\u00bfQu\u00e9 modelos de IA us\u00e1is? ","faq.a6":"Somos model agnostic \u2014 t\u00fa eliges los modelos que mejor funcionen. Soportamos todos los modelos l\u00edderes.",
 "cta.label":"\u00bfListo?","cta.title":"Deja de perder tiempo. Empieza a automatizar.","cta.desc":"30 minutos. Sin compromiso. Te contamos exactamente qu\u00e9 podemos automatizar.","cta.b1":"Reserva una Demo","cta.b2":"Auditor\u00eda de IA Gratuita",
-"ft.brand":"Sistemas de IA privados para servicios profesionales. Implementados en 1 semana.","ft.product":"Producto","ft.company":"Empresa","ft.contact":"Contacto","ft.rights":"Todos los derechos reservados."
+"ft.brand":"Sistemas de IA privados para empresas. Implementados en 1 semana.","ft.product":"Producto","ft.company":"Empresa","ft.contact":"Contacto","ft.rights":"Todos los derechos reservados."
 }};
 let lang='en';
 function setLang(l){lang=l;document.documentElement.lang=l;const t=T[l];document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k]){const svg=el.querySelector('svg');if(svg){el.childNodes.forEach(n=>{if(n.nodeType===3)n.remove()});el.insertBefore(document.createTextNode(t[k]),svg)}else if(t[k].includes('<')){el.innerHTML=t[k]}else{el.textContent=t[k]}}});document.querySelectorAll('.lang-t button').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l))}
